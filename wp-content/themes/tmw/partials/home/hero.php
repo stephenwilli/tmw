@@ -1,5 +1,6 @@
-<div id="home-hero" class="flexslider">
+<div id="hero-slider" class="flexslider">
   <?php if ( get_field( 'hero_slideshow' ) ) { ;?>
+  
   <ul class="slides">
 
     <?php while(has_sub_field('hero_slideshow')) {
@@ -15,7 +16,7 @@
         <a href="<?php echo $slideLink; ?>">
         <?php } ?>
           
-          <div class="hero-bg" style="background-image : url('<?php echo $image['sizes']['medium'];?>');"></div>
+          <div class="hero-bg" style="background-image : url('<?php echo $image['sizes']['large'];?>');"></div>
 
           <div class="hero-caption">
             <?php if ( $title ) { ?>
@@ -36,6 +37,7 @@
   <?php } ?>
 
   </ul>
+
 <?php } ?>
 
 </div><!-- #hero-slider -->

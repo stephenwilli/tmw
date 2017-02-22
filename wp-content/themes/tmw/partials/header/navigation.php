@@ -5,7 +5,14 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand page-scroll" href="/">
+
+                <?php
+                  $logo = get_field('site_logo', 'option'); 
+                ?>
+                <img src="<?php echo $logo['sizes']['medium'];?>" />
+
+            </a>
         </div>
 
         <?php

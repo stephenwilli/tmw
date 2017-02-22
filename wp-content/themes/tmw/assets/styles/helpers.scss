@@ -6,7 +6,9 @@ $transition: all .4s ease-in;
 
 /* COLORS */
 $white: #FFF;
-$black : #000;
+$black: #000;
+$orange: #FAA21B;
+
 
 /* FONT SIZES */
 $h1: 3rem;
@@ -17,23 +19,29 @@ $h5: 1.5rem;
 $p: 1rem;
 
 /* FONT FAMILIES */
-@mixin heading-font($weight: 900) {
-  font-family: "Gotham A", "Gotham B";
+@mixin heading-font($weight: 700) {
+  font-family: 'Lora', serif;
   font-style: normal;
   font-weight: 900;
 }
 
 @mixin copy-font($weight: 400) {
-  font-family: "Gotham A", "Gotham B";
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: $weight;
 }
 
-@mixin accent-font($weight: 300) {
-  font-family: "Gotham A", "Gotham B";
-  font-style: normal;
-  font-weight: 800;
-}
+/* FONT WEIGHTS */
+$fw-light: 300;
+$fw-semi: 600;
+$fw-bold: 700;
+$fw-black: 900;
+
+// @mixin accent-font($weight: 300) {
+//   font-family: "Gotham A", "Gotham B";
+//   font-style: normal;
+//   font-weight: 800;
+// }
 
 
 /* SCREEN SIZE */

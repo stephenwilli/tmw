@@ -40,8 +40,6 @@ h1, h2, h3, .h3, h4, .h4, h5, .h5, h6 {
   margin-top: 0;
   color : $white;
   @include heading-font();
-  text-transform: uppercase;
-  letter-spacing: .08rem;
 }
 
 
@@ -107,6 +105,3 @@ img::-moz-selection {
   background: transparent;
 }
 
-body {
-  webkit-tap-highlight-color: #222222;
-}

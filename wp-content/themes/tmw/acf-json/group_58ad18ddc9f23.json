@@ -108,9 +108,9 @@
     "location": [
         [
             {
-                "param": "page",
+                "param": "post_type",
                 "operator": "==",
-                "value": "30"
+                "value": "page"
             }
         ]
     ],
@@ -122,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1487739210
+    "modified": 1487914120
 }

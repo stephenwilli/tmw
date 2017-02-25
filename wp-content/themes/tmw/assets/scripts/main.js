@@ -1,5 +1,5 @@
 
-(function($) {
+jQuery(function($) {
 
     // HERO SLIDER
       

@@ -11,9 +11,7 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     
     <link rel="icon" type="image/png" href="<?php echo(get_template_directory_uri()) ?>/favicon.ico" />
-    
-    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7247354/7886552/css/fonts.css" />
-    
+        
     <title><?php wp_title(' | ', true, 'right'); ?></title>
     
     <?php wp_head(); ?>

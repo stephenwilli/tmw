@@ -6,15 +6,15 @@
   
   require('functions/load-scripts-styles.php');
 
-  get_template_part( 'functions/register-menus' );
+   require( 'functions/register-menus.php' );
 
-  get_template_part( 'functions/register-sidebars' );
+   require( 'functions/register-sidebars.php' );
 
-  get_template_part( 'functions/option-pages' );
+   require( 'functions/option-pages.php' );
 
-  get_template_part( 'functions/custom-post-types' );
+   require( 'functions/custom-post-types.php' );
 
-  get_template_part( 'functions/theme-setup' );
+   require( 'functions/theme-setup.php' );
 
   require('functions/wp-bootstrap-navwalker.php');
 
@@ -28,13 +28,13 @@
 /* EDITOR AND MEDIA
 /===================================================== */
     
-get_template_part( 'functions/tiny-mce-editor.php' );
+ require( 'functions/tiny-mce-editor.php' );
 
-get_template_part( 'functions/shortcodes.php' );
+ require( 'functions/shortcodes.php' );
 
-get_template_part( 'functions/mime-types.php' );
+ require( 'functions/mime-types.php' );
 
-get_template_part( 'functions/image-size.php' );
+ require( 'functions/image-size.php' );
 
-get_template_part( 'functions/default-images.php' );
+ require( 'functions/default-images.php' );
 

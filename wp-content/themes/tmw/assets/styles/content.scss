@@ -30,6 +30,15 @@
   background-size: cover;
 }
 
+.parallax {
+    
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .full-width-caption {
   position: relative;
   
@@ -42,154 +51,6 @@
     left: 0;
     width: 100%;
     padding: 80px 0;
-  }
-
-}
-
-.flexslider {
-  margin-bottom: 0;
-  border: none;
-  
-  .slides li {
-    position: relative;
-  }
-
-  .hero-caption {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.25);
-    z-index: 10;
-    text-align: center;
-    bottom: 0;
-    left: 0;
-    // @include transform(translate(-50%,-50%));
-    @include transition($transition);
-    width: 100%;
-    padding: 80px 200px;
-    
-    p,h2 {
-      color: $white;
-    }
-    
-    h2 {
-      margin-bottom: 0;
-    }
-    
-    p{
-      max-width: 500px;
-      margin: 0 auto 0 auto;
-      font-size: 1.2rem
-    }
-  }
-
-  .flex-active-slide{
-    .caption{
-      opacity: 1;
-      @include transform(translate(-50%,-50%));
-    }
-  }
-
-}
-
-#hero-slider {
-  position: relative;
-  margin-top: 0;
-  width: 100%;
-  overflow: hidden;
-  height: 80vh;
-  @include respond-to($screen-sm){
-    margin-top: 30px;
-  }
-  .slides{
-    li {
-      position: inherit;
-      display: block;
-      height: 88vh;
-      @include respond-to($screen-xs){
-        min-height: auto;
-        max-height: 320px;
-      }
-    }
-  }
-  .hero-bg{
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-  }
-  .flex-control-nav {
-    position: relative;
-    z-index: 10;
-    bottom: 40px;
-
-    @include respond-to($screen-xxs){
-      display: none;
-    }
-  }
-
-  .flex-direction-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    margin-top: -30px;
-
-    a {
-      height: 55px;
-      color: rgba(255,255,255, 0.8);
-      // &:hover {
-      //   color: ;
-      // }
-
-      &.flex-prev:before{
-        font-family: "tmbricons";
-        font-size: 3rem;
-        content: "\EA03";
-      }
-
-      &.flex-next:before{
-        font-size: 3rem;
-        font-family: "tmbricons";
-        content: "\EA04";
-      }
-    }
-
-    @include respond-to($screen-sm){
-      top: -250px;
-    }
-    @include respond-to($screen-xs){
-      top: -200px;
-    }
-    @include respond-to($screen-xxs){
-      display: none;
-    }
-
-  }
-
-  .flex-control-paging {
-
-    li {
-
-      @include respond-to($screen-xxs){
-          margin: 0 4px;
-      }
-
-      a {
-        background: rgba(255, 255, 255, 0.8);
-        height: 16px;
-        width: 16px;
-
-        // &.flex-active {
-          
-        // }
-
-        @include respond-to($screen-xxs){
-          width: 12px;
-          height: 12px;
-        }
-      }
-
-    }
   }
 
 }

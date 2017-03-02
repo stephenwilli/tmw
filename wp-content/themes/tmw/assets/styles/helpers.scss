@@ -11,19 +11,10 @@ $orange: #FAA21B;
 $grey: #808285;
 
 
-/* FONT SIZES */
-$h1: 3rem;
-$h2: 2.8rem;
-$h3: 2.5rem;
-$h4: 2rem;
-$h5: 1.5rem;
-$p: 1rem;
-
 /* FONT FAMILIES */
 @mixin heading-font($weight: 700) {
   font-family: 'Lora', serif;
   font-style: normal;
-  font-weight: 900;
 }
 
 @mixin copy-font($weight: 400) {
@@ -31,18 +22,6 @@ $p: 1rem;
   font-style: normal;
   font-weight: $weight;
 }
-
-/* FONT WEIGHTS */
-$fw-light: 300;
-$fw-semi: 600;
-$fw-bold: 700;
-$fw-black: 900;
-
-// @mixin accent-font($weight: 300) {
-//   font-family: "Gotham A", "Gotham B";
-//   font-style: normal;
-//   font-weight: 800;
-// }
 
 
 /* SCREEN SIZE */

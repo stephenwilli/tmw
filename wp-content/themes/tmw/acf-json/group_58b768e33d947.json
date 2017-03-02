@@ -1,12 +1,12 @@
 {
-    "key": "group_589d388e4fdc5",
-    "title": "Theme Settings",
+    "key": "group_58b768e33d947",
+    "title": "Home Page",
     "fields": [
         {
             "placement": "top",
             "endpoint": 0,
-            "key": "field_58b773e63ba8b",
-            "label": "Site Info",
+            "key": "field_58b768e8ee1a0",
+            "label": "Intro Text",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -20,7 +20,7 @@
         },
         {
             "return_format": "array",
-            "preview_size": "full",
+            "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -29,9 +29,9 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "key": "field_58ad0bd854f5e",
-            "label": "Site Logo",
-            "name": "site_logo",
+            "key": "field_58b769e5ee1a2",
+            "label": "Intro Icon",
+            "name": "hp_intro_icon",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -44,52 +44,14 @@
         },
         {
             "default_value": "",
+            "new_lines": "wpautop",
             "maxlength": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58b774213ba8d",
-            "label": "Phone Number",
-            "name": "phone_number",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58b7742e3ba8e",
-            "label": "Contact Email",
-            "name": "contact_email",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58b774363ba8f",
-            "label": "Address",
-            "name": "address",
-            "type": "text",
+            "rows": "",
+            "key": "field_58b769c9ee1a1",
+            "label": "Intro Text",
+            "name": "hp_intro_text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -102,8 +64,8 @@
         {
             "placement": "top",
             "endpoint": 1,
-            "key": "field_58b774013ba8c",
-            "label": "Tracking Codes",
+            "key": "field_58b76a00ee1a3",
+            "label": "Parallax Image",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -116,16 +78,21 @@
             }
         },
         {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_589d389a44dee",
-            "label": "Google Analytics Tracking ID",
-            "name": "ga_code",
-            "type": "text",
-            "instructions": "UA-xxxxxxxx-x",
+            "return_format": "array",
+            "preview_size": "full_screen",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "key": "field_58b76a14ee1a4",
+            "label": "Parallax Image",
+            "name": "hp_parallax_image",
+            "type": "image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -138,9 +105,9 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "page",
                 "operator": "==",
-                "value": "theme-settings"
+                "value": "30"
             }
         ]
     ],
@@ -152,5 +119,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1488420473
+    "modified": 1488415898
 }

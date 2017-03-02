@@ -26,7 +26,7 @@ add_action( 'init', 'create_post_type' );
 					array (
 	  					'name' => 'Publications', /* This is the Title of the Group */
 	  					'singular_name' => 'Publication', /* This is the individual type */
-						'menu_name' => 'Publication', /* The add new menu item */
+						'menu_name' => 'Publications', /* The add new menu item */
 						'add_new' => 'Add Publication', /* Add New Display Title */
 						'add_new_item' => 'Add New Publication',
 						'edit' => 'Edit', /* Edit Dialog */

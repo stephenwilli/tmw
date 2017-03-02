@@ -20,6 +20,6 @@
 
 <body id="page-top">
 
-<?php // get_template_part('partials/global/google-analytics'); ?>
+<?php get_template_part('partials/global/google-analytics'); ?>
 
 <?php get_template_part('partials/header/navigation'); ?>

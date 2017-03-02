@@ -18,7 +18,11 @@
     <?php wp_head(); ?>
   </head>
 
-<body id="page-top">
+<body <?php body_class(); ?>  id="page-top">
+
+<div class="js-sitewrap site-wrap">
+
+<?php get_template_part( 'partials/global/preloader' ); ?>
 
 <?php get_template_part('partials/global/google-analytics'); ?>
 

@@ -3,34 +3,32 @@
 /* REGISTER TAXONOMIES
 /===================================================== */
 
-add_action( 'init', 'create_taxonomy', 0 );
+register_sidebar( array(
+    'name' => 'Footer Column 1',
+    'id' => 'footer-column-1',
+    'description' => 'Appears in the footer area',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h5 class="widget-title">',
+    'after_title' => '</h5>',
+) );
 
-//create a custom taxonomy name it topics for your posts
+register_sidebar( array(
+    'name' => 'Footer Column 2',
+    'id' => 'footer-column-2',
+    'description' => 'Appears in the footer area',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h5 class="widget-title">',
+    'after_title' => '</h5>',
+) );
 
-function create_taxonomy() {
-
-// Category Taxonomy For Portfolio
-  $labels = array(
-    'name' => _x( 'Category', 'taxonomy general name' ),
-    'singular_name' => _x( 'Category', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Categories' ),
-    'all_items' => __( 'All Categories' ),
-    'parent_item' => __( 'Parent Category' ),
-    'parent_item_colon' => __( 'Parent Category:' ),
-    'edit_item' => __( 'Edit Categories' ),
-    'update_item' => __( 'Update Categories' ),
-    'add_new_item' => __( 'Add New Category' ),
-    'new_item_name' => __( 'New Category Name' ),
-    'menu_name' => __( 'Category' ),
-  );
-
-// Now register the taxonomy
-  register_taxonomy('type',array('portfolio'), array(
-    'hierarchical' => true,
-    'labels' => $labels,
-    'show_ui' => true,
-    'show_admin_column' => true,
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'form' ),
-  ));
-}
+register_sidebar( array(
+    'name' => 'Footer Column 3',
+    'id' => 'footer-column-3',
+    'description' => 'Appears in the footer area',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h5 class="widget-title">',
+    'after_title' => '</h5>',
+) );

@@ -9,7 +9,7 @@ add_action( 'init', 'create_taxonomy', 0 );
 
 function create_taxonomy() {
 
-// Category Taxonomy For Portfolio
+// Category Taxonomy For Publications
   $labels = array(
     'name' => _x( 'Category', 'taxonomy general name' ),
     'singular_name' => _x( 'Category', 'taxonomy singular name' ),
@@ -25,7 +25,7 @@ function create_taxonomy() {
   );
 
 // Now register the taxonomy
-  register_taxonomy('type',array('portfolio'), array(
+  register_taxonomy('type',array('publication'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,

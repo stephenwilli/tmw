@@ -6,11 +6,9 @@
 
 <?php get_template_part('partials/home/full-width-image'); ?>
 
-<!-- <?php get_template_part('partials/home/services'); ?> -->
-
 <?php get_template_part('partials/home/grid'); ?>
 
-<?php get_template_part('partials/home/full-width-caption'); ?>
+<?php get_template_part('partials/home/side-by-side'); ?>
 
 
 <?php get_footer();?>

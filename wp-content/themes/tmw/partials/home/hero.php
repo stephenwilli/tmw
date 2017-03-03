@@ -16,7 +16,7 @@
         <a href="<?php echo $slideLink; ?>">
         <?php } ?>
           
-          <div class="hero-bg" style="background-image : url('<?php echo $image['sizes']['full_screen'];?>');"></div>
+          <div class="hero-bg parallax" style="background-image : url('<?php echo $image['sizes']['full_screen'];?>');"></div>
 
           <div class="hero-caption">
             <?php if ( $title ) { ?>

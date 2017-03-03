@@ -6,7 +6,7 @@
             "sub_fields": [
                 {
                     "return_format": "array",
-                    "preview_size": "thumbnail",
+                    "preview_size": "large",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -122,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1487914120
+    "modified": 1488513970
 }

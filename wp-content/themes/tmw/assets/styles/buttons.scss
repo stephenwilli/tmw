@@ -20,6 +20,17 @@
     width: 200px;
   }
 
+  &.-orange {
+    background-color: $white;
+    border: 2px $orange solid;
+    color: $orange;
+
+    &:hover {
+      background-color: $orange;
+      color: $white;
+    }
+  }
+
   &.-ghost {
     background-color: transparent;
 

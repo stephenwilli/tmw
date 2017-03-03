@@ -1,0 +1,20 @@
+.publication-wrap {
+  margin-top: 140px;
+  padding-bottom: 80px;
+
+  h2, p {
+    color: $grey;
+  }
+
+  .gallery {
+  	img {
+  		max-width: 100%;
+  		width: 100%;
+  	}
+  }
+
+}
+
+.related-posts {
+	padding: 35px 0;
+}

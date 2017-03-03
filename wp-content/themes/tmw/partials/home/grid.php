@@ -5,15 +5,15 @@
                 <h2>The Teton Media Works Family</h2>
 
                 <div class="col-sm-4">
-                    sort button
+                    <a href="" class="btn -large">News</a>
                 </div>
 
                 <div class="col-sm-4">
-                    sort button
+                    <a href="" class="btn -large">Magazine</a>
                 </div>
 
                 <div class="col-sm-4">
-                    sort button
+                    <a href="" class="btn -large">Digital</a>
                 </div>
 
             </div>

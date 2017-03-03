@@ -24,7 +24,7 @@
 				                <?php } ?>
 				                
 				                <?php if ($rightButton) { ?>
-				                	<a href="<?php echo $leftLink; ?>" class="btn -ghost"><?php echo $rightButton; ?></a>
+				                	<a href="<?php echo $rightLink; ?>" class="btn -ghost"><?php echo $rightButton; ?></a>
 				                <?php } ?>
 
 				            </div>

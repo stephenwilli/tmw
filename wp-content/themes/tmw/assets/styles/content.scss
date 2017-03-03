@@ -130,6 +130,79 @@ footer {
   height: 300px;
 }
 
+.spin {
+  padding: 50px 0;
+  position: relative;
+  height: 500px;
+  .gear {
+    position:absolute;
+  }
+
+  .gear-01 {
+    top: 54px;
+    left: 324px;
+    width: 110px;
+    -webkit-animation: oppo-spin 4s linear infinite;
+    animation: oppo-spin 4s linear infinite;
+  }
+
+  .gear-02 {
+    width: 80px;
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+  }
+  @keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+  }
+
+  @-webkit-keyframes oppo-spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(-360deg);  /* IE 9 */
+        transform: rotate(-360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+  }
+  @keyframes oppo-spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(-360deg);  /* IE 9 */
+        transform: rotate(-360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+  }
+}
+
 
 
 

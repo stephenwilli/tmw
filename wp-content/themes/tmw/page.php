@@ -1,1 +1,6 @@
-<? get_template_part('templates/wp', 'page'); ?>
+<?php
+
+?>
+<?php get_header(); ?>
+
+<?php get_footer();?>

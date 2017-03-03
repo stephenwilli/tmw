@@ -4,6 +4,8 @@
 
 <?php get_template_part('partials/home/full-width-text'); ?>
 
+<!-- <?php get_template_part('partials/home/spin'); ?>
+ -->
 <?php get_template_part('partials/templates/full-width-image'); ?>
 
 <?php get_template_part('partials/home/grid'); ?>

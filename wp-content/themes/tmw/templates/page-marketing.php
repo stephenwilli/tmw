@@ -5,13 +5,13 @@ Template Name: Marketing
 ?>
 <?php get_header(); ?>
 
-<?php get_template_part('partials/home/hero'); ?>
+<?php get_template_part('partials/templates/hero'); ?>
 
-<?php get_template_part('partials/home/services'); ?>
+<?php get_template_part('partials/templates/services'); ?>
 
-<?php get_template_part('partials/home/full-width-image-02'); ?>
+<?php get_template_part('partials/templates/full-width-image'); ?>
 
-<?php get_template_part('partials/home/full-width-caption-forms'); ?>
+<?php get_template_part('partials/templates/side-by-side'); ?>
 
 
 <?php get_footer();?>

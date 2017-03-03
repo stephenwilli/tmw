@@ -1,9 +1,7 @@
 <?php
 	$rightBG = get_field('right_caption_background');
 	$rightTitle = get_field('right_caption_title');
-	$rightText = get_field('right_caption_text');
-	$rightButton = get_field('right_caption_button_text');
-	$rightLink = get_field('right_caption_button_link');
+	$rightContent = get_field('right_caption_content');
 	
 	if ($rightBG) { ?>
 
@@ -23,8 +21,8 @@
 				                	<p><?php echo $rightText; ?></p>
 				                <?php } ?>
 				                
-				                <?php if ($rightButton) { ?>
-				                	<a href="<?php echo $leftLink; ?>" class="btn -ghost"><?php echo $rightButton; ?></a>
+				                <?php if ($rightContent) { ?>
+				                	<?php echo $rightContent; ?>
 				                <?php } ?>
 
 				            </div>
@@ -40,9 +38,8 @@
 
 	$leftBG = get_field('left_caption_background');
 	$leftTitle = get_field('left_caption_title');
-	$leftText = get_field('left_caption_text');
-	$leftButton = get_field('left_caption_button_text');
-	$leftLink = get_field('left_caption_button_link');
+	$leftContent = get_field('left_caption_content');
+
 	if ($leftBG) { ?>
 
 		<section class="full-width-caption bg-primary" id="" style="background-image: url('<?php echo $leftBG['sizes']['full_screen']; ?>');">
@@ -60,8 +57,8 @@
 				                	<p><?php echo $leftText; ?></p>
 				                <?php } ?>
 				                
-				                <?php if ($leftButton) { ?>
-				                	<a href="<?php echo $leftLink; ?>" class="btn -ghost"><?php echo $leftButton; ?></a>
+				                <?php if ($leftContent) { ?>
+				                	<?php echo $leftContent; ?>
 				                <?php } ?>
 
 			                </div>

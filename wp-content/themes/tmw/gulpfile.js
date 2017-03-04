@@ -23,24 +23,31 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var rename = require("gulp-rename");
+
 // css
 var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
+
 // js
 var uglify = require('gulp-uglify');
+
 // images
 var imagemin = require('gulp-imagemin');
+
 // error handling with notify & plumber
 var notify = require("gulp-notify");
 var plumber = require('gulp-plumber');
+
 // watch
 var watch = require('gulp-watch');
+
 // delete
-// var del = require('del');
+var del = require('del');
 
 var paths = {
     vendorScripts: [
+      
       // specify your vendor scripts in dependency order
       'bower_components/modernizr/modernizr.js',
       'bower_components/jquery/dist/jquery.js',
@@ -75,7 +82,7 @@ var paths = {
       // 'bower_components/videojs/dist/video-js/video.js',
 
       // Isotope Grid
-      // 'bower_components/isotope/jquery.isotope.js',
+      'bower_components/isotope/jquery.isotope.js',
 
       // Magnificent popups
       'bower_components/magnific-popup/dist/jquery.magnific-popup.js',

@@ -1,3 +1,15 @@
+.js div#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: $orange;
+}
+
+
 .bg-secondary {
   background-color: $grey;
   p {
@@ -139,17 +151,17 @@ footer {
   }
 
   .gear-01 {
-    top: 54px;
-    left: 324px;
+    top: 58px;
+    left: 330px;
     width: 110px;
-    -webkit-animation: oppo-spin 4s linear infinite;
-    animation: oppo-spin 4s linear infinite;
+    -webkit-animation: oppo-spin 5s linear infinite;
+    animation: oppo-spin 5s linear infinite;
   }
 
   .gear-02 {
     width: 80px;
-    -webkit-animation: spin 4s linear infinite;
-    animation: spin 4s linear infinite;
+    -webkit-animation: spin 5s linear infinite;
+    animation: spin 5s linear infinite;
   }
 
   @-webkit-keyframes spin {

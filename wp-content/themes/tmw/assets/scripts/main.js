@@ -1,5 +1,17 @@
 (function ($) {
 
+	// ADD CLASS TO NAV ON SCROLL
+
+	$(window).scroll(function() {
+		if (($(window).scrollTop() > 70 && $(window).width() > 992 )){
+	 		$('.navbar').addClass('scrolled');
+	 	}
+	 	else {
+		 	$('.navbar').removeClass('scrolled');
+	 	}
+
+	}); // window.scroll
+
     // HERO SLIDER
       
       $('#hero-slider').flexslider({
@@ -16,15 +28,8 @@
 
     // PRELOADER
 
-    $(window).load(function() {
-        setTimeout(function() {
-            $('.js-sitewrap').animate({
-                opacity: 1
-            }, 300);
-            $('#preloader').fadeOut(300, function() {
-                SiteApp.Animated();
-            });
-        }, 300); // delay 300 ms
-    });
+	// $(window).load(function(){
+	// 	$('#preloader').fadeOut('slow',function(){$(this).remove();});
+	// });
 
 })(jQuery); // End of use strict

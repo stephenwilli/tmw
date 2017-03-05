@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html class="js">
 <!--[if lt IE 7]><html class="ie ie6" <?php language_attributes(); ?>><![endif]-->
 <!--[if IE 7]><html class="ie ie7" <?php language_attributes(); ?>><![endif]-->
 <!--[if IE 8]><html class="ie ie8" <?php language_attributes(); ?>><![endif]-->
@@ -20,10 +20,19 @@
 
 <body <?php body_class(); ?>  id="page-top">
 
-<div class="js-sitewrap site-wrap">
+	<div id="preloader" class="spin">
+		<div class="container">
+	        <div class="row">
+	            <div class="col-lg-8 col-lg-offset-2 text-center">
 
-<?php get_template_part( 'partials/global/preloader' ); ?>
+	                <img class="gear gear-01" src="<?php bloginfo( 'template_url' ); ?>/assets/images/single-gear.svg" />
+	                <img class="gear gear-02" src="<?php bloginfo( 'template_url' ); ?>/assets/images/single-gear-02.svg" />
 
-<?php get_template_part('partials/global/google-analytics'); ?>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
-<?php get_template_part('partials/header/navigation'); ?>
+	<?php get_template_part('partials/global/google-analytics'); ?>
+
+	<?php get_template_part('partials/header/navigation'); ?>

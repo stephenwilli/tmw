@@ -10,8 +10,8 @@
                 <?php
                   $logo = get_field('site_logo', 'option'); 
                 ?>
-                <img src="<?php echo $logo['sizes']['medium'];?>" />
-
+                <object type="image/svg+xml" data="<?php echo $logo['sizes']['medium'];?>">
+                </object>
             </a>
         </div>
 

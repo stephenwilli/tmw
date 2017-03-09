@@ -20,9 +20,10 @@ function logo_login_head() {
 	echo "
 	<style>
 		body.login #login h1 a {
-			background: url('".get_bloginfo('template_url')."/assets/images/tmbr_icon_large.png') no-repeat scroll center top transparent;
-			height: 160px;
-			width: 140px;
+			background: url('".get_bloginfo('template_url')."/assets/images/tmw-logo-color-01.png') no-repeat transparent;
+			background-size: contain;
+			height: 150px;
+			width: 300px;
 			margin: 0 auto;
 		}
 	</style>

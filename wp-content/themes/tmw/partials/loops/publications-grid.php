@@ -6,7 +6,7 @@ if ( has_post_thumbnail() ) {
 
 ?>
 
-<div class="col-lg-4 col-sm-6">
+<div class="col-lg-3 col-sm-6">
     <a href="<?php the_permalink();?>" class="portfolio-box">
         <img src="<?php echo esc_url( $url ); ?>" class="img-responsive" alt="">
         <div class="portfolio-box-caption">

@@ -1,7 +1,7 @@
 <section class="grid-intro bg-secondary" id="publications">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <h2>The Teton Media Works Family</h2>
 
                 <div class="col-sm-4">

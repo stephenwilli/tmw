@@ -10,6 +10,9 @@
   border-radius: 0;
   border: 2px $grey solid;
   @include transition($transition300);
+  @include respond-to($screen-xs) { 
+    font-size: 2rem;
+  }
 
   &:hover {
     background-color: $grey;
@@ -18,6 +21,11 @@
 
   &.-large {
     width: 200px;
+    
+    @include respond-to($screen-xs) { 
+      width: 90%;
+      margin-top: 20px;
+    }
   }
 
   &.-orange {

@@ -95,7 +95,7 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": 48,
+            "mime_types": "",
             "key": "field_58c0ccdad912a",
             "label": "Intro Text Image Bottom",
             "name": "hp_intro_bottom",
@@ -104,7 +104,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "48",
                 "class": "",
                 "id": ""
             }
@@ -399,5 +399,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1489034511
+    "modified": 1489038607
 }

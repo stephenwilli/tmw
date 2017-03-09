@@ -9,17 +9,16 @@
   background: $orange;
 }
 
-
 .bg-secondary {
-  background-color: $grey;
-  p {
-    color: #fff;
+  background-color: $white;
+  p, h1, h2, h3 {
+    color: $grey;
   }
 }
 
 .bg-primary {
   background-color: $orange;
-  p {
+  p, h1, h2, h3 {
     color: #fff;
   }
 }
@@ -28,23 +27,43 @@
   padding: 80px 0;
 }
 
-.full-width-text {
-  padding: 80px 0;
+.grid-intro {
+  padding: 40px 0;
+}
 
-  img {
+.intro {
+  height: 140vh;
+  padding: 200px 0;
+
+  .top {
+    max-width: 70%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .bottom {
+    max-width: 70%;
+    position: absolute;
+    top:300px;
+    left: 100px;
+    z-index: 2;
+  }
+
+  .intro-text {
+    padding: 100px 40px;
+  }
+
+  .icon {
     max-width: 150px;
     margin-bottom: 20px;
   }
 }
 
-.full-width-image {
-  min-height: 600px;
-  background-size: cover;
-}
-
 .parallax {
     
-    min-height: 500px; 
+    min-height: 160vh; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

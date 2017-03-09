@@ -2,7 +2,7 @@
 
 <?php get_template_part('partials/templates/hero'); ?>
 
-<?php get_template_part('partials/home/full-width-text'); ?>
+<?php get_template_part('partials/home/intro-text'); ?>
 
 <!-- <?php get_template_part('partials/home/spin'); ?>
  -->

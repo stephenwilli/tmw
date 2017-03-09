@@ -1,4 +1,4 @@
-<section class="services-intro bg-primary" id="publications">
+<section class="grid-intro bg-secondary" id="publications">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">

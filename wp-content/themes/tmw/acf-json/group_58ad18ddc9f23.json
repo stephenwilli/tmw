@@ -29,6 +29,31 @@
                     }
                 },
                 {
+                    "layout": "horizontal",
+                    "choices": {
+                        "left": "Left",
+                        "center": "Center",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "other_choice": 0,
+                    "save_other_choice": 0,
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "key": "field_58c0dd1d629f8",
+                    "label": "Hero Aligment",
+                    "name": "hero_alignment",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
                     "default_value": "",
                     "maxlength": "",
                     "placeholder": "",
@@ -56,6 +81,25 @@
                     "key": "field_58ad191093f42",
                     "label": "Hero Subtitle",
                     "name": "hero_subtitle",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_58c0e0b3ca43e",
+                    "label": "Hero Button Text",
+                    "name": "hero_button_text",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -122,5 +166,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1488513970
+    "modified": 1489035592
 }

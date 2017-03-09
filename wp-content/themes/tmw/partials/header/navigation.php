@@ -6,12 +6,6 @@
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand page-scroll" href="/">
-
-                <?php
-                  $logo = get_field('site_logo', 'option'); 
-                ?>
-                <object type="image/svg+xml" data="<?php echo $logo['sizes']['medium'];?>">
-                </object>
             </a>
         </div>
 

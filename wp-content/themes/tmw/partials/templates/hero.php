@@ -8,30 +8,31 @@
       $image = get_sub_field('hero_image');
       $title = get_sub_field('hero_title');
       $subTitle = get_sub_field('hero_subtitle');
+      $buttonText = get_sub_field('hero_button_text');
       $slideLink = get_sub_field('hero_link');
+      $slideAlign = get_sub_field('hero_alignment');
       ?>
 
     <li>
-    <?php if ( $slideLink ) { ?>
-        <a href="<?php echo $slideLink; ?>">
-        <?php } ?>
+
+      <div class="hero-bg parallax" style="background-image : url('<?php echo $image['sizes']['full_screen'];?>');"></div>
+
+      <?php if ( $title ) { ?>
+        <div class="hero-caption caption-<?php echo $slideAlign; ?>">
           
-          <div class="hero-bg parallax" style="background-image : url('<?php echo $image['sizes']['full_screen'];?>');"></div>
-
-          <div class="hero-caption">
-            <?php if ( $title ) { ?>
-              <h2><?php echo $title; ?></h2>
-            <?php }
-
-            if ( $subTitle ) { ?>
+            <h2><mark><?php echo $title; ?></mark></h2>
+          
+            <?php if ( $subTitle ) { ?>
               <p><?php echo $subTitle; ?></p>
             <?php } ?>
-          </div><!-- /caption -->
-        
-        <?php if ( $slideLink ) { ?>
-        </a>
-        <?php } ?>
-    
+
+            <?php if ( $buttonText ) { ?>
+              <a href="<?php echo $slideLink; ?>" class="btn -orange"><?php echo $buttonText; ?></a>
+            <?php } ?>
+
+        </div><!-- /caption -->
+      <?php } ?>
+  
     </li>
 
   <?php } ?>

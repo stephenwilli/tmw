@@ -8,33 +8,63 @@
 
   .hero-caption {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.25);
     z-index: 10;
-    bottom: 0;
-    left: 0;
-    // @include transform(translate(-50%,-50%));
-    @include transition($transition);
-    width: 100%;
-    padding: 80px 200px;
+    width: 65%;
+   
+    &.caption-left {
+      text-align: left; 
+      left: 10%;
+      bottom: 10%;
+    }
+
+    &.caption-right {
+      text-align: right;
+      right: 10%;
+      bottom: 10%;
+    }
+
+    &.caption-center {
+      top: 70%;
+      transform: translateY(-50%);
+      width: 100%;
+      padding: 0 300px;
+      text-align: center;
+    }
+
+    .btn {
+      margin: 20px;
+    }
+
     
-    p,h2 {
+    p {
       color: $white;
+    }
+
+    mark {
+      background-color: rgba(0,0,0, .8);
+      color: $white;
+      line-height: 1.9;
+      padding: 10px 20px;
+      -webkit-box-decoration-break: clone;
+      -ms-box-decoration-break: clone;
+      -o-box-decoration-break: clone;
+      box-decoration-break: clone;
     }
     
     h2 {
       margin-bottom: 0;
       position: relative;
 
-      &::after {
-        content:"";
-        position: absolute;
-        left: 2px;
-        bottom: -20px;
-        display: inline-block;
-        background-color: $orange;
-        width: 100px;
-        height: 5px;
-      }
+      // &::after {
+      //   content:"";
+      //   position: absolute;
+      //   left: 2px;
+      //   bottom: -20px;
+      //   display: inline-block;
+      //   background-color: $orange;
+      //   width: 100px;
+      //   height: 5px;
+      // }
     }
 
 
@@ -60,7 +90,7 @@
   margin-top: 0;
   width: 100%;
   overflow: hidden;
-  height: 80vh;
+  height: 100vh;
   @include respond-to($screen-sm){
     margin-top: 30px;
   }

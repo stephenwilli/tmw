@@ -3,15 +3,16 @@ footer {
     padding-top: 45px;
 
     .logo {
-      max-width: 100%;
+      max-width: 250px;
       margin-bottom: 10px;
     }
 
     a {
-      color: #fff;
+      color: $grey;
 
       &:hover {
-        color: #fff;
+        color: $grey;
+        text-decoration: underline;
       }
     }
 

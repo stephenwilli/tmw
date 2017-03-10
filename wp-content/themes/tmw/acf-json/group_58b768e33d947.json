@@ -110,6 +110,44 @@
             }
         },
         {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_58c20ffee010c",
+            "label": "Intro Button Text",
+            "name": "hp_intro_button",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_58c2100be010d",
+            "label": "Intro Link",
+            "name": "hp_intro_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "placement": "top",
             "endpoint": 1,
             "key": "field_58b76a00ee1a3",
@@ -140,6 +178,146 @@
             "label": "Parallax Image",
             "name": "parallax_image",
             "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "placement": "top",
+            "endpoint": 1,
+            "key": "field_58b8dc6e4f79e",
+            "label": "Image with Left Caption",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "key": "field_58b8dc7f4f79f",
+            "label": "Left Caption Image",
+            "name": "left_caption_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "key": "field_58c21223e67e4",
+            "label": "Left Caption Icon",
+            "name": "left_caption_icon",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_58b8dcb34f7a0",
+            "label": "Left Caption Title",
+            "name": "left_caption_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "new_lines": "wpautop",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": "",
+            "key": "field_58b8dcbd4f7a1",
+            "label": "Left Caption Text",
+            "name": "left_caption_text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_58b8dcca4f7a2",
+            "label": "Left Caption Button Text",
+            "name": "left_caption_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_58b8dcd64f7a3",
+            "label": "Left Caption Button Link",
+            "name": "left_caption_button_link",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -264,122 +442,6 @@
                 "class": "",
                 "id": ""
             }
-        },
-        {
-            "placement": "top",
-            "endpoint": 0,
-            "key": "field_58b8dc6e4f79e",
-            "label": "Image with Left Caption",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "return_format": "array",
-            "preview_size": "large",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "key": "field_58b8dc7f4f79f",
-            "label": "Left Caption Background",
-            "name": "left_caption_background",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58b8dcb34f7a0",
-            "label": "Left Caption Title",
-            "name": "left_caption_title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "new_lines": "wpautop",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": "",
-            "key": "field_58b8dcbd4f7a1",
-            "label": "Left Caption Text",
-            "name": "left_caption_text",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58b8dcca4f7a2",
-            "label": "Left Caption Button Text",
-            "name": "left_caption_button_text",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58b8dcd64f7a3",
-            "label": "Left Caption Button Link",
-            "name": "left_caption_button_link",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
         }
     ],
     "location": [
@@ -399,5 +461,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1489038607
+    "modified": 1489114353
 }

@@ -10,6 +10,8 @@
 
 <?php get_template_part('partials/home/grid'); ?>
 
-<?php get_template_part('partials/home/side-by-side'); ?>
+<?php get_template_part('partials/home/left-caption'); ?>
+
+<?php get_template_part('partials/home/right-caption'); ?>
 
 <?php get_footer();?>

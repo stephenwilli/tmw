@@ -39,17 +39,6 @@
     p {
       color: $white;
     }
-
-    mark {
-      background-color: rgba(0,0,0, .8);
-      color: $white;
-      line-height: 1.9;
-      padding: 10px 30px;
-      -webkit-box-decoration-break: clone;
-      -ms-box-decoration-break: clone;
-      -o-box-decoration-break: clone;
-      box-decoration-break: clone;
-    }
     
     h2 {
       margin-bottom: 0;

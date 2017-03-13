@@ -1,16 +1,12 @@
 .flexslider {
   margin-bottom: 0;
   border: none;
-  
-  .slides li {
-    position: relative;
-  }
 
   .hero-caption {
     position: absolute;
     z-index: 10;
     width: 65%;
-   
+ 
     &.caption-left {
       text-align: left; 
       left: 10%;
@@ -35,43 +31,34 @@
       margin: 15px 0;
     }
 
-    
+  
     p {
       color: $white;
+      max-width: 500px;
+      margin: 0 auto 0 auto;
+      font-size: 1.2rem;
     }
-    
+  
     h2 {
       margin-bottom: 0;
       position: relative;
-
-      // &::after {
-      //   content:"";
-      //   position: absolute;
-      //   left: 2px;
-      //   bottom: -20px;
-      //   display: inline-block;
-      //   background-color: $orange;
-      //   width: 100px;
-      //   height: 5px;
-      // }
     }
 
-
-    
-    p {
-      max-width: 500px;
-      margin: 0 auto 0 auto;
-      font-size: 1.2rem
-    }
+  }
+  
+  .slides li {
+    position: relative;
   }
 
-  .flex-active-slide{
-    .caption{
-      opacity: 1;
-      @include transform(translate(-50%,-50%));
-    }
-  }
+}
 
+#single-hero {
+  position: relative;
+  margin-top: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 500px !important;
+  min-height: 500px !important;
 }
 
 #hero-slider {
@@ -80,20 +67,23 @@
   width: 100%;
   overflow: hidden;
   height: 100vh;
+  
   @include respond-to($screen-sm){
     margin-top: 30px;
   }
-  .slides{
-    li {
-      position: inherit;
-      display: block;
-      height: 88vh;
-      @include respond-to($screen-xs){
-        min-height: auto;
-        max-height: 320px;
+
+  .slides {
+      li {
+        position: inherit;
+        display: block;
+        height: 88vh;
+        
+        @include respond-to($screen-xs){
+          min-height: auto;
+          max-height: 320px;
+        }
       }
-    }
-  }
+
   .hero-bg{
     display: block;
     height: 100%;
@@ -176,4 +166,4 @@
     }
   }
 
-}
+}} 

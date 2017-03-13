@@ -1,31 +1,3 @@
-// SECTIONS
-
-.bg-secondary {
-  background-color: $white;
-  p, h1, h2, h3, h4, h5 {
-    color: $grey;
-  }
-}
-
-.bg-primary {
-  background-color: $orange;
-  p, h1, h2, h3 {
-    color: #fff;
-  }
-}
-
-
-mark {
-  background-color: rgba(0,0,0, .8);
-  color: $white;
-  line-height: 1.9;
-  padding: 10px 30px;
-  -webkit-box-decoration-break: clone;
-  -ms-box-decoration-break: clone;
-  -o-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
 // HOMEPAGE INTRO 
 
 .intro {
@@ -83,7 +55,6 @@ mark {
 // PARALLAX IMAGE
 
 .parallax {
-    
     min-height: 160vh; 
     background-attachment: fixed;
     background-position: center;
@@ -196,7 +167,7 @@ mark {
 // FOOTER
 
 footer {
-  height: 300px;
+  border-top: 1px $grey solid;
 }
 
 // PRELOADER

@@ -1,3 +1,9 @@
+<?php
+
+// PUBLICATIONS CUSTOM POST TYPE GRID
+
+?>
+
 <section class="grid-intro bg-secondary" id="publications">
     <div class="container">
         <div class="row">

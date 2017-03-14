@@ -1,4 +1,7 @@
 <?php 
+
+  // HERO SLIDER OR SINGLE INTERNAL PAGE HEADER IMAGE
+  
   $option = get_field('hero_option'); 
   if ($option == 'slider') { ?>
 

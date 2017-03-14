@@ -74,41 +74,6 @@
                 "class": "",
                 "id": ""
             }
-        },
-        {
-            "placement": "top",
-            "endpoint": 1,
-            "key": "field_58b774013ba8c",
-            "label": "Tracking Codes",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_589d389a44dee",
-            "label": "Google Analytics Tracking ID",
-            "name": "ga_code",
-            "type": "text",
-            "instructions": "UA-xxxxxxxx-x",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
         }
     ],
     "location": [
@@ -128,5 +93,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1489029975
+    "modified": 1489456205
 }

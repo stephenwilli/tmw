@@ -13,17 +13,17 @@
 
 		<section class="full-width-image bg-primary parallax" id="" style="background-image: url('<?php echo $FWIimage['sizes']['full_screen']; ?>');"> 
 
-				            <div class="full-width-caption caption-<?php echo $FWIalign;?>">
-				            	
-				            	<?php if ($FWItitle) { ?>
-				               		<h2><mark><?php echo $FWItitle; ?></mark></h2>
-				                <?php } ?>
-				                
-				                <?php if ($FWIbutton) { ?>
-				                	<a href="<?php echo $FWIlink; ?>" class="btn -orange"><?php echo $FWIbutton; ?></a>
-				                <?php } ?>
+            <div class="full-width-caption caption-<?php echo $FWIalign;?>">
+            	
+            	<?php if ($FWItitle) { ?>
+               		<h2><mark><?php echo $FWItitle; ?></mark></h2>
+                <?php } ?>
+                
+                <?php if ($FWIbutton) { ?>
+                	<a href="<?php echo $FWIlink; ?>" class="btn -orange"><?php echo $FWIbutton; ?></a>
+                <?php } ?>
 
-				            </div>
+            </div>
 				        
 		    </div>
 		</section>

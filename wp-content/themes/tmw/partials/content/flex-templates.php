@@ -10,7 +10,9 @@
 
       elseif( get_row_layout() == 'publications_grid' ) { get_template_part( 'partials/content/grid' ); }
 
-      // elseif( get_row_layout() == 'image_gallery' ) { get_template_part( 'partials/layout/gallery' ); }
+      elseif( get_row_layout() == 'right_caption' ) { get_template_part( 'partials/content/right-caption' ); }
+
+      elseif( get_row_layout() == 'left_caption' ) { get_template_part( 'partials/content/left-caption' ); }
 
     endwhile;
 

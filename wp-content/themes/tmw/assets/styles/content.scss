@@ -54,25 +54,46 @@
 
 // PARALLAX IMAGE
 
+
+
+.full-width-image {
+  position: relative;
+  background-size: cover;
+
+  .full-width-caption {
+    position: absolute;
+    z-index: 10;
+    width: 65%;
+
+    &.caption-left {
+        text-align: left; 
+        left: 10%;
+        bottom: 50%;
+      }
+
+    &.caption-right {
+      text-align: right;
+      right: 10%;
+      bottom: 50%;
+    }
+
+    &.caption-center {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      padding: 0 300px;
+      text-align: center;
+    }
+  }
+
+}
+
 .parallax {
     min-height: 160vh; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.parallax-caption {
-  z-index: 10;
-  text-align: right;
-  padding: 100px 40px 100px 0;
-}
-
-.right-caption {
-  position: relative;
-  background-size: cover;
-  padding: 200px 0;
-
 }
 
 // SERVICES ICONS

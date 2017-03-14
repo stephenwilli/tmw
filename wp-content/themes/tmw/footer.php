@@ -1,4 +1,4 @@
-	<footer class="bg-secondary">
+	<footer class="bg-primary">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
@@ -9,7 +9,7 @@
 			                $address = get_field('address', 'option');		
 			            ?>
 			            
-							<img class="logo" src="<?php get_bloginfo('template_url') ?>/wp-content/uploads/2017/03/tmw-logo-color-01.svg" />
+							<img class="logo" src="<?php get_bloginfo('template_url') ?>/wp-content/uploads/2017/02/tmw-logo-01.svg" />
 						
 						
 						<p>

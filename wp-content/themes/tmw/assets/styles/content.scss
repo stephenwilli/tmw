@@ -1,8 +1,14 @@
-// HOMEPAGE INTRO 
+// CAPTION SECTIONS
 
-.intro {
+.right-caption, .left-caption {
   height: 140vh;
   padding: 200px 0;
+
+  .single {
+    max-width: 100%;
+    position: relative;
+    top: 150px;
+  }
 
   .top {
     max-width: 70%;
@@ -20,7 +26,7 @@
     z-index: 2;
   }
 
-  .intro-text {
+  .caption {
     padding: 100px 40px;
   }
 
@@ -53,8 +59,6 @@
 }
 
 // PARALLAX IMAGE
-
-
 
 .full-width-image {
   position: relative;
@@ -185,11 +189,6 @@
   outline: none;
 }
 
-// FOOTER
-
-footer {
-  border-top: 1px $grey solid;
-}
 
 // PRELOADER
 

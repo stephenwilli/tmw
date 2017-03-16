@@ -36,27 +36,6 @@
   }
 }
 
-// SECTION WITH LEFT CAPTION
-
-.left-caption {
-  height: 140vh;
-  padding: 200px 0;
-  position: relative;
-
-  img {
-    max-width: 90%;
-    position: absolute;
-  }
-
-  .caption {
-    padding: 100px 40px;
-  }
-
-  .icon {
-    max-width: 150px;
-    margin-bottom: 20px;
-  }
-}
 
 // PARALLAX IMAGE
 
@@ -100,20 +79,27 @@
     background-size: cover;
 }
 
-// SERVICES ICONS
+// THREE ICONS
 
-.service-box {
-  max-width: 400px;
-  margin: 50px auto 0;
+.icon-wrap {
+  padding: 40px 0 ;
+
+  .icon-box {
+    max-width: 400px;
+    margin: 50px auto 0;
+    padding: 0 40px;
+
+    img {
+      max-width: 200px;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.service-box p {
-  margin-bottom: 0;
-}
 
-.services-intro {
-  padding: 80px 0;
-}
 
 // PORTFOLIO GRID
 

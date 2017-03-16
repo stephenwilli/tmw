@@ -14,6 +14,8 @@
 
       elseif( get_row_layout() == 'left_caption' ) { get_template_part( 'partials/content/left-caption' ); }
 
+      elseif( get_row_layout() == 'three_icons' ) { get_template_part( 'partials/content/three-icons' ); }
+
     endwhile;
 
   endif;

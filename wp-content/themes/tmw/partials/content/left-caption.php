@@ -1,16 +1,20 @@
 <?php 
 
 	// RIGHT CAPTION FLEXIBLE CONTENT LAYOUT LC
-	$LCmediaType = get_sub_field('lc_media_type');
+
+    $LCmediaType = get_sub_field('lc_media_type');
 	$LCsingleImage = get_sub_field('lc_single_image');
     $LCtopImage = get_sub_field('lc_top_image');
     $LCbottomImage = get_sub_field('lc_bottom_image');
     $LCvideo = get_sub_field('lc_video_embed');
+    $LCcaptionType = get_sub_field('lc_caption_type');
     $LCcaptionTitle = get_sub_field('lc_caption_title');
     $LCcaptionText = get_sub_field('lc_caption_text');
     $LCcaptionIcon = get_sub_field('lc_caption_icon');
     $LCcaptionButton = get_sub_field('lc_caption_button');
     $LCcaptionLink = get_sub_field('lc_caption_link');
+    $LCwysiwyg = get_sub_field('lc_wysiwyg');
+
 ?>
 
 
@@ -21,20 +25,30 @@
 
             <div class="col-sm-12 col-md-5 text-center caption">
 
-                <?php if ($LCcaptionTitle) { ?>
-                    <h2><?php echo $LCcaptionTitle;?></h2>
-                <?php } ?>
+                <?php if ( $LCcaptionType == 'caption' ) { ?>
+
+                    <?php if ($LCcaptionTitle) { ?>
+                        <h2><?php echo $LCcaptionTitle;?></h2>
+                    <?php } ?>
+                    
+                    <?php if ($LCcaptionIcon) { ?>
+                        <img class="icon" src="<?php echo $LCcaptionIcon['sizes']['medium'];?>" />
+                    <?php } ?>
+
+                    <?php if ($LCcaptionText) { ?>
+                        <p class="text"><?php echo $LCcaptionText;?></p>
+                    <?php } ?>
+
+                    <?php if ($LCcaptionButton) { ?>
+                        <a href="<?php echo $LCcaptionLink;?>" class="btn"><?php echo $LCcaptionButton;?></a>
+                    <?php } ?>
                 
-                <?php if ($LCcaptionIcon) { ?>
-                    <img class="icon" src="<?php echo $LCcaptionIcon['sizes']['medium'];?>" />
                 <?php } ?>
 
-                <?php if ($LCcaptionText) { ?>
-                    <p class="text"><?php echo $LCcaptionText;?></p>
-                <?php } ?>
+                <?php if ( $LCcaptionType == 'wysiwyg' ) { ?>
 
-                <?php if ($LCcaptionButton) { ?>
-                    <a href="<?php echo $LCcaptionLink;?>" class="btn"><?php echo $LCcaptionButton;?></a>
+                    <?php echo $LCwysiwyg; ?>
+
                 <?php } ?>
 
             </div>

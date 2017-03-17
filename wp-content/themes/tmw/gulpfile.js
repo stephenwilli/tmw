@@ -50,7 +50,7 @@ var paths = {
       
       // specify your vendor scripts in dependency order
       'bower_components/modernizr/modernizr.js',
-      'bower_components/jquery/dist/jquery.js',
+      // 'bower_components/jquery/dist/jquery.js',
 
       // Bootstrap JS files
       // 'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js',

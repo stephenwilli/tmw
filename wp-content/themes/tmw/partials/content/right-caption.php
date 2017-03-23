@@ -23,16 +23,16 @@
         <div class="row">
             <div class="col-sm-12 col-md-7">
 
-                <?php if ($RCmediaType = 'single_image') { ?>
+                <?php if ($RCmediaType == 'single_image') { ?>
 	                <img class="single" src="<?php echo $RCsingleImage['sizes']['large'];?>">
                 <?php } ?>
             	
-            	<?php if ($RCmediaType = 'double_image') { ?>
+            	<?php if ($RCmediaType == 'double_image') { ?>
 	                <img class="top" src="<?php echo $RCtopImage['sizes']['large'];?>">
 	                <img class="bottom" src="<?php echo $RCbottomImage['sizes']['large'];?>">
                 <?php } ?>
 
-                <?php if ($RCmediaType = 'video') { ?>
+                <?php if ($RCmediaType == 'video') { ?>
 	                <div class="video">
 	                	<?php echo $RCvideo; ?>
 	                </div>

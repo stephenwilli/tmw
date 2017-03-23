@@ -68,7 +68,7 @@
 				
 			</article>
 
-			<?php get_template_part('partials/templates/related-posts') ;?>
+			<?php get_template_part('partials/content/related-posts') ;?>
 
 
 	<?php endwhile; // end of the loop. ?>

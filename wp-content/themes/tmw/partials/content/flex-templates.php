@@ -8,7 +8,9 @@
 
       if( get_row_layout() == 'full_width_image_background' ) { get_template_part( 'partials/content/full-width-image' ); }
 
-      elseif( get_row_layout() == 'publications_grid' ) { get_template_part( 'partials/content/grid' ); }
+      elseif( get_row_layout() == 'publications_grid' ) { get_template_part( 'partials/content/publications-grid' ); }
+
+      elseif( get_row_layout() == 'team_grid' ) { get_template_part( 'partials/content/team-grid' ); }
 
       elseif( get_row_layout() == 'right_caption' ) { get_template_part( 'partials/content/right-caption' ); }
 

@@ -197,6 +197,35 @@
                     "max": ""
                 },
                 {
+                    "key": "58d33d82d6f10",
+                    "name": "team_grid",
+                    "label": "Team Grid",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "default_value": 1,
+                            "message": "",
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "key": "field_58d33d82d6f11",
+                            "label": "Show Team Grid",
+                            "name": "show_team_grid",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            }
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
                     "key": "58c761c86cedc",
                     "name": "right_caption",
                     "label": "Left Content \/ Right Caption",
@@ -1016,5 +1045,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1489641576
+    "modified": 1490238880
 }

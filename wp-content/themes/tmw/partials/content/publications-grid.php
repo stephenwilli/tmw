@@ -41,7 +41,7 @@
                 foreach( $publications as $publication ) {
                     $post = $publication;
                     setup_postdata( $post );
-                    get_template_part( 'partials/loops/publications-grid' );
+                    get_template_part( 'partials/loops/publications-loop' );
                 }
                 wp_reset_postdata();
             ?>

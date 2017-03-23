@@ -114,17 +114,17 @@
       //   color: ;
       // }
 
-      &.flex-prev:before{
-        font-family: "tmbricons";
-        font-size: 3rem;
-        content: "\EA03";
-      }
+      // &.flex-prev:before{
+      //   font-family: "font-awesome";
+      //   font-size: 3rem;
+      //   content: "\f105";
+      // }
 
-      &.flex-next:before{
-        font-size: 3rem;
-        font-family: "tmbricons";
-        content: "\EA04";
-      }
+      // &.flex-next:before{
+      //   font-size: 3rem;
+      //   font-family: "tmbricons";
+      //   content: "\EA04";
+      // }
     }
 
     @include respond-to($screen-sm){
@@ -165,4 +165,33 @@
     }
   }
 
-}} 
+}}
+
+.flex-direction-nav  {
+  a{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .flex-next {
+    
+    &:before {
+      font-family: "fontawesome";
+      font-size: 4rem;
+      color: $white;
+      content:"\f105" !important;
+    }
+      
+  }
+
+  .flex-prev {
+    
+    &:before {
+      font-family: "fontawesome";
+      font-size: 4rem;
+      color: $white;
+      content:"\f104";
+    }
+      
+  }
+} 

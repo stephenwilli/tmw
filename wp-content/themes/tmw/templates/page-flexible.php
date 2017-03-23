@@ -24,4 +24,6 @@ Template Name: Flexible Content
 
 <?php get_template_part('partials/content/flex-templates'); ?>
 
+<i class="fa fa-fw fa-phone"></i>
+
 <?php get_footer();?>

@@ -22,8 +22,8 @@
             pauseOnHover: true,
             directionNav: true, //Boolean: Create navigation for previous/next navigation? (true/false)
             controlNav: true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-            prevText: "Previous",
-            nextText: "Next"
+            prevText: "",
+            nextText: ""
       });
 
     // PRELOADER

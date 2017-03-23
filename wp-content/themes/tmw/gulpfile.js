@@ -67,7 +67,7 @@ var paths = {
       // 'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js',
 
       // Flexslider things for video
-      'bower_components/flexslider/jquery.flexslider.js',
+      'bower_components/FlexSlider/jquery.flexslider.js',
 
       // Misc Vendor Libraries
       'bower_components/jquery.easing/js/jquery.easing.js',

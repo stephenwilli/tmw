@@ -26,6 +26,30 @@
             nextText: ""
       });
 
+    // PUBLICATION SLIDER
+
+    $('#js-image-carousel').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        itemWidth: 210,
+        itemMargin: 5,
+        asNavFor: '#js-image-slider',
+        prevText: "",
+        nextText: ""
+      });
+     
+      $('#js-image-slider').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        sync: "#js-image-carousel",
+        prevText: "",
+        nextText: ""
+      });
+
     // PRELOADER
 
 	$(window).load(function(){

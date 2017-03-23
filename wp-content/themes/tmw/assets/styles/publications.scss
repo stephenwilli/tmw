@@ -6,15 +6,34 @@
     color: $grey;
   }
 
-  .gallery {
+  .img-carousel {
   	img {
   		max-width: 100%;
-  		width: 100%;
+  		width: 200px;
+      opacity: 1;
+      @include transition($transition300);
+
+      &:hover {
+        opacity: .7;
+      }
   	}
   }
+  
+  .flex-direction-nav  {
+  
+    .flex-next, .flex-prev {
+      
+      &:before {
+        color: $grey;
+      }
+        
+    }
+
+  } 
 
 }
 
 .related-posts {
 	padding: 35px 0;
 }
+

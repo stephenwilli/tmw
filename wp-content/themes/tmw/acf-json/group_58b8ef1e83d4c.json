@@ -3,6 +3,31 @@
     "title": "Single Publication",
     "fields": [
         {
+            "layout": "horizontal",
+            "choices": {
+                "magazine": "Magazine",
+                "newspaper": "Newspaper",
+                "digital": "Digital"
+            },
+            "default_value": "",
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "allow_null": 0,
+            "return_format": "value",
+            "key": "field_58d6cd07cb7fa",
+            "label": "Publication Category",
+            "name": "publication_category",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
@@ -83,5 +108,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1488516094
+    "modified": 1490472279
 }

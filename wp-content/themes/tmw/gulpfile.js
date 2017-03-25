@@ -82,7 +82,8 @@ var paths = {
       // 'bower_components/videojs/dist/video-js/video.js',
 
       // Isotope Grid
-      'bower_components/isotope/jquery.isotope.js',
+      'bower_components/isotope/dist/isotope.pkgd.min.js',
+
 
       // Magnificent popups
       'bower_components/magnific-popup/dist/jquery.magnific-popup.js',

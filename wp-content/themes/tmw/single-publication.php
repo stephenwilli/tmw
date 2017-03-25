@@ -21,7 +21,7 @@
 										<ul class="slides">
 											<?php
 												foreach( $images as $image ):
-												$full = $image ['sizes']['lg_thumb'];
+												$full = $image ['sizes']['cover'];
 											?>
 											  
 											    <li>

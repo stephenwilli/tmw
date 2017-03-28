@@ -132,10 +132,14 @@
   width: 25%;
   float: left;
   clear: none;
-  position: relative !important;
+  
 
   @include respond-to($screen-sm) {   
     width: 50%;
+  }
+
+  .project-item {
+    position: relative !important;
   }
 }
 

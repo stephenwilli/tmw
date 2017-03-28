@@ -56,6 +56,8 @@
 		$('#preloader').fadeOut('slow',function(){$(this).remove();});
 	});
 
+  $(window).load(function(){
+
     // external js: isotope.pkgd.js
 
         // init Isotope
@@ -91,6 +93,6 @@
             $( this ).addClass('active');
           });
         });
-
+  });
 
 })(jQuery); // End of use strict

@@ -168,12 +168,14 @@
 }}
 
 .flex-direction-nav  {
-  a{
+  a {
     width: 100px;
     height: 100px;
   }
   
   .flex-next {
+    background-position: 100% 0;
+    right: -30px;
     
     &:before {
       font-family: "fontawesome";
@@ -185,6 +187,8 @@
   }
 
   .flex-prev {
+    background-position: 100% 0;
+    left: -30px
     
     &:before {
       font-family: "fontawesome";

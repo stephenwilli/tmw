@@ -11,9 +11,9 @@
 	
 	if ($FWIimage) { ?>
 
-		<section class="full-width-image bg-primary parallax" id="" style="background-image: url('<?php echo $FWIimage['sizes']['full_screen']; ?>');"> 
+		<section class="full-width-image bg-primary parallax wow fadeIn" style="background-image: url('<?php echo $FWIimage['sizes']['full_screen']; ?>');"> 
 
-            <div class="full-width-caption caption-<?php echo $FWIalign;?>">
+            <div class="full-width-caption caption-<?php echo $FWIalign;?> wow fadeInLeft" data-wow-offset="20">
             	
             	<?php if ($FWItitle) { ?>
                		<h2><mark><?php echo $FWItitle; ?></mark></h2>

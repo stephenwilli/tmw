@@ -21,7 +21,7 @@
 <section class="right-caption bg-secondary">
     <div class="container">`
         <div class="row">
-            <div class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-7 wow fadeInLeft" data-wow-delay=".5s">
 
                 <?php if ($RCmediaType = 'single_image') { ?>
 	                <img class="single" src="<?php echo $RCsingleImage['sizes']['large'];?>">
@@ -40,7 +40,7 @@
 
             </div>
 
-            <div class="col-sm-12 col-md-5 text-center caption">
+            <div class="col-sm-12 col-md-5 text-center caption wow fadeInRight">
 
             <?php if ($RCcaptionType == 'caption') { ?>
 

@@ -6,7 +6,7 @@ if ( has_post_thumbnail() ) {
     $category = get_field('publication_category');
 
 ?>
-<div class="project-grid">
+
     <div class="project-item <?php echo $category;?>">
 
         <a href="<?php the_permalink();?>" class="project-box">
@@ -19,6 +19,5 @@ if ( has_post_thumbnail() ) {
         </a>
 
     </div>
-</div>
 
 <?php } ?>

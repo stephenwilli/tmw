@@ -7,9 +7,28 @@
   }
 
   .img-carousel {
+
+    li {
+      margin-right: 5px;
+
+      @include respond-to($screen-md) { 
+        margin-right: 10px;
+        width: 170px !important;
+      }
+      
+      @include respond-to($screen-sm) { 
+        margin-right: 20px;
+        width: 230px !important;
+      }
+
+      @include respond-to($screen-xs) { 
+        margin-right: 10px;
+        width: 220px !important;
+      }
+    }
+
   	img {
   		max-width: 100%;
-  		width: 200px;
       opacity: 1;
       @include transition($transition300);
 

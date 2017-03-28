@@ -17,15 +17,15 @@
                 <div class="button-group filters-button-group">
                     <h2>The Teton Media Works Family</h2>
 
-                    <div class="col-sm-4">
+                    <div class="col-xs-4">
                         <a class="btn -large" data-filter=".newspaper">News</a>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-xs-4">
                         <a class="btn -large" data-filter=".magazine">Magazine</a>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-xs-4">
                         <a class="btn -large" data-filter=".digital">Digital</a>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     $post = $publication;
                     setup_postdata( $post ); ?>
                     
-                    <div class="col-sm-3 col-xs-6">
+                    <div class="project-grid">
                         <?php get_template_part( 'partials/loops/publications-loop' ); ?>
                     </div>
                     

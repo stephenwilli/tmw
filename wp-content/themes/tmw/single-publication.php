@@ -13,7 +13,7 @@
 
 					<div class="row">
 						
-						<div class="col-sm-12 col-lg-7">
+						<div class="col-sm-12 col-md-7">
 							<?php
 							$images = get_field('image_gallery');
 							if( $images ): ?>
@@ -50,7 +50,7 @@
 							<?php endif; ?>
 						</div>
 
-						<div class="col-sm-12 col-lg-5">
+						<div class="col-sm-12 col-md-5">
 							<?php the_content();?>
 							<?php 
 								$link = get_field('publication_link');

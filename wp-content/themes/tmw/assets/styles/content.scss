@@ -105,12 +105,37 @@
 
 .grid-intro {
   padding: 40px 0;
+
+  .btn.active {
+    background-color: $grey;
+    color: $white
+  }
+  
+  @include respond-to($screen-sm) {   
+    
+    .btn {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+
 }
 
 .grid:after {
   content: '';
   display: block;
   clear: both;
+}
+
+.project-grid {
+
+  width: 25%;
+  float: left;
+  clear: none;
+
+  @include respond-to($screen-sm) {   
+    width: 50%;
+  }
 }
 
 .project-box {

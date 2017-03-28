@@ -26,6 +26,10 @@
     margin-left: 0;
     margin-top: 15px;
 
+    @include respond-to($screen-sm) {
+      width: 200px;
+    }
+
     @include respond-to($screen-xs) {   
       background-image: url('/wp-content/uploads/2017/03/tmw-logo-color-01.svg');
       width: 180px;

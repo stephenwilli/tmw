@@ -6,7 +6,7 @@ if ( has_post_thumbnail() ) {
 
 ?>
 
-<div class="col-lg-3 col-sm-6">
+<div class="col-xs-6 col-sm-3">
     <a href="<?php the_permalink();?>" class="project-box">
         <img src="<?php echo esc_url( $url ); ?>" class="img-responsive" alt="">
         <div class="project-box-caption">

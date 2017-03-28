@@ -33,8 +33,8 @@
         controlNav: false,
         animationLoop: false,
         slideshow: false,
-        itemWidth: 210,
-        itemMargin: 5,
+        itemWidth: 215,
+        itemMargin: 10,
         asNavFor: '#js-image-slider',
         prevText: "",
         nextText: ""
@@ -86,7 +86,7 @@
         // change is-checked class on buttons
         $('.button-group').each( function( i, buttonGroup ) {
           var $buttonGroup = $( buttonGroup );
-          $buttonGroup.on( 'click', 'button', function() {
+          $buttonGroup.on( 'click', 'a', function() {
             $buttonGroup.find('.active').removeClass('active');
             $( this ).addClass('active');
           });

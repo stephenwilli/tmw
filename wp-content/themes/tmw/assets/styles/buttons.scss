@@ -11,7 +11,7 @@
   border: 2px $grey solid;
   @include transition($transition300);
   @include respond-to($screen-xs) { 
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   &:hover {

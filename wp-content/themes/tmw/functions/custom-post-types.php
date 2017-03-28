@@ -19,7 +19,6 @@ add_action( 'init', 'create_post_type' );
 				'rewrite' => true,
 				'query_var' => true,
 				'supports' => array('title','editor','thumbnail','page-attributes'),
-				'taxonomies' => array('category'),
 				'menu_icon' => 'dashicons-images-alt2',
 
 				'labels' =>

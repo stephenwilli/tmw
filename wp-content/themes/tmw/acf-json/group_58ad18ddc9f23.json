@@ -102,25 +102,6 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "key": "field_58ad191093f42",
-                    "label": "Hero Subtitle",
-                    "name": "hero_subtitle",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    }
-                },
-                {
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
                     "key": "field_58c0e0b3ca43e",
                     "label": "Hero Button Text",
                     "name": "hero_button_text",
@@ -230,5 +211,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1489364203
+    "modified": 1490669992
 }

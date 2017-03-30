@@ -168,6 +168,73 @@
                     "max": ""
                 },
                 {
+                    "key": "58dc73c66f0b1",
+                    "name": "full_width_text",
+                    "label": "Full Width Text",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "key": "field_58dc73e16f0b8",
+                            "label": "Title",
+                            "name": "fwt_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "default_value": "",
+                            "new_lines": "wpautop",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": "",
+                            "key": "field_58dc73ec6f0b9",
+                            "label": "Text",
+                            "name": "fwt_text",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "default_value": "",
+                            "delay": 0,
+                            "key": "field_58dc74226f0ba",
+                            "label": "WYSIWYG",
+                            "name": "fwt_wysiwyg",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            }
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
                     "key": "58c74a2bce555",
                     "name": "publications_grid",
                     "label": "Publications Grid",
@@ -1045,5 +1112,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1490238880
+    "modified": 1490842684
 }

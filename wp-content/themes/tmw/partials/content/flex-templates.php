@@ -18,6 +18,8 @@
 
       elseif( get_row_layout() == 'three_icons' ) { get_template_part( 'partials/content/three-icons' ); }
 
+      elseif( get_row_layout() == 'full_width_text' ) { get_template_part( 'partials/content/full-width-text' ); }
+
     endwhile;
 
   endif;

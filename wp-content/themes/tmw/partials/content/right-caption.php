@@ -21,7 +21,7 @@
 <section class="right-caption bg-secondary">
     <div class="container">`
         <div class="row">
-            <div class="col-sm-12 col-md-7 wow fadeInLeft" data-wow-delay=".5s">
+            <div class="col-sm-12 col-md-7 wow fadeInLeft">
 
                 <?php if ($RCmediaType = 'single_image') { ?>
 	                <img class="single" src="<?php echo $RCsingleImage['sizes']['large'];?>">

@@ -23,7 +23,7 @@
     <div class="container">`
         <div class="row">
 
-            <div class="col-sm-12 col-md-5 text-center caption">
+            <div class="col-sm-12 col-md-5 text-center caption wow fadeInLeft">
 
                 <?php if ( $LCcaptionType == 'caption' ) { ?>
 
@@ -53,7 +53,7 @@
 
             </div>
 
-            <div class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-7 wow fadeInRight">
 
                 <?php if ($LCmediaType = 'single_image') { ?>
 	                <img class="single" src="<?php echo $LCsingleImage['sizes']['large'];?>">

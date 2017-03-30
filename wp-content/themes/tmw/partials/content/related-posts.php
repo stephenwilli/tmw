@@ -9,7 +9,7 @@
 
 <section class="nopad">
     <div class="container-fluid nopad">
-        <div class="row popup-gallery">
+        <div class="row wow fadeInUp" data-wow-delay=".25s"">
             
             <?php
                 $args = array(

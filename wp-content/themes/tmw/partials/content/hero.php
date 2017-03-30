@@ -22,10 +22,10 @@
 
         <li>
 
-          <div class="hero-bg parallax" style="background-image : url('<?php echo $image['sizes']['full_screen'];?>');"></div>
+          <div class="hero-bg parallax wow fadeIn" style="background-image : url('<?php echo $image['sizes']['full_screen'];?>');"></div>
 
           <?php if ( $title ) { ?>
-            <div class="hero-caption caption-<?php echo $slideAlign; ?>">
+            <div class="hero-caption caption-<?php echo $slideAlign; ?> wow fadeInLeft" data-wow-delay=".25s"">
               
                 <h2><mark><?php echo $title; ?></mark></h2>
               

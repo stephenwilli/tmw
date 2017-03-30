@@ -12,6 +12,8 @@ html {
 body {
   @include copy-font();
   background-color: $white;
+  max-width: 100%;
+    overflow-x: hidden;
 }
 
 p {

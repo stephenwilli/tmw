@@ -1,7 +1,7 @@
 	<footer class="bg-primary">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-center">
+				<div class="col-sm-3">
 					<div class="footer-widget">
 						<?php 
 			                $phone = get_field('phone_number', 'option');
@@ -14,17 +14,32 @@
 						
 						<p>
 							<?php if ($phone) { ?>
-								<a href="tel:1-<?php echo $phone; ?>"><?php echo $phone; ?></a> | 
+								<a href="tel:1-<?php echo $phone; ?>"><?php echo $phone; ?></a> 
 							<?php } ?>
 
 							<?php if ($email) { ?>
-								<?php echo $email; ?></a> | 
+								<?php echo $email; ?></a> 
 							<?php } ?>
 
 							<?php if ($address) { ?>
 								<?php echo $address; ?>
 							<?php } ?>
 						</p>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="footer-widget">
+						<?php dynamic_sidebar( 'footer-column-1' ); ?>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="footer-widget">
+						<?php dynamic_sidebar( 'footer-column-2' ); ?>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="footer-widget">
+						<?php dynamic_sidebar( 'footer-column-3' ); ?>
 					</div>
 				</div>
 				

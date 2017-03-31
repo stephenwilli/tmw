@@ -107,6 +107,17 @@
   }
 }
 
+// FULL WIDTH TEXT
+
+.full-text {
+  padding: 80px 0;
+
+  @include respond-to($screen-sm) { 
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
 
 
 // PORTFOLIO GRID

@@ -50,7 +50,7 @@ add_action( 'init', 'create_post_type' );
 				'has_archive' => true,
 				'rewrite' => true,
 				'query_var' => true,
-				'supports' => array('title','editor','thumbnail','page-attributes'),
+				'supports' => array('title','thumbnail','page-attributes'),
 				'menu_icon' => 'dashicons-admin-users',
 
 				'labels' =>

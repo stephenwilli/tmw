@@ -5,9 +5,9 @@
 ?>
 
 
-<section class="nopad">
+<section class="nopad team-grid">
     <div class="container-fluid nopad">
-        <div class="row popup-gallery">
+        <div class="row">
             <?php
                 $args = array(
                     'post_type' => 'team',

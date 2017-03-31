@@ -1,0 +1,26 @@
+.team-grid {
+
+  .modal-header {
+    border: none;
+  }
+  .modal-body {
+    height: 400px;
+    padding: 35px;
+
+    .team-content {
+      margin-left: 20px;
+    }
+
+    h4,h5 {
+      color: $grey;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      font-style: italic;
+      font-size: 1rem;
+    }
+  }
+
+
+}

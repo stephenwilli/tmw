@@ -5,6 +5,9 @@ if ( has_post_thumbnail() ) {
     list( $url, $width, $height ) = wp_get_attachment_image_src( $image_id, 'cover' );
     $name = get_the_title();
     $slug = str_replace(' ', '-', strtolower($name));
+    $job = get_field('team_member_job_title');
+    $email = get_field('team_member_email');
+    $description = get_field('team_member_short_description');
 
 ?>
 
@@ -27,19 +30,26 @@ if ( has_post_thumbnail() ) {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <img src="<?php echo esc_url( $url ); ?>" class="img-responsive" alt="">
+
+            <div class="col-sm-6">
+                <img src="<?php echo esc_url( $url ); ?>" class="img-responsive" alt="">
+            </div>
+            
+            <div class="col-sm-6">
+                <div class="team-content">
+                    <h4><?php echo $name; ?></h4>
+                    <h5><?php echo $job; ?></h5>
+                    <p><?php echo $description ?></p>
+                    
+                    <?php if ($email){ ?>
+
+                        <a href="mailto:<?php echo $email;?>" class="btn -mini -orange"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                    
+                    <?php } ?>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <?php echo $name; ?>
-                </div>
-            </div>
+
         </div>
-      </div>
     </div>
   </div>
 </div>

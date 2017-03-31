@@ -3,6 +3,23 @@
     "title": "Team",
     "fields": [
         {
+            "message": "Team Member images should be uploaded at minimum size of 800px by 1040px",
+            "esc_html": 0,
+            "new_lines": "wpautop",
+            "key": "field_58ddd6fcb70d9",
+            "label": "Team Member Image Size",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
@@ -77,5 +94,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1490932540
+    "modified": 1490933567
 }

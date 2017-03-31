@@ -3,6 +3,23 @@
     "title": "Single Publication",
     "fields": [
         {
+            "message": "All Publication images should be uploaded at minimum size of 800px by 1040px",
+            "esc_html": 0,
+            "new_lines": "wpautop",
+            "key": "field_58ddd74e5605f",
+            "label": "Publication Image Sizes",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "layout": "horizontal",
             "choices": {
                 "magazine": "Magazine",
@@ -108,5 +125,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1490472279
+    "modified": 1490933607
 }

@@ -25,7 +25,7 @@
                             "label": "Background Image",
                             "name": "fwi_background_image",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "Full width images should be uploaded at minimum size of 1680px by 920px",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1062,5 +1062,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1490926248
+    "modified": 1490933710
 }

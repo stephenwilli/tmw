@@ -3,6 +3,23 @@
     "title": "Hero Sideshow",
     "fields": [
         {
+            "message": "All hero images images should be uploaded at minimum size of 1680px by 920px",
+            "esc_html": 0,
+            "new_lines": "wpautop",
+            "key": "field_58ddd76eba865",
+            "label": "Hero Image Sizes",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "layout": "horizontal",
             "choices": {
                 "slider": "Hero Slider",
@@ -211,5 +228,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1490669992
+    "modified": 1490933651
 }

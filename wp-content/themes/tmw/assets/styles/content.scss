@@ -89,6 +89,14 @@
     margin: 50px auto 0;
     padding: 0 40px;
 
+    .counter {
+      &:after {
+        display: inline-block;
+        content: "+";
+        margin-left: 5px;
+      }
+    }
+
     img {
       max-width: 200px;
     }

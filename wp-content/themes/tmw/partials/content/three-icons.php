@@ -3,7 +3,7 @@
     // THREE ICONS WIDE TI
     if ( have_rows('ti_icon_block') ):
 ?>
-    <section class="full-text bg-primary" id="services">
+    <section class="icon-wrap bg-primary" id="services">
         <div class="container">
             <div class="row">
         

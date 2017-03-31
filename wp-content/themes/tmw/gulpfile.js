@@ -62,7 +62,7 @@ var paths = {
       'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js',
       'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js',
       // 'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js',
-      // 'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js',
+      'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js',
       // 'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js',
       // 'bower_components/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js',
 

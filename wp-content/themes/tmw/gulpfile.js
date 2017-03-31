@@ -72,30 +72,15 @@ var paths = {
       // Misc Vendor Libraries
       'bower_components/jquery.easing/js/jquery.easing.js',
 
-      // Pace Loading animation
-      // 'bower_components/pace/pace.js',
-
       // WOW depends on animate.css - animate asset loading
       'bower_components/wow/dist/wow.js',
-
-      // Video .JS
-      // 'bower_components/videojs/dist/video-js/video.js',
 
       // Isotope Grid
       'bower_components/isotope/dist/isotope.pkgd.min.js',
 
-
       // Magnificent popups
       'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
 
-      // Parallax background images
-      // 'bower_components/jquery.stellar/jquery.stellar.js',
-
-      // Lazy Load Assets unveil
-      'bower_components/jquery-unveil/jquery.unveil.js',
-
-            // SCROLL REVEAL
-      'bower_components/scrollreveal/dist/scrollreveal.js'
     ],
     appScripts: [
       // You can keep your JS tidy in its own file for a specific feature.

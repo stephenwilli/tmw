@@ -77,6 +77,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include respond-to($screen-sm) { 
+      // min-height: 0;
+      background-attachment: scroll;
+    }
 }
 
 // THREE ICONS

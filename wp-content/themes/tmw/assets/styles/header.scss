@@ -39,7 +39,7 @@
 
 .navbar-right {
   margin-top: 20px;
-  margin-right: 10px !important;
+  margin-right: 110px !important;
   @include transition(all .5s ease-in);
 
 }
@@ -132,6 +132,42 @@
       color: $grey;
     }
 
+  }
+
+}
+
+.navbar-social {
+
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    margin-right: 5px;
+    
+    a {
+      color: $white;
+      font-size: .8rem;
+      padding: 2px;
+      border: 1px solid white;
+      border-radius: 50% 50% 50% 50%;
+      -webkit-border-radius: 50% 50% 50% 50%;
+  -moz-border-radius: 50% 50% 50% 50%;
+    @include transition(all .5s ease-in);
+
+      &:hover {
+        background-color: $white;
+        color: $grey;
+      }
+
+    }
   }
 
 }

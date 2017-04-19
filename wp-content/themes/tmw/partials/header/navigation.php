@@ -22,6 +22,29 @@
                   'walker'            => new wp_bootstrap_navwalker())
               );
           ?>
+        <div class="navbar-social">
+          <ul>
+            
+            <?php
+              $facebookLink = get_field('facebook_link', 'option');
+              $twitterLink = get_field('twitter_link', 'option');
+              $instagramLink = get_field('instagram_link', 'option');
+            ?>
+
+            <?php if ($facebookLink) { ?>
+              <li><a href="<?php echo $facebookLink; ?>"><i class="fa-fw fa fa-facebook"></i></a></li>
+            <?php } ?>
+
+            <?php if ($instagramLink) { ?>
+              <li><a href="<?php echo $instagramLink; ?>"><i class="fa-fw fa fa-instagram"></i></a></li>
+            <?php } ?>
+
+            <?php if ($twitterLink) { ?>
+              <li><a href="<?php echo $twitterLink; ?>"><i class="fa-fw fa fa-twitter"></i></a></li>
+            <?php } ?>
+
+          </ul>
+        </div>
     </div>
     <!-- /.container-fluid -->
 </nav>

@@ -21,6 +21,8 @@
     text-transform: uppercase;
     color: $white;
     border-radius: 0;
+    -webkit-border-radius: 0;
+  -moz-border-radius: 0;
     border: 2px $orange solid;
     @include transition($transition300);
     

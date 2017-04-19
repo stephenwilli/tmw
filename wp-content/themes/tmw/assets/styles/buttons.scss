@@ -8,6 +8,8 @@
   text-transform: uppercase;
   color: $grey;
   border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border: 2px $grey solid;
   @include transition($transition300);
   @include respond-to($screen-xs) { 

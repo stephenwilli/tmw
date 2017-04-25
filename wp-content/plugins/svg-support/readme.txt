@@ -3,8 +3,8 @@ Contributors: Benbodhi
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z9R7JERS82EQQ
 Tags: svg, vector, css, style, mime, mime type, embed, img, inline, animation
 Requires at least: 4.0
-Tested up to: 4.8-alpha-40396
-Stable tag: 2.3.7
+Tested up to: 4.8-alpha-40513
+Stable tag: 2.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,11 @@ You need to add the mime type for svg and svgz to: "MLA Settings > Media Library
 4. Inline SVG in the front end markup
 
 == Changelog ==
+
+= 2.3.8 =
+
+* Added some CSS to make sure featured images show on WooCommerce products, Sensei Courses and Lessons.
+* Fix: Auto insert class setting was stripping featured image HTML in some cases.
 
 = 2.3.7 =
 
@@ -280,6 +285,10 @@ You need to add the mime type for svg and svgz to: "MLA Settings > Media Library
 * Initial Release.
 
 == Upgrade Notice ==
+
+= 2.3.8 =
+
+* Adds better support for WooCommerce and Sensei. Fixes issue with featured images not showing up when auto insert class setting is on.
 
 = 2.3.7 =
 

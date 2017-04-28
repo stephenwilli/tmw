@@ -6,10 +6,7 @@
     position: absolute;
     z-index: 10;
     width: 65%;
-
-    @include respond-to($screen-sm){
-      width: 80%;
-    }
+    
  
     &.caption-left {
       text-align: left; 

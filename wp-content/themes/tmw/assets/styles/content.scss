@@ -4,6 +4,11 @@
   height: 140vh;
   padding: 200px 0;
 
+  @include respond-to($screen-sm){
+    padding:40px 0;
+    height: auto;
+  }
+
   .single {
     max-width: 100%;
     position: relative;
@@ -16,6 +21,10 @@
     top: 0;
     left: 0;
     z-index: 10;
+
+    @include respond-to($screen-sm){
+      position: relative;
+    }
   }
 
   .bottom {
@@ -24,10 +33,20 @@
     top:300px;
     left: 100px;
     z-index: 2;
+    @include respond-to($screen-sm){
+      position: relative;
+      top:-25px;
+      left: 160px;
+    }
   }
 
   .caption {
     padding: 100px 40px;
+
+    @include respond-to($screen-sm){
+      padding: 40px 80px;
+    }
+
   }
 
   .icon {

@@ -143,6 +143,10 @@ mark {
   -ms-box-decoration-break: clone;
   -o-box-decoration-break: clone;
   box-decoration-break: clone;
+
+  @include respond-to($screen-sm){
+    line-height: 2.2;
+  }
 }
 
 .page-content {

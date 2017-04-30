@@ -7,6 +7,8 @@
   
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1, user-scalable=no">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     

@@ -16,6 +16,12 @@
   .gear {
     position:absolute;
   }
+
+  .text-center {
+    @include respond-to($screen-xs) { 
+      text-align: inherit;
+    } 
+  }
   
   .gear-01 {
     top: 58px;
@@ -23,12 +29,28 @@
     width: 110px;
     -webkit-animation: oppo-spin 5s linear infinite;
     animation: oppo-spin 5s linear infinite;
+
+    @include respond-to($screen-md) { 
+      left: 425px;
+    } 
+
+    @include respond-to($screen-sm) { 
+      left: 315px;
+    } 
+
+    @include respond-to($screen-xs) { 
+      left: 215px;
+    } 
   }
 
   .gear-02 {
     width: 80px;
     -webkit-animation: spin 5s linear infinite;
     animation: spin 5s linear infinite;
+
+    @include respond-to($screen-xs) { 
+      left: 275px;
+    }
   }
 
   @-webkit-keyframes spin {

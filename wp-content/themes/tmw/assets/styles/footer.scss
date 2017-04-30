@@ -3,7 +3,7 @@ footer {
     padding-top: 40px;
     
     @include respond-to($screen-sm){
-      padding: 40px;
+      padding: 40px 20px;
     }
 
     .logo {

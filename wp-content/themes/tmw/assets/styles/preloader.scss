@@ -7,6 +7,19 @@
   height: 100%;
   overflow: visible;
   background: $orange;
+
+      @include respond-to($screen-xs) { 
+      display: none;
+    } 
+}
+
+.gear-wrap {
+  @include respond-to($screen-xs) { 
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 0 25%;
+  } 
 }
 
 .spin {
@@ -39,7 +52,7 @@
     } 
 
     @include respond-to($screen-xs) { 
-      left: 215px;
+      // left: 215px;
     } 
   }
 
@@ -49,7 +62,7 @@
     animation: spin 5s linear infinite;
 
     @include respond-to($screen-xs) { 
-      left: 275px;
+      // left: 275px;
     }
   }
 

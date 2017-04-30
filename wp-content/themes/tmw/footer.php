@@ -14,11 +14,11 @@
 						
 						<p>
 							<?php if ($phone) { ?>
-								<a href="tel:1-<?php echo $phone; ?>"><?php echo $phone; ?></a> 
+								<a href="tel:1-<?php echo $phone; ?>"><?php echo $phone; ?></a><br> 
 							<?php } ?>
 
 							<?php if ($email) { ?>
-								<?php echo $email; ?></a> 
+								<?php echo $email; ?></a><br> 
 							<?php } ?>
 
 							<?php if ($address) { ?>

@@ -39,7 +39,7 @@ if ( has_post_thumbnail() ) {
                 <div class="team-content">
                     <h4><?php echo $name; ?></h4>
                     <h5><?php echo $job; ?></h5>
-                    <p><?php echo $description ?></p>
+                    <p class="job-description"><?php echo $description ?></p>
                     
                     <?php if ($email){ ?>
 

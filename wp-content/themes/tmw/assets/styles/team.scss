@@ -5,8 +5,8 @@
   }
 
   .modal-content {
-    @include respond-to($screen-sm) { 
-       height: 95vh
+    @include respond-to($screen-xs) { 
+       height: 80vh
     } 
   }
       button.close {     
@@ -40,11 +40,16 @@
       font-size: 1rem;
     }
 
-    .team-image {
+    p {
       @include respond-to($screen-sm) { 
-        max-width: 75%;
-        margin-bottom: 10px;
-      }
+       display: none;
+      } 
+    }
+
+    .team-image {
+      @include respond-to($screen-xs) { 
+       margin-bottom: 20px;
+      } 
     }
   }
 

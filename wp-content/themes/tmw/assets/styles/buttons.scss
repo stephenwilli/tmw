@@ -23,9 +23,13 @@
 
   &.-large {
     width: 200px;
+
+    @include respond-to($screen-xs) { 
+      padding: 10px 0;
+    }
     
     @include respond-to($screen-xs) { 
-      width: 90%;
+      width: 100%;
       margin-top: 20px;
     }
   }

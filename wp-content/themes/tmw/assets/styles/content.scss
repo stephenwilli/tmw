@@ -5,7 +5,7 @@
   padding: 200px 0;
 
   @include respond-to($screen-sm){
-    padding:40px 0;
+    padding:40px 20px;
     height: auto;
   }
 
@@ -13,6 +13,10 @@
     max-width: 100%;
     position: relative;
     top: 150px;
+    
+    @include respond-to($screen-sm){
+      top: 0;
+    }
   }
 
   .top {
@@ -24,6 +28,8 @@
 
     @include respond-to($screen-sm){
       position: relative;
+      max-width: 100%;
+      width: 100%;
     }
   }
 
@@ -34,9 +40,7 @@
     left: 100px;
     z-index: 2;
     @include respond-to($screen-sm){
-      position: relative;
-      top:-25px;
-      left: 160px;
+      display: none;
     }
   }
 
@@ -44,7 +48,7 @@
     padding: 100px 40px;
 
     @include respond-to($screen-sm){
-      padding: 40px 80px;
+      padding: 40px 0;
     }
 
   }
@@ -62,21 +66,39 @@
   position: relative;
   background-size: cover;
 
+  h2 {
+    @include respond-to($screen-sm){
+      font-size: 2rem;
+    }
+  }
+
   .full-width-caption {
     position: absolute;
     z-index: 10;
     width: 65%;
 
+    @include respond-to($screen-sm) { 
+      width: 80%;
+    }
+
     &.caption-left {
         text-align: left; 
         left: 10%;
         bottom: 50%;
+
+        @include respond-to($screen-sm) { 
+          bottom: 20%;
+        }
       }
 
     &.caption-right {
       text-align: right;
       right: 10%;
       bottom: 50%;
+      
+      @include respond-to($screen-sm) { 
+        bottom: 20%;
+      }
     }
 
     &.caption-center {
@@ -85,6 +107,10 @@
       width: 100%;
       padding: 0 300px;
       text-align: center;
+
+      @include respond-to($screen-sm) { 
+        bottom: 20%;
+      }
     }
   }
 
@@ -98,7 +124,7 @@
     background-size: cover;
 
     @include respond-to($screen-sm) { 
-      // min-height: 0;
+      min-height: 500px;
       background-attachment: scroll;
     }
 }
@@ -151,14 +177,6 @@
   .btn.active {
     background-color: $grey;
     color: $white
-  }
-  
-  @include respond-to($screen-sm) {   
-    
-    .btn {
-      font-size: 1rem;
-      padding: 10px 20px;
-    }
   }
 
 }

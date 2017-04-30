@@ -9,6 +9,12 @@
        height: 95vh
     } 
   }
+      button.close {     
+        
+        @include respond-to($screen-sm) { 
+        font-size: 4rem;  
+        }
+    }
 
   .modal-body {
     height: 400px;
@@ -21,6 +27,8 @@
        margin-left: 0;
       } 
     }
+
+
 
     h4,h5 {
       color: $grey;

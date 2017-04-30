@@ -38,6 +38,10 @@ footer {
       margin: 0 0 0 -10px;
       padding: 0;
 
+      @include respond-to($screen-sm){
+      margin: 0 0 15px 0;
+      }
+
 
       li {
         display: inline;

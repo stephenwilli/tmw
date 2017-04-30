@@ -153,6 +153,10 @@ mark {
   @include respond-to($screen-sm){
     line-height: 2.2;
   }
+
+  @include respond-to($screen-sm){
+    line-height: 3;
+  }
 }
 
 .page-content {
@@ -160,8 +164,7 @@ mark {
   padding-bottom: 80px;
 
   @include respond-to($screen-sm) { 
-    padding-left: 80px;
-    padding-right: 80px;
+    padding: 35px;
   }
 
 } 

@@ -2,11 +2,25 @@
   padding-top: 140px;
   padding-bottom: 80px;
 
+
   h2, p {
     color: $grey;
   }
 
+  .publication-text {
+
+    @include respond-to($screen-sm) { 
+      padding: 20px 35px;
+    }
+  }
+
   .img-carousel {
+
+    .slides {
+      @include respond-to($screen-xs) { 
+        width: 100% !important;
+      }
+    }
 
     li {
       margin-right: 5px;
@@ -22,8 +36,8 @@
       }
 
       @include respond-to($screen-xs) { 
-        margin-right: 10px;
-        width: 220px !important;
+        margin-right: 8px;
+        width: 31% !important;
       }
     }
 
@@ -45,6 +59,10 @@
       &:before {
         color: $grey;
       }
+
+      @include respond-to($screen-xs) { 
+        display: none;
+      }
         
     }
 
@@ -54,5 +72,11 @@
 
 .related-posts {
 	padding: 35px 0;
+
+  h2 {
+    @include respond-to($screen-xs) { 
+      margin-bottom: 0;
+    }
+  }
 }
 

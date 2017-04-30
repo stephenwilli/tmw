@@ -50,7 +50,7 @@
 							<?php endif; ?>
 						</div>
 
-						<div class="col-sm-12 col-md-5">
+						<div class="col-sm-12 col-md-5 publication-text">
 							<?php the_content();?>
 							<?php 
 								$link = get_field('publication_link');

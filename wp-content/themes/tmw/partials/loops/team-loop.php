@@ -32,7 +32,7 @@ if ( has_post_thumbnail() ) {
       <div class="modal-body">
 
             <div class="col-sm-6">
-                <img src="<?php echo esc_url( $url ); ?>" class="img-responsive" alt="">
+                <img src="<?php echo esc_url( $url ); ?>" class="img-responsive team-image" alt="">
             </div>
             
             <div class="col-sm-6">

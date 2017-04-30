@@ -3,12 +3,23 @@
   .modal-header {
     border: none;
   }
+
+  .modal-content {
+    @include respond-to($screen-sm) { 
+       height: 95vh
+    } 
+  }
+
   .modal-body {
     height: 400px;
     padding: 35px;
 
     .team-content {
       margin-left: 20px;
+      
+      @include respond-to($screen-sm) { 
+       margin-left: 0;
+      } 
     }
 
     h4,h5 {
@@ -20,7 +31,13 @@
       font-style: italic;
       font-size: 1rem;
     }
-  }
 
+    .team-image {
+      @include respond-to($screen-sm) { 
+        max-width: 75%;
+        margin-bottom: 10px;
+      }
+    }
+  }
 
 }

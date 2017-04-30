@@ -165,6 +165,7 @@ mark {
 
   @include respond-to($screen-sm) { 
     padding: 35px;
+    margin: 0;
   }
 
 } 

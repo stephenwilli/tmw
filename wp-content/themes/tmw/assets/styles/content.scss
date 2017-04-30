@@ -30,6 +30,7 @@
       position: relative;
       max-width: 100%;
       width: 100%;
+      padding: 0;
     }
   }
 
@@ -110,6 +111,7 @@
 
       @include respond-to($screen-sm) { 
         bottom: 20%;
+        padding: 0;
       }
     }
   }

@@ -19,7 +19,7 @@
 
 
 <section class="left-caption bg-secondary">
-    <div class="container">`
+    <div class="container">
         <div class="row">
 
             <div class="col-sm-12 col-md-5 text-center caption wow fadeInLeft">

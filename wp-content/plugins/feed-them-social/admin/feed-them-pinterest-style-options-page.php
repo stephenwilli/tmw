@@ -30,7 +30,8 @@ class FTS_pinterest_options_page {
 	    <?php _e('Pinterest Feed Options', 'feed-them-social'); ?>
 	  </h1>
 	  <div class="use-of-plugin">
-	    <?php _e('Add a follow button and position it using the options below.', 'feed-them-social'); ?>
+	    <?php _e('Add a follow button and position it using the options below. This option will not work for combined feeds.', 'feed-them-social'); ?>
+        <?php _e('', 'feed-them-social'); ?>
 	  </div>
 	  
 	  
@@ -50,7 +51,7 @@ class FTS_pinterest_options_page {
 	  		  <option '<?php echo selected($fts_pinterest_show_follow_btn, 'yes', false ) ?>' value="yes"><?php _e('Yes', 'feed-them-social'); ?></option>
 	    </select>
 	
-	      <div class="clear"></div>
+	      <div class="fts-clear"></div>
 	 	  </div><!--/fts-twitter-feed-styles-input-wrap-->
 	      
 	      
@@ -63,7 +64,7 @@ class FTS_pinterest_options_page {
 	  		  <option '<?php echo selected($fts_pinterest_show_follow_btn_where, 'pinterest-follow-below', false ) ?>' value="pinterest-follow-below"><?php _e('Show Below Feed', 'feed-them-social'); ?></option>
 	    </select>
 	
-	      <div class="clear"></div>
+	      <div class="fts-clear"></div>
 	 	  </div><!--/fts-twitter-feed-styles-input-wrap-->
 
 
@@ -79,7 +80,7 @@ class FTS_pinterest_options_page {
 				  <?php _e('Board Title Color', 'feed-them-social'); ?>
 			  </div>
 			  <input type="text" name="pinterest_board_title_color" class="feed-them-social-admin-input fb-text-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="pinterest_board_title_color" placeholder="#555555" value="<?php echo get_option('pinterest_board_title_color'); ?>"/>
-			  <div class="clear"></div>
+			  <div class="fts-clear"></div>
 		  </div>
 		  <!--/fts-facebook-feed-styles-input-wrap-->
 		  <div class="feed-them-social-admin-input-wrap">
@@ -87,7 +88,7 @@ class FTS_pinterest_options_page {
 				  <?php _e('Board Title Size', 'feed-them-social'); ?>
 			  </div>
 			  <input type="text" name="pinterest_board_title_size" class="feed-them-social-admin-input" placeholder="16px" value="<?php echo get_option('pinterest_board_title_size'); ?>"/>
-			  <div class="clear"></div>
+			  <div class="fts-clear"></div>
 		  </div>
 		  <!--/fts-facebook-feed-styles-input-wrap-->
 		  <div class="feed-them-social-admin-input-wrap">
@@ -95,7 +96,7 @@ class FTS_pinterest_options_page {
 				  <?php _e('Background on Hover', 'feed-them-social'); ?>
 			  </div>
 			  <input type="text" name="pinterest_board_backg_hover_color" class="feed-them-social-admin-input fb-link-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="pinterest_board_backg_hover_color" placeholder="#FFF" value="<?php echo get_option('pinterest_board_backg_hover_color'); ?>"/>
-			  <div class="clear"></div>
+			  <div class="fts-clear"></div>
 		  </div>
 		  <!--/fts-facebook-feed-styles-input-wrap-->
 
@@ -118,7 +119,7 @@ class FTS_pinterest_options_page {
 
 
 
-			  <div class="clear"></div>
+			  <div class="fts-clear"></div>
 
 			  <div class="feed-them-social-admin-input-wrap" style="margin-bottom:0px;">
 				  <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
@@ -139,7 +140,7 @@ class FTS_pinterest_options_page {
 					  });
 				  </script>
 				  <input type="text" name="fts_pinterest_custom_api_token" class="feed-them-social-admin-input" id="fts_pinterest_custom_api_token" value="<?php echo get_option('fts_pinterest_custom_api_token'); ?>"/>
-				  <div class="clear"></div>
+				  <div class="fts-clear"></div>
 			  </div>
 
 
@@ -167,12 +168,12 @@ class FTS_pinterest_options_page {
 			  }
 			  ?>
 
-		  <div class="clear"></div>
+		  <div class="fts-clear"></div>
 	</div>
 		<!--/fts-pinterest-feed-styles-input-wrap-->
 		
 	     
-	    <div class="clear"></div>
+	    <div class="fts-clear"></div>
 	    <input type="submit" class="feed-them-social-admin-submit-btn" value="<?php _e('Save All Changes') ?>" />
 	  </form>
 	  <a class="feed-them-social-admin-slick-logo" href="http://www.slickremix.com" target="_blank"></a> </div>

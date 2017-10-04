@@ -42,8 +42,8 @@ class FTS_Pinterest_Feed extends feed_them_social_functions
 
     function fts_pinterest_repins_likes_wrap($post_data) {
         $wrap_start = '<div class="fts-single-pin-social-meta-wrap">';
-        $repins = isset($post_data->counts->repins) ? '<span class="fts-single-pin-repin-count">' . $post_data->counts->repins . '</span>' : '';
-        $likes = isset($post_data->counts->likes) ? '<span class="fts-single-pin-like-count">' . $post_data->counts->likes . '</span>' : '';
+        $repins = isset($post_data->counts->saves) ? '<span class="fts-single-pin-repin-count">' . $post_data->counts->saves . '</span>' : '';
+        $likes = isset($post_data->counts->comments) ? '<span class="fts-single-pin-like-count">' . $post_data->counts->comments . '</span>' : '';
         $wrap_end = '</div>';
 
         return  $wrap_start.$repins.$likes.$wrap_end;
@@ -207,7 +207,7 @@ class FTS_Pinterest_Feed extends feed_them_social_functions
             }
             $count++;
         }
-        $output .= '<div class="clear"></div></div>';
+        $output .= '<div class="fts-clear"></div></div>';
 
         //******************
         // SOCIAL BUTTON
@@ -275,6 +275,7 @@ class FTS_Pinterest_Feed extends feed_them_social_functions
         wp_enqueue_script('fts-global', plugins_url('feed-them-social/feeds/js/fts-global.js'), array('jquery'));
         wp_enqueue_script('fts-images-loaded', plugins_url('feed-them-social/feeds/js/imagesloaded.pkgd.min.js'));
 
+
         $output = '';
         $pinterest_show_follow_btn = get_option('pinterest_show_follow_btn');
         $pinterest_show_follow_btn_where = get_option('pinterest_show_follow_btn_where');
@@ -303,8 +304,8 @@ class FTS_Pinterest_Feed extends feed_them_social_functions
         $pins = json_decode($pins_returned['pins']);
 
         //	echo'<pre>';
-      //  	 print_r($pins);
-       // 	echo'</pre>';
+       	// print_r($pins);
+      //  	echo'</pre>';
         //******************
         // SOCIAL BUTTON
         //******************
@@ -349,7 +350,7 @@ class FTS_Pinterest_Feed extends feed_them_social_functions
           //  }
           //  $count++;
         }
-        $output .= '</div><div class="clear"></div>';
+        $output .= '</div><div class="fts-clear"></div>';
         //******************
         // SOCIAL BUTTON
         //******************

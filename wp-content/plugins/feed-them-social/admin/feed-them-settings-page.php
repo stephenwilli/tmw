@@ -192,7 +192,7 @@ class FTS_settings_page
                                         //All Feeds (1 of each for now)
                                         2 => array(
                                             'value' => 'multiple_facebook',
-                                            'title' => __('Multiple Facebook Feeds only', 'feed-them-social'),
+                                            'title' => __('Multiple Facebook Feeds', 'feed-them-social'),
                                         ),
                                     ),
                                     'premium_msg_boxes' => array(
@@ -265,7 +265,7 @@ class FTS_settings_page
                                         //Center Container
                                         3 => array(
                                             'option_type' => 'select',
-                                            'label' => __('Center Combine Steam Container', 'feed-them-social'),
+                                            'label' => __('Center Feed Container', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'combine_container_position',
                                             'name' => 'combine_container_position',
@@ -288,7 +288,7 @@ class FTS_settings_page
                                         4 => array(
                                             'input_wrap_class' => 'combine_height',
                                             'option_type' => 'input',
-                                            'label' => __('Combine Steams Fixed Height', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto height', 'feed-them-social') . '</small>',
+                                            'label' => __('Feed Fixed Height', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto height', 'feed-them-social') . '</small>',
                                             'type' => 'text',
                                             'id' => 'combine_height',
                                             'name' => 'combine_height',
@@ -513,7 +513,7 @@ class FTS_settings_page
                                                 'sub_options_wrap_class' => 'combine-instagram-wrap',
                                             ),
                                         ),
-                                        //Combine Instagram Name
+                                        //Combine Instagram Name <!-- the li list comes from an ajax call after looking up the user ID --><ul id="fts-instagram-username-picker-wrap"></ul>
                                         14 => array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_instagram_name',
@@ -521,7 +521,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_instagram_name',
                                             'name' => 'combine_instagram_name',
-                                            'instructional-text' => __('If you added your <a href="https://www.slickremix.com/how-to-get-your-instagram-name-and-convert-to-id/" target="_blank">Instagram Name</a> above and clicked convert, a number should appear in the input below.', 'feed-them-social'),
+                                            'instructional-text' => __('<div class="fts-insta-info-plus-wrapper">Choose a different ID if yours is not the first name below after clicking Convert Instagram Username button.</div><!-- the li list comes from an ajax call after looking up the user ID --><ul id="fts-instagram-username-picker-wrap-combined" class="fts-instagram-username-picker-wrap"></ul>', 'feed-them-social'),
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -661,27 +661,27 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_youtube_type',
                                             'name' => 'combine_youtube_type',
-                                            'options' => array(
-                                                //User's Most Recent Videos
+                                            'options' => array( //Channel Feed
                                                 1 => array(
+                                                    'label' => __('Channel Feed', 'feed-them-social'),
+                                                    'value' => 'channelID',
+                                                ), //Channel Playlist Feed
+                                                2 => array(
+                                                    'label' => __('Channel\'s Specific Playlist', 'feed-them-social'),
+                                                    'value' => 'playlistID',
+                                                ),
+                                                //User's Most Recent Videos
+                                                3 => array(
                                                     'label' => __('User\'s Most Recent Videos', 'feed-them-social'),
                                                     'value' => 'username',
                                                 ),
                                                 //User's Playlist
-                                                2 => array(
+                                                4 => array(
                                                     'label' => __('User\'s Specific Playlist', 'feed-them-social'),
                                                     'value' => 'userPlaylist',
                                                 ),
-                                                //Channel Feed
-                                                3 => array(
-                                                    'label' => __('Channel Feed', 'feed-them-social'),
-                                                    'value' => 'channelID',
-                                                ),
-                                                //Channel Playlist Feed
-                                                4 => array(
-                                                    'label' => __('Channel\'s Specific Playlist', 'feed-them-social'),
-                                                    'value' => 'playlistID',
-                                                ),
+
+
                                             ),
                                             'req_plugin' => 'combine_streams',
                                             'short_attr' => array(
@@ -697,11 +697,11 @@ class FTS_settings_page
                                         21 => array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_youtube_name',
-                                            'label' => __('YouTube Name', 'feed-them-social'),
+                                            'label' => __('YouTube Username', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'combine_youtube_name',
                                             'name' => 'combine_youtube_name',
-                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube  <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Username, Channel ID and or Playlist ID</a> and paste it below.',
+                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Username</a> and paste it below.',
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -720,7 +720,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_playlist_id',
                                             'name' => 'combine_playlist_id',
-                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube  <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Username, Channel ID and or Playlist ID</a> and paste it below.',
+                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Playlist ID</a> and paste them below.',
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -736,7 +736,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_channel_id',
                                             'name' => 'combine_channel_id',
-                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube  <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Username, Channel ID and or Playlist ID</a> and paste it below.',
+                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Channel ID</a> and paste it below.',
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -1022,7 +1022,7 @@ class FTS_settings_page
                                                     'class' => 'facebook-message-generator group inst-text-facebook-group',
                                                 ),
                                                 3 => array(
-                                                    'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-facebook-event-id/" target="_blank">' . __('Facebook Event ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below. PLEASE NOTE: This will only work with Facebook Page Events and you cannot have more than 25 events on Facebook.', 'feed-them-social'),
+                                                    'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-facebook-page-vanity-url/" target="_blank">' . __('Facebook Page ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below. PLEASE NOTE: This will only work with Facebook Page Events and you cannot have more than 25 events on Facebook.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator event-list inst-text-facebook-event-list',
                                                 ),
                                                 4 => array(
@@ -2391,25 +2391,25 @@ class FTS_settings_page
                                     ),
                                     //Feed Types and their options
                                     'feeds_types' => array(
-                                        //User's Most Recent Videos
-                                        1 => array(
-                                            'value' => 'username',
-                                            'title' => __('User\'s Most Recent Videos', 'feed-them-social'),
-                                        ),
-                                        //User's Playlist
-                                        2 => array(
-                                            'value' => 'userPlaylist',
-                                            'title' => __('User\'s Specific Playlist', 'feed-them-social'),
-                                        ),
                                         //Channel Feed
-                                        3 => array(
+                                        1 => array(
                                             'value' => 'channelID',
                                             'title' => __('Channel Feed', 'feed-them-social'),
                                         ),
                                         //Channel Playlist Feed
-                                        4 => array(
+                                        2 => array(
                                             'value' => 'playlistID',
                                             'title' => __('Channel\'s Specific Playlist', 'feed-them-social'),
+                                        ),
+                                        //User's Most Recent Videos
+                                        3 => array(
+                                            'value' => 'username',
+                                            'title' => __('User\'s Most Recent Videos', 'feed-them-social'),
+                                        ),
+                                        //User's Playlist
+                                        4 => array(
+                                            'value' => 'userPlaylist',
+                                            'title' => __('User\'s Specific Playlist', 'feed-them-social'),
                                         ),
                                     ),
                                     'short_attr_final' => 'yes',
@@ -2424,7 +2424,7 @@ class FTS_settings_page
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_name',
                                             'label' => __('Youtube Username (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Username, Channel ID and or Playlist ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Username', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'youtube_name',
                                             'name' => 'youtube_name',
@@ -2446,7 +2446,7 @@ class FTS_settings_page
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_playlistID',
                                             'label' => __('Youtube Playlist ID (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Username, Channel ID and or Playlist ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __(' Playlist ID and Channel ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'youtube_playlistID',
                                             'name' => 'youtube_playlistID',
@@ -2469,7 +2469,7 @@ class FTS_settings_page
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_playlistID2',
                                             'label' => __('Youtube Playlist ID (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Username, Channel ID and or Playlist ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Playlist ID and Username', 'feed-them-social') . '</a> ' . __('and paste them below.', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'youtube_playlistID2',
                                             'name' => 'youtube_playlistID2',
@@ -2512,7 +2512,7 @@ class FTS_settings_page
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_channelID',
                                             'label' => __('Youtube Channel ID (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Username, Channel ID and or Playlist ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Channel ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'youtube_channelID',
                                             'name' => 'youtube_channelID',
@@ -3140,8 +3140,8 @@ class FTS_settings_page
                                             'option_type' => 'input',
                                             'label' => __('Load more Button Width', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto width', 'feed-them-social') . '</small>',
                                             'type' => 'text',
-                                            'id' => 'twitter_grid_colmn_width',
-                                            'name' => 'twitter_grid_colmn_width',
+                                            'id' => 'twitter_loadmore_button_width',
+                                            'name' => 'twitter_loadmore_button_width',
                                             'placeholder' => '300px ' . __('for example', 'feed-them-social'),
                                             'value' => '',
                                             'prem_req' => 'yes',
@@ -3219,8 +3219,8 @@ class FTS_settings_page
                                             'option_type' => 'input',
                                             'label' => __('Grid Column Width', 'feed-them-social'),
                                             'type' => 'text',
-                                            'id' => 'facebook_grid_column_width',
-                                            'name' => 'facebook_grid_column_width',
+                                            'id' => 'twitter_grid_column_width',
+                                            'name' => 'twitter_grid_column_width',
                                             'instructional-text' => __('NOTE:', 'feed-them-social') . '</strong> ' . __('Define the Width of each post and the Space between each post below. You must add px after any number.', 'feed-them-social'),
                                             'placeholder' => '310px ' . __('for example', 'feed-them-social'),
                                             'value' => '',
@@ -3352,7 +3352,6 @@ class FTS_settings_page
                                     ),
                                     'short_attr_final' => 'yes',
                                     //Inputs relative to all Feed_types of this feed. (Eliminates Duplication)[Excluded from loop when creating select]
-
                                     'main_options' => array(
                                         //Instagram ID
                                         0 => array(
@@ -3374,7 +3373,7 @@ class FTS_settings_page
                                             'required' => 'yes',
                                             'instructional-text' => array(
                                                 1 => array(
-                                                    'text' => __('If you added your <a href="https://www.slickremix.com/how-to-get-your-instagram-name-and-convert-to-id/" target="_blank">Instagram Name</a> above and clicked convert, a number should appear in the input below, now continue.', 'feed-them-social'),
+                                                    'text' => __('<div class="fts-insta-info-plus-wrapper">Choose a different ID if yours is not the first name below after clicking Convert Instagram Username button.</div><!-- the li list comes from an ajax call after looking up the user ID --><ul id="fts-instagram-username-picker-wrap" class="fts-instagram-username-picker-wrap"></ul>', 'feed-them-social'),
                                                     'class' => 'instagram-user-option-text',
                                                 ),
                                                 2 => array(
@@ -3852,11 +3851,11 @@ class FTS_settings_page
                                         <option value="10" <?php if ($ftsDevModeCache == '10') echo 'selected="selected"'; ?>><?php _e('10 Seconds (for testing only)', 'feed-them-social'); ?></option>
                                         <option value="300" <?php if ($ftsDevModeCache == '300') echo 'selected="selected"'; ?>><?php _e('5 Minutes', 'feed-them-social'); ?></option>
                                         <option value="600" <?php if ($ftsDevModeCache == '600') echo 'selected="selected"'; ?>><?php _e('10 Minutes', 'feed-them-social'); ?></option>
-                                        <option value="900" <?php if ($ftsDevModeCache == '900') echo 'selected="selected"'; ?>><?php _e('15 Minutes (Default)', 'feed-them-social'); ?></option>
+                                        <option value="900" <?php if ($ftsDevModeCache == '900') echo 'selected="selected"'; ?>><?php _e('15 Minutes', 'feed-them-social'); ?></option>
                                         <option value="1200" <?php if ($ftsDevModeCache == '1200') echo 'selected="selected"'; ?>><?php _e('20 Minutes', 'feed-them-social'); ?></option>
                                         <option value="1800" <?php if ($ftsDevModeCache == '1800') echo 'selected="selected"'; ?>><?php _e('30 Minutes', 'feed-them-social'); ?></option>
                                         <option value="3600" <?php if ($ftsDevModeCache == '3600') echo 'selected="selected"'; ?>><?php _e('60 Minutes', 'feed-them-social'); ?></option>
-                                        <option value="86400" <?php if ($ftsDevModeCache == '86400') echo 'selected="selected"'; ?>><?php _e('1 Day', 'feed-them-social'); ?></option>
+                                        <option value="86400" <?php if ($ftsDevModeCache == '86400') echo 'selected="selected"'; ?>><?php _e('1 Day (Default)', 'feed-them-social'); ?></option>
                                         <option value="604800" <?php if ($ftsDevModeCache == '604800') echo 'selected="selected"'; ?>><?php _e('1 Week', 'feed-them-social'); ?></option>
                                         <option value="1209600" <?php if ($ftsDevModeCache == '1209600') echo 'selected="selected"'; ?>><?php _e('2 Weeks', 'feed-them-social'); ?></option>
                                         <option value="1" <?php if ($ftsDevModeCache == '1') echo 'selected="selected"'; ?>><?php _e('Clear cache on every page load', 'feed-them-social'); ?></option>
@@ -4211,6 +4210,40 @@ class FTS_settings_page
                                 </div><!--/feed-them-custom-css-->
 
                                 <div class="feed-them-custom-logo-css">
+                                    <h2><?php _e('Disable Share Option', 'feed-them-social'); ?></h2>
+                                    <p>
+                                        <input name="fts_disable_share_button" class="fts-powered-by-settings-admin-input" type="checkbox" id="fts_disable_share_button" value="1" <?php echo checked('1', get_option('fts_disable_share_button')); ?>/> <?php _e('Check this if you want to disable the Share Icon on all feeds', 'feed-them-social'); ?>
+                                    </p>
+                                    <br/>
+                                    <div class="feed-them-social-admin-input-wrap">
+                                        <div class="feed-them-social-admin-input-label fts-social-icons-color-label">
+                                            <?php _e('Social Icons Color', 'feed-them-social'); ?>
+                                        </div>
+                                        <input type="text" name="fts_social_icons_color" class="feed-them-social-admin-input fts-social-icons-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="fts-border-bottom-color-input" placeholder="#ddd" value="<?php echo get_option('fts_social_icons_color'); ?>"/>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--/fts-facebook-feed-styles-input-wrap-->
+
+                                    <div class="feed-them-social-admin-input-wrap">
+                                        <div class="feed-them-social-admin-input-label fts-social-icons-color-label">
+                                            <?php _e('Social Icons Hover Color', 'feed-them-social'); ?>
+                                        </div>
+                                        <input type="text" name="fts_social_icons_hover_color" class="feed-them-social-admin-input fts-social-icons-hover-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="fts-border-bottom-color-input" placeholder="#ddd" value="<?php echo get_option('fts_social_icons_hover_color'); ?>"/>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--/fts-facebook-feed-styles-input-wrap-->
+
+                                    <div class="feed-them-social-admin-input-wrap">
+                                        <div class="feed-them-social-admin-input-label fts-social-icons-color-back-label">
+                                            <?php _e('Icons wrap background Color', 'feed-them-social'); ?>
+                                        </div>
+                                        <input type="text" name="fts_social_icons_back_color" class="feed-them-social-admin-input fts-social-icons-back-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="fts-border-bottom-color-input" placeholder="#ddd" value="<?php echo get_option('fts_social_icons_back_color'); ?>"/>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!--/fts-facebook-feed-styles-input-wrap-->
+
+                                    <br/>
+
                                     <h2><?php _e('Disable Magnific Popup CSS', 'feed-them-social'); ?></h2>
                                     <p>
                                         <input name="fts_fix_magnific" class="fts-powered-by-settings-admin-input" type="checkbox" id="fts_fix_magnific" value="1" <?php echo checked('1', get_option('fts_fix_magnific')); ?>/> <?php _e('Check this if you are experiencing problems with your theme(s) or other plugin(s) popups.', 'feed-them-social'); ?>
@@ -4919,73 +4952,133 @@ class FTS_settings_page
             }
             ?>
 
-
             //END Instagram//
-            //START convert Instagram name to id//
+
+
+            //START convert Instagram name to id for regular isntagram and combined feeds instagram option //
             function converter_instagram_username() {
+
                 var convert_instagram_username = jQuery("input#convert_instagram_username").val();
-                if (convert_instagram_username == "") {
-                    jQuery(".convert_instagram_username, .combine_convert_instagram_username").addClass('fts-empty-error');
+
+                var convert_instagram_username_combined = jQuery("input#combine_convert_instagram_username").val();
+
+                // Regular Instagram Converter
+                if(jQuery( "#fts-instagram-form" ).is(':visible') && convert_instagram_username == "") {
+                    jQuery("#convert_instagram_username").addClass('fts-empty-error');
                     jQuery("input#convert_instagram_username").focus();
                     return false;
                 }
-                if (convert_instagram_username != "") {
+                else if(jQuery( "#fts-instagram-form" ).is(':visible') && convert_instagram_username !== "") {
                     jQuery(".convert_instagram_username").removeClass('fts-empty-error');
-                    var username = jQuery("input#convert_instagram_username").val();
-                    console.log(username);
-
-                    <?php $fts_instagram_tokens_array = array('9844495a8c4c4c51a7c519d0e7e8f293', '9844495a8c4c4c51a7c519d0e7e8f293');
-                    $fts_instagram_access_token = $fts_instagram_tokens_array[array_rand($fts_instagram_tokens_array, 1)];
-                    ?>
-                    jQuery.getJSON("https://api.instagram.com/v1/users/search?q=" + username + "&client_id=<?php echo $fts_instagram_access_token; ?>&access_token=258559306.da06fb6.c222db6f1a794dccb7a674fec3f0941f&callback=?",
-
-                        {
-                            format: "json"
-                        },
-                        function (data) {
-                            console.log(data);
-                            var final_instagram_us_id = data.data[0].id;
-                            jQuery('#instagram_id').val(final_instagram_us_id);
-                            jQuery('.final-instagram-user-id-textarea').slideDown();
-                        });
+                    var username_id = "#convert_instagram_username";
+                    var picker_wrap = "#fts-instagram-username-picker-wrap";
+                    var username = convert_instagram_username;
                 }
-            }
 
-            //Append button to instagram converter input
-            jQuery(".combine-instagram-id-option-wrap").append('<input type="button" class="feed-them-social-admin-submit-btn" value="Convert Instagram Username" onclick="converter_instagram_username2();" tabindex="4" style="margin-right:1em;" />');
 
-            //START convert Instagram name to id for combined feeds.
-            function converter_instagram_username2() {
-                var convert_instagram_username = jQuery("input#combine_convert_instagram_username").val();
-                if (convert_instagram_username == "") {
-                    jQuery(".combine_convert_instagram_username").addClass('fts-empty-error');
+                // Combined Feeds Converter
+                if (jQuery( "#fts-combine-steams-form" ).is(':visible') && convert_instagram_username_combined == "") {
+                    alert('wtf');
+                    jQuery("#combine_convert_instagram_username").addClass('fts-empty-error');
                     jQuery("input#combine_convert_instagram_username").focus();
                     return false;
                 }
-                if (convert_instagram_username != "") {
-                    jQuery(".combine_convert_instagram_username").removeClass('fts-empty-error');
-                    var username = jQuery("input#combine_convert_instagram_username").val();
-                    console.log(username);
+                else if(jQuery( "#fts-combine-steams-form" ).is(':visible') && convert_instagram_username_combined !== "") {
 
-                    <?php $fts_instagram_tokens_array = array('9844495a8c4c4c51a7c519d0e7e8f293', '9844495a8c4c4c51a7c519d0e7e8f293');
-                    $fts_instagram_access_token = $fts_instagram_tokens_array[array_rand($fts_instagram_tokens_array, 1)];
-                    ?>
-                    jQuery.getJSON("https://api.instagram.com/v1/users/search?q=" + username + "&client_id=<?php echo $fts_instagram_access_token; ?>&access_token=258559306.da06fb6.c222db6f1a794dccb7a674fec3f0941f&callback=?",
-
-                        {
-                            format: "json"
-                        },
-                        function (data) {
-                            console.log(data);
-                            var final_instagram_us_id = data.data[0].id;
-                            jQuery('#combine_instagram_name').val(final_instagram_us_id);
-                            // jQuery('.final-instagram-user-id-textarea').slideDown();
-                        });
+                    jQuery(".convert_instagram_username").removeClass('fts-empty-error');
+                    var username_id = "#combine_convert_instagram_username";
+                    var picker_wrap = "#fts-instagram-username-picker-wrap-combined";
+                    var username = convert_instagram_username_combined;
                 }
+
+                console.log(username);
+
+                <?php $fts_instagram_tokens_array = array('9844495a8c4c4c51a7c519d0e7e8f293', '9844495a8c4c4c51a7c519d0e7e8f293');
+                $fts_instagram_access_token = $fts_instagram_tokens_array[array_rand($fts_instagram_tokens_array, 1)];
+                ?>
+                jQuery.getJSON("https://api.instagram.com/v1/users/search?q=" + username + "&client_id=<?php echo $fts_instagram_access_token; ?>&access_token=258559306.da06fb6.c222db6f1a794dccb7a674fec3f0941f&callback=?",
+
+                    {
+                        format: "json"
+                    },
+                    function (data) {
+
+                        console.log(data);
+
+                        var convert_instagram_username = jQuery("input#convert_instagram_username").val();
+
+                        var convert_instagram_username_combined = jQuery("input#combine_convert_instagram_username").val();
+                        jQuery('.fts-instagram-username-picker-wrap').html('');
+                        jQuery('.fts-instagram-username-picker-wrap').closest('.instructional-text').css( "border", "none" );
+
+
+                        jQuery.each(data.data, function(key, val) {
+                            console.log(data.data[key].full_name);
+                            console.log(data.data[key].profile_picture);
+                            console.log(data.data[key].username);
+                            console.log(data.data[key].id);
+
+                            if(jQuery(username_id).val() === data.data[key].username){
+
+                                jQuery(username_id).prepend(data.data[key].username);
+
+                                jQuery(picker_wrap).prepend('<li class="fts-insta-username-'+data.data[key].username+'"><div class="fts-insta-profile-picture-div"><img src="' + data.data[key].profile_picture + '"/><div class="fts-insta-fullname-div"><strong>Full Name:</strong> ' + data.data[key].full_name + '</div><div class="fts-insta-username-div"><strong>Username:</strong> ' + data.data[key].username + '</div><div class="fts-insta-id-div"><strong>ID:</strong> <span class="fts-insta-id-final">' + data.data[key].id + '</span></span></div></li>');
+
+
+                                if(jQuery( "#fts-instagram-form" ).is(':visible') && convert_instagram_username !== "") {
+                                    jQuery('.fts-insta-username-'+data.data[key].username+'').addClass('fts-insta-id-active');
+                                    jQuery('#instagram_id').val(data.data[key].id);
+                                    console.log('Success'); console.log('.fts-insta-username-'+data.data[key].username+'');
+                                }
+
+                                if(jQuery( "#fts-combine-steams-form" ).is(':visible') && convert_instagram_username_combined !== "") {
+                                    jQuery('.fts-insta-username-'+data.data[key].username+'').addClass('fts-insta-id-active');
+                                    jQuery('#combine_instagram_name').val(data.data[key].id);
+
+
+                                    console.log('Success'); console.log('.fts-insta-username-'+data.data[key].username+'');
+
+                                }
+
+                            }
+                            else {
+                                jQuery(picker_wrap).append('<li class="fts-insta-username-'+data.data[key].username+'"><div class="fts-insta-profile-picture-div"><img src="' + data.data[key].profile_picture + '"/><div class="fts-insta-fullname-div"><strong>Full Name:</strong> ' + data.data[key].full_name + '</div><div class="fts-insta-username-div"><strong>Username:</strong> ' + data.data[key].username + '</div><div class="fts-insta-id-div"><strong>ID:</strong> <span class="fts-insta-id-final">' + data.data[key].id + '</span></span></div></li>');
+
+                            }
+
+                        });
+
+                    });
             }
-            //select all
+
+            //Append button to instagram converter input
+            jQuery(".combine-instagram-id-option-wrap").append('<input type="button" class="feed-them-social-admin-submit-btn" value="Convert Instagram Username" onclick="converter_instagram_username();" tabindex="4" style="margin-right:1em;" />');
 
             jQuery(document).ready(function () {
+
+                // Use this to force form to be open for easier development access to shortcode options( comment out when not in use ) .fts-instagram-form
+                // jQuery('.shortcode-generator-form').hide();
+                // jQuery('.combine-steams-shortcode-form').fadeIn('fast');
+
+                // This is for when you click on the returned instagram id,name list it will make that li active and append the value to the instagram ID input.
+                jQuery('.fts-instagram-username-picker-wrap').on('click', 'li', function() {
+                    var convert_instagram_username = jQuery("input#convert_instagram_username").val();
+                    var convert_instagram_username_combined = jQuery("input#combine_convert_instagram_username").val();
+                    var insta_page_id = jQuery(this).find('.fts-insta-id-final').html();
+                    console.log(insta_page_id);
+
+                    if(convert_instagram_username !== "") {
+                        jQuery("#instagram_id").val(insta_page_id);
+                    }
+                    if(convert_instagram_username_combined !== "") {
+                        jQuery("#combine_instagram_name").val(insta_page_id);
+                    }
+
+                    jQuery('.fts-instagram-username-picker-wrap li').not(this).removeClass('fts-insta-id-active');
+                    jQuery(this).addClass('fts-insta-id-active');
+
+                });
+
                 jQuery(".toggle-custom-textarea-show").click(function () {
                     jQuery('textarea#fts-color-options-main-wrapper-css-input').slideToggle();
                     jQuery('.toggle-custom-textarea-show span').toggle();

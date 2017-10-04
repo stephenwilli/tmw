@@ -3,14 +3,14 @@
 Plugin Name: Feed Them Social (Facebook, Instagram, Twitter, etc)
 Plugin URI: http://slickremix.com/
 Description: Create and display custom feeds for Facebook Groups, Facebook Pages, Facebook Events, Facebook Photos, Facebook Album Covers, Twitter, Instagram, Pinterest and more.
-Version: 2.1.8
+Version: 2.2.8
 Author: SlickRemix
 Author URI: http://slickremix.com/
 Text Domain: feed-them-social
 Domain Path: /languages
 Requires at least: wordpress 4.0.0
-Tested up to: WordPress 4.7.3
-Stable tag: 2.1.8
+Tested up to: WordPress 4.8.2
+Stable tag: 2.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,42 @@ if (!function_exists('is_plugin_active'))
 $fts_plugin_rel_url = plugin_dir_path(__FILE__);
 
 /**
+ *  FTS options on activation
+ *
+ * @since 2.2.4
+ */
+function fts_plugin_activation() {
+    // we add an db option to check then delete the db option after activation and the cache has emptied.
+    // the delete_option is on the feed-them-functions.php file at the bottom of the function fts_clear_cache_script
+    add_option( 'Feed_Them_Social_Activated_Plugin', 'feed-them-social' );
+
+}
+//FTS Activation Function
+register_activation_hook( __FILE__,'fts_plugin_activation');
+
+/**
+ * FTS Load Plugin options on activation check
+ *
+ * @since 2.2.4
+ */
+function feed_them_social_load_plugin() {
+
+    if ( is_admin() && get_option( 'Feed_Them_Social_Activated_Plugin' ) == 'feed-them-social' ) {
+
+        //Options List
+        $activation_options = array(
+            'fts-date-and-time-format' => 'one-day-ago',
+            'fts_clear_cache_developer_mode' => '86400',
+        );
+
+        foreach($activation_options as $option_key => $option_value){
+            // We don't use update_option because we only want this to run for options that have not already been set by the user
+            add_option($option_key, $option_value);
+        }
+    }
+}
+add_action( 'admin_init', 'feed_them_social_load_plugin' );
+/**
  * FTS System Version
  *
  * Returns current plugin version.
@@ -41,7 +77,6 @@ function ftsystem_version() {
     $plugin_version = $plugin_data['Version'];
     return $plugin_version;
 }
-
 /**
  * FTS Versions Needed
  *
@@ -59,17 +94,14 @@ function fts_versions_needed() {
     );
     return $fts_versions_needed;
 }
-
 // Make sure php version is greater than 5.3
 if (function_exists('phpversion'))
     $phpversion = phpversion();
 $phpcheck = '5.2.9';
 if ($phpversion > $phpcheck) {
-
 //Error Handler
     include($fts_plugin_rel_url . 'includes/error-handler.php');
     new feedthemsocial\fts_error_handler();
-
     /**
      * FTS Action Init
      *
@@ -79,7 +111,6 @@ if ($phpversion > $phpcheck) {
 // Localization
         load_plugin_textdomain('feed-them-social', false, basename(dirname(__FILE__)) . '/languages');
     }
-
 // Add actions
     add_action('init', 'fts_action_init');
 // Include admin
@@ -90,7 +121,6 @@ if ($phpversion > $phpcheck) {
     include($fts_plugin_rel_url . 'admin/feed-them-instagram-style-options-page.php');
     include($fts_plugin_rel_url . 'admin/feed-them-pinterest-style-options-page.php');
     include($fts_plugin_rel_url . 'admin/feed-them-youtube-style-options-page.php');
-
 // Include core files and classes
     include($fts_plugin_rel_url . 'includes/feed-them-functions.php');
     $load_fts = 'feedthemsocial\feed_them_social_functions';
@@ -110,9 +140,9 @@ include($fts_plugin_rel_url . 'admin/free-plugin-license-page.php');
     new $load_tw_fts;
     include_once($fts_plugin_rel_url . 'feeds/instagram/instagram-feed.php');
     include_once($fts_plugin_rel_url . 'feeds/pinterest/pinterest-feed.php');
-    include_once($fts_plugin_rel_url . 'feeds/twitter/vine-feed.php');
-    $load_vn_fts = 'feedthemsocial\FTS_Vine_Feed';
-    new $load_vn_fts;
+ //   include_once($fts_plugin_rel_url . 'feeds/twitter/vine-feed.php');
+ //   $load_vn_fts = 'feedthemsocial\FTS_Vine_Feed';
+ //   new $load_vn_fts;
 
 } // end if php version check
 else {
@@ -183,6 +213,4 @@ class feed_them_social_functions {
      */
     function register_settings() {
     }
-}
-
-?>
+}?>

@@ -2,8 +2,8 @@
 Contributors: slickremix, damon7620
 Tags: Facebook, Instagram, Twitter, Feed
 Requires at least: 3.6.0
-Tested up to: 4.7.3
-Stable tag: 2.1.7
+Tested up to: 4.8.2
+Stable tag: 2.2.8
 
 License: GPLv2 or later
 
@@ -28,6 +28,7 @@ Create Social Feeds of any or all your celebrities, family, friends, yourself, o
  * Easily generate all the shortcodes you need for any feed with our SUPER SIMPLE shortcode generator.
  * Responsive Social Feeds.
  * Customize Font Colors.
+ * Share options for the Facebook, Instagram and Twitter Feeds.
  * Add Like and/or Follow Buttons above or below any feeds.
  * With our [Premium Extension](https://www.slickremix.com/product/feed-them-social-premium-extension/) you can set how many posts, pictures, tweets, or videos for each individual social feed! Facebook Groups now has the option to hide the Title or Description too! [See Example Demo](http://feedthemsocial.com/)
  * Facebook and Instagram feeds now have Load More Button and Infinite Scroll features available in Premium Version and they are mobile friendly.
@@ -52,14 +53,17 @@ Create Social Feeds of any or all your celebrities, family, friends, yourself, o
  * [Facebook Video Feed Demo](http://feedthemsocial.com/facebook-videos-demo/)
  * [Facebook Photo and Video Carousels Demo](http://feedthemsocial.com/facebook-videos-demo/)
 
-= PREMIUM Carousel Plugin =
+= Carousel Extension =
  * [See Demo](http://feedthemsocial.com/facebook-carousels-or-sliders/)
 
-= PREMIUM FTS Bar =
+=  FTS Bar Extension =
  ✭ [See Demo](http://feedthemsocial.com/fts-bar/)
 
 = Facebook Reviews Extension =
- ✭ [NEW! See Demo](http://feedthemsocial.com/facebook-page-reviews-demo/)
+ ✭ [See Demo](http://feedthemsocial.com/facebook-page-reviews-demo/)
+
+= Combined Streams Extension =
+ ✭ [NEW! See Demo](http://feedthemsocial.com/feed-them-social-combined-streams/)
 
 All SlickRemix plugins come with FREE Basic Support! If you need help or have questions we're here to help, just post on our [Support Forum](https://www.slickremix.com/support-forum/) and we’ll get to you as quickly as we can! (usually within 48hrs)
 
@@ -72,6 +76,47 @@ Feed Them Social was Developed By SlickRemix --> [https://www.slickremix.com/](h
   * Log into WordPress dashboard then click **Plugins** > **Add new** > Then under the title "Install Plugins" click **Upload** > **choose the zip** > **Activate the plugin!**
 
 == Changelog ==
+= Version 2.2.8 Wednesday, September 20th, 2017 =
+   * NEW: Promo Image for the free plugin license page.
+
+= Version 2.2.6 - 2.2.7 Wednesday, August 9th, 2017 =
+   * NEW: Facebook: If the width of feed gets below 250px wide the extra gallery thumbnail images aligned under a photo will stack and be the same size as the large image.
+   * FIXED: Twitter: Share icon misaligned on some posts.
+   * PREMIUM FIX: Facebook: Some images not showing in video gallery thumbnails.
+   * PREMIUM FIX: Instagram: Some images not showing in popup.
+   * PREMIUM FIX: Twitter: Some posts getting skipped when using the loadmore option.
+
+= Version 2.2.5 Wednesday, June 28th, 2017 =
+   * FIXED: Themes not pre installed with masonry.js getting error. This has been corrected now on the fts-global.js file to do a function check first.
+   * FIXED: Twitter: Icons not aligning proper on some themes.
+   * FIXED: CSS: Misc tweeks to override other theme CSS for our feeds. If you think we have to many !important rules in our CSS you have to consider that we are fighting with the themes CSS which in most cases overrides a plugins CSS. So if you see an !important rule and are having trouble overriding it make sure and target the body, html or an ID before the CSS class you are trying to override.
+
+= Version 2.2.4 Saturday, June 24th, 2017 =
+   * NEW: Facebook: Now photo posts that contain more than one photo will be showm similar to facebook.
+   * NEW: Settings->Global Options: 1 day cache is now set by default for new installs along with the 1 day ago time setting.
+   * NEW: Settings->Global Options: Change the color of the share background and the social icons active state and hover state.
+   * NEW: Facebook Options: Font size option for Description.
+   * NEW: Twitter Options: Font size option for Description.
+   * NEW: Update or Activate: We will automatically clear the cache on all new updates so the feed will always show our most updated styles and changes.
+   * FIXED: Facebook: Album photos and Album Covers not showing photos properly.
+   * PREMIUM FIX: Facebook: Album photos and Album Covers loadmore option was not aligning properly when image loaded.
+   * PREMIUM and COMBINED STREAMS FIX: Youtube: Move YouTube Channel ID option to the top of the list since that seems to be more popular.
+
+= Version 2.2.0 - 2.2.3 Friday, June 16th, 2017 =
+   * NEW: Share options on Facebook, Twitter and Instagram feeds. The new Share icon is on by default for the Facebook, Instagram(slicker feed) and Twitter feed. You can turn the Share option off on the Settings -> Global Options tab of our plugin.
+   * FIXED: Facebook: Fix FB Translate XML file not loading properly because facebook removed it, so we are using a new XML list.
+   * FIXED: Facebook Albums: Likes and comments not showing if 2 album_photo shortcodes on page with same id. Needed to create a type=album_photos create cache statement.
+   * FIXED: Facebook Feeds: Profile name not going to proper profile for some users.
+   * FIXED: Twitter Feeds: p tag getting added to reply, retweat and love links. Closed spaces so themes or other plugins won't try and add p tags anymore.
+   * FIXED: Words option not working if using combined stream for multiple facebook feeds.
+   * FIXED: Settings Page: Column width issue on settings page for Twitter.
+   * FIXED: Fatal Error coming from Free plugin license page on some installs.
+   * COMBINED FEEDS NEW: If you have the combined streams extension you will see share icons on the Facebook, Instagram, Twitter, Pinterest and Youtube posts.
+
+= Version 2.1.9 Thursday, April 27th, 2017 =
+   * FIXED: Facebook: Type ablum_photos not caching proper if more than one of the same album on the page with different album_id's. The likes, comments, share options area was not displaying.
+   * FIXED: Combined Facebook Feeds words option not working.
+
 = Version 2.1.7 - 2.1.8 Friday, March 24th, 2017 =
    * ALERT: Vine has finally removed access to the API so this feed is no longer available.
    * NEW: Settings page UI and easier setup instructions. Includes a Shortcode Options menu tab and a Global Options menu tab.

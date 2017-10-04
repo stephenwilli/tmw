@@ -163,8 +163,6 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                 $pics_count = '6';
         }
 
-
-
         if(!is_plugin_active('feed-them-premium/feed-them-premium.php') && $pics_count > '6'){
             $pics_count = '6';
         }
@@ -172,8 +170,8 @@ class FTS_Instagram_Feed extends feed_them_social_functions
             wp_enqueue_script('fts-masonry-pkgd', plugins_url('feed-them-social/feeds/js/masonry.pkgd.min.js'), array('jquery'));
             // masonry and date js snippet in fts-global
             wp_enqueue_script('fts-images-loaded', plugins_url('feed-them-social/feeds/js/imagesloaded.pkgd.min.js'));
-            wp_enqueue_script('fts-global', plugins_url('feed-them-social/feeds/js/fts-global.js'), array('jquery'));
         }
+            wp_enqueue_script('fts-global', plugins_url('feed-them-social/feeds/js/fts-global.js'), array('jquery'));
         $instagram_data_array = array();
         $fts_instagram_access_token = get_option('fts_instagram_custom_api_token');
         $fts_instagram_show_follow_btn = get_option('instagram_show_follow_btn');
@@ -459,7 +457,7 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                      }
 
                       ?>
-                    <a href='<?php if (is_plugin_active('feed-them-premium/feed-them-premium.php') && isset($popup) && $popup == 'yes' && $post_data->type == 'image') {
+                    <a href='<?php if (is_plugin_active('feed-them-premium/feed-them-premium.php') && isset($popup) && $popup == 'yes' && ($post_data->type == 'image' || $post_data->type == 'carousel')) {
                         print $this->fts_instagram_image_link($post_data);
                     }
                     elseif (is_plugin_active('feed-them-premium/feed-them-premium.php')  && isset($popup) && $popup == 'yes' && $post_data->type == 'video') {
@@ -479,11 +477,17 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                     </div>
                     <?php if ($hide_date_likes_comments == 'no') { ?>
                         <div class="fts-insta-likes-comments-grab-popup">
+                                <?php
+                                $fts_share_option = $this->fts_share_option($this->fts_view_on_instagram_url($post_data),$this->fts_instagram_description($post_data));
+                                print $fts_share_option;
+                                ?>
+                                <div class="fts-instagram-reply-wrap-left">
                         <ul class='slicker-heart-comments-wrap'>
                             <li class='slicker-instagram-image-likes'><?php print $this->fts_instagram_likes_count($post_data); ?> </li>
                             <li class='slicker-instagram-image-comments'>
                                 <span class="fts-comment-instagram"></span> <?php print $this->fts_instagram_comments_count($post_data); ?></li>
                         </ul>
+                        </div>
                         </div>
                     <?php } ?>
                 </div>
@@ -592,7 +596,7 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                                         fts_time: fts_time
                                     },
                                     type: 'GET',
-                                    url: myAjaxFTS,
+                                    url: "<?php echo admin_url('admin-ajax.php') ?>",
                                     success: function (data) {
                                         console.log('Well Done and got this from sever: ' + data);
                                         jQuery('.<?php echo $fts_dynamic_class_name ?>').append(data).filter('.<?php echo $fts_dynamic_class_name ?>').html();
@@ -611,6 +615,9 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                                         jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').html('<?php _e('Load More', 'feed-them-instagram') ?>');
                                         //	jQuery('#loadMore_< ?php echo $fts_dynamic_name ?>').removeClass('flip360-fts-load-more');
                                         jQuery("#loadMore_<?php echo $fts_dynamic_name ?>").removeClass('fts-fb-spinner');
+
+                                         // Reload the share each funcion otherwise you can't open share option.
+                                        jQuery.fn.ftsShare();
 
                                         // We return this function again otherwise the popup won't work correctly for the newly loaded items
                                         jQuery.fn.slickInstagramPopUpFunction();
@@ -636,7 +643,7 @@ class FTS_Instagram_Feed extends feed_them_social_functions
             $fts_dynamic_name = $_REQUEST['fts_dynamic_name'];
             // this div returns outputs our ajax request via jquery append html from above
 
-            print '<div class="clear"></div>';
+            print '<div class="fts-clear"></div>';
             print '<div id="output_' . $fts_dynamic_name . '"></div>';
             if (is_plugin_active('feed-them-premium/feed-them-premium.php') && $scrollMore == 'autoscroll') {
                 print '<div id="loadMore_' . $fts_dynamic_name . '" class="fts-fb-load-more fts-fb-autoscroll-loader">Instagram</div>';
@@ -668,7 +675,7 @@ class FTS_Instagram_Feed extends feed_them_social_functions
 
         //Make sure it's not ajaxing
         if (!isset($_GET['load_more_ajaxing'])) {
-            print '<div class="clear"></div>';
+            print '<div class="fts-clear"></div>';
             if (is_plugin_active('feed-them-premium/feed-them-premium.php') && isset($scrollMore) && $scrollMore == 'button') {
                 print '<div class="fts-instagram-load-more-wrapper">';
                   print '<div id="loadMore_' . $fts_dynamic_name . '" class="fts-fb-load-more">' . __('Load More', 'feed-them-instagram') . '</div>';

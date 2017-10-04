@@ -40,7 +40,7 @@ class fts_Free_Plugin_License_Page {
                 'title' => 'Feed Them Social Combined Streams',
                 'plugin_url' => 'feed-them-social-combined-streams/feed-them-social-combined-streams.php',
                 'demo_url' => 'http://feedthemsocial.com/feed-them-social-combined-streams/',
-                'purchase_url' => 'https://www.slickremix.com/downloads/feed-them-social-premium-extension/',
+                'purchase_url' => 'https://www.slickremix.com/downloads/feed-them-social-combined-streams/',
             ),
             'feed-them-social-facebook-reviews' => array(
                 'title' => 'Feed Them Social Facebook Reviews',
@@ -52,13 +52,13 @@ class fts_Free_Plugin_License_Page {
                 'title' => 'Feed Them Carousel Premium',
                 'plugin_url' => 'feed-them-carousel-premium/feed-them-carousel-premium.php',
                 'demo_url' => 'http://feedthemsocial.com/facebook-carousels-or-sliders/',
-                'purchase_url' => 'http://www.slickremix.com/downloads/feed-them-carousel-premium/',
+                'purchase_url' => 'https://www.slickremix.com/downloads/feed-them-carousel-premium/',
             ),
             'fts_bar' => array(
                 'title' => 'FTS Bar',
                 'plugin_url' => 'fts-bar/fts-bar.php',
                 'demo_url' => 'http://feedthemsocial.com/fts-bar/',
-                'purchase_url' => 'http://www.slickremix.com/downloads/fts-bar/',
+                'purchase_url' => 'https://www.slickremix.com/downloads/fts-bar/',
             ),
         );
         $this->install();
@@ -89,7 +89,9 @@ class fts_Free_Plugin_License_Page {
         }
         //Premium Active: Add boxes to plugin licence page they don't have.
         //Rgister new override options
-        add_action('current_screen', array($this, 'register_options'));
+        if (isset($_GET['page']) && $_GET['page'] == 'fts-license-page') {
+            add_action('current_screen', array($this, 'register_options'));
+        }
     }
 
     /**
@@ -203,8 +205,9 @@ class fts_Free_Plugin_License_Page {
 
             <div class="fts-activation-msg">
                 <ol>
-                    <li><?php _e('Enter your License Key and Click the Save Changes button.', 'feed-them-social') ?></li>
-                    <li><?php _e('Now Click the Activate License button.', 'feed-them-social') ?></li>
+                    <li><?php _e('Install the zip file of the plugin you should have received after purchase on the <a href="https://www.slickremix.com/betablog/wp-admin/plugin-install.php">plugins page</a> and leave the free version active too.', 'feed-them-social') ?></li>
+                    <li><?php _e('Now Enter your License Key and Click the <strong>Save Changes button</strong>.', 'feed-them-social') ?></li>
+                    <li><?php _e('Finally, Click the <strong>Activate License button</strong>.', 'feed-them-social') ?></li>
                 </ol>
             </div>
             <form method="post" action="options.php" class="fts-license-master-form">
@@ -243,7 +246,7 @@ class fts_Free_Plugin_License_Page {
                     submit_button();
                 } ?>
             </form>
-
+            <div style="margin-top:0px;"><a href="https://www.slickremix.com/downloads/feed-them-gallery/" target="_blank"><img style="max-width: 100%;" src="<?php echo plugins_url('feed-them-social/admin/images/ft-gallery-promo.jpg'); ?>"/></a></div>
         </div>
         <?php
     }

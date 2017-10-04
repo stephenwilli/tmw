@@ -37,7 +37,7 @@ class FTS_instagram_options_page
                 <?php _e('Instagram Feed Options', 'feed-them-social'); ?>
             </h1>
             <div class="use-of-plugin">
-                <?php _e('Add a follow button and position it using the options below.', 'feed-them-social'); ?>
+                <?php _e('Add a follow button and position it using the options below. This option will not work for combined feeds.', 'feed-them-social'); ?>
             </div>
             <br/>
 
@@ -62,7 +62,7 @@ class FTS_instagram_options_page
                         <?php _e('Yes', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-instagram-feed-styles-input-wrap-->
 
@@ -85,7 +85,7 @@ class FTS_instagram_options_page
                         <?php _e('Show Below Feed', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-instagram-feed-styles-input-wrap-->
                 <?php if (is_plugin_active('feed-them-premium/feed-them-premium.php') || is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php')) { ?>
@@ -101,7 +101,7 @@ class FTS_instagram_options_page
                                     <?php _e('Load More Button Color', 'feed-them-social'); ?>
                                 </div>
                                 <input type="text" name="instagram_loadmore_background_color" class="feed-them-social-admin-input fb-loadmore-background-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="instagram-loadmore-background-color-input" placeholder="#ddd" value="<?php echo get_option('instagram_loadmore_background_color'); ?>"/>
-                                <div class="clear"></div>
+                                <div class="fts-clear"></div>
                         </div>
                         <!--/fts-instagram-feed-styles-input-wrap-->
 
@@ -110,7 +110,7 @@ class FTS_instagram_options_page
                                 <?php _e('Load More Button Text Color', 'feed-them-social'); ?>
                             </div>
                             <input type="text" name="instagram_loadmore_text_color" class="feed-them-social-admin-input fb-loadmore-text-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="instagram-loadmore-text-color-input" placeholder="#ddd" value="<?php echo get_option('instagram_loadmore_text_color'); ?>"/>
-                            <div class="clear"></div>
+                            <div class="fts-clear"></div>
                         </div>
                         <!--/fts-instagram-feed-styles-input-wrap-->
                  <?php } ?>
@@ -143,7 +143,7 @@ class FTS_instagram_options_page
                             </a></p>
                     </div>
 
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                     <div class="feed-them-social-admin-input-wrap" style="margin-bottom:0px;">
                         <div class="feed-them-social-admin-input-label fts-instagram-border-bottom-color-label">
                             <?php _e('Access Token Required', 'feed-them-social'); ?>
@@ -163,7 +163,7 @@ class FTS_instagram_options_page
                             });
                         </script>
                         <input type="text" name="fts_instagram_custom_api_token" class="feed-them-social-admin-input" id="fts_instagram_custom_api_token" value="<?php echo get_option('fts_instagram_custom_api_token'); ?>"/>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                     <?php
                     // Error Check
@@ -176,7 +176,7 @@ class FTS_instagram_options_page
                        echo'<div class="fts-failed-api-token">'. __('You are required to get an access token to view your photos. Click Save all Changes after getting your Access Token.', 'feed-them-social').'</div>';
                      }
                     ?>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                     <input type="submit" class="feed-them-social-admin-submit-btn" value="<?php _e('Save All Changes') ?>"/>
                 </div>
             </form>

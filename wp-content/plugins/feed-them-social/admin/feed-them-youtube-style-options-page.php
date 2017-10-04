@@ -35,7 +35,7 @@ class FTS_youtube_options_page
                 <?php _e(' Feed Options', 'feed-them-social'); ?>
             </h1>
             <div class="use-of-plugin">
-                <?php _e('Add a follow button and position it using the options below.', 'feed-them-social'); ?>
+                <?php _e('Add a follow button and position it using the options below. This option will not work for combined feeds.', 'feed-them-social'); ?>
             </div>
 
             <br/>
@@ -58,7 +58,7 @@ class FTS_youtube_options_page
                         value="yes"><?php _e('Yes', 'feed-them-social'); ?></option>
                     </select>
 
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div><!--/fts-twitter-feed-styles-input-wrap-->
 
                 <div class="feed-them-social-admin-input-wrap">
@@ -74,7 +74,7 @@ class FTS_youtube_options_page
                         value="youtube-follow-below"><?php _e('Show Below Feed', 'feed-them-social'); ?></option>
                     </select>
 
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div><!--/fts-twitter-feed-styles-input-wrap-->
 
                 <?php
@@ -101,7 +101,7 @@ class FTS_youtube_options_page
                             <?php _e('API Key Required', 'feed-them-social'); ?>
                         </div>
                         <input type="text" name="youtube_custom_api_token" class="feed-them-social-admin-input" id="youtube_custom_api_token" value="<?php echo get_option('youtube_custom_api_token'); ?>"/>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                     <?php
                     foreach ($test_app_token_response as $userID) {
@@ -117,7 +117,7 @@ class FTS_youtube_options_page
                         break;
                     }
                     ?>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                     <input type="submit" class="feed-them-social-admin-submit-btn" value="<?php _e('Save All Changes') ?>"/>
                 </div>
             </form>

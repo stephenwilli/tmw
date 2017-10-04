@@ -56,7 +56,7 @@ class FTS_facebook_options_page
 
                 $fb_reviews_overall_rating_background_border_hide = get_option('fb_reviews_overall_rating_background_border_hide');
 
-                $lang_options_array = json_decode($fts_functions->xml_json_parse('https://www.facebook.com/translations/FacebookLocales.xml'));
+                $lang_options_array = json_decode($fts_functions->xml_json_parse('https://raw.githubusercontent.com/pennersr/django-allauth/master/allauth/socialaccount/providers/facebook/data/FacebookLocales.xml'));
                 //echo'<pre>';
                 // print_r($lang_options_array);
                 //echo'</pre>';
@@ -395,7 +395,7 @@ class FTS_facebook_options_page
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
-                <div class="feed-them-social-admin-input-wrap">
+                <div class="feed-them-social-admin-input-wrap" style="display: none;">
                     <div class="fts-title-description-settings-page">
                         <h3>
                             <?php _e('Offset Limit', 'feed-them-social'); ?>
@@ -434,9 +434,11 @@ class FTS_facebook_options_page
                         <h3>
                             <?php _e('Like Button or Box Options', 'feed-them-social'); ?>
                         </h3>
+                        <?php _e('This will only show on regular feeds not combined feeds.', 'feed-them-social'); ?>
                     </div>
                     <div class="feed-them-social-admin-input-label fts-twitter-text-color-label">
                         <?php _e('Show Follow Button', 'feed-them-social'); ?>
+
                     </div>
                     <select name="fb_show_follow_btn" id="fb-show-follow-btn" class="feed-them-social-admin-input">
                         <option>
@@ -597,6 +599,15 @@ class FTS_facebook_options_page
                         <?php _e('Feed Header Extra Text Color', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="fb_header_extra_text_color" class="feed-them-social-admin-input fb-text-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="fb-text-color-input" placeholder="#222" value="<?php echo get_option('fb_header_extra_text_color'); ?>"/>
+                    <div class="clear"></div>
+                </div>
+                <!--/fts-facebook-feed-styles-input-wrap-->
+
+                <div class="feed-them-social-admin-input-wrap">
+                    <div class="feed-them-social-admin-input-label fts-fb-text-size-label">
+                        <?php _e('Feed Description Text Size', 'feed-them-social'); ?>
+                    </div>
+                    <input type="text" name="fb_text_size" class="feed-them-social-admin-input fb-text-size-input" id="fb-text-size-input" placeholder="12px" value="<?php echo get_option('fb_text_size'); ?>"/>
                     <div class="clear"></div>
                 </div>
                 <!--/fts-facebook-feed-styles-input-wrap-->

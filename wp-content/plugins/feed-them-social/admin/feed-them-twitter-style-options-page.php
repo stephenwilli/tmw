@@ -56,6 +56,7 @@ class FTS_twitter_options_page
                         <h3>
                             <?php _e('Follow Button Options', 'feed-them-social'); ?>
                         </h3>
+                        <?php _e('This will only show on regular feeds not combined feeds.', 'feed-them-social'); ?>
                     </div>
                     <div class="feed-them-social-admin-input-label fts-twitter-text-color-label">
                         <?php _e('Show Follow Count', 'feed-them-social'); ?>
@@ -70,7 +71,7 @@ class FTS_twitter_options_page
                         <?php _e('Yes', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -88,7 +89,7 @@ class FTS_twitter_options_page
                         <?php _e('Yes', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -111,7 +112,7 @@ class FTS_twitter_options_page
                         <?php _e('Show Below Feed', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -134,7 +135,7 @@ class FTS_twitter_options_page
                         <?php _e('Yes', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -152,7 +153,7 @@ class FTS_twitter_options_page
                         <?php _e('Yes', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -175,7 +176,7 @@ class FTS_twitter_options_page
                         <?php _e('Yes', 'feed-them-social'); ?>
                         </option>
                     </select>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -201,7 +202,7 @@ class FTS_twitter_options_page
                                 <?php _e('Yes', 'feed-them-social'); ?>
                             </option>
                         </select>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                     <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -210,15 +211,25 @@ class FTS_twitter_options_page
                             <?php _e('Max-width for Feed Images', 'feed-them-social'); ?>
                         </div>
                         <input type="text" name="twitter_max_image_width" class="feed-them-social-admin-input" placeholder="500px" value="<?php echo get_option('twitter_max_image_width'); ?>"/>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                     <!--/fts-facebook-feed-styles-input-wrap-->
 
-                    <div class="feed-them-social-admin-input-label fts-twitter-text-color-label">
+                    <div class="feed-them-social-admin-input-wrap">
+                    <div class="feed-them-social-admin-input-label fts-twitter-text-size-label">
+                        <?php _e('Feed Description Text Size', 'feed-them-social'); ?>
+                    </div>
+                    <input type="text" name="twitter_text_size" class="feed-them-social-admin-input twitter-text-size-input" id="twitter-text-size-input" placeholder="12px" value="<?php echo get_option('twitter_text_size'); ?>"/>
+                    <div class="fts-clear"></div>
+                    </div>
+                    <!--/fts-twitter-feed-styles-input-wrap-->
+
+                <div class="feed-them-social-admin-input-wrap">
+                <div class="feed-them-social-admin-input-label fts-twitter-text-color-label">
                         <?php _e('Feed Text Color', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_text_color" class="feed-them-social-admin-input twitter-text-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-text-color-input" placeholder="#222" value="<?php echo get_option('twitter_text_color'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -227,7 +238,7 @@ class FTS_twitter_options_page
                         <?php _e('Feed Link Color', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_link_color" class="feed-them-social-admin-input twitter-link-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-link-color-input" placeholder="#222" value="<?php echo get_option('twitter_link_color'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -236,7 +247,7 @@ class FTS_twitter_options_page
                         <?php _e('Feed Link Color Hover', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_link_color_hover" class="feed-them-social-admin-input twitter-link-color-hover-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-link-color-hover-input" placeholder="#ddd" value="<?php echo get_option('twitter_link_color_hover'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -245,7 +256,7 @@ class FTS_twitter_options_page
                         <?php _e('Feed Width', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_feed_width" class="feed-them-social-admin-input twitter-feed-width-input" id="twitter-feed-width-input" placeholder="500px" value="<?php echo get_option('twitter_feed_width'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -254,7 +265,7 @@ class FTS_twitter_options_page
                         <?php _e('Feed Margin <br/><small>To center feed type auto</small>', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_feed_margin" class="feed-them-social-admin-input twitter-feed-margin-input" id="twitter-feed-margin-input" placeholder="10px" value="<?php echo get_option('twitter_feed_margin'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -263,7 +274,7 @@ class FTS_twitter_options_page
                         <?php _e('Feed Padding', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_feed_padding" class="feed-them-social-admin-input twitter-feed-padding-input" id="twitter-feed-padding-input" placeholder="10px" value="<?php echo get_option('twitter_feed_padding'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -272,7 +283,7 @@ class FTS_twitter_options_page
                         <?php _e('Feed Background Color', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_feed_background_color" class="feed-them-social-admin-input twitter-feed-background-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-feed-background-color-input" placeholder="#ddd" value="<?php echo get_option('twitter_feed_background_color'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -281,7 +292,7 @@ class FTS_twitter_options_page
                         <?php _e('Feed Border Bottom Color', 'feed-them-social'); ?>
                     </div>
                     <input type="text" name="twitter_border_bottom_color" class="feed-them-social-admin-input twitter-border-bottom-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-border-bottom-color-input" placeholder="#ddd" value="<?php echo get_option('twitter_border_bottom_color'); ?>"/>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                 </div>
                 <!--/fts-twitter-feed-styles-input-wrap-->
                 <?php if (is_plugin_active('feed-them-premium/feed-them-premium.php')) { ?>
@@ -296,7 +307,7 @@ class FTS_twitter_options_page
                                 <?php _e('Posts Background Color', 'feed-them-social'); ?>
                             </div>
                             <input type="text" name="twitter_grid_posts_background_color" class="feed-them-social-admin-input fb-grid-posts-background-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-grid-posts-background-color-input" placeholder="#ddd" value="<?php echo get_option('twitter_grid_posts_background_color'); ?>"/>
-                            <div class="clear"></div>
+                            <div class="fts-clear"></div>
                         </div>
                         <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -305,7 +316,7 @@ class FTS_twitter_options_page
                                 <?php _e('Border Bottom Color', 'feed-them-social'); ?>
                             </div>
                             <input type="text" name="twitter_grid_border_bottom_color" class="feed-them-social-admin-input fb-border-bottom-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-border-bottom-color-input" placeholder="#ddd" value="<?php echo get_option('twitter_grid_border_bottom_color'); ?>"/>
-                            <div class="clear"></div>
+                            <div class="fts-clear"></div>
                         </div>
                         <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -320,7 +331,7 @@ class FTS_twitter_options_page
                                         <?php _e('Button Color', 'feed-them-social'); ?>
                                     </div>
                                     <input type="text" name="twitter_loadmore_background_color" class="feed-them-social-admin-input fb-loadmore-background-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-loadmore-background-color-input" placeholder="#ddd" value="<?php echo get_option('twitter_loadmore_background_color'); ?>"/>
-                                    <div class="clear"></div>
+                                    <div class="fts-clear"></div>
                                 </div>
                                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -329,7 +340,7 @@ class FTS_twitter_options_page
                                         <?php _e('Text Color', 'feed-them-social'); ?>
                                     </div>
                                     <input type="text" name="twitter_loadmore_text_color" class="feed-them-social-admin-input fb-loadmore-text-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="twitter-loadmore-text-color-input" placeholder="#ddd" value="<?php echo get_option('twitter_loadmore_text_color'); ?>"/>
-                                    <div class="clear"></div>
+                                    <div class="fts-clear"></div>
                                 </div>
                                 <!--/fts-twitter-feed-styles-input-wrap-->
 
@@ -379,28 +390,28 @@ class FTS_twitter_options_page
                             <?php _e('Consumer Key (API Key)', 'feed-them-social'); ?>
                         </div>
                         <input type="text" name="fts_twitter_custom_consumer_key" class="feed-them-social-admin-input" id="fts_facebook_custom_api_token" value="<?php echo get_option('fts_twitter_custom_consumer_key'); ?>"/>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                     <div class="feed-them-social-admin-input-wrap">
                         <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
                             <?php _e('Consumer Secret (API Secret)', 'feed-them-social'); ?>
                         </div>
                         <input type="text" name="fts_twitter_custom_consumer_secret" class="feed-them-social-admin-input" id="fts_facebook_custom_api_token" value="<?php echo get_option('fts_twitter_custom_consumer_secret'); ?>"/>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                     <div class="feed-them-social-admin-input-wrap">
                         <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
                             <?php _e('Access Token', 'feed-them-social'); ?>
                         </div>
                         <input type="text" name="fts_twitter_custom_access_token" class="feed-them-social-admin-input" id="fts_facebook_custom_api_token" value="<?php echo get_option('fts_twitter_custom_access_token'); ?>"/>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                     <div class="feed-them-social-admin-input-wrap">
                         <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
                             <?php _e('Access Token Secret', 'feed-them-social'); ?>
                         </div>
                         <input type="text" name="fts_twitter_custom_access_token_secret" class="feed-them-social-admin-input" id="fts_facebook_custom_api_token" value="<?php echo get_option('fts_twitter_custom_access_token_secret'); ?>"/>
-                        <div class="clear"></div>
+                        <div class="fts-clear"></div>
                     </div>
                 </div>
                 <!--twitter-api-wrap-->
@@ -421,7 +432,7 @@ class FTS_twitter_options_page
 
 
                     ?>
-                    <div class="clear"></div>
+                    <div class="fts-clear"></div>
                     <input type="submit" class="feed-them-social-admin-submit-btn" value="<?php _e('Save All Changes') ?>"/>
                 </div>
             </form>

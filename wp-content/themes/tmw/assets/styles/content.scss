@@ -1,8 +1,8 @@
 // CAPTION SECTIONS
 
 .right-caption, .left-caption {
-  height: 140vh;
-  padding: 200px 0;
+  height: 130vh;
+  padding: 120px 0;
 
   @include respond-to($screen-sm){
     padding:40px 20px;
@@ -13,7 +13,7 @@
     max-width: 100%;
     position: relative;
     top: 150px;
-    
+
     @include respond-to($screen-sm){
       top: 0;
     }
@@ -82,16 +82,16 @@
     z-index: 10;
     width: 65%;
 
-    @include respond-to($screen-sm) { 
+    @include respond-to($screen-sm) {
       width: 80%;
     }
 
     &.caption-left {
-        text-align: left; 
+        text-align: left;
         left: 10%;
         bottom: 50%;
 
-        @include respond-to($screen-sm) { 
+        @include respond-to($screen-sm) {
           bottom: 20%;
         }
       }
@@ -100,8 +100,8 @@
       text-align: right;
       right: 10%;
       bottom: 50%;
-      
-      @include respond-to($screen-sm) { 
+
+      @include respond-to($screen-sm) {
         bottom: 20%;
       }
     }
@@ -113,7 +113,7 @@
       padding: 0 300px;
       text-align: center;
 
-      @include respond-to($screen-sm) { 
+      @include respond-to($screen-sm) {
         bottom: 20%;
         padding: 0;
       }
@@ -123,13 +123,13 @@
 }
 
 .parallax {
-    min-height: 160vh; 
+    min-height: 160vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include respond-to($screen-sm) { 
+    @include respond-to($screen-sm) {
       min-height: 500px;
       background-attachment: scroll;
     }
@@ -168,7 +168,7 @@
 .full-text {
   padding: 80px 0;
 
-  @include respond-to($screen-sm) { 
+  @include respond-to($screen-sm) {
     padding: 40px 35px;
   }
 }
@@ -197,9 +197,9 @@
   width: 25%;
   float: left;
   clear: none;
-  
 
-  @include respond-to($screen-sm) {   
+
+  @include respond-to($screen-sm) {
     width: 50%;
   }
 
@@ -277,10 +277,3 @@
 .project-box:focus {
   outline: none;
 }
-
-
-
-
-
-
-

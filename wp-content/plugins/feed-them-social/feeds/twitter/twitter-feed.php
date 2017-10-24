@@ -216,7 +216,10 @@ class FTS_Twitter_Feed extends feed_them_social_functions
 
         // option to allow this action or not from the Twitter Options page
         if (is_plugin_active('feed-them-premium/feed-them-premium.php')) {
-
+            
+            $twitter_load_more_text = get_option('twitter_load_more_text') ? get_option('twitter_load_more_text') : __('Load More', 'feed-them-social');
+            $twitter_no_more_tweets_text = get_option('twitter_no_more_tweets_text') ? get_option('twitter_no_more_tweets_text') : __('No More Tweets', 'feed-them-social');
+        
             include WP_CONTENT_DIR . '/plugins/feed-them-premium/feeds/twitter/twitter-feed.php';
 
             if ($popup == 'yes') {
@@ -479,31 +482,32 @@ class FTS_Twitter_Feed extends feed_them_social_functions
                         }// if cover photo = yes
 
                         // These need to be in this order to keep the different counts straight since I used either $statuses_count or $followers_count throughout.
+                        if (isset($stats_bar) && $stats_bar == "yes" && $search == '') {
+                            // here we add a , for all numbers below 9,999
+                            if (isset($statuses_count) && $statuses_count <= 9999) {
+                                $statuses_count = number_format($statuses_count);
+                            }
+                            // here we convert the number for the like count like 1,200,000 to 1.2m if the number goes into the millions
+                            if (isset($statuses_count) && $statuses_count >= 1000000) {
+                                $statuses_count = round(($statuses_count / 1000000), 1) . 'm';
+                            }
+                            // here we convert the number for the like count like 10,500 to 10.5k if the number goes in the 10 thousands
+                            if (isset($statuses_count) && $statuses_count >= 10000) {
+                                $statuses_count = round(($statuses_count / 1000), 1) . 'k';
+                            }
 
-                        // here we add a , for all numbers below 9,999
-                        if (isset($statuses_count) && $statuses_count <= 9999) {
-                            $statuses_count = number_format($statuses_count);
-                        }
-                        // here we convert the number for the like count like 1,200,000 to 1.2m if the number goes into the millions
-                        if (isset($statuses_count) && $statuses_count >= 1000000) {
-                            $statuses_count = round(($statuses_count / 1000000), 1) . 'm';
-                        }
-                        // here we convert the number for the like count like 10,500 to 10.5k if the number goes in the 10 thousands
-                        if (isset($statuses_count) && $statuses_count >= 10000) {
-                            $statuses_count = round(($statuses_count / 1000), 1) . 'k';
-                        }
-
-                        // here we add a , for all numbers below 9,999
-                        if (isset($followers_count) && $followers_count <= 9999) {
-                            $followers_count = number_format($followers_count);
-                        }
-                        // here we convert the number for the comment count like 1,200,000 to 1.2m if the number goes into the millions
-                        if (isset($followers_count) && $followers_count >= 1000000) {
-                            $followers_count = round(($followers_count / 1000000), 1) . 'm';
-                        }
-                        // here we convert the number  for the comment count like 10,500 to 10.5k if the number goes in the 10 thousands
-                        if (isset($followers_count) && $followers_count >= 10000) {
-                            $followers_count = round(($followers_count / 1000), 1) . 'k';
+                            // here we add a , for all numbers below 9,999
+                            if (isset($followers_count) && $followers_count <= 9999) {
+                                $followers_count = number_format($followers_count);
+                            }
+                            // here we convert the number for the comment count like 1,200,000 to 1.2m if the number goes into the millions
+                            if (isset($followers_count) && $followers_count >= 1000000) {
+                                $followers_count = round(($followers_count / 1000000), 1) . 'm';
+                            }
+                            // here we convert the number  for the comment count like 10,500 to 10.5k if the number goes in the 10 thousands
+                            if (isset($followers_count) && $followers_count >= 10000) {
+                                $followers_count = round(($followers_count / 1000), 1) . 'k';
+                            }
                         }
 
                         // option to allow the followers plus count to show
@@ -757,11 +761,11 @@ class FTS_Twitter_Feed extends feed_them_social_functions
                                         <?php } ?>
 
                                         if (!maxID_<?php echo $_REQUEST['fts_dynamic_name']; ?> || maxID_<?php echo $_REQUEST['fts_dynamic_name']; ?> == 'no more') {
-                                            jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').replaceWith('<div class="fts-fb-load-more no-more-posts-fts-fb"><?php _e('No More Tweets', 'feed-them-social') ?></div>');
+                                            jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').replaceWith('<div class="fts-fb-load-more no-more-posts-fts-fb"><?php echo $twitter_no_more_tweets_text ?></div>');
                                             jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').removeAttr('id');
                                             jQuery(".<?php echo $fts_dynamic_class_name ?>").unbind('scroll');
                                         }
-                                        jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').html('<?php _e('Load More', 'feed-them-social') ?>');
+                                        jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').html('<?php echo $twitter_load_more_text ?>');
                                         //	jQuery('#loadMore_< ?php echo $fts_dynamic_name ?>').removeClass('flip360-fts-load-more');
                                         jQuery("#loadMore_<?php echo $fts_dynamic_name ?>").removeClass('fts-fb-spinner');
                                          // Reload the share each funcion otherwise you can't open share option.
@@ -811,7 +815,7 @@ class FTS_Twitter_Feed extends feed_them_social_functions
                             print'max-width:' . $loadmore_btn_maxwidth . ';';
                         }
                         $loadmore_btn_margin = isset($loadmore_btn_margin) ? $loadmore_btn_margin : '10px';
-                        print'margin:' . $loadmore_btn_margin . ' auto ' . $loadmore_btn_margin . '" class="fts-fb-load-more">' . __('Load More', 'feed-them-social') . '</div>';
+                        print 'margin:' . $loadmore_btn_margin . ' auto ' . $loadmore_btn_margin . '" class="fts-fb-load-more">' . $twitter_load_more_text . '</div>';
                     print'</div>';
             }
         }//End Check

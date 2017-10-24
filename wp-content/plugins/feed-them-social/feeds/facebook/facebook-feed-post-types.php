@@ -61,8 +61,6 @@ class FTS_Facebook_Feed_Post_Types extends FTS_Facebook_Feed
           //  print_r($FBalbum_picture);
           //  echo '</pre>';
 
-
-
         $FBattachments = isset($post_data->attachments) ? $post_data->attachments : "";
         // youtube and vimeo embed url
         $FBvideo_embed = isset($post_data->source) ? $post_data->source : "";
@@ -82,6 +80,10 @@ class FTS_Facebook_Feed_Post_Types extends FTS_Facebook_Feed
             if (isset($FBpost_full_ID[1])) {
                 $FBpost_single_id = $FBpost_full_ID[1];
             }
+        }
+        else {
+            $FBpost_id = '';
+            $FBpost_user_id = '';
         }
         if ($FB_Shortcode['type'] == 'albums' && !$FBalbum_cover) {
             unset($post_data);
@@ -197,12 +199,16 @@ class FTS_Facebook_Feed_Post_Types extends FTS_Facebook_Feed
 
             //Reviews
             if ($FB_Shortcode['type'] == 'reviews') {
-                $itemscope_reviews = 'itemprop="review" itemscope itemtype="http://schema.org/Review"';
+                $itemscope_reviews = 'itemscope itemtype="http://schema.org/Review"';
+                $review_rating = '<meta itemprop="itemReviewed" itemscope itemtype="http://schema.org/CreativeWork"><div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" style="display: none;"><meta itemprop="worstRating" content = "1"><meta itemprop="ratingValue" content = "'.$post_data->rating.'"><meta  itemprop="bestRating" content = "5"></div>';
             } else {
                 $itemscope_reviews = '';
+                $review_rating = '';
             }
+
             //Right Wrap
-            $FTS_FB_OUTPUT .= '<div ' . $itemscope_reviews . ' class="fts-jal-fb-right-wrap">';
+            $FTS_FB_OUTPUT .= '<div ' . $itemscope_reviews . ' class="fts-jal-fb-right-wrap">'.$review_rating.'';
+            
             //Top Wrap (Exluding : albums, album_photos, and hiding)
             $hide_date_likes_comments = $FB_Shortcode['type'] == 'album_photos' && $FB_Shortcode['hide_date_likes_comments'] == 'yes' || $FB_Shortcode['type'] == 'albums' && $FB_Shortcode['hide_date_likes_comments'] == 'yes' ? 'hide-date-likes-comments-etc' : '';
             $FTS_FB_OUTPUT .= '<div class="fts-jal-fb-top-wrap ' . $hide_date_likes_comments . '">';
@@ -219,7 +225,7 @@ class FTS_Facebook_Feed_Post_Types extends FTS_Facebook_Feed
             $fb_hide_shared_by_etc_text = get_option('fb_hide_shared_by_etc_text');
             $fb_hide_shared_by_etc_text = isset($fb_hide_shared_by_etc_text) && $fb_hide_shared_by_etc_text == 'no' ? '' : $FBfinalstory;
             //UserName
-            $FTS_FB_OUTPUT .= $FB_Shortcode['type'] == 'reviews' && is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php') ? '<span class="fts-jal-fb-user-name"><a href="http://facebook.com/' . $post_data->reviewer->id . '/" target="_blank">' . $post_data->reviewer->name . '</a>' . $FTS_Facebook_Reviews->reviews_rating_format($FB_Shortcode, $post_data->rating) . '</span>' : '<span class="fts-jal-fb-user-name"><a href="http://facebook.com/' . $post_data->from->id . '" target="_blank">' . $post_data->from->name . '</a>' . $fb_hide_shared_by_etc_text . '</span>';
+            $FTS_FB_OUTPUT .= $FB_Shortcode['type'] == 'reviews' && is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php') ? '<span class="fts-jal-fb-user-name" itemprop="author" itemscope itemtype="http://schema.org/Person"><a href="http://facebook.com/' . $post_data->reviewer->id . '/" target="_blank" ><span itemprop="name">' . $post_data->reviewer->name . '</span></a>' . $FTS_Facebook_Reviews->reviews_rating_format($FB_Shortcode, $post_data->rating) . '</span>' : '<span class="fts-jal-fb-user-name"><a href="http://facebook.com/' . $post_data->from->id . '" target="_blank">' . $post_data->from->name . '</a>' . $fb_hide_shared_by_etc_text . '</span>';
 
 
             // tied to date function
@@ -229,12 +235,16 @@ class FTS_Facebook_Feed_Post_Types extends FTS_Facebook_Feed
 
             //PostTime
             $FTS_FB_OUTPUT .= '<span class="fts-jal-fb-post-time">' . $fts_final_date . '</span><div class="fts-clear"></div>';
-            //Comments Count
-            $FBpost_id_final = substr($FBpost_id, strpos($FBpost_id, "_") + 1);
 
+            if($FB_Shortcode['type'] !== 'reviews') {
+                //Comments Count
+                $FBpost_id_final = substr($FBpost_id, strpos($FBpost_id, "_") + 1);
+            }
             //filter messages to have urls
             //Output Message
             if ($FBmessage) {
+
+                $itemprop_description_reviews = is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php') ? ' itemprop="description"' : '';
 
                 // here we trim the words for the premium version. The $FB_Shortcode['words'] string actually comes from the javascript
                 if (is_plugin_active('feed-them-premium/feed-them-premium.php') && array_key_exists('words', $FB_Shortcode) || is_plugin_active('feed-them-social-combined-streams/feed-them-social-combined-streams.php') && array_key_exists('words', $FB_Shortcode) || is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php') && array_key_exists('words', $FB_Shortcode)) {
@@ -244,7 +254,8 @@ class FTS_Facebook_Feed_Post_Types extends FTS_Facebook_Feed
                     // Going to consider this for the future if facebook fixes the api to define when are checking in. Add  '.$checked_in.' inside the fts-jal-fb-message div
                     // $checked_in = '<a target="_blank" class="fts-checked-in-img" href="https://www.facebook.com/'.$post_data->place->id.'"><img src="https://graph.facebook.com/'.$post_data->place->id.'/picture?width=150"/></a><a target="_blank" class="fts-checked-in-text-link" href="https://www.facebook.com/'.$post_data->place->id.'">'.__("Checked in at", "feed-them-social").' '.$post_data->place->name.'</a><br/> '.__("Location", "feed-them-social").': '.$post_data->place->location->city.', '.$post_data->place->location->country.' '.$post_data->place->location->zip.'<br/><a target="_blank" class="fts-fb-get-directions fts-checked-in-get-directions" href="https://www.facebook.com/'.$post_data->place->id.'">'.__("Get Direction", "feed-them-social").'</a>';
 
-                    $FTS_FB_OUTPUT .= '<div class="fts-jal-fb-message">';
+                    $FTS_FB_OUTPUT .= '<div class="fts-jal-fb-message"'.$itemprop_description_reviews.'>';
+
                     $FTS_FB_OUTPUT .= !empty($trimmed_content) ? $trimmed_content : '';
                     //If POPUP
                     // $FTS_FB_OUTPUT .= $FB_Shortcode['popup'] == 'yes' ? '<div class="fts-fb-caption"><a href="' . $FBlink . '" class="fts-view-on-facebook-link" target="_blank">' . __('View on Facebook', 'feed-them-facebook') . '</a></div> ' : '';
@@ -252,7 +263,7 @@ class FTS_Facebook_Feed_Post_Types extends FTS_Facebook_Feed
 
                 } else {
                     $FB_final_message = $this->fts_facebook_tag_filter($FBmessage);
-                    $FTS_FB_OUTPUT .= '<div class="fts-jal-fb-message">';
+                    $FTS_FB_OUTPUT .= '<div class="fts-jal-fb-message"'.$itemprop_description_reviews.'>';
                     $FTS_FB_OUTPUT .= nl2br($FB_final_message);
                     //If POPUP
                     // $FTS_FB_OUTPUT .= isset($FB_Shortcode['popup']) && $FB_Shortcode['popup'] == 'yes' ? '<div class="fts-fb-caption"><a href="' . $FBlink . '" class="fts-view-on-facebook-link" target="_blank">' . __('View on Facebook', 'feed-them-facebook') . '</a></div> ' : '';

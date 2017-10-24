@@ -1,4 +1,5 @@
 <?php
+
 namespace feedthemsocial;
 /**
  * Class FTS Settings Page
@@ -207,7 +208,7 @@ class FTS_settings_page
 
                                     'main_options' => array(
                                         //Combined Total # of Posts
-                                        0 => array(
+                                        array(
                                             'grouped_options_title' => __('Combined Stream', 'feed-them-social'),
                                             'option_type' => 'input',
                                             'label' => __('Combined Total # of Posts', 'feed-them-social'),
@@ -226,7 +227,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //# of Posts per Social Network
-                                        1 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_social_network_post_count',
                                             'label' => __('# of Posts per Social Network (NOT the combined total)', 'feed-them-social'),
@@ -246,7 +247,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Amount of words
-                                        2 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Amount of words per post', 'feed-them-social') . '<br/><small>' . __('Type 0 to remove the posts description', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -263,7 +264,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Center Container
-                                        3 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Center Feed Container', 'feed-them-social'),
                                             'type' => 'text',
@@ -285,7 +286,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Page Fixed Height
-                                        4 => array(
+                                        array(
                                             'input_wrap_class' => 'combine_height',
                                             'option_type' => 'input',
                                             'label' => __('Feed Fixed Height', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto height', 'feed-them-social') . '</small>',
@@ -304,7 +305,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Background Color
-                                        5 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_background_color',
                                             'label' => __('Background Color', 'feed-them-social'),
@@ -320,7 +321,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Padding
-                                        6 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_padding',
                                             'label' => __('Padding', 'feed-them-social'),
@@ -337,7 +338,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Social Icon
-                                        7 => array(
+                                        array(
                                             'input_wrap_class' => 'combine_show_social_icon',
                                             'option_type' => 'select',
                                             'label' => __('Show Social Icon', 'feed-them-social'),
@@ -346,15 +347,15 @@ class FTS_settings_page
                                             'name' => 'combine_show_social_icon',
                                             'req_plugin' => 'combine_streams',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('Left', 'feed-them-social'),
                                                     'value' => 'left',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Right', 'feed-them-social'),
                                                     'value' => 'right',
                                                 ),
-                                                3 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
@@ -364,7 +365,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Combine Facebook
-                                        8 => array(
+                                        array(
                                             'grouped_options_title' => __('Facebook', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Combine Facebook', 'feed-them-social'),
@@ -372,11 +373,11 @@ class FTS_settings_page
                                             'id' => 'combine_facebook',
                                             'name' => 'combine_facebook',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -393,7 +394,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Combine Facebook ID
-                                        9 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_facebook_name',
                                             'label' => __('Facebook ID', 'feed-them-social'),
@@ -414,8 +415,10 @@ class FTS_settings_page
                                             ),
                                             'sub_options_end' => true,
                                         ),
+
+
                                         //Combine Twitter
-                                        10 => array(
+                                        array(
                                             'grouped_options_title' => __('Twitter', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Combine Twitter', 'feed-them-social'),
@@ -424,11 +427,11 @@ class FTS_settings_page
                                             'name' => 'combine_twitter',
                                             'req_plugin' => 'combine_streams',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -442,31 +445,108 @@ class FTS_settings_page
                                                 'sub_options_wrap_class' => 'main-combine-twitter-wrap',
                                             ),
                                         ),
-                                        //Combine Twitter Name
-                                        11 => array(
+
+
+                                        //Feed Type Selection
+                                        array(
+                                            'option_type' => 'select',
+                                            'label' => __('Feed Type', 'feed-them-social'),
+                                            'select_wrap_classes' => 'combine-twitter-gen-selection',
+                                            'select_classes' => '',
+                                            'name' => 'combine-twitter-messages-selector',
+                                            'id' => 'combine-twitter-messages-selector',
+                                            'req_plugin' => 'combine_streams',
+                                            //Feed Types and their options
+                                            'options' => array(
+                                                //User Feed
+                                                array(
+                                                    'value' => 'user',
+                                                    'label' => __('User Feed', 'feed-them-social'),
+                                                ),
+                                                //hastag Feed
+                                                array(
+                                                    'value' => 'hashtag',
+                                                    'label' => __('Hashtag, Search and more Feed', 'feed-them-social'),
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => '',
+                                                'empty_error_value' => '',
+                                                'no_attribute' => 'yes',
+                                            ),
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'combine-twitter-wrap',
+                                            ),
+                                        ),
+
+                                        // 'short_attr_final' => 'yes',
+                                        //Inputs relative to all Feed_types of this feed. (Eliminates Duplication)[Excluded from loop when creating select]
+
+
+                                        //Twitter Search Name
+                                        array(
+                                            'option_type' => 'input',
+                                            'input_wrap_class' => 'combine_twitter_hashtag_etc_name',
+                                            'label' => __('Twitter Search Name (required)', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'combine_twitter_hashtag_etc_name',
+                                            'name' => 'combine_twitter_hashtag_etc_name',
+                                            'value' => '',
+                                            'instructional-text' => __('You can use #hashtag, @person, or single words. For example, weather or weather-channel.<br/><br/>If you want to filter a specific users hashtag copy this example into the first input below and replace the user_name and YourHashtag name. DO NOT remove the from: or %# characters. NOTE: Only displays last 7 days worth of Tweets. <strong style="color:#225DE2;">from:user_name%#YourHashtag</strong>', 'feed-them-social'),
+                                            //Relative to JS.
+                                            'short_attr' => array(
+
+
+                                                'attr_name' => 'search',
+                                                'var_final_if' => 'yes',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => '',
+                                                'empty_error_if' => array(
+                                                    'attribute' => 'select#combine-twitter-messages-selector',
+                                                    'operator' => '==',
+                                                    'value' => 'hashtag',
+                                                ),
+
+
+                                            ),
+                                            'req_plugin' => 'combine_streams',
+                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'combine-twitter-hashtag-etc-wrap',
+                                                'sub_options_title' => __('Twitter Search', 'feed-them-social'),
+                                            ),
+                                            'sub_options_end' => true,
+
+                                        ),
+                                        //Twitter Name
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_twitter_name',
                                             'label' => __('Twitter Name', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'combine_twitter_name',
                                             'name' => 'combine_twitter_name',
-                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Token</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-twitter-feed-styles-submenu-page" target="_blank">Twitter Options</a> page then copy your <a href="https://www.slickremix.com/how-to-get-your-twitter-name/" target="_blank">Twitter Name</a> and paste it in the first input below.',
-                                            'req_plugin' => 'combine_streams',
+                                            'instructional-text' => '<span class="must-copy-twitter-name">' . __('You must copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-twitter-name/" target="_blank">' . __('Twitter Name', 'feed-them-social') . '</a> ' . __('and paste it in the first input below.', 'feed-them-social') . '</span>',
+                                            'value' => '',
                                             //Relative to JS.
                                             'short_attr' => array(
                                                 'attr_name' => 'twitter_name',
-                                                'ifs' => 'combine_twitter',
                                                 'var_final_if' => 'yes',
                                                 'empty_error' => 'set',
                                                 'empty_error_value' => '',
+                                                'empty_error_if' => array(
+                                                    'attribute' => 'select#combine-twitter-messages-selector',
+                                                    'operator' => '==',
+                                                    'value' => 'user',
+                                                ),
                                             ),
-                                            'sub_options' => array(
-                                                'sub_options_wrap_class' => 'combine-twitter-wrap',
-                                            ),
+                                            'req_plugin' => 'combine_streams',
                                             'sub_options_end' => 2,
                                         ),
+
+
                                         //Combine Instagram
-                                        12 => array(
+                                        array(
                                             'grouped_options_title' => __('Instagram', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Combine Instagram', 'feed-them-social'),
@@ -493,8 +573,47 @@ class FTS_settings_page
                                                 'sub_options_wrap_class' => 'main-combine-instagram-wrap',
                                             ),
                                         ),
+
+
+                                        //Instagram Type
+                                        array(
+                                            'input_wrap_class' => 'combine_instagram_type',
+                                            'option_type' => 'select',
+                                            'label' => __('Instagram Type', 'feed-them-social'),
+                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>Access Token</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-instagram-feed-styles-submenu-page" target="_blank">Instagram Options</a>.',
+                                            'type' => 'text',
+                                            'id' => 'combine_instagram_type',
+                                            'name' => 'combine_instagram_type',
+                                            'options' => array(
+                                                //User Feed
+                                                array(
+                                                    'value' => 'user',
+                                                    'label' => __('User Feed', 'feed-them-social'),
+                                                ),
+                                                //hastag Feed
+                                                array(
+                                                    'value' => 'hashtag',
+                                                    'label' => __('Hashtag Feed', 'feed-them-social'),
+                                                ),
+                                                //location Feed
+                                                array(
+                                                    'value' => 'location',
+                                                    'label' => __('Location Feed', 'feed-them-social'),
+                                                ),
+                                            ),
+                                            'req_plugin' => 'combine_streams',
+                                            'short_attr' => array(
+                                                'attr_name' => 'instagram_type',
+                                                'ifs' => 'combine_instagram',
+                                            ),
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'combine-instagram-wrap',
+                                            ),
+                                        ),
+
+
                                         //Combine Convert Instagram Name
-                                        13 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine-instagram-id-option-wrap',
                                             'label' => __('Convert Instagram Name to ID', 'feed-them-social'),
@@ -509,20 +628,44 @@ class FTS_settings_page
                                                 'ifs' => 'combine_instagram',
                                                 'no_attribute' => 'yes'
                                             ),
-                                            'sub_options' => array(
-                                                'sub_options_wrap_class' => 'combine-instagram-wrap',
-                                            ),
                                         ),
-                                        //Combine Instagram Name <!-- the li list comes from an ajax call after looking up the user ID --><ul id="fts-instagram-username-picker-wrap"></ul>
-                                        14 => array(
+
+                                        //Instagram ID
+                                        array(
                                             'option_type' => 'input',
-                                            'input_wrap_class' => 'combine_instagram_name',
-                                            'label' => __('Instagram ID # (required)', 'feed-them-social'),
+                                            // 'input_wrap_class' => 'combine_instagram_name',
+                                            'label' => array(
+                                                1 => array(
+                                                    'text' => __('Instagram ID # (required)', 'feed-them-social'),
+                                                    'class' => 'combine-instagram-user-option-text',
+                                                ),
+                                                2 => array(
+                                                    'text' => __('Hashtag (required)', 'feed-them-social'),
+                                                    'class' => 'combine-instagram-hashtag-option-text',
+                                                ),
+                                                3 => array(
+                                                    'text' => __('Location ID (required)', 'feed-them-social'),
+                                                    'class' => 'combine-instagram-location-option-text',
+                                                ),
+                                            ),
                                             'type' => 'text',
                                             'id' => 'combine_instagram_name',
                                             'name' => 'combine_instagram_name',
-                                            'instructional-text' => __('<div class="fts-insta-info-plus-wrapper">Choose a different ID if yours is not the first name below after clicking Convert Instagram Username button.</div><!-- the li list comes from an ajax call after looking up the user ID --><ul id="fts-instagram-username-picker-wrap-combined" class="fts-instagram-username-picker-wrap"></ul>', 'feed-them-social'),
-                                            'req_plugin' => 'combine_streams',
+                                            'required' => 'combine_streams',
+                                            'instructional-text' => array(
+                                                1 => array(
+                                                    'text' => __('<div class="fts-insta-info-plus-wrapper">Choose a different ID if yours is not the first name below after clicking Convert Instagram Username button.</div><!-- the li list comes from an ajax call after looking up the user ID --><ul id="fts-instagram-username-picker-wrap-combined" class="fts-instagram-username-picker-wrap"></ul>', 'feed-them-social'),
+                                                    'class' => 'combine-instagram-user-option-text',
+                                                ),
+                                                2 => array(
+                                                    'text' => __('Add your Hashtag below. Do not add the #, just the name.', 'feed-them-social'),
+                                                    'class' => 'combine-instagram-hashtag-option-text',
+                                                ),
+                                                3 => array(
+                                                    'text' => __('<strong>NOTE:</strong> The post count may not count proper in some location instances because private instagram photos are in the mix. We cannot pull private accounts photos in any location feed. Add your Location ID below.', 'feed-them-social'),
+                                                    'class' => 'combine-instagram-location-option-text',
+                                                ),
+                                            ),
                                             //Relative to JS.
                                             'short_attr' => array(
                                                 'attr_name' => 'instagram_name',
@@ -533,8 +676,10 @@ class FTS_settings_page
                                             ),
                                             'sub_options_end' => 2,
                                         ),
+
+
                                         //Combine Pinterest
-                                        15 => array(
+                                        array(
                                             'grouped_options_title' => __('Pinterest', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Combine Pinterest', 'feed-them-social'),
@@ -542,11 +687,11 @@ class FTS_settings_page
                                             'id' => 'combine_pinterest',
                                             'name' => 'combine_pinterest',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -562,7 +707,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pinterest Type
-                                        16 => array(
+                                        array(
                                             'input_wrap_class' => 'combine_pinterest_type',
                                             'option_type' => 'select',
                                             'label' => __('Pinterest Type', 'feed-them-social'),
@@ -572,12 +717,12 @@ class FTS_settings_page
                                             'name' => 'combine_pinterest_type',
                                             'options' => array(
                                                 //Single Board Pins
-                                                1 => array(
+                                                array(
                                                     'label' => __('Latest Pins from a User', 'feed-them-social'),
                                                     'value' => 'pins_from_user',
                                                 ),
                                                 //Single Board Pins
-                                                2 => array(
+                                                array(
                                                     'label' => __('Pins From a Specific Board', 'feed-them-social'),
                                                     'value' => 'single_board_pins',
                                                 ),
@@ -592,7 +737,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pinterest Name
-                                        17 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_pinterest_name',
                                             'label' => __('Pinterest Name', 'feed-them-social'),
@@ -610,7 +755,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pinterest Board ID
-                                        18 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_board_id',
                                             'label' => __('Pinterest Board ID', 'feed-them-social'),
@@ -626,7 +771,7 @@ class FTS_settings_page
                                             'sub_options_end' => 2,
                                         ),
                                         //Combine Youtube
-                                        19 => array(
+                                        array(
                                             'grouped_options_title' => __('Youtube', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Combine Youtube', 'feed-them-social'),
@@ -634,11 +779,11 @@ class FTS_settings_page
                                             'id' => 'combine_youtube',
                                             'name' => 'combine_youtube',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -654,7 +799,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Youtube Type
-                                        20 => array(
+                                        array(
                                             'input_wrap_class' => 'combine_youtube_type',
                                             'option_type' => 'select',
                                             'label' => __('Youtube Type', 'feed-them-social'),
@@ -662,21 +807,21 @@ class FTS_settings_page
                                             'id' => 'combine_youtube_type',
                                             'name' => 'combine_youtube_type',
                                             'options' => array( //Channel Feed
-                                                1 => array(
+                                                array(
                                                     'label' => __('Channel Feed', 'feed-them-social'),
                                                     'value' => 'channelID',
                                                 ), //Channel Playlist Feed
-                                                2 => array(
+                                                array(
                                                     'label' => __('Channel\'s Specific Playlist', 'feed-them-social'),
                                                     'value' => 'playlistID',
                                                 ),
                                                 //User's Most Recent Videos
-                                                3 => array(
+                                                array(
                                                     'label' => __('User\'s Most Recent Videos', 'feed-them-social'),
                                                     'value' => 'username',
                                                 ),
                                                 //User's Playlist
-                                                4 => array(
+                                                array(
                                                     'label' => __('User\'s Specific Playlist', 'feed-them-social'),
                                                     'value' => 'userPlaylist',
                                                 ),
@@ -694,7 +839,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Youtube Name
-                                        21 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_youtube_name',
                                             'label' => __('YouTube Username', 'feed-them-social'),
@@ -713,7 +858,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //YouTube Playlist ID
-                                        22 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_playlist_id',
                                             'label' => __('YouTube Playlist ID', 'feed-them-social'),
@@ -729,7 +874,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //YouTube Channel ID
-                                        23 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_channel_id',
                                             'label' => __('YouTube Channel ID', 'feed-them-social'),
@@ -749,7 +894,7 @@ class FTS_settings_page
                                         // Combine Streams Grid Options
                                         //******************************************
                                         //Facebook Page Display Posts in Grid
-                                        25 => array(
+                                        array(
                                             'grouped_options_title' => __('Grid', 'feed-them-social'),
                                             'input_wrap_class' => 'combine_grid_option',
                                             'option_type' => 'select',
@@ -781,7 +926,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Grid Column Width
-                                        26 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Grid Column Width', 'feed-them-social'),
                                             'type' => 'text',
@@ -803,7 +948,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Grid Spaces Between Posts
-                                        27 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Grid Spaces Between Posts', 'feed-them-social'),
                                             'type' => 'text',
@@ -837,13 +982,20 @@ class FTS_settings_page
                                                 'value' => 'yes',
                                             ),
                                         ),
-                                        'combine_twitter' => array(
-                                            'if' => array(
-                                                'class' => 'select#combine_twitter',
-                                                'operator' => '==',
-                                                'value' => 'yes',
-                                            ),
-                                        ),
+                                        //  'combine_twitter' => array(
+                                        //      'if' => array(
+                                        //          'class' => 'select#combine-twitter-messages-selector',
+                                        //          'operator' => '==',
+                                        //          'value' => '',
+                                        //      ),
+                                        //  ),
+                                        //  'combine_twitter_search' => array(
+                                        //      'if' => array(
+                                        //          'class' => 'select#combine-twitter-messages-selector',
+                                        //          'operator' => '==',
+                                        //          'value' => '',
+                                        //     ),
+                                        //  ),
                                         'combine_instagram' => array(
                                             'if' => array(
                                                 'class' => 'select#combine_instagram',
@@ -942,42 +1094,42 @@ class FTS_settings_page
                                     //Feed Types and their options
                                     'feeds_types' => array(
                                         //Facebook Page
-                                        1 => array(
+                                        array(
                                             'value' => 'page',
                                             'title' => __('Facebook Page', 'feed-them-social'),
                                         ),
                                         //Facebook Page List of Events
-                                        2 => array(
+                                        array(
                                             'value' => 'events',
                                             'title' => __('Facebook Page List of Events', 'feed-them-social'),
                                         ),
                                         //Facebook Page Single Event Posts
-                                        3 => array(
+                                        array(
                                             'value' => 'event',
                                             'title' => __('Facebook Page Single Event Posts', 'feed-them-social'),
                                         ),
                                         //Facebook Group
-                                        4 => array(
+                                        array(
                                             'value' => 'group',
                                             'title' => __('Facebook Group', 'feed-them-social'),
                                         ),
                                         //Facebook Album Photos
-                                        5 => array(
+                                        array(
                                             'value' => 'album_photos',
                                             'title' => __('Facebook Album Photos', 'feed-them-social'),
                                         ),
                                         //Facebook Album Covers
-                                        6 => array(
+                                        array(
                                             'value' => 'albums',
                                             'title' => __('Facebook Album Covers', 'feed-them-social'),
                                         ),
                                         //Facebook Videos
-                                        7 => array(
+                                        array(
                                             'value' => 'album_videos',
                                             'title' => __('Facebook Videos', 'feed-them-social'),
                                         ),
                                         //Facebook Page Reviews
-                                        8 => array(
+                                        array(
                                             'value' => 'reviews',
                                             'title' => __('Facebook Page Reviews', 'feed-them-social'),
                                         ),
@@ -996,7 +1148,7 @@ class FTS_settings_page
 
                                     'main_options' => array(
                                         //Feed Type
-                                        0 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'id' => 'facebook-messages-selector',
                                             'name' => 'facebook-messages-selector',
@@ -1008,40 +1160,40 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook ID
-                                        1 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'fb_page_id',
                                             'label' => __('Facebook ID (required)', 'feed-them-social'),
                                             'instructional-text' => array(
-                                                1 => array(
+                                                array(
                                                     'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-facebook-page-vanity-url/" target="_blank">' . __('Facebook Page ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below. You cannot use Personal Profiles it must be a Facebook Page. If your page ID looks something like, My-Page-Name-50043151918, only use the number portion, 50043151918.', 'feed-them-social') . ' <a href="http://feedthemsocial.com/?feedID=50043151918" target="_blank">' . __('Test your Page ID on our demo', 'feed-them-social') . '</a>',
                                                     'class' => 'facebook-message-generator page inst-text-facebook-page',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-facebook-group-id/" target="_blank">' . __('Facebook Group ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator group inst-text-facebook-group',
                                                 ),
-                                                3 => array(
+                                                array(
                                                     'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-facebook-page-vanity-url/" target="_blank">' . __('Facebook Page ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below. PLEASE NOTE: This will only work with Facebook Page Events and you cannot have more than 25 events on Facebook.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator event-list inst-text-facebook-event-list',
                                                 ),
-                                                4 => array(
+                                                array(
                                                     'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-facebook-event-id/" target="_blank">' . __('Facebook Event ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator event inst-text-facebook-event',
                                                 ),
-                                                5 => array(
+                                                array(
                                                     'text' => __('To show a specific Album copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/docs/how-to-get-your-facebook-photo-gallery-id/" target="_blank">' . __('Facebook Album ID', 'feed-them-social') . '</a> ' . __('and paste it in the second input below. If you want to show all your uploaded photos leave the Album ID input blank.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator album_photos inst-text-facebook-album-photos',
                                                 ),
-                                                6 => array(
+                                                array(
                                                     'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/docs/how-to-get-your-facebook-photo-gallery-id/" target="_blank">' . __('Facebook Album Covers ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator albums inst-text-facebook-albums',
                                                 ),
-                                                7 => array(
+                                                array(
                                                     'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/docs/how-to-get-your-facebook-id-and-video-gallery-id" target="_blank">' . __('Facebook ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator video inst-text-facebook-video',
                                                 ),
-                                                8 => array(
+                                                array(
                                                     'text' => __('Copy your', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-facebook-page-vanity-url/" target="_blank">' . __('Facebook Page ID', 'feed-them-social') . '</a> ' . __('and paste it in the first input below. If your page ID looks something like, My-Page-Name-50043151918, only use the number portion, 50043151918.', 'feed-them-social'),
                                                     'class' => 'facebook-message-generator reviews inst-text-facebook-reviews',
                                                 ),
@@ -1058,7 +1210,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Album ID
-                                        2 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'fb_album_photos_id',
                                             'label' => __('Album ID ', 'feed-them-social') . '<br/><small>' . __('Leave blank to show all uploaded photos', 'feed-them-social') . '</small>',
@@ -1081,7 +1233,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Post Type Visible
-                                        3 => array(
+                                        array(
                                             'input_wrap_class' => 'facebook-post-type-visible',
                                             'option_type' => 'select',
                                             'label' => __('Post Type Visible', 'feed-them-social'),
@@ -1089,11 +1241,11 @@ class FTS_settings_page
                                             'id' => 'fb_page_posts_displayed',
                                             'name' => 'fb_page_posts_displayed',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('Display Posts made by Page only', 'feed-them-social'),
                                                     'value' => 'page_only',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Display Posts made by Page and Others', 'feed-them-social'),
                                                     'value' => 'page_and_others',
                                                 ),
@@ -1104,7 +1256,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook page # of Posts
-                                        4 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('# of Posts', 'feed-them-social') . $limitforpremium,
                                             'type' => 'text',
@@ -1121,7 +1273,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Facebook Fixed Height
-                                        5 => array(
+                                        array(
                                             'input_wrap_class' => 'fixed_height_option',
                                             'option_type' => 'input',
                                             'label' => __('Facebook Fixed Height', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto height', 'feed-them-social') . '</small>',
@@ -1139,7 +1291,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Show Page Title (Premium)
-                                        6 => array(
+                                        array(
                                             'input_wrap_class' => 'fb-page-title-option-hide',
                                             'option_type' => 'select',
                                             'label' => __('Show Page Title', 'feed-them-social'),
@@ -1147,11 +1299,11 @@ class FTS_settings_page
                                             'id' => 'fb_page_title_option',
                                             'name' => 'fb_page_title_option',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
@@ -1165,7 +1317,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Align Title (Premium)
-                                        7 => array(
+                                        array(
                                             'input_wrap_class' => 'fb-page-title-align',
                                             'option_type' => 'select',
                                             'label' => __('Align Title', 'feed-them-social'),
@@ -1192,7 +1344,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Show Page Description (Premium)
-                                        8 => array(
+                                        array(
                                             'input_wrap_class' => 'fb-page-description-option-hide',
                                             'option_type' => 'select',
                                             'label' => __('Show Page Description', 'feed-them-social'),
@@ -1216,7 +1368,7 @@ class FTS_settings_page
                                             'sub_options_end' => true,
                                         ),
                                         //Facebook Amount of words
-                                        9 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Amount of words per post', 'feed-them-social') . '<br/><small>' . __('Type 0 to remove the posts description', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -1235,7 +1387,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Image Width
-                                        10 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Facebook Image Width', 'feed-them-social') . '<br/><small>' . __('Max width is 640px', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -1254,7 +1406,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Image Height
-                                        11 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Facebook Image Height', 'feed-them-social') . '<br/><small>' . __('Max width is 640px', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -1270,7 +1422,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook The space between photos
-                                        12 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('The space between photos', 'feed-them-social'),
                                             'type' => 'text',
@@ -1286,7 +1438,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Hide Date, Likes and Comments
-                                        13 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Hide Date, Likes and Comments', 'feed-them-social'),
                                             'label_note' => __('Good for image sizes under 120px', 'feed-them-social'),
@@ -1309,7 +1461,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Center Facebook Container
-                                        14 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Center Facebook Container', 'feed-them-social'),
                                             'type' => 'text',
@@ -1332,7 +1484,7 @@ class FTS_settings_page
                                             'sub_options_end' => true,
                                         ),
                                         //Image Stacking Animation NOT USING THIS ANYMORE
-                                        15 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Image Stacking Animation On', 'feed-them-social'),
                                             'label_note' => __('This happens when resizing browser', 'feed-them-social'),
@@ -1354,7 +1506,7 @@ class FTS_settings_page
                                             'sub_options_end' => true,
                                         ),
                                         //Align Images non-grid
-                                        16 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_align_images_wrapper',
                                             'option_type' => 'select',
                                             'label' => __('Align Images', 'feed-them-social'),
@@ -1388,7 +1540,7 @@ class FTS_settings_page
                                         // Facebook Review Options
                                         //******************************************
                                         //Reviews to Show
-                                        17 => array(
+                                        array(
                                             'grouped_options_title' => __('Reviews', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Reviews to Show', 'feed-them-social'),
@@ -1427,7 +1579,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Rating Format
-                                        18 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Rating Format', 'feed-them-social'),
                                             'type' => 'text',
@@ -1462,7 +1614,7 @@ class FTS_settings_page
                                             )
                                         ),
                                         //Overall Rating
-                                        19 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Overall Rating above Feed', 'feed-them-social') . '<br/><small>' . __('More settings: <a href="admin.php?page=fts-facebook-feed-styles-submenu-page">Facebook Options</a> page.', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -1489,7 +1641,7 @@ class FTS_settings_page
                                         // Like Box Options
                                         //******************************************
                                         //Facebook Hide Like Box or Button (Premium)
-                                        20 => array(
+                                        array(
                                             'grouped_options_title' => __('Like Box', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Hide Like Box or Button', 'feed-them-social') . '<br/><small>' . __('Turn on from <a href="admin.php?page=fts-facebook-feed-styles-submenu-page">Facebook Options</a> page', 'feed-them-social') . '</small>',
@@ -1523,7 +1675,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Position of Like Box or Button (Premium)
-                                        21 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Position of Like Box or Button', 'feed-them-social'),
                                             'type' => 'text',
@@ -1557,7 +1709,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Align Like Box or Button (Premium)
-                                        22 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Align Like Box or Button', 'feed-them-social'),
                                             'type' => 'text',
@@ -1587,7 +1739,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Width of Like Box
-                                        23 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Width of Like Box', 'feed-them-social') . '<br/><small>' . __('This only works for the Like Box', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -1611,7 +1763,7 @@ class FTS_settings_page
                                         // Popup
                                         //******************************************
                                         //Facebook Page Display Photos in Popup
-                                        24 => array(
+                                        array(
                                             'grouped_options_title' => __('Popup', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Display Photos in Popup', 'feed-them-social'),
@@ -1639,7 +1791,7 @@ class FTS_settings_page
                                             'sub_options_end' => true,
                                         ),
                                         //Facebook Comments in Popup
-                                        25 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Hide Comments in Popup', 'feed-them-social'),
                                             'type' => 'text',
@@ -1670,7 +1822,7 @@ class FTS_settings_page
                                         // Facebook Load More Options
                                         //******************************************
                                         //Facebook Page Load More Button
-                                        26 => array(
+                                        array(
                                             'grouped_options_title' => __('Load More', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Load More Button', 'feed-them-social'),
@@ -1701,7 +1853,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Load More Style
-                                        27 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Load More Style', 'feed-them-social'),
                                             'type' => 'text',
@@ -1732,7 +1884,7 @@ class FTS_settings_page
                                             'sub_options_end' => true,
                                         ),
                                         //Facebook Page Load more Button Width
-                                        28 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Load more Button Width', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto width', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -1756,7 +1908,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Facebook Page Load more Button Margin
-                                        29 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Load more Button Margin', 'feed-them-social'),
                                             'type' => 'text',
@@ -1779,7 +1931,7 @@ class FTS_settings_page
                                         // Facebook Grid Options
                                         //******************************************
                                         //Facebook Page Display Posts in Grid
-                                        30 => array(
+                                        array(
                                             'grouped_options_title' => __('Grid', 'feed-them-social'),
                                             'input_wrap_class' => 'fb-posts-in-grid-option-wrap',
                                             'option_type' => 'select',
@@ -1813,7 +1965,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Grid Column Width
-                                        31 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Grid Column Width', 'feed-them-social'),
                                             'type' => 'text',
@@ -1840,7 +1992,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Grid Spaces Between Posts
-                                        32 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Grid Spaces Between Posts', 'feed-them-social'),
                                             'type' => 'text',
@@ -1864,7 +2016,7 @@ class FTS_settings_page
                                         // Facebook Video Options
                                         //******************************************
                                         //Video Play Button
-                                        33 => array(
+                                        array(
                                             'grouped_options_title' => __('Video Button Options', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Video Play Button', 'feed-them-social') . '<br/><small>' . __('Displays over Video Thumbnail', 'feed-them-social') . '</small>',
@@ -1895,7 +2047,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Size of the Play Button
-                                        34 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Size of the Play Button', 'feed-them-social'),
                                             'type' => 'text',
@@ -1917,7 +2069,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Show Play Button in Front
-                                        35 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Play Button in Front', 'feed-them-social') . '<br/><small>' . __('Displays before hovering over thumbnail', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -1945,7 +2097,7 @@ class FTS_settings_page
                                         // Facebook Carousel
                                         //******************************************
                                         //Carousel/Slideshow
-                                        36 => array(
+                                        array(
                                             'grouped_options_title' => __('Carousel/Slider', 'feed-them-social'),
                                             'input_wrap_id' => 'facebook_slider',
                                             'instructional-text' => __('Create a Carousel or Slideshow with these options.', 'feed-them-social') . ' <a href="http://feedthemsocial.com/facebook-carousels-or-sliders/" target="_blank">' . __('View Demos', 'feed-them-social') . '</a> ' . __('and copy easy to use shortcode examples.', 'feed-them-social'),
@@ -1978,7 +2130,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel/Slideshow Type
-                                        37 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_scrollhorz_or_carousel',
                                             'option_type' => 'select',
                                             'label' => __('Type', 'feed-them-social') . '<br/><small>' . __('', 'feed-them-social') . '</small>',
@@ -2007,7 +2159,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel Slides Visible
-                                        38 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slides_visible',
                                             'option_type' => 'input',
                                             'label' => __('Carousel Slides Visible', 'feed-them-social') . '<br/><small>' . __('Not for Slideshow. Example: 1-500', 'feed-them-social') . '</small>',
@@ -2030,7 +2182,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel Spacing in between Slides
-                                        39 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_spacing',
                                             'option_type' => 'input',
                                             'label' => __('Spacing in between Slides', 'feed-them-social') . '<br/><small>' . __('', 'feed-them-social') . '</small>',
@@ -2051,7 +2203,7 @@ class FTS_settings_page
                                             'sub_options_end' => true,
                                         ),
                                         //Carousel/Slideshow Margin
-                                        40 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_margin',
                                             'option_type' => 'input',
                                             'label' => __('Carousel/Slideshow Margin', 'feed-them-social') . '<br/><small>' . __('Center feed. Add space above/below.', 'feed-them-social') . '</small>',
@@ -2071,7 +2223,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel/Slideshow Slider Speed
-                                        41 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_speed',
                                             'option_type' => 'input',
                                             'label' => __('Slider Speed', 'feed-them-social') . '<br/><small>' . __('How fast the slider changes', 'feed-them-social') . '</small>',
@@ -2091,7 +2243,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel/Slideshow Slider Timeout
-                                        42 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_timeout',
                                             'option_type' => 'input',
                                             'label' => __('Slider Timeout', 'feed-them-social') . '<br/><small>' . __('Amount of Time before the next slide.', 'feed-them-social') . '</small>',
@@ -2111,7 +2263,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel/Slideshow
-                                        43 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_controls',
                                             'option_type' => 'select',
                                             'label' => __('Slider Controls', 'feed-them-social') . '<br/><small>' . __('', 'feed-them-social') . '</small>',
@@ -2151,23 +2303,23 @@ class FTS_settings_page
                                                     'label' => __('Dots below Feed', 'feed-them-social'),
                                                     'value' => 'dots_below_feed',
                                                 ),
-                                                9 => array(
+                                                array(
                                                     'label' => __('Dots and Arrows below Feed', 'feed-them-social'),
                                                     'value' => 'dots_and_arrows_below_feed',
                                                 ),
-                                                10 => array(
+                                                array(
                                                     'label' => __('Dots and Numbers below Feed', 'feed-them-social'),
                                                     'value' => 'dots_and_numbers_below_feed',
                                                 ),
-                                                11 => array(
+                                                array(
                                                     'label' => __('Dots, Arrows and Numbers below Feed', 'feed-them-social'),
                                                     'value' => 'dots_arrows_and_numbers_below_feed',
                                                 ),
-                                                12 => array(
+                                                array(
                                                     'label' => __('Arrows below Feed', 'feed-them-social'),
                                                     'value' => 'arrows_below_feed',
                                                 ),
-                                                13 => array(
+                                                array(
                                                     'label' => __('Numbers Below Feed', 'feed-them-social'),
                                                     'value' => 'numbers_below_feed',
                                                 ),
@@ -2181,7 +2333,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel/Slideshow Slider Controls Text Color
-                                        44 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_controls_text_color',
                                             'option_type' => 'input',
                                             'label' => __('Slider Controls Text Color', 'feed-them-social') . '<br/><small>' . __('', 'feed-them-social') . '</small>',
@@ -2202,7 +2354,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel/Slideshow Slider Controls Bar Color
-                                        45 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_controls_bar_color',
                                             'option_type' => 'input',
                                             'label' => __('Slider Controls Bar Color', 'feed-them-social') . '<br/><small>' . __('', 'feed-them-social') . '</small>',
@@ -2223,7 +2375,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Carousel/Slideshow Slider Controls Bar Color
-                                        46 => array(
+                                        array(
                                             'input_wrap_id' => 'facebook_slider_controls_width',
                                             'option_type' => 'input',
                                             'label' => __('Slider Controls Max Width', 'feed-them-social') . '<br/><small>' . __('', 'feed-them-social') . '</small>',
@@ -2384,7 +2536,7 @@ class FTS_settings_page
                                     ),
                                     //Token Check
                                     'token_check' => array(
-                                        1 => array(
+                                        array(
                                             'option_name' => 'youtube_custom_api_token',
                                             'no_token_msg' => __('<strong>STEP 1:</strong> Please add a Youtube API Token to our <a href="admin.php?page=fts-youtube-feed-styles-submenu-page">Youtube Options</a> page before getting started. ' . $step2_custom_message . '', 'feed-them-social'),
                                         ),
@@ -2392,22 +2544,22 @@ class FTS_settings_page
                                     //Feed Types and their options
                                     'feeds_types' => array(
                                         //Channel Feed
-                                        1 => array(
+                                        array(
                                             'value' => 'channelID',
                                             'title' => __('Channel Feed', 'feed-them-social'),
                                         ),
                                         //Channel Playlist Feed
-                                        2 => array(
+                                        array(
                                             'value' => 'playlistID',
                                             'title' => __('Channel\'s Specific Playlist', 'feed-them-social'),
                                         ),
                                         //User's Most Recent Videos
-                                        3 => array(
+                                        array(
                                             'value' => 'username',
                                             'title' => __('User\'s Most Recent Videos', 'feed-them-social'),
                                         ),
                                         //User's Playlist
-                                        4 => array(
+                                        array(
                                             'value' => 'userPlaylist',
                                             'title' => __('User\'s Specific Playlist', 'feed-them-social'),
                                         ),
@@ -2420,7 +2572,7 @@ class FTS_settings_page
 
                                     'main_options' => array(
                                         //Youtube Name
-                                        0 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_name',
                                             'label' => __('Youtube Username (required)', 'feed-them-social'),
@@ -2442,7 +2594,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Playlist ID
-                                        1 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_playlistID',
                                             'label' => __('Youtube Playlist ID (required)', 'feed-them-social'),
@@ -2465,7 +2617,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Playlist ID2
-                                        2 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_playlistID2',
                                             'label' => __('Youtube Playlist ID (required)', 'feed-them-social'),
@@ -2488,7 +2640,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Name 2
-                                        3 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_name2',
                                             'label' => __('Youtube Username<br/><small>Required if showing <a href="admin.php?page=fts-youtube-feed-styles-submenu-page">Subscribe button</a></small>', 'feed-them-social'),
@@ -2508,7 +2660,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Channel ID
-                                        4 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_channelID',
                                             'label' => __('Youtube Channel ID (required)', 'feed-them-social'),
@@ -2530,7 +2682,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Channel ID 2
-                                        5 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_channelID2',
                                             'label' => __('Youtube Channel ID<br/><small>Required if showing <a href="admin.php?page=fts-youtube-feed-styles-submenu-page">Subscribe button</a></small>', 'feed-them-social'),
@@ -2550,7 +2702,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //# of videos
-                                        6 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_vid_count',
                                             'label' => __('# of videos', 'feed-them-social'),
@@ -2567,7 +2719,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //# of videos in each row
-                                        7 => array(
+                                        array(
                                             'input_wrap_class' => 'youtube_columns',
                                             'option_type' => 'select',
                                             'label' => __('# of videos in each row', 'feed-them-social'),
@@ -2575,19 +2727,19 @@ class FTS_settings_page
                                             'id' => 'youtube_columns',
                                             'name' => 'youtube_columns',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('1 video per row', 'feed-them-social'),
                                                     'value' => '1',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('2 video per row', 'feed-them-social'),
                                                     'value' => '2',
                                                 ),
-                                                3 => array(
+                                                array(
                                                     'label' => __('3 video per row', 'feed-them-social'),
                                                     'value' => '3',
                                                 ),
-                                                4 => array(
+                                                array(
                                                     'label' => __('4 video per row', 'feed-them-social'),
                                                     'value' => '4',
                                                 ),
@@ -2598,7 +2750,7 @@ class FTS_settings_page
                                             'req_plugin' => 'fts_premium',
                                         ),
                                         //Display First video full size
-                                        8 => array(
+                                        array(
                                             'input_wrap_class' => 'youtube_first_video',
                                             'option_type' => 'select',
                                             'label' => __('Display First video full size', 'feed-them-social'),
@@ -2606,11 +2758,11 @@ class FTS_settings_page
                                             'id' => 'youtube_first_video',
                                             'name' => 'youtube_first_video',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
@@ -2676,7 +2828,7 @@ class FTS_settings_page
                                     ),
                                     //Token Check
                                     'token_check' => array(
-                                        1 => array(
+                                        array(
                                             'option_name' => 'fts_pinterest_custom_api_token',
                                             'no_token_msg' => __('<strong>STEP 1:</strong> Please add a Pinterest API Token to our <a href="admin.php?page=fts-pinterest-feed-styles-submenu-page">Pinterest Options</a> page before getting started. ' . $step2_custom_message . '', 'feed-them-social'),
                                         ),
@@ -2684,17 +2836,17 @@ class FTS_settings_page
                                     //Feed Types and their options
                                     'feeds_types' => array(
                                         //Board List
-                                        1 => array(
+                                        array(
                                             'value' => 'boards_list',
                                             'title' => __('Board List', 'feed-them-social'),
                                         ),
                                         //Single Board Pins
-                                        2 => array(
+                                        array(
                                             'value' => 'single_board_pins',
                                             'title' => __('Pins From a Specific Board', 'feed-them-social'),
                                         ),
                                         //Single Board Pins
-                                        3 => array(
+                                        array(
                                             'value' => 'pins_from_user',
                                             'title' => __('Latest Pins from a User', 'feed-them-social'),
                                         ),
@@ -2707,7 +2859,7 @@ class FTS_settings_page
 
                                     'main_options' => array(
                                         //Feed Type
-                                        0 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'id' => 'pinterest-messages-selector',
                                             'name' => 'pinterest-messages-selector',
@@ -2719,7 +2871,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pinterest Board Name
-                                        1 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'board-name',
                                             'label' => __('Pinterest Board Name (required)', 'feed-them-social'),
@@ -2743,7 +2895,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pinterest Name
-                                        2 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'pinterest_name',
                                             'label' => __('Pinterest Username (required)', 'feed-them-social'),
@@ -2761,7 +2913,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Board Count
-                                        3 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'number-of-boards',
                                             'label' => __('# of Boards', 'feed-them-social') . $limitforpremium,
@@ -2782,7 +2934,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pins Count
-                                        4 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'show-pins-amount',
                                             'label' => __('# of Pins', 'feed-them-social') . $limitforpremium,
@@ -2844,7 +2996,7 @@ class FTS_settings_page
                                     'form_wrap_id' => 'fts-twitter-form',
                                     //Token Check
                                     'token_check' => array(
-                                        1 => array(
+                                        array(
                                             'option_name' => 'fts_twitter_custom_access_token_secret',
                                             'no_token_msg' => __('<strong>STEP 1:</strong> Please add Twitter API Tokens to our <a href="admin.php?page=fts-twitter-feed-styles-submenu-page">Twitter Options</a> page before getting started. ' . $step2_custom_message . '', 'feed-them-social'),
                                         ),
@@ -2860,12 +3012,12 @@ class FTS_settings_page
                                     //Feed Types and their options
                                     'feeds_types' => array(
                                         //User Feed
-                                        1 => array(
+                                        array(
                                             'value' => 'user',
                                             'title' => __('User Feed', 'feed-them-social'),
                                         ),
                                         //hastag Feed
-                                        2 => array(
+                                        array(
                                             'value' => 'hashtag',
                                             'title' => __('Hashtag, Search and more Feed', 'feed-them-social'),
                                         ),
@@ -2875,7 +3027,7 @@ class FTS_settings_page
 
                                     'main_options' => array(
                                         //Twitter Search Name
-                                        0 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'twitter_hashtag_etc_name',
                                             'label' => __('Twitter Search Name (required)', 'feed-them-social'),
@@ -2905,7 +3057,7 @@ class FTS_settings_page
 
                                         ),
                                         //Twitter Name
-                                        1 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'twitter_name',
                                             'label' => __('Twitter Name', 'feed-them-social'),
@@ -2927,7 +3079,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Tweet Count
-                                        2 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('# of Tweets (optional)', 'feed-them-social') . $limitforpremium,
                                             'type' => 'text',
@@ -2947,7 +3099,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Twitter Fixed Height
-                                        3 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Twitter Fixed Height', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto height', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -2963,18 +3115,18 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Show Cover Photo
-                                        4 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Cover Photo', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'twitter-cover-photo',
                                             'name' => 'twitter-cover-photo',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -2984,18 +3136,18 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Show Stats Bar
-                                        5 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Stats Bar', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'twitter-stats-bar',
                                             'name' => 'twitter-stats-bar',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -3005,18 +3157,18 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Show Retweets
-                                        6 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Retweets', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'twitter-show-retweets',
                                             'name' => 'twitter-show-retweets',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -3026,18 +3178,18 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Show Replies
-                                        7 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Replies', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'twitter-show-replies',
                                             'name' => 'twitter-show-replies',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -3047,7 +3199,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pop Up Option
-                                        8 => array(
+                                        array(
                                             'grouped_options_title' => __('Popup', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Display Photos & Videos in Popup', 'feed-them-social'),
@@ -3057,11 +3209,11 @@ class FTS_settings_page
                                             // Premium Required - yes/no/more (more allows for us to limit things by numbers, also allows for special message above option.)
                                             'prem_req' => 'yes',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -3076,7 +3228,7 @@ class FTS_settings_page
                                         // Facebook Load More Options
                                         //******************************************
                                         //Twitter Load More Button
-                                        26 => array(
+                                        array(
                                             'grouped_options_title' => __('Load More', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Load More Button', 'feed-them-social'),
@@ -3084,11 +3236,11 @@ class FTS_settings_page
                                             'id' => 'twitter_load_more_option',
                                             'name' => 'twitter_load_more_option',
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('No', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('Yes', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
@@ -3106,7 +3258,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Twitter Load More Style
-                                        27 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Load More Style', 'feed-them-social'),
                                             'type' => 'text',
@@ -3114,11 +3266,11 @@ class FTS_settings_page
                                             'name' => 'twitter_load_more_style',
                                             'instructional-text' => '<strong>' . __('NOTE:', 'feed-them-social') . '</strong> ' . __('The Button option will show a "Load More Posts" button under your feed. The AutoScroll option will load more posts when you reach the bottom of the feed. AutoScroll ONLY works if you\'ve filled in a Fixed Height for your feed.', 'feed-them-social'),
                                             'options' => array(
-                                                1 => array(
+                                                array(
                                                     'label' => __('Button', 'feed-them-social'),
                                                     'value' => 'button',
                                                 ),
-                                                2 => array(
+                                                array(
                                                     'label' => __('AutoScroll', 'feed-them-social'),
                                                     'value' => 'autoscroll',
                                                 ),
@@ -3136,7 +3288,7 @@ class FTS_settings_page
                                             'sub_options_end' => true,
                                         ),
                                         //Twitter Load more Button Width
-                                        28 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Load more Button Width', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto width', 'feed-them-social') . '</small>',
                                             'type' => 'text',
@@ -3160,7 +3312,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Twitter Load more Button Margin
-                                        29 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Load more Button Margin', 'feed-them-social'),
                                             'type' => 'text',
@@ -3182,7 +3334,7 @@ class FTS_settings_page
                                         // Twitter Grid Options
                                         //******************************************
                                         // Twitter Display Posts in Grid
-                                        30 => array(
+                                        array(
                                             'grouped_options_title' => __('Grid', 'feed-them-social'),
                                             'input_wrap_class' => 'twitter-posts-in-grid-option-wrap',
                                             'option_type' => 'select',
@@ -3215,7 +3367,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Grid Column Width
-                                        31 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Grid Column Width', 'feed-them-social'),
                                             'type' => 'text',
@@ -3242,7 +3394,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Grid Spaces Between Posts
-                                        32 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('Grid Spaces Between Posts', 'feed-them-social'),
                                             'type' => 'text',
@@ -3311,7 +3463,7 @@ class FTS_settings_page
                                     'form_wrap_id' => 'fts-instagram-form',
                                     //Token Check
                                     'token_check' => array(
-                                        1 => array(
+                                        array(
                                             'option_name' => 'fts_instagram_custom_api_token',
                                             'no_token_msg' => __('<strong>STEP 1:</strong> Please get your Access Token on the <a href="admin.php?page=fts-instagram-feed-styles-submenu-page">Instagram Options</a> page before getting started. ' . $step2_custom_message . '', 'feed-them-social'),
                                         ),
@@ -3327,21 +3479,26 @@ class FTS_settings_page
                                     //Feed Types and their options
                                     'feeds_types' => array(
                                         //User Feed
-                                        1 => array(
+                                        array(
                                             'value' => 'user',
                                             'title' => __('User Feed', 'feed-them-social'),
                                         ),
                                         //hastag Feed
-                                        2 => array(
+                                        array(
                                             'value' => 'hashtag',
                                             'title' => __('Hashtag Feed', 'feed-them-social'),
+                                        ),
+                                        //location Feed
+                                        array(
+                                            'value' => 'location',
+                                            'title' => __('Location Feed', 'feed-them-social'),
                                         ),
                                     ),
                                     //Feed Type Selection
                                     'conversion_input' => array(
                                         'main_wrap_class' => 'instagram-id-option-wrap',
                                         'conv_section_title' => __('Convert Instagram Name to ID', 'feed-them-social'),
-                                        'instructional-text' => 'You must copy your <a href="https://www.slickremix.com/how-to-get-your-instagram-name-and-convert-to-id/" target="_blank">Instagram Name</a>  and paste it in the first input below',
+                                        'instructional-text' => 'You must copy your <a href="https://www.slickremix.com/how-to-get-your-instagram-name-and-convert-to-id/" target="_blank">Instagram Name</a> and paste it in the first input below',
                                         'input_wrap_class' => 'instagram_name',
                                         'label' => __('Instagram Name (required)', 'feed-them-social'),
                                         'id' => 'convert_instagram_username',
@@ -3354,7 +3511,7 @@ class FTS_settings_page
                                     //Inputs relative to all Feed_types of this feed. (Eliminates Duplication)[Excluded from loop when creating select]
                                     'main_options' => array(
                                         //Instagram ID
-                                        0 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'instagram_name',
                                             'label' => array(
@@ -3365,6 +3522,10 @@ class FTS_settings_page
                                                 2 => array(
                                                     'text' => __('Hashtag (required)', 'feed-them-social'),
                                                     'class' => 'instagram-hashtag-option-text',
+                                                ),
+                                                3 => array(
+                                                    'text' => __('Location ID (required)', 'feed-them-social'),
+                                                    'class' => 'instagram-location-option-text',
                                                 ),
                                             ),
                                             'type' => 'text',
@@ -3377,8 +3538,12 @@ class FTS_settings_page
                                                     'class' => 'instagram-user-option-text',
                                                 ),
                                                 2 => array(
-                                                    'text' => __('Add your Hashtag below. Do not add the #, just the name.', 'feed-them-social'),
+                                                    'text' => __('Add your Hashtag below. <strong>DO NOT</strong> add the #, just the name.', 'feed-them-social'),
                                                     'class' => 'instagram-hashtag-option-text',
+                                                ),
+                                                3 => array(
+                                                    'text' => __('<strong>NOTE:</strong> The post count may not count proper in some location instances because private instagram photos are in the mix. We cannot pull private accounts photos in any location feed. Add your Location ID below.', 'feed-them-social'),
+                                                    'class' => 'instagram-location-option-text',
                                                 ),
                                             ),
                                             //Relative to JS.
@@ -3389,7 +3554,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Pic Count
-                                        1 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('# of Pics (optional)', 'feed-them-social') . $limitforpremium,
                                             'type' => 'text',
@@ -3407,7 +3572,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Feed Type
-                                        2 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'id' => 'instagram-messages-selector',
                                             'no_html' => 'yes',
@@ -3416,11 +3581,30 @@ class FTS_settings_page
                                                 'attr_name' => 'type',
                                             ),
                                         ),
+                                        //Instagram Width
+                                        array(
+                                            'input_wrap_class' => 'instagram_width_option',
+                                            'option_type' => 'input',
+                                            'label' => __('Gallery Width', 'feed-them-social'),
+                                            'label_note' => __('Leave blank for auto height', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'instagram_page_width',
+                                            'name' => 'instagram_page_width',
+                                            'placeholder' => '50% or 450px ' . __('for example', 'feed-them-social'),
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'width',
+                                                'var_final_if' => 'yes',
+                                                'empty_error' => 'set',
+                                                //Special case: need no attribute if empty
+                                                'empty_error_value' => '',
+                                            ),
+                                        ),
                                         //Instagram Fixed Height
-                                        3 => array(
+                                        array(
                                             'input_wrap_class' => 'instagram_fixed_height_option',
                                             'option_type' => 'input',
-                                            'label' => __('Instagram Fixed Height', 'feed-them-social'),
+                                            'label' => __('Gallery Fixed Height', 'feed-them-social') . '<br/><small>' . __('Use this option to create a scrolling feed.', 'feed-them-gallery') . '</small>',
                                             'label_note' => __('Leave blank for auto height', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'instagram_page_height',
@@ -3438,7 +3622,7 @@ class FTS_settings_page
                                         //******************************************
                                         // Profile Wrap
                                         //******************************************
-                                        4 => array(
+                                        array(
                                             'grouped_options_title' => __('Profile', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Show Profile Info', 'feed-them-social'),
@@ -3462,7 +3646,7 @@ class FTS_settings_page
                                                 'sub_options_wrap_class' => 'main-instagram-profile-options-wrap',
                                             ),
                                         ),
-                                        5 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Profile Photo', 'feed-them-social'),
                                             'type' => 'text',
@@ -3486,7 +3670,7 @@ class FTS_settings_page
                                                 'sub_options_wrap_class' => 'instagram-profile-options-wrap',
                                             ),
                                         ),
-                                        6 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Profile Stats', 'feed-them-social'),
                                             'type' => 'text',
@@ -3507,7 +3691,7 @@ class FTS_settings_page
                                                 'ifs' => 'profile_wrap',
                                             ),
                                         ),
-                                        7 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Profile Name', 'feed-them-social'),
                                             'type' => 'text',
@@ -3528,7 +3712,7 @@ class FTS_settings_page
                                                 'ifs' => 'profile_wrap',
                                             ),
                                         ),
-                                        8 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Show Profile Description', 'feed-them-social'),
                                             'type' => 'text',
@@ -3553,21 +3737,21 @@ class FTS_settings_page
                                         //******************************************
                                         // Super Gallery
                                         //******************************************
-                                        9 => array(
-                                            'grouped_options_title' => __('Super Gallery', 'feed-them-social'),
+                                        array(
+                                            'grouped_options_title' => __('Gallery Options', 'feed-them-social'),
                                             'option_type' => 'select',
-                                            'label' => __('Super Instagram Gallery', 'feed-them-social'),
+                                            'label' => __('Gallery Style', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'instagram-custom-gallery',
                                             'name' => 'instagram-custom-gallery',
                                             'options' => array(
                                                 1 => array(
-                                                    'label' => __('No', 'feed-them-social'),
-                                                    'value' => 'no',
+                                                    'label' => __('New Gallery Style', 'feed-them-social'),
+                                                    'value' => 'yes',
                                                 ),
                                                 2 => array(
-                                                    'label' => __('Yes', 'feed-them-social'),
-                                                    'value' => 'yes',
+                                                    'label' => __('Classic Gallery Style', 'feed-them-social'),
+                                                    'value' => 'no',
                                                 ),
                                             ),
                                             'short_attr' => array(
@@ -3575,48 +3759,85 @@ class FTS_settings_page
                                                 'ifs' => 'super_gallery',
                                             ),
                                         ),
-                                        //Image Size
-                                        10 => array(
-                                            'option_type' => 'input',
-                                            'label' => __('Instagram Image Size', 'feed-them-social'),
-                                            'label_note' => __('Max width is 640px', 'feed-them-social'),
+                                        array(
+                                            'input_wrap_class' => 'fb-page-columns-option-hide',
+                                            'option_type' => 'select',
+                                            'label' => __('Number of Columns', 'feed-them-gallery'),
                                             'type' => 'text',
-                                            'id' => 'fts-slicker-instagram-container-image-size',
-                                            'name' => 'fts-slicker-instagram-container-image-size',
-                                            'placeholder' => '250px',
+                                            'instructional-text' => '<strong>' . __('NOTE:', 'feed-them-gallery') . '</strong>' . '</strong> ' . __('Using the Columns option will make this gallery fully responsive and it will adapt in size to your containers width. Choose the Number of Columns and Space between each image below. Please add px after any number.', 'feed-them-gallery') . ' <a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a>',
+                                            'id' => 'fts_instagram_columns',
+                                            'name' => 'fts_instagram_columns',
+                                            'default_value' => '3',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('1', 'feed-them-gallery'),
+                                                    'value' => '1',
+                                                ),
+                                                array(
+                                                    'label' => __('2', 'feed-them-gallery'),
+                                                    'value' => '2',
+                                                ),
+                                                array(
+                                                    'label' => __('3', 'feed-them-gallery'),
+                                                    'value' => '3',
+                                                ),
+                                                array(
+                                                    'label' => __('4', 'feed-them-gallery'),
+                                                    'value' => '4',
+                                                ),
+                                                array(
+                                                    'label' => __('5', 'feed-them-gallery'),
+                                                    'value' => '5',
+                                                ),
+                                                array(
+                                                    'label' => __('6', 'feed-them-gallery'),
+                                                    'value' => '6',
+                                                ),
+                                                array(
+                                                    'label' => __('7', 'feed-them-gallery'),
+                                                    'value' => '7',
+                                                ),
+                                                array(
+                                                    'label' => __('8', 'feed-them-gallery'),
+                                                    'value' => '8',
+                                                )
+                                            ),
                                             'short_attr' => array(
-                                                'attr_name' => 'image_size',
-                                                'var_final_if' => 'yes',
-                                                'empty_error' => 'set',
-                                                'empty_error_value' => 'image_size=250px',
+                                                'attr_name' => 'columns',
                                                 'ifs' => 'super_gallery',
                                             ),
                                             //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
                                             'sub_options' => array(
-                                                'sub_options_title' => __('Super Instagram Gallery Options', 'feed-them-social'),
                                                 'sub_options_wrap_class' => 'fts-super-instagram-options-wrap',
-                                                'sub_options_instructional_txt' => '<a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a> ' . __('of the Super Instagram gallery.', 'feed-them-social'),
                                             ),
+
                                         ),
-                                        //Icon Size
-                                        11 => array(
-                                            'option_type' => 'input',
-                                            'label' => __('Size of the Instagram Icon', 'feed-them-social'),
-                                            'label_note' => __('Visible when you hover over photo', 'feed-them-social'),
+                                        array(
+                                            'input_wrap_class' => 'fb-page-columns-option-hide',
+                                            'option_type' => 'select',
+                                            'label' => __('Force Columns', 'feed-them-gallery') . '<br/><small>' . __('No, will allow the images to be resposive for smaller devices. Yes, will force columns.', 'feed-them-gallery') . '</small>',
                                             'type' => 'text',
-                                            'id' => 'fts-slicker-instagram-icon-center',
-                                            'name' => 'fts-slicker-instagram-icon-center',
-                                            'placeholder' => '65px',
+                                            'id' => 'fts_instagram_force_columns',
+                                            'name' => 'fts_instagram_force_columns',
+                                            'default_value' => 'no',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('No', 'feed-them-gallery'),
+                                                    'value' => 'no',
+                                                ),
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-gallery'),
+                                                    'value' => 'yes',
+                                                ),
+                                            ),
                                             'short_attr' => array(
-                                                'attr_name' => 'icon_size',
-                                                'var_final_if' => 'yes',
-                                                'empty_error' => 'set',
-                                                'empty_error_value' => 'icon_size=65px',
+                                                'attr_name' => 'force_columns',
                                                 'ifs' => 'super_gallery',
                                             ),
                                         ),
+
                                         //Space between Photos
-                                        12 => array(
+                                        array(
                                             'option_type' => 'input',
                                             'label' => __('The space between photos', 'feed-them-social'),
                                             'type' => 'text',
@@ -3632,21 +3853,38 @@ class FTS_settings_page
                                                 'ifs' => 'super_gallery',
                                             ),
                                         ),
+                                        //Icon Size
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Size of the Instagram Icon', 'feed-them-social'),
+                                            'label_note' => __('Visible when you hover over photo', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'fts-slicker-instagram-icon-center',
+                                            'name' => 'fts-slicker-instagram-icon-center',
+                                            'placeholder' => '65px',
+                                            'short_attr' => array(
+                                                'attr_name' => 'icon_size',
+                                                'var_final_if' => 'yes',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'icon_size=65px',
+                                                'ifs' => 'super_gallery',
+                                            ),
+                                        ),
                                         //Hide Date, Likes and Comments
-                                        13 => array(
+                                        array(
                                             'option_type' => 'select',
-                                            'label' => __('Hide Date, Likes and Comments', 'feed-them-social'),
+                                            'label' => __('Date, Heart & Comment icon', 'feed-them-social'),
                                             'label_note' => __('Good for image sizes under 120px', 'feed-them-social'),
                                             'type' => 'text',
                                             'id' => 'fts-slicker-instagram-container-hide-date-likes-comments',
                                             'name' => 'fts-slicker-instagram-container-hide-date-likes-comments',
                                             'options' => array(
                                                 1 => array(
-                                                    'label' => __('No', 'feed-them-social'),
+                                                    'label' => __('Show', 'feed-them-social'),
                                                     'value' => 'no',
                                                 ),
                                                 2 => array(
-                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'label' => __('Hide', 'feed-them-social'),
                                                     'value' => 'yes',
                                                 ),
                                             ),
@@ -3654,57 +3892,12 @@ class FTS_settings_page
                                                 'attr_name' => 'hide_date_likes_comments',
                                                 'ifs' => 'super_gallery',
                                             ),
-                                        ),
-                                        //Center Instagram Container
-                                        14 => array(
-                                            'option_type' => 'select',
-                                            'label' => __('Center Instagram Container', 'feed-them-social'),
-                                            'type' => 'text',
-                                            'id' => 'fts-slicker-instagram-container-position',
-                                            'name' => 'fts-slicker-instagram-container-position',
-                                            'options' => array(
-                                                1 => array(
-                                                    'label' => __('Yes', 'feed-them-social'),
-                                                    'value' => 'yes',
-                                                ),
-                                                2 => array(
-                                                    'label' => __('No', 'feed-them-social'),
-                                                    'value' => 'no',
-                                                ),
-                                            ),
-                                            'short_attr' => array(
-                                                'attr_name' => 'center_container',
-                                                'ifs' => 'super_gallery',
-                                            ),
-                                        ),
-                                        //Image Stacking Animation
-                                        15 => array(
-                                            'option_type' => 'select',
-                                            'label' => __('Image Stacking Animation On', 'feed-them-social'),
-                                            'label_note' => __('This happens when resizing browser', 'feed-them-social'),
-                                            'type' => 'text',
-                                            'id' => 'fts-slicker-instagram-container-animation',
-                                            'name' => 'fts-slicker-instagram-container-animation',
-                                            'options' => array(
-                                                1 => array(
-                                                    'label' => __('No', 'feed-them-social'),
-                                                    'value' => 'no',
-                                                ),
-                                                2 => array(
-                                                    'label' => __('Yes', 'feed-them-social'),
-                                                    'value' => 'yes',
-                                                ),
-                                            ),
-                                            'short_attr' => array(
-                                                'attr_name' => 'image_stack_animation',
-                                                'ifs' => 'super_gallery',
-                                            ),
                                             'sub_options_end' => true,
                                         ),
                                         //******************************************
                                         // Load More
                                         //******************************************
-                                        16 => array(
+                                        array(
                                             'grouped_options_title' => __('Load More', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Load more posts', 'feed-them-social'),
@@ -3732,7 +3925,7 @@ class FTS_settings_page
                                             ),
                                         ),
                                         //Load More Option Type
-                                        17 => array(
+                                        array(
                                             'option_type' => 'select',
                                             'label' => __('Load more style', 'feed-them-social'),
                                             'type' => 'text',
@@ -3760,10 +3953,51 @@ class FTS_settings_page
                                             'sub_options' => array(
                                                 'sub_options_wrap_class' => 'fts-instagram-load-more-options-wrap',
                                             ),
-                                            'sub_options_end' => true,
+                                        ),
+                                        //Facebook Page Load more Button Width
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Load more Button Width', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto width', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'instagram_loadmore_button_width',
+                                            'name' => 'instagram_loadmore_button_width',
+                                            'placeholder' => '300px ' . __('for example', 'feed-them-social'),
+                                            'value' => '',
+                                            'req_plugin' => 'fts_premium',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore_btn_maxwidth',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'loadmore_btn_maxwidth=300px',
+                                                'ifs' => 'load_more',
+                                            ),
+                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'fts-instagram-load-more-options2-wrap',
+                                                //'sub_options_instructional_txt' => '<a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a> ' . __('of the Super Instagram gallery.', 'feed-them-social'),
+                                            ),
+                                        ),
+                                        //Facebook Page Load more Button Margin
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Load more Button Margin', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'instagram_loadmore_button_margin',
+                                            'name' => 'instagram_loadmore_button_margin',
+                                            'placeholder' => '10px ' . __('for example', 'feed-them-social'),
+                                            'value' => '',
+                                            'req_plugin' => 'fts_premium',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore_btn_margin',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'loadmore_btn_margin=10px',
+                                                'ifs' => 'load_more',
+                                            ),
+                                            'sub_options_end' => 2,
                                         ),
                                         //Pop Up Option
-                                        18 => array(
+                                        array(
                                             'grouped_options_title' => __('Popup', 'feed-them-social'),
                                             'option_type' => 'select',
                                             'label' => __('Display Photos & Videos in Popup', 'feed-them-social'),
@@ -4494,23 +4728,60 @@ class FTS_settings_page
                 });
                 // Instagram Super Gallery option
                 jQuery('#instagram-custom-gallery').bind('change', function (e) {
-                    if (jQuery('#instagram-custom-gallery').val() == 'yes') {
-                        jQuery('.fts-super-instagram-options-wrap').show();
-                    }
-                    else {
+                    if (jQuery('#instagram-custom-gallery').val() == 'no') {
                         jQuery('.fts-super-instagram-options-wrap').hide();
                     }
+                    else {
+                        jQuery('.fts-super-instagram-options-wrap').show();
+                    }
                 });
+
+
                 jQuery('#instagram-messages-selector').bind('change', function (e) {
                     if (jQuery('#instagram-messages-selector').val() == 'hashtag') {
-                        jQuery(".instagram-id-option-wrap,.instagram-user-option-text,.main-instagram-profile-options-wrap").hide();
+                        jQuery(".instagram-id-option-wrap,.instagram-user-option-text,.instagram-location-option-text,.main-instagram-profile-options-wrap").hide();
                         jQuery(".instagram-hashtag-option-text").show();
+                    }
+                    else if (jQuery('#instagram-messages-selector').val() == 'location') {
+                        jQuery(".instagram-id-option-wrap,.instagram-user-option-text,.instagram-hashtag-option-text,.main-instagram-profile-options-wrap").hide();
+                        jQuery(".instagram-location-option-text").show();
                     }
                     else {
                         jQuery(".instagram-id-option-wrap,.instagram-user-option-text,.main-instagram-profile-options-wrap").show();
-                        jQuery(".instagram-hashtag-option-text").hide();
+                        jQuery(".instagram-hashtag-option-text,.instagram-location-option-text").hide();
                     }
                 });
+
+                jQuery('#combine_instagram_type').bind('change', function (e) {
+                    if (jQuery('#combine_instagram_type').val() == 'hashtag') {
+                        jQuery(".combine-instagram-id-option-wrap,.combine-instagram-user-option-text,.combine-instagram-location-option-text").hide();
+                        jQuery(".combine-instagram-hashtag-option-text").show();
+                    }
+                    else if (jQuery('#combine_instagram_type').val() == 'location') {
+                        jQuery(".combine-instagram-id-option-wrap,.combine-instagram-user-option-text,.combine-instagram-hashtag-option-text").hide();
+                        jQuery(".combine-instagram-location-option-text").show();
+                    }
+                    else {
+                        jQuery(".combine-instagram-id-option-wrap,.combine-instagram-user-option-text").show();
+                        jQuery(".combine-instagram-hashtag-option-text,.combine-instagram-location-option-text").hide();
+                    }
+                });
+
+                <?php if (!is_plugin_active('feed-them-premium/feed-them-premium.php')) { ?>
+                jQuery('#instagram-messages-selector').bind('change', function (e) {
+                    if (jQuery('#instagram-messages-selector').val() == 'location') {
+                        jQuery("#instagram_id").hide();
+                        jQuery('<div class="feed-them-social-admin-input-default fts-custom-premium-required">Must have <a target="_blank" href="https://www.slickremix.com/downloads/feed-them-social-premium-extension/">premium</a> to edit.</div>').insertAfter('.feed-them-social-admin-input-label.instagram-location-option-text')
+                        jQuery(".feed-them-social-admin-submit-btn").hide();
+                    }
+                    else {
+                        jQuery("#instagram_id").show();
+                        jQuery(".fts-custom-premium-required").hide();
+                        jQuery(".feed-them-social-admin-submit-btn").show();
+                    }
+
+                });
+                <?php }  ?>
 
                 jQuery('#twitter-messages-selector').bind('change', function (e) {
                     if (jQuery('#twitter-messages-selector').val() == 'hashtag') {
@@ -4520,6 +4791,17 @@ class FTS_settings_page
                     else {
                         jQuery(".hashtag-option-not-required, .must-copy-twitter-name").show();
                         jQuery(".twitter-hashtag-etc-wrap,.hashtag-option-small-text").hide();
+                    }
+                });
+
+                jQuery('#combine-twitter-messages-selector').bind('change', function (e) {
+                    if (jQuery('#combine-twitter-messages-selector').val() == 'hashtag') {
+                        jQuery(".combine-twitter-hashtag-etc-wrap").show();
+                        jQuery(".combine_twitter_name").hide();
+                    }
+                    else {
+                        jQuery(".combine_twitter_name").show();
+                        jQuery(".combine-twitter-hashtag-etc-wrap").hide();
                     }
                 });
 
@@ -4882,6 +5164,23 @@ class FTS_settings_page
             if (jQuery('#instagram_page_height').val().indexOf('px') <= 0 && isPXpresent11 !== "") {
                 jQuery('#instagram_page_height').val(jQuery('#instagram_page_height').val() + 'px');
             }
+            <?php if (is_plugin_active('feed-them-social-combined-streams/feed-them-social-combined-streams.php')) { ?>
+            var isPXpresent = jQuery('#combine_grid_column_width').val();
+            // This is in place to auto add the px if a specific input is missing it.
+            if (jQuery('#combine_grid_column_width').val().indexOf('px') <= 0 && isPXpresent !== "") {
+                jQuery('#combine_grid_column_width').val(jQuery('#combine_grid_column_width').val() + 'px');
+            }
+            var isPXpresent = jQuery('#combine_grid_space_between_posts').val();
+            // This is in place to auto add the px if a specific input is missing it.
+            if (jQuery('#combine_grid_space_between_posts').val().indexOf('px') <= 0 && isPXpresent !== "") {
+                jQuery('#combine_grid_space_between_posts').val(jQuery('#combine_grid_space_between_posts').val() + 'px');
+            }
+            var isPXpresent = jQuery('#combine_height').val();
+            // This is in place to auto add the px if a specific input is missing it.
+            if (jQuery('#combine_height').val().indexOf('px') <= 0 && isPXpresent !== "") {
+                jQuery('#combine_height').val(jQuery('#combine_height').val() + 'px');
+            }
+            <?php } ?>
 
             <?php
 
@@ -4963,12 +5262,12 @@ class FTS_settings_page
                 var convert_instagram_username_combined = jQuery("input#combine_convert_instagram_username").val();
 
                 // Regular Instagram Converter
-                if(jQuery( "#fts-instagram-form" ).is(':visible') && convert_instagram_username == "") {
+                if (jQuery("#fts-instagram-form").is(':visible') && convert_instagram_username == "") {
                     jQuery("#convert_instagram_username").addClass('fts-empty-error');
                     jQuery("input#convert_instagram_username").focus();
                     return false;
                 }
-                else if(jQuery( "#fts-instagram-form" ).is(':visible') && convert_instagram_username !== "") {
+                else if (jQuery("#fts-instagram-form").is(':visible') && convert_instagram_username !== "") {
                     jQuery(".convert_instagram_username").removeClass('fts-empty-error');
                     var username_id = "#convert_instagram_username";
                     var picker_wrap = "#fts-instagram-username-picker-wrap";
@@ -4977,13 +5276,13 @@ class FTS_settings_page
 
 
                 // Combined Feeds Converter
-                if (jQuery( "#fts-combine-steams-form" ).is(':visible') && convert_instagram_username_combined == "") {
-                    alert('wtf');
+                if (jQuery("#fts-combine-steams-form").is(':visible') && convert_instagram_username_combined == "") {
+                    // alert('wtf');
                     jQuery("#combine_convert_instagram_username").addClass('fts-empty-error');
                     jQuery("input#combine_convert_instagram_username").focus();
                     return false;
                 }
-                else if(jQuery( "#fts-combine-steams-form" ).is(':visible') && convert_instagram_username_combined !== "") {
+                else if (jQuery("#fts-combine-steams-form").is(':visible') && convert_instagram_username_combined !== "") {
 
                     jQuery(".convert_instagram_username").removeClass('fts-empty-error');
                     var username_id = "#combine_convert_instagram_username";
@@ -5009,40 +5308,42 @@ class FTS_settings_page
 
                         var convert_instagram_username_combined = jQuery("input#combine_convert_instagram_username").val();
                         jQuery('.fts-instagram-username-picker-wrap').html('');
-                        jQuery('.fts-instagram-username-picker-wrap').closest('.instructional-text').css( "border", "none" );
+                        jQuery('.fts-instagram-username-picker-wrap').closest('.instructional-text').css("border", "none");
 
 
-                        jQuery.each(data.data, function(key, val) {
+                        jQuery.each(data.data, function (key, val) {
                             console.log(data.data[key].full_name);
                             console.log(data.data[key].profile_picture);
                             console.log(data.data[key].username);
                             console.log(data.data[key].id);
 
-                            if(jQuery(username_id).val() === data.data[key].username){
+                            if (jQuery(username_id).val() === data.data[key].username) {
 
                                 jQuery(username_id).prepend(data.data[key].username);
 
-                                jQuery(picker_wrap).prepend('<li class="fts-insta-username-'+data.data[key].username+'"><div class="fts-insta-profile-picture-div"><img src="' + data.data[key].profile_picture + '"/><div class="fts-insta-fullname-div"><strong>Full Name:</strong> ' + data.data[key].full_name + '</div><div class="fts-insta-username-div"><strong>Username:</strong> ' + data.data[key].username + '</div><div class="fts-insta-id-div"><strong>ID:</strong> <span class="fts-insta-id-final">' + data.data[key].id + '</span></span></div></li>');
+                                jQuery(picker_wrap).prepend('<li class="fts-insta-username-' + data.data[key].username + '"><div class="fts-insta-profile-picture-div"><img src="' + data.data[key].profile_picture + '"/><div class="fts-insta-fullname-div"><strong>Full Name:</strong> ' + data.data[key].full_name + '</div><div class="fts-insta-username-div"><strong>Username:</strong> ' + data.data[key].username + '</div><div class="fts-insta-id-div"><strong>ID:</strong> <span class="fts-insta-id-final">' + data.data[key].id + '</span></span></div></li>');
 
 
-                                if(jQuery( "#fts-instagram-form" ).is(':visible') && convert_instagram_username !== "") {
-                                    jQuery('.fts-insta-username-'+data.data[key].username+'').addClass('fts-insta-id-active');
+                                if (jQuery("#fts-instagram-form").is(':visible') && convert_instagram_username !== "") {
+                                    jQuery('.fts-insta-username-' + data.data[key].username + '').addClass('fts-insta-id-active');
                                     jQuery('#instagram_id').val(data.data[key].id);
-                                    console.log('Success'); console.log('.fts-insta-username-'+data.data[key].username+'');
+                                    console.log('Success');
+                                    console.log('.fts-insta-username-' + data.data[key].username + '');
                                 }
 
-                                if(jQuery( "#fts-combine-steams-form" ).is(':visible') && convert_instagram_username_combined !== "") {
-                                    jQuery('.fts-insta-username-'+data.data[key].username+'').addClass('fts-insta-id-active');
+                                if (jQuery("#fts-combine-steams-form").is(':visible') && convert_instagram_username_combined !== "") {
+                                    jQuery('.fts-insta-username-' + data.data[key].username + '').addClass('fts-insta-id-active');
                                     jQuery('#combine_instagram_name').val(data.data[key].id);
 
 
-                                    console.log('Success'); console.log('.fts-insta-username-'+data.data[key].username+'');
+                                    console.log('Success');
+                                    console.log('.fts-insta-username-' + data.data[key].username + '');
 
                                 }
 
                             }
                             else {
-                                jQuery(picker_wrap).append('<li class="fts-insta-username-'+data.data[key].username+'"><div class="fts-insta-profile-picture-div"><img src="' + data.data[key].profile_picture + '"/><div class="fts-insta-fullname-div"><strong>Full Name:</strong> ' + data.data[key].full_name + '</div><div class="fts-insta-username-div"><strong>Username:</strong> ' + data.data[key].username + '</div><div class="fts-insta-id-div"><strong>ID:</strong> <span class="fts-insta-id-final">' + data.data[key].id + '</span></span></div></li>');
+                                jQuery(picker_wrap).append('<li class="fts-insta-username-' + data.data[key].username + '"><div class="fts-insta-profile-picture-div"><img src="' + data.data[key].profile_picture + '"/><div class="fts-insta-fullname-div"><strong>Full Name:</strong> ' + data.data[key].full_name + '</div><div class="fts-insta-username-div"><strong>Username:</strong> ' + data.data[key].username + '</div><div class="fts-insta-id-div"><strong>ID:</strong> <span class="fts-insta-id-final">' + data.data[key].id + '</span></span></div></li>');
 
                             }
 
@@ -5061,16 +5362,16 @@ class FTS_settings_page
                 // jQuery('.combine-steams-shortcode-form').fadeIn('fast');
 
                 // This is for when you click on the returned instagram id,name list it will make that li active and append the value to the instagram ID input.
-                jQuery('.fts-instagram-username-picker-wrap').on('click', 'li', function() {
+                jQuery('.fts-instagram-username-picker-wrap').on('click', 'li', function () {
                     var convert_instagram_username = jQuery("input#convert_instagram_username").val();
                     var convert_instagram_username_combined = jQuery("input#combine_convert_instagram_username").val();
                     var insta_page_id = jQuery(this).find('.fts-insta-id-final').html();
                     console.log(insta_page_id);
 
-                    if(convert_instagram_username !== "") {
+                    if (convert_instagram_username !== "") {
                         jQuery("#instagram_id").val(insta_page_id);
                     }
-                    if(convert_instagram_username_combined !== "") {
+                    if (convert_instagram_username_combined !== "") {
                         jQuery("#combine_instagram_name").val(insta_page_id);
                     }
 

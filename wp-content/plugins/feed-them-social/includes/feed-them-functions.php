@@ -779,6 +779,11 @@ class feed_them_social_functions
             'fts_facebook_custom_api_token_user_name_biz',
             'fb_loadmore_background_color',
             'fb_loadmore_text_color',
+            'fb_load_more_text',
+            'fb_no_more_posts_text',
+            'fb_no_more_photos_text',
+            'fb_no_more_videos_text',
+            'fb_no_more_reviews_text',
             'fb_text_size',
         );
         $this->register_settings('fts-facebook-feed-style-options', $fb_style_options);
@@ -817,7 +822,11 @@ class feed_them_social_functions
             'twitter_max_image_width',
             'twitter_loadmore_background_color',
             'twitter_loadmore_text_color',
+            'twitter_load_more_text',
+            'twitter_no_more_tweets_text',
+            //'twitter_replies_offset',
             'twitter_text_size',
+            'twitter_load_more_text'
         );
         $this->register_settings('fts-twitter-feed-style-options', $twitter_style_options);
     }
@@ -836,6 +845,8 @@ class feed_them_social_functions
             'instagram_show_follow_btn_where',
             'instagram_loadmore_background_color',
             'instagram_loadmore_text_color',
+            'instagram_load_more_text',
+            'instagram_no_more_photos_text',
         );
         $this->register_settings('fts-instagram-feed-style-options', $instagram_style_options);
     }
@@ -1107,9 +1118,7 @@ class feed_them_social_functions
         $fts_social_icons_back_color = get_option('fts_social_icons_back_color');
 
         $fb_text_size = get_option('fb_text_size');
-        $twitter_text_size = get_option('twitter_text_size');
-
-        ?>
+        $twitter_text_size = get_option('twitter_text_size'); ?>
         <style type="text/css"><?php if (!empty($fb_header_extra_text_color)) { ?>
 
             <?php }if (!empty($fb_hide_no_posts_message) && $fb_hide_no_posts_message == 'yes') { ?>
@@ -1517,7 +1526,7 @@ class feed_them_social_functions
                     if (isset($option['option_type']) && $option['option_type'] == 'select') {
                         $output .= '<select name="' . $option['name'] . '" id="' . $option['id'] . '"  class="feed-them-social-admin-input">';
                         foreach ($option['options'] as $select_option) {
-                            $output .= '<option value="' . $select_option['value'] . '">' . $select_option['label'] . '</option>';
+                            $output .= '<option value="' . $select_option['value'] . '"'.(isset($option['default_value']) && $option['default_value'] == $select_option['value'] ? ' selected': '') .'>' . $select_option['label'] . '</option>';
                         }
                         $output .= '</select>';
                     }
@@ -2044,6 +2053,7 @@ class feed_them_social_functions
             $tweets_count_option = get_option('tweets_count');
             $twitter_popup_option = get_option('twitter_popup_option');
             $twitter_hashtag_etc_name = get_option('twitter_hashtag_etc_name');
+            $twitter_load_more_option = get_option('twitter_load_more_option');
         }
 
         $twitter_name_option = isset($twitter_name_option) ? $twitter_name_option : "";
@@ -2120,6 +2130,8 @@ class feed_them_social_functions
         $output .= '</select>';
         $output .= '<div class="fts-clear"></div>';
         $output .= '</div><!--/feed-them-social-admin-input-wrap-->';
+
+
 
         if (is_plugin_active('feed-them-premium/feed-them-premium.php')) {
             include($this->premium . 'admin/twitter-settings-fields.php');
@@ -2260,7 +2272,7 @@ class feed_them_social_functions
         if ($save_options == false) {
             $output .= '<form class="feed-them-social-admin-form shortcode-generator-form instagram-shortcode-form">';
         }
-        $output .= '<div class="instructional-text instagram-user-option-text" style="margin-top:12px;">' . __('If you added your ID above and clicked convert, a number should appear in the input below, now continue.', 'feed-them-social') . '</div>';
+        $output .= '<div class="instructional-text instagram-user-option-text" style="margin-top:12px;"><div class="fts-insta-info-plus-wrapper">' . __('Choose a different ID if yours is not the first name below after clicking Convert Instagram Username button.', 'feed-them-social') . '</div><!-- the li list comes from an ajax call after looking up the user ID --><ul id="fts-instagram-username-picker-wrap" class="fts-instagram-username-picker-wrap"></ul></div>';
         $output .= '<div class="instructional-text instagram-hashtag-option-text" style="display:none;margin-top:12px;">' . __('Add your Hashtag below. Do not add the #, just the name.', 'feed-them-social') . '</div>';
         $output .= '<div class="feed-them-social-admin-input-wrap instagram_name">';
         $output .= '<div class="feed-them-social-admin-input-label instagram-user-option-text">' . __('Instagram ID # (required)', 'feed-them-social') . '</div>';
@@ -2289,8 +2301,7 @@ class feed_them_social_functions
             $output .= '<select id="instagram-custom-gallery" name="instagram-custom-gallery" class="feed-them-social-admin-input"><option value="no">' . __('No', 'feed-them-social') . '</option><option value="yes">' . __('Yes', 'feed-them-social') . '</option></select>';
             $output .= '<div class="fts-clear"></div>';
             $output .= '</div><!--/feed-them-social-admin-input-wrap-->';
-            $output .= '<div class="fts-super-instagram-options-wrap"><h3>' . __('Super Instagram Gallery Options', 'feed-them-social') . '</h3><div class="instructional-text"><a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a> ' . __('of the Super Instagram gallery.', 'feed-them-social') . '</div>';
-            $output .= '<div class="feed-them-social-admin-input-wrap"><div class="feed-them-social-admin-input-label">' . __('Instagram Image Size', 'feed-them-social') . '<br/><small>' . __('Max width is 640px', 'feed-them-social') . '</small></div>
+            $output .= '<div class="feed-them-social-admin-input-wrap"><div class="feed-them-social-admin-input-label">' . __('Instagram Image Size', 'feed-them-social') . '<br/><small><a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a></small></div>
            <input type="text" name="fts-slicker-instagram-container-image-size" id="fts-slicker-instagram-container-image-size" class="feed-them-social-admin-input" value="250px" placeholder="">
            <div class="fts-clear"></div> </div>';
             $output .= '<div class="feed-them-social-admin-input-wrap"><div class="feed-them-social-admin-input-label">' . __('Size of the Instagram Icon', 'feed-them-social') . '<br/><small>' . __('Visible when you hover over photo', 'feed-them-social') . '</small></div>

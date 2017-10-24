@@ -3,14 +3,14 @@
 Plugin Name: Feed Them Social (Facebook, Instagram, Twitter, etc)
 Plugin URI: http://slickremix.com/
 Description: Create and display custom feeds for Facebook Groups, Facebook Pages, Facebook Events, Facebook Photos, Facebook Album Covers, Twitter, Instagram, Pinterest and more.
-Version: 2.2.8
+Version: 2.3.1
 Author: SlickRemix
 Author URI: http://slickremix.com/
 Text Domain: feed-them-social
 Domain Path: /languages
 Requires at least: wordpress 4.0.0
 Tested up to: WordPress 4.8.2
-Stable tag: 2.2.8
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,85 @@ function feed_them_social_load_plugin() {
     }
 }
 add_action( 'admin_init', 'feed_them_social_load_plugin' );
+
+/**
+ * FTS Delete Cache Main
+ * Used to delete the cache on plugin activation and update wp hooks
+ *
+ * @since 2.3.0
+ */
+function fts_delete_cache_main(){
+    global $wpdb;
+    $not_expired = $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name LIKE %s ", '_transient_fts_%'));
+    $expired = $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name LIKE %s ", '_transient_timeout_fts_%'));
+    wp_reset_query();
+}
+/**
+ * This function runs when WordPress completes its upgrade process
+ * It iterates through each plugin updated to see if ours is included
+ *
+ * @param $upgrader_object Array
+ * @param $options Array
+ * @since 2.3.0
+ */
+function ftsocial_upe_upgrade_completed( $upgrader_object, $options ) {
+    // The path to our plugin's main file
+    $our_plugin = plugin_basename( __FILE__ );
+    // If an update has taken place and the updated type is plugins and the plugins element exists
+    if( $options['action'] == 'update' && $options['type'] == 'plugin' && isset( $options['plugins'] ) ) {
+        // Iterate through the plugins being updated and check if ours is there
+        foreach( $options['plugins'] as $plugin ) {
+            if( $plugin == $our_plugin ) {
+                // Set a transient to record that our plugin has just been updated
+                set_transient( 'ftsocial_updated', 1 );
+            }
+        }
+    }
+}
+add_action( 'upgrader_process_complete', 'ftsocial_upe_upgrade_completed', 10, 2 );
+
+/**
+ * Show a notice to anyone who has just updated this plugin
+ * This notice shouldn't display to anyone who has just installed the plugin for the first time
+ * @since 2.3.0
+ */
+function ftsocial_upe_display_update_notice() {
+    // Check the transient to see if we've just updated the plugin
+    fts_delete_cache_main();
+    if( get_transient( 'ftsocial_updated' ) ) {
+        echo '<div class="notice notice-success updated is-dismissible"><p>' . __( 'Thanks for updating Feed Them Social. We have deleted the cache in our plugin so you can view any changes we have made.', 'feed-them-social' ) . '</p></div>';
+        delete_transient( 'ftsocial_updated' );
+    }
+}
+add_action( 'admin_notices', 'ftsocial_upe_display_update_notice' );
+
+/**
+ * Show a notice to anyone who has just installed the plugin for the first time
+ * This notice shouldn't display to anyone who has just updated this plugin
+ * @since 2.3.0
+ */
+function ftsocial_upe_display_install_notice() {
+    // Check the transient to see if we've just activated the plugin
+    if( get_transient( 'ftsocial_activated' ) ) {
+        fts_delete_cache_main();
+        echo '<div class="notice notice-success updated is-dismissible"><p>' . __( 'Thanks for installing Feed Them Social. To get started please view our <a href="admin.php?page=feed-them-settings-page">Settings</a> page.', 'feed-them-social' ) . '</p></div>';
+        // Delete the transient so we don't keep displaying the activation message
+        delete_transient( 'ftsocial_activated' );
+    }
+}
+add_action( 'admin_notices', 'ftsocial_upe_display_install_notice' );
+
+/**
+ * Run this on activation
+ * Set a transient so that we know we've just activated the plugin
+ *
+ * @since 2.3.0
+ */
+function ftsocial_activate() {
+    set_transient( 'ftsocial_activated', 1 );
+}
+register_activation_hook( __FILE__, 'ftsocial_activate' );
+
 /**
  * FTS System Version
  *

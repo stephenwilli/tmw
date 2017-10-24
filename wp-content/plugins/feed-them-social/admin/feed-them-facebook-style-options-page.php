@@ -711,7 +711,7 @@ class FTS_facebook_options_page
                     <div class="feed-them-social-admin-input-wrap">
                         <div class="fts-title-description-settings-page">
                             <h3>
-                                <?php _e('Load More Button Styles', 'feed-them-social'); ?>
+                                <?php _e('Load More Button Styles & Options', 'feed-them-social'); ?>
                             </h3>
                         </div>
                         <div class="feed-them-social-admin-input-label fts-fb-loadmore-background-color-label">
@@ -730,7 +730,57 @@ class FTS_facebook_options_page
                         <div class="clear"></div>
                     </div>
                     <!--/fts-fb-feed-styles-input-wrap-->
+
+                    <div class="feed-them-social-admin-input-wrap">
+                        <div class="feed-them-social-admin-input-label">
+                            <?php _e('"Load More" Text', 'feed-them-social'); ?>
+                        </div>
+                        <input type="text" name="fb_load_more_text" class="feed-them-social-admin-input" id="fb_load_more_text" placeholder="Load More" value="<?php echo get_option('fb_load_more_text'); ?>"/>
+                        <div class="clear"></div>
+                    </div>
+                    <!--/fts-facebook-feed-styles-input-wrap-->
+
+                    <div class="feed-them-social-admin-input-wrap">
+                        <div class="feed-them-social-admin-input-label">
+                            <?php _e('"No More Posts" Text', 'feed-them-social'); ?>
+                        </div>
+                        <input type="text" name="fb_no_more_posts_text" class="feed-them-social-admin-input" id="fb_no_more_posts_text" placeholder="No More Posts" value="<?php echo get_option('fb_no_more_posts_text'); ?>"/>
+                        <div class="clear"></div>
+                    </div>
+                    <!--/fts-facebook-feed-styles-input-wrap-->
+
+                    <div class="feed-them-social-admin-input-wrap">
+                        <div class="feed-them-social-admin-input-label">
+                            <?php _e('"No More Photos" Text', 'feed-them-social'); ?>
+                        </div>
+                        <input type="text" name="fb_no_more_photos_text" class="feed-them-social-admin-input" id="fb_no_more_photos_text" placeholder="No More Photos" value="<?php echo get_option('fb_no_more_photos_text'); ?>"/>
+                        <div class="clear"></div>
+                    </div>
+                    <!--/fts-facebook-feed-styles-input-wrap-->
+
+                    <div class="feed-them-social-admin-input-wrap">
+                        <div class="feed-them-social-admin-input-label">
+                            <?php _e('"No More Videos" Text', 'feed-them-social'); ?>
+                        </div>
+                        <input type="text" name="fb_no_more_videos_text" class="feed-them-social-admin-input" id="fb_no_more_videos_text" placeholder="No More Videos" value="<?php echo get_option('fb_no_more_videos_text'); ?>"/>
+                        <div class="clear"></div>
+                    </div>
+                    <!--/fts-facebook-feed-styles-input-wrap-->
+
                 <?php } ?>
+
+                <?php if (is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php')) { ?>
+
+                    <div class="feed-them-social-admin-input-wrap">
+                        <div class="feed-them-social-admin-input-label">
+                            <?php _e('"No More Reviews" Text', 'feed-them-social'); ?>
+                        </div>
+                        <input type="text" name="fb_no_more_reviews_text" class="feed-them-social-admin-input" id="fb_no_more_reviews_text" placeholder="No More Reviews" value="<?php echo get_option('fb_no_more_reviews_text'); ?>"/>
+                        <div class="clear"></div>
+                    </div>
+                    <!--/fts-facebook-feed-styles-input-wrap-->
+                <?php } ?>
+
 
 
                 <div class="feed-them-social-admin-input-wrap">

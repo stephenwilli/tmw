@@ -1,13 +1,12 @@
-=== Feed Them Social - Facebook, Instagram, Twitter, Vine, Pinterest, etc===
+=== Feed Them Social - Facebook, Instagram, Twitter, Vine, Pinterest, etc ===
 Contributors: slickremix, damon7620
 Tags: Facebook, Instagram, Twitter, Feed
 Requires at least: 3.6.0
 Tested up to: 4.8.2
-Stable tag: 2.2.8
-
+Stable tag: 2.3.1
 License: GPLv2 or later
 
-Custom feeds for Facebook Pages, Groups, Events, Album Photos, Videos & Covers, Twitter, Vine, Instagram, Pinterest & YouTube on pages, posts or widgets.
+Custom feeds for Facebook Pages, Groups, Events, Album Photos, Videos & Covers, Instagram, Twitter, Vine, Pinterest & YouTube on pages, posts or widgets.
 
 == Description ==
 Create Social Feeds of any or all your celebrities, family, friends, yourself, or businesses. Looks great on Desktops, Tablets, and Mobile Devices.
@@ -46,7 +45,7 @@ Create Social Feeds of any or all your celebrities, family, friends, yourself, o
  * [Vine Gallery Feed Demo](http://feedthemsocial.com/vine-demo/)
  * [Pinterest Boards Demo](http://feedthemsocial.com/pinterest/)
  * [Pinterest Pins from a single Board](http://feedthemsocial.com/pinterest-pins-from-a-single-board/)
- * [Pinterest Latest Pins from a User](http://feedthemsocial.com/pinterest-demo-pins-from-user/)
+ * [Pinterest Latest Pins from a User](http://feedthemsocial.com/instagram-feed-demo/)
 
 = PREMIUM Demos =
  * [YouTube Feed Demo](http://feedthemsocial.com/youtube-demo-1-large-with-4-video-per-row/)
@@ -76,6 +75,33 @@ Feed Them Social was Developed By SlickRemix --> [https://www.slickremix.com/](h
   * Log into WordPress dashboard then click **Plugins** > **Add new** > Then under the title "Install Plugins" click **Upload** > **choose the zip** > **Activate the plugin!**
 
 == Changelog ==
+= Version 2.3.1 Tuesday, October 17th, 2017 =
+   * FIX: Twitter Feed: Overflow auto missing for scrolling feeds.
+
+= Version 2.2.9 - 2.3.0 Friday, October 13th, 2017 =
+   * NEW: Instagram Shortcode: Fully Responsive gallery. Now you can choose the column width and whether to force the columns or make images full size on smaller containers or devices. See the [New Demo](http://feedthemsocial.com/instagram-feed-demo/)!
+   * NEW: Instagram Shortcode: Choose a width for the gallery.
+   * NEW: When plugin is updated or activated the cache is deleted to ensure you are seeing any changes we have made.
+   * FIX: Facebook Feed: Overflow auto missing for scrolling feeds
+   * FIX: Twitter Feed: Number Format Error showing php versions 5.6
+   * PREMIUM NEW: Facebook Options: Customize the Load More text and No More Posts, No More Photos or No More Videos text.
+   * PREMIUM NEW: Instagram Shortcode: Now you can choose the Load More button width and margin.
+   * PREMIUM NEW: Twitter Options: Customize the Load More text and No More Posts
+   * PREMIUM NEW: Instagram Options: Customize the color of the Load More button and the text.
+   * PREMIUM NEW: Instagram Options: Customize the Load More and No More Photos text.
+   * PREMIUM NEW: Instagram Shortcode: Create a Location feed.
+   * FB REVIEWS NEW: Customize the No More Reviews text.
+   * FB REVIEWS NEW: Google Reviews structured data.
+   * FB REVIEWS FIXED: popup js error when loading more reviews.
+   * FTS BAR NEW: Instagram: All new responsive gallery. See [New Demo](http://feedthemsocial.com/fts-bar/).
+   * FTS BAR NEW/FIX: Instagram Options: Now when converting an instagram ID you will see a list of ID's to choose from if yours was first in the list.
+   * FTS BAR NEW: Twitter: Load More button option.
+   * FTS BAR FIX: Misc CSS tweaks to override themes from wrecking our ul and li elements.
+   * COMBINED STREAMS NEW: Twitter: Hashtag, search and more feed option now available.
+   * COMBINED STREAMS NEW: Instagram: Hashtag and Location feed option now available.
+   * COMBINED STREAMS FIX: px not getting added to the height, grid column width or margin shortcode attributes if you forgot to type them before clicking generate shortcode.
+   * HAPPY HALLOWEEN!
+
 = Version 2.2.8 Wednesday, September 20th, 2017 =
    * NEW: Promo Image for the free plugin license page.
 

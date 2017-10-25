@@ -1,12 +1,13 @@
-<?php 
+<?php
 
-if ( has_post_thumbnail() ) { 
+if ( has_post_thumbnail() ) {
     $image_id = get_post_thumbnail_id();
     list( $url, $width, $height ) = wp_get_attachment_image_src( $image_id, 'cover' );
     $name = get_the_title();
     $slug = str_replace(' ', '-', strtolower($name));
     $job = get_field('team_member_job_title');
     $email = get_field('team_member_email');
+    $phone = get_field('team_member_phone');
     $description = get_field('team_member_short_description');
 
 ?>
@@ -31,21 +32,28 @@ if ( has_post_thumbnail() ) {
       </div>
       <div class="modal-body">
 
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <img src="<?php echo esc_url( $url ); ?>" class="img-responsive team-image" alt="">
             </div>
-            
-            <div class="col-sm-6">
+
+            <div class="col-sm-9">
                 <div class="team-content">
-                    <h4><?php echo $name; ?></h4>
-                    <h5><?php echo $job; ?></h5>
-                    <p class="job-description"><?php echo $description ?></p>
-                    
+                    <h4><?php echo $name; ?> - <em><?php echo $job; ?></em></h4>
+
                     <?php if ($email){ ?>
 
-                        <a href="mailto:<?php echo $email;?>" class="btn -mini -orange"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-                    
+                        <a href="mailto:<?php echo $email;?>" class=""><i class="fa fa-fw fa-envelope"></i> Contact</a>
+
                     <?php } ?>
+
+                    <?php if ($phone){ ?>
+
+                        <a href="mailto:<?php echo $email;?>" class="phone"><i class="fa fa-fw fa-phone"></i> <?php echo $phone;?></a>
+
+                    <?php } ?>
+
+                    <p class="job-description"><?php echo $description ?></p>
+
                 </div>
             </div>
 

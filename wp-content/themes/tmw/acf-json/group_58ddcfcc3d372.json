@@ -3,9 +3,6 @@
     "title": "Team",
     "fields": [
         {
-            "message": "Team Member images should be uploaded at minimum size of 800px by 1040px",
-            "esc_html": 0,
-            "new_lines": "wpautop",
             "key": "field_58ddd6fcb70d9",
             "label": "Team Member Image Size",
             "name": "",
@@ -17,56 +14,17 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "message": "Team Member images should be uploaded at minimum size of 800px by 1040px",
+            "esc_html": 0,
+            "new_lines": "wpautop"
         },
         {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
             "key": "field_58ddd289e80e1",
             "label": "Team Member Job Title",
             "name": "team_member_job_title",
             "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58ddcfd01cbe0",
-            "label": "Team Member Email",
-            "name": "team_member_email",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "default_value": "",
-            "new_lines": "wpautop",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": "",
-            "key": "field_58ddd32e0076b",
-            "label": "Team Member Short Description",
-            "name": "team_member_short_description",
-            "type": "textarea",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -74,7 +32,72 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_58ddcfd01cbe0",
+            "label": "Team Member Email",
+            "name": "team_member_email",
+            "type": "text",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_59f0bbac1e491",
+            "label": "Team Member Phone",
+            "name": "team_member_phone",
+            "type": "text",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_58ddd32e0076b",
+            "label": "Team Member Short Description",
+            "name": "team_member_short_description",
+            "type": "textarea",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "wpautop",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": ""
         }
     ],
     "location": [
@@ -94,5 +117,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1490933567
+    "modified": 1508948973
 }

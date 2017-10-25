@@ -1,9 +1,13 @@
 footer {
 
     padding-top: 40px;
-    
+
     @include respond-to($screen-sm){
       padding: 40px 20px;
+    }
+
+    .footer-widget {
+      padding: 0 20px;
     }
 
     .logo {
@@ -52,9 +56,8 @@ footer {
 
 
       li {
-        display: inline;
-        
-        a {
+        margin-top: 20px;
+        i {
           color: $white;
           font-size: 1.5rem;
           @include transition(all .5s ease-in);

@@ -6,12 +6,13 @@
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
-		'page_title' 	=> 'Theme Settings',
-		'menu_title'	=> 'Theme Settings',
+		'page_title' 	=> 'TMW Settings',
+		'menu_title'	=> 'TMW Settings',
 		'menu_slug' 	=> 'theme-settings',
 		'capability'	=> 'edit_posts',
 		'icon_url'		=> 'dashicons-admin-site',
-		'redirect'		=> false // This allows the parent to have it's own page instead of redirecting to the first child.
+		'redirect'		=> false, // This allows the parent to have it's own page instead of redirecting to the first child.
+		'position' 		=> 2
 	));
 
 	// acf_add_options_sub_page(array(
@@ -20,7 +21,7 @@ if( function_exists('acf_add_options_page') ) {
 	// 	'parent_slug'	=> 'theme-settings',
 	// 	'capability'	=> 'manage_options'
 	// ));
-	
+
 	// acf_add_options_sub_page(array(
 	// 	'page_title' 	=> 'Footer Settings',
 	// 	'menu_title'	=> 'Footer Settings',

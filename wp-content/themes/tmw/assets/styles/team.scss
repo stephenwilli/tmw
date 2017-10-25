@@ -5,30 +5,36 @@
   }
 
   .modal-content {
-    @include respond-to($screen-xs) { 
+    @include respond-to($screen-xs) {
        height: 90vh
-    } 
-  }
-      button.close {     
-        
-        @include respond-to($screen-sm) { 
-        font-size: 4rem;  
-        }
     }
+  }
+
+  button.close {
+    @include respond-to($screen-sm) {
+      font-size: 4rem;
+    }
+  }
+
+  .modal-dialog {
+    width: 80%;
+  }
 
   .modal-body {
-    height: 400px;
     padding: 35px;
+    display: inline-block;
 
     .team-content {
       margin-left: 20px;
-      
-      @include respond-to($screen-sm) { 
+
+      @include respond-to($screen-sm) {
        margin-left: 0;
-      } 
+      }
     }
 
-
+    .phone {
+      margin-left: 20px;
+    }
 
     h4,h5 {
       color: $grey;
@@ -41,15 +47,21 @@
     }
 
     p {
-      @include respond-to($screen-sm) { 
+
+      @include respond-to($screen-sm) {
+       font-size: 1rem;
+      }
+
+      @include respond-to($screen-xs) {
        display: none;
-      } 
+      }
     }
 
     .team-image {
-      @include respond-to($screen-xs) { 
+      @include respond-to($screen-sm) {
        margin-bottom: 20px;
-      } 
+       margin-right: 20px;
+      }
     }
   }
 

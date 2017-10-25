@@ -17,7 +17,7 @@
 	}); // window.scroll
 
   // HERO SLIDER
-      
+
     $('#hero-slider').flexslider({
       animation: "fade",
       slideshow: true, // auto play on load
@@ -43,7 +43,7 @@
       prevText: "",
       nextText: ""
     });
-   
+
     $('#js-image-slider').flexslider({
       animation: "slide",
       controlNav: false,
@@ -104,7 +104,7 @@
   $('.counter').each(function() {
     var $this = $(this),
         countTo = $this.attr('data-count');
-    
+
     $({ countNum: $this.text()}).animate({
       countNum: countTo
     },
@@ -119,7 +119,7 @@
         $this.text(this.countNum);
       }
 
-    });  
+    });
 
   });
 

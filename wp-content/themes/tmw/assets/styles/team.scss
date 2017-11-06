@@ -1,14 +1,5 @@
 .team-grid {
 
-  .project-box {
-    .project-box-caption {
-      @include respond-to($screen-xs) {
-         opacity: 1;
-         background: rgba(0,0,0,.3);
-      }
-    }
-  }
-
   .modal-header {
     border: none;
   }

@@ -69,35 +69,46 @@
       itemSelector: '.project-item',
       layoutMode: 'masonry'
     });
+
     // filter functions
-    var filterFns = {
-      // show if number is greater than 50
-      numberGreaterThan50: function() {
-        var number = $(this).find('.number').text();
-        return parseInt( number, 10 ) > 50;
-      },
-      // show if name ends with -ium
-      ium: function() {
-        var name = $(this).find('.name').text();
-        return name.match( /ium$/ );
+    var filterFns = {};
+
+    // // bind filter button click
+    // $('.filters-button-group').on( 'click', 'a', function() {
+    //   var filterValue = $( this ).attr('data-filter');
+    //   // use filterFn if matches value
+    //   filterValue = filterFns[ filterValue ] || filterValue;
+    //   $grid.isotope({ filter: filterValue });
+    // });
+    //
+    // // change is-checked class on buttons
+    // $('.button-group').each( function( i, buttonGroup ) {
+    //   var $buttonGroup = $( buttonGroup );
+    //   $buttonGroup.on( 'click', 'a', function() {
+    //     $buttonGroup.find('.active').removeClass('active');
+    //     $( this ).addClass('active');
+    //   });
+    // });
+
+    $filters = $('.filters-button-group').on( 'click', 'a', function() {
+      var $this = $( this );
+      var filterValue;
+      if ( $this.is('.active') ) {
+        // uncheck
+        filterValue = '*';
+      } else {
+        filterValue = $this.attr('data-filter');
+        $filters.find('.active').removeClass('active');
       }
-    };
-    // bind filter button click
-    $('.filters-button-group').on( 'click', 'a', function() {
-      var filterValue = $( this ).attr('data-filter');
+      $this.toggleClass('active');
       // use filterFn if matches value
       filterValue = filterFns[ filterValue ] || filterValue;
       $grid.isotope({ filter: filterValue });
     });
-    // change is-checked class on buttons
-    $('.button-group').each( function( i, buttonGroup ) {
-      var $buttonGroup = $( buttonGroup );
-      $buttonGroup.on( 'click', 'a', function() {
-        $buttonGroup.find('.active').removeClass('active');
-        $( this ).addClass('active');
-      });
-    });
+
   });
+
+
 
   // JQUERY COUNT UP
 

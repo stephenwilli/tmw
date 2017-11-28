@@ -80,7 +80,7 @@
 
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-				<p>Copyright &copy; <?php echo date("Y"); ?> - <?php $sitename = get_bloginfo('name'); echo $sitename; ?></p>
+				<p>Copyright &copy; <?php echo date("Y"); ?> - Teton Media Works, Inc.</p>
 				</div>
 			</div>
 		</div>

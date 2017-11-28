@@ -95,21 +95,30 @@
   $('.counter').each(function() {
     var $this = $(this),
         countTo = $this.attr('data-count');
-
+        
+    var numberWithCommas = function(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    
+    var commas = numberWithCommas(countTo);
+    console.log(commas);
+    
     $({ countNum: $this.text()}).animate({
       countNum: countTo
-    },
+    },    
+
 
     {
-      duration: 4000,
+      duration: 6000,
       easing:'linear',
       step: function() {
         $this.text(Math.floor(this.countNum));
       },
       complete: function() {
         $this.text(this.countNum);
+        $this.text(commas);
       }
-
+      
     });
 
   });

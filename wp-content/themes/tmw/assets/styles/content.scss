@@ -3,7 +3,7 @@
 .right-caption, .left-caption {
   height: 100vh;
   padding: 80px 0;
-  max-height: 800px;
+  max-height: 1000px;
 
   @include respond-to($screen-sm){
     padding:40px 20px;
@@ -125,7 +125,7 @@
 
 .parallax {
     height: 110vh;
-    max-height: 800px;
+    max-height: 900px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

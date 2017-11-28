@@ -101,8 +101,7 @@
     }
     
     var commas = numberWithCommas(countTo);
-    console.log(commas);
-    
+
     $({ countNum: $this.text()}).animate({
       countNum: countTo
     },    

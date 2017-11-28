@@ -61,15 +61,15 @@
 							?>
 
 							<?php if ($facebookLink) { ?>
-								<li><a href="<?php echo $facebookLink; ?>"><i class="fa-fw fa fa-facebook"></i> Facebook</a></li>
+								<li><a href="<?php echo $facebookLink; ?>" target="_blank"><i class="fa-fw fa fa-facebook"></i> Facebook</a></li>
 							<?php } ?>
 
 							<?php if ($instagramLink) { ?>
-								<li><a href="<?php echo $instagramLink; ?>"><i class="fa-fw fa fa-instagram"></i> Instagram</a></li>
+								<li><a href="<?php echo $instagramLink; ?>" target="_blank"><i class="fa-fw fa fa-instagram"></i> Instagram</a></li>
 							<?php } ?>
 
 							<?php if ($twitterLink) { ?>
-								<li><a href="<?php echo $twitterLink; ?>"><i class="fa-fw fa fa-twitter"></i> Twitter</a></li>
+								<li><a href="<?php echo $twitterLink; ?>" target="_blank"><i class="fa-fw fa fa-twitter"></i> Twitter</a></li>
 							<?php } ?>
 
 						</ul>

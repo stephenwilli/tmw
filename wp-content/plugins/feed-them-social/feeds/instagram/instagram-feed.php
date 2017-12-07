@@ -167,6 +167,14 @@ class FTS_Instagram_Feed extends feed_them_social_functions
             $pics_count = '6';
         }
 
+        if(!isset($_GET['load_more_ajaxing'])) {
+            $pics_count = $pics_count;
+        }
+        else {
+
+            $pics_count = '10';
+        }
+
             wp_enqueue_script('fts-global', plugins_url('feed-them-social/feeds/js/fts-global.js'), array('jquery'));
         $instagram_data_array = array();
 
@@ -195,6 +203,7 @@ class FTS_Instagram_Feed extends feed_them_social_functions
         } else {
             $fts_instagram_access_token = $fts_instagram_access_token;
         }
+
         //URL to get Feeds
         if ($type == 'hashtag') {
             $instagram_data_array['data'] = isset($_REQUEST['next_url']) ? $_REQUEST['next_url'] : 'https://api.instagram.com/v1/tags/' . $instagram_id . '/media/recent/?access_token=' . $fts_instagram_access_token;
@@ -208,8 +217,6 @@ class FTS_Instagram_Feed extends feed_them_social_functions
         }
 
         $instagram_data_array['user_info'] = 'https://api.instagram.com/v1/users/' . $instagram_id . '?access_token=' . $fts_instagram_access_token;
-
-
 
         $cache = 'instagram_cache_' . $instagram_id . '_num' . $pics_count . '';
 
@@ -366,9 +373,9 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                 echo 'To see the Instagram feed you need to add your own API Token to the Instagram Options page of our plugin.</div>';
             }
         }
-       //  echo '<pre>';
-       //  print_r($insta_data);
-       //  echo '</pre>';
+      //   echo '<pre>';
+      //   print_r($insta_data);
+      //   echo '</pre>';
 
         foreach ($insta_data->data as $post_data) {
             if (isset($set_zero) && $set_zero == $pics_count)
@@ -535,16 +542,10 @@ class FTS_Instagram_Feed extends feed_them_social_functions
         //******************
         //Load More BUTTON Start
         //******************
-        $build_shortcode = '[fts_instagram';
-        foreach ($atts as $attribute => $value) {
-            $build_shortcode .= ' ' . $attribute . '=' . $value;
-        }
-        $build_shortcode .= ']';
-        $_REQUEST['next_url'] = isset($insta_data->pagination->next_url) ? $insta_data->pagination->next_url : "";
-        ?>
-        <script>
-            var nextURL_<?php echo $_REQUEST['fts_dynamic_name']; ?>= "<?php echo $_REQUEST['next_url']; ?>";
-        </script>
+        $next_url = isset($insta_data->pagination->next_url) ? $insta_data->pagination->next_url : '';
+        // we check to see if the loadmore count number is set and if so pass that as the new count number when fetching the next set of pics/videos
+        $_REQUEST['next_url'] = isset($loadmore_count) && $loadmore_count !== '' ? str_replace("count=$pics_count","count=$loadmore_count",$next_url) : $next_url; ?>
+        <script>var nextURL_<?php echo $_REQUEST['fts_dynamic_name']; ?>= "<?php echo $_REQUEST['next_url']; ?>";</script>
         <?php
         //Make sure it's not ajaxing
         if (!isset($_GET['load_more_ajaxing']) && !isset($_REQUEST['fts_no_more_posts']) && !empty($loadmore)) {
@@ -564,9 +565,10 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                                 jQuery("#loadMore_<?php echo $fts_dynamic_name ?>").addClass('fts-fb-spinner');
                                 var button = jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').html('<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>');
                                 console.log(button);
-                                var build_shortcode = "<?php if (get_option('fts_fix_loadmore')) { ?>[<?php print $build_shortcode;?>]<?php } else {
-                                    print $build_shortcode;
-                                } ?>";
+
+                                var feed_name = "fts_instagram";
+                                var loadmore_count = "pics_count=<?php echo $loadmore_count ?>";
+                                var feed_attributes = <?php echo json_encode($atts); ?>;
                                 var yes_ajax = "yes";
                                 var fts_d_name = "<?php echo $fts_dynamic_name;?>";
                                 var fts_security = "<?php echo $nonce;?>";
@@ -576,10 +578,12 @@ class FTS_Instagram_Feed extends feed_them_social_functions
                                         action: "my_fts_fb_load_more",
                                         next_url: nextURL_<?php echo $fts_dynamic_name ?>,
                                         fts_dynamic_name: fts_d_name,
-                                        rebuilt_shortcode: build_shortcode,
                                         load_more_ajaxing: yes_ajax,
                                         fts_security: fts_security,
-                                        fts_time: fts_time
+                                        fts_time: fts_time,
+                                        feed_name: feed_name,
+                                        loadmore_count: loadmore_count,
+                                        feed_attributes: feed_attributes
                                     },
                                     type: 'GET',
                                     url: "<?php echo admin_url('admin-ajax.php') ?>",

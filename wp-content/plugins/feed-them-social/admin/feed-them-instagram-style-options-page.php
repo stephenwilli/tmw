@@ -36,20 +36,87 @@ class FTS_instagram_options_page
                 <?php _e('Instagram Feed Options', 'feed-them-social'); ?>
             </h1>
             <div class="use-of-plugin">
-                <?php _e('Add a follow button and position it using the options below. This option will not work for combined feeds.', 'feed-them-social'); ?>
+                <?php _e('Get your Access Token and add a follow button and position it using the options below.', 'feed-them-social'); ?>
             </div>
-            <br/>
-
             <!-- custom option for padding -->
             <form method="post" class="fts-facebook-feed-options-form" action="options.php">
-                <div class="feed-them-social-admin-input-wrap">
 
-                    <div class="fts-title-description-settings-page" style="padding-top:0; border:none;">
+
+                <div class="feed-them-social-admin-input-wrap"  style="padding-top:0px; ">
+                    <div class="fts-title-description-settings-page">
+                        <?php // get our registered settings from the fts functions
+                        settings_fields('fts-instagram-feed-style-options'); ?>
+                        <h3>
+                            <?php _e('Instagram API Token', 'feed-them-social'); ?>
+                        </h3>
+                        <?php
+
+                        $insta_url = 'https://api.instagram.com/v1/tags/slickremix/media/recent/?access_token=' . $fts_instagram_access_token;
+                        //Get Data for Instagram
+                        $response = wp_remote_fopen($insta_url);
+                        //Error Check
+                        $test_app_token_response = json_decode($response);
+
+                        //   echo '<pre>';
+                        //   print_r(json_decode($response));
+                        //   echo '</pre>';
+                        ?>
+                        <p>
+                            <?php _e('This is required to make the feed work. Just click the button below and it will connect to your instagram to get an access token, then it will return it in the input below. Then just click the save button and you will now be able to generate your Instagram feed. If the button is not working for you and can always manually create an Access Token <a href="http://www.slickremix.com/docs/how-to-create-instagram-access-token/" target="_blank">here</a>.', 'feed-them-social'); ?>
+                        </p>
+                        <p>
+                            <a href="https://instagram.com/oauth/authorize/?client_id=da06fb6699f1497bb0d5d4234a50da75&redirect_uri=http://www.slickremix.com/instagram-token-plugin/?return_uri=<?php echo admin_url('admin.php?page=fts-instagram-feed-styles-submenu-page'); ?>&response_type=token&scope=public_content" class="fts-instagram-get-access-token">
+                                <?php _e('Log in and get my Access Token'); ?>
+                            </a></p>
+                    </div>
+
+                    <div class="fts-clear"></div>
+                    <div class="feed-them-social-admin-input-wrap" style="margin-bottom: 0px">
+                        <div class="feed-them-social-admin-input-label fts-instagram-border-bottom-color-label">
+                            <?php _e('Access Token Required', 'feed-them-social'); ?>
+                        </div>
+                        <script>
+                            jQuery(document).ready(function ($) {
+                                function getQueryString(Param) {
+                                    return decodeURI(
+                                        (RegExp('[#|&]' + Param + '=' + '(.+?)(&|$)').exec(location.hash) || [, null])[1]
+                                    );
+                                }
+
+                                if (window.location.hash) {
+                                    $('#fts_instagram_custom_api_token').val('');
+                                    $('#fts_instagram_custom_api_token').val($('#fts_instagram_custom_api_token').val() + getQueryString('access_token'));
+                                }
+                            });
+                        </script>
+                        <input type="text" name="fts_instagram_custom_api_token" class="feed-them-social-admin-input" id="fts_instagram_custom_api_token" value="<?php echo get_option('fts_instagram_custom_api_token'); ?>"/>
+                        <div class="fts-clear"></div>
+                    </div>
+                    <?php
+                    // Error Check
+                    if (!isset($test_app_token_response->meta->error_message) && !empty($fts_instagram_access_token) || isset($test_app_token_response->meta->error_message) && $test_app_token_response->meta->error_message == 'This client has not been approved to access this resource.') {
+                        echo '<div class="fts-successful-api-token">' . __('Your access token is working! Generate your shortcode on the <a href="admin.php?page=feed-them-settings-page">settings page</a>.', 'feed-them-social') . '</div>';
+                    } elseif (isset($test_app_token_response->meta->error_message) && !empty($fts_instagram_access_token)) {
+                        echo '<div class="fts-failed-api-token">' . __('Oh No something\'s wrong.', 'feed-them-social') . ' ' . $test_app_token_response->meta->error_message . '</div>';
+                    }
+                    if (empty($fts_instagram_access_token)) {
+                        echo '<div class="fts-failed-api-token">' . __('You are required to get an access token to view your photos. Click Save all Changes after getting your Access Token.', 'feed-them-social') . '</div>';
+                    }
+                    ?>
+                    <div class="fts-clear"></div>
+                </div>
+
+
+
+
+
+                <div class="feed-them-social-admin-input-wrap">
+                    <div class="fts-title-description-settings-page" >
                         <h3>
                             <?php _e('Follow Button Options', 'feed-them-social'); ?>
                         </h3>
+                        <?php _e('This will only show on regular feeds not combined feeds.', 'feed-them-social'); ?>
                     </div>
-
                     <div class="feed-them-social-admin-input-label fts-instagram-text-color-label">
                         <?php _e('Show Follow Button', 'feed-them-social'); ?>
                     </div>
@@ -132,70 +199,8 @@ class FTS_instagram_options_page
                     <!--/fts-instagram-feed-styles-input-wrap-->
                     <?php } ?>
 
-                    <div class="feed-them-social-admin-input-wrap">
-                        <div class="fts-title-description-settings-page">
-                            <?php // get our registered settings from the fts functions
-                            settings_fields('fts-instagram-feed-style-options'); ?>
-                            <h3>
-                                <?php _e('Instagram API Token', 'feed-them-social'); ?>
-                            </h3>
-                            <?php
-
-                            $insta_url = 'https://api.instagram.com/v1/tags/slickremix/media/recent/?access_token=' . $fts_instagram_access_token;
-                            //Get Data for Instagram
-                            $response = wp_remote_fopen($insta_url);
-                            //Error Check
-                            $test_app_token_response = json_decode($response);
-
-                            //   echo '<pre>';
-                            //   print_r(json_decode($response));
-                            //   echo '</pre>';
-                            ?>
-                            <p>
-                                <?php _e('This is required to make the feed work. Just click the button below and it will connect to your instagram to get an access token, then it will return it in the input below. Then just click the save button and you will now be able to generate your Instagram feed. If the button is not working for you and can always manually create an Access Token <a href="http://www.slickremix.com/docs/how-to-create-instagram-access-token/" target="_blank">here</a>.', 'feed-them-social'); ?>
-                            </p>
-                            <p>
-                                <a href="https://instagram.com/oauth/authorize/?client_id=da06fb6699f1497bb0d5d4234a50da75&redirect_uri=http://www.slickremix.com/instagram-token-plugin/?return_uri=<?php echo admin_url('admin.php?page=fts-instagram-feed-styles-submenu-page'); ?>&response_type=token&scope=public_content" class="fts-instagram-get-access-token">
-                                    <?php _e('Log in and get my Access Token'); ?>
-                                </a></p>
-                        </div>
-
-                        <div class="fts-clear"></div>
-                        <div class="feed-them-social-admin-input-wrap" style="margin-bottom:0px;">
-                            <div class="feed-them-social-admin-input-label fts-instagram-border-bottom-color-label">
-                                <?php _e('Access Token Required', 'feed-them-social'); ?>
-                            </div>
-                            <script>
-                                jQuery(document).ready(function ($) {
-                                    function getQueryString(Param) {
-                                        return decodeURI(
-                                            (RegExp('[#|&]' + Param + '=' + '(.+?)(&|$)').exec(location.hash) || [, null])[1]
-                                        );
-                                    }
-
-                                    if (window.location.hash) {
-                                        $('#fts_instagram_custom_api_token').val('');
-                                        $('#fts_instagram_custom_api_token').val($('#fts_instagram_custom_api_token').val() + getQueryString('access_token'));
-                                    }
-                                });
-                            </script>
-                            <input type="text" name="fts_instagram_custom_api_token" class="feed-them-social-admin-input" id="fts_instagram_custom_api_token" value="<?php echo get_option('fts_instagram_custom_api_token'); ?>"/>
-                            <div class="fts-clear"></div>
-                        </div>
-                        <?php
-                        // Error Check
-                        if (!isset($test_app_token_response->meta->error_message) && !empty($fts_instagram_access_token) || isset($test_app_token_response->meta->error_message) && $test_app_token_response->meta->error_message == 'This client has not been approved to access this resource.') {
-                            echo '<div class="fts-successful-api-token">' . __('Your access token is working! Generate your shortcode on the <a href="admin.php?page=feed-them-settings-page">settings page</a>.', 'feed-them-social') . '</div>';
-                        } elseif (isset($test_app_token_response->meta->error_message) && !empty($fts_instagram_access_token)) {
-                            echo '<div class="fts-failed-api-token">' . __('Oh No something\'s wrong.', 'feed-them-social') . ' ' . $test_app_token_response->meta->error_message . '</div>';
-                        }
-                        if (empty($fts_instagram_access_token)) {
-                            echo '<div class="fts-failed-api-token">' . __('You are required to get an access token to view your photos. Click Save all Changes after getting your Access Token.', 'feed-them-social') . '</div>';
-                        }
-                        ?>
-                        <div class="fts-clear"></div>
                         <input type="submit" class="feed-them-social-admin-submit-btn" value="<?php _e('Save All Changes') ?>"/>
-                    </div>
+
             </form>
             <a class="feed-them-social-admin-slick-logo" href="http://www.slickremix.com" target="_blank"></a></div>
         <!--/feed-them-social-admin-wrap-->

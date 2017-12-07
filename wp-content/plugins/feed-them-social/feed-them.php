@@ -3,14 +3,14 @@
 Plugin Name: Feed Them Social (Facebook, Instagram, Twitter, etc)
 Plugin URI: http://slickremix.com/
 Description: Create and display custom feeds for Facebook Groups, Facebook Pages, Facebook Events, Facebook Photos, Facebook Album Covers, Twitter, Instagram, Pinterest and more.
-Version: 2.3.1
+Version: 2.3.4
 Author: SlickRemix
 Author URI: http://slickremix.com/
 Text Domain: feed-them-social
 Domain Path: /languages
-Requires at least: wordpress 4.0.0
-Tested up to: WordPress 4.8.2
-Stable tag: 2.3.1
+Requires at least: wordpress 4.5.0
+Tested up to: WordPress 4.9.1
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * @author      SlickRemix
  * @copyright  	Copyright (c) 2012-2017 SlickRemix
 
-Need Support? http://www.slickremix.com/support-forum/forum/feed-them-social-2/
+Need Support? http://www.slickremix.com/support/
 */
 
 define('FEED_THEM_PLUGIN_PATH', plugins_url());
@@ -54,6 +54,7 @@ function feed_them_social_load_plugin() {
         //Options List
         $activation_options = array(
             'fts-date-and-time-format' => 'one-day-ago',
+            'fts-timezone' => 'America/New_York',
             'fts_clear_cache_developer_mode' => '86400',
         );
 
@@ -219,9 +220,10 @@ include($fts_plugin_rel_url . 'admin/free-plugin-license-page.php');
     new $load_tw_fts;
     include_once($fts_plugin_rel_url . 'feeds/instagram/instagram-feed.php');
     include_once($fts_plugin_rel_url . 'feeds/pinterest/pinterest-feed.php');
- //   include_once($fts_plugin_rel_url . 'feeds/twitter/vine-feed.php');
- //   $load_vn_fts = 'feedthemsocial\FTS_Vine_Feed';
- //   new $load_vn_fts;
+    include_once($fts_plugin_rel_url . 'feeds/youtube/youtube-feed.php');
+     //   include_once($fts_plugin_rel_url . 'feeds/twitter/vine-feed.php');
+     //   $load_vn_fts = 'feedthemsocial\FTS_Vine_Feed';
+     //   new $load_vn_fts;
 
 } // end if php version check
 else {

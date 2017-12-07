@@ -205,7 +205,7 @@ class fts_Free_Plugin_License_Page {
 
             <div class="fts-activation-msg">
                 <ol>
-                    <li><?php _e('Install the zip file of the plugin you should have received after purchase on the <a href="https://www.slickremix.com/betablog/wp-admin/plugin-install.php">plugins page</a> and leave the free version active too.', 'feed-them-social') ?></li>
+                    <li><?php _e('Install the zip file of the plugin you should have received after purchase on the <a href="plugin-install.php">plugins page</a> and leave the free version active too.', 'feed-them-social') ?></li>
                     <li><?php _e('Now Enter your License Key and Click the <strong>Save Changes button</strong>.', 'feed-them-social') ?></li>
                     <li><?php _e('Finally, Click the <strong>Activate License button</strong>.', 'feed-them-social') ?></li>
                 </ol>

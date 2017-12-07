@@ -39,42 +39,41 @@ class FTS_settings_page
                 <h1 class="fts-logo-header"><?php _e('Feed Them Social', 'feed-them-social'); ?></h1>
 
                 <div class="feed-them-icon-wrap">
-                    <a href="#" class="youtube-icon"></a>
-                    <a href="#" class="vine-icon"></a>
-                    <a href="#" class="twitter-icon"></a>
-                    <a href="#" class="facebook-icon"></a>
-                    <a href="#" class="instagram-icon"></a>
-                    <a href="#" class="pinterest-icon"></a>
+                    <a href="javascript:;" class="youtube-icon"></a>
+                    <a href="javascript:;" class="twitter-icon"></a>
+                    <a href="javascript:;" class="facebook-icon"></a>
+                    <a href="javascript:;" class="instagram-icon"></a>
+                    <a href="javascript:;" class="pinterest-icon"></a>
                     <?php
                     //show the js for the discount option under social icons on the settings page
                     if (!is_plugin_active('feed-them-premium/feed-them-premium.php')) { ?>
-                        <div id="discount-for-review"><?php _e('15% off Premium Version', 'feed-them-social'); ?></div>
+                        <div id="discount-for-review"><?php _e('10% off Premium Version', 'feed-them-social'); ?></div>
                         <div class="discount-review-text">
-                            <a href="https://www.slickremix.com/downloads/feed-them-social-premium-extension/" target="_blank"><?php _e('Share here', 'feed-them-social'); ?></a> <?php _e('and receive 15% OFF your total order.', 'feed-them-social'); ?>
+                            <a href="https://www.slickremix.com/downloads/feed-them-social-premium-extension/" target="_blank"><?php _e('Share here', 'feed-them-social'); ?></a> <?php _e('and receive 10% OFF your total order.', 'feed-them-social'); ?>
                         </div>
                     <?php } ?>
                 </div>
 
-                <div class="tabs" id="tabs">
+                <div class="fts-tabs" id="fts-tabs">
 
-                    <label for="tab1"
-                           class="tab1 tabbed <?php if (isset($_GET['tab']) && $_GET['tab'] == 'general_options') {
+                    <label for="fts-tab1"
+                           class="fts-tab1 fts-tabbed <?php if (isset($_GET['tab']) && $_GET['tab'] == 'general_options') {
                                echo 'tab-active';
                            } elseif (!isset($_GET['tab'])) {
                                echo 'tab-active';
                            } ?>" id="general_options">
-                        <span class="das-text"><?php _e('Create Shortcode', 'sidebar-support') ?></span>
+                        <span><?php _e('Create Shortcode', 'sidebar-support') ?></span>
                     </label>
 
-                    <label for="tab2"
-                           class="tab2 tabbed <?php if (isset($_GET['tab']) && $_GET['tab'] == 'global_options') {
+                    <label for="fts-tab2"
+                           class="fts-tab2 fts-tabbed <?php if (isset($_GET['tab']) && $_GET['tab'] == 'global_options') {
                                echo ' tab-active';
                            } ?>" id="global_options">
-                        <span class="das-text"><?php _e('Global Options', 'sidebar-support') ?></span>
+                        <span><?php _e('Global Options', 'sidebar-support') ?></span>
                     </label>
 
-                    <div id="tab-content1"
-                         class="tab-content fts-hide-me <?php if (isset($_GET['tab']) && $_GET['tab'] == 'general_options' || !isset($_GET['tab'])) {
+                    <div id="fts-tab-content1"
+                         class="fts-tab-content fts-hide-me <?php if (isset($_GET['tab']) && $_GET['tab'] == 'general_options' || !isset($_GET['tab'])) {
                              echo ' pane-active';
                          } ?>">
                         <section>
@@ -85,10 +84,10 @@ class FTS_settings_page
                             <form class="feed-them-social-admin-form" id="feed-selector-form">
                                 <select id="shortcode-form-selector">
                                     <option value=""><?php _e('Select a Social Network', 'feed-them-social'); ?> </option>
-                                    <option value="fb-page-shortcode-form"><?php _e('Facebook Feed', 'feed-them-social'); ?></option>
+                                    <option value="fts-fb-page-shortcode-form"><?php _e('Facebook Feed', 'feed-them-social'); ?></option>
                                     <option value="combine-steams-shortcode-form"><?php _e('Combine Streams Feed', 'feed-them-social'); ?></option>
                                     <option value="twitter-shortcode-form"><?php _e('Twitter Feed', 'feed-them-social'); ?></option>
-                                    <option value="vine-shortcode-form"><?php _e('Vine Feed', 'feed-them-social'); ?></option>
+                                    <option value="vine-shortcode-form" style="display: none"><?php _e('Vine Feed', 'feed-them-social'); ?></option>
                                     <option value="instagram-shortcode-form"><?php _e('Instagram Feed', 'feed-them-social'); ?></option>
                                     <option value="youtube-shortcode-form"><?php _e('YouTube Feed'); ?></option>
                                     <option value="pinterest-shortcode-form"><?php _e('Pinterest Feed', 'feed-them-social'); ?></option>
@@ -216,7 +215,7 @@ class FTS_settings_page
                                             'id' => 'combine_post_count',
                                             'name' => 'combine_post_count',
                                             'value' => '',
-                                            'placeholder' => __('6 is the default value', 'feed-them-social'),
+                                            'placeholder' => __('6 is the default number', 'feed-them-social'),
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -230,13 +229,13 @@ class FTS_settings_page
                                         array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'combine_social_network_post_count',
-                                            'label' => __('# of Posts per Social Network (NOT the combined total)', 'feed-them-social'),
+                                            'label' => __('# of Posts per Social Network', 'feed-them-social'). '<br/><small>' . __('NOT the combined total', 'feed-them-social') . '</small>',
                                             'type' => 'text',
                                             //'instructional-text' => __('', 'feed-them-social'),
                                             'id' => 'combine_social_network_post_count',
                                             'name' => 'combine_social_network_post_count',
                                             'value' => '',
-                                            'placeholder' => __('1 is the default value', 'feed-them-social'),
+                                            'placeholder' => __('1 is the default number', 'feed-them-social'),
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -253,7 +252,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_word_count_option',
                                             'name' => 'combine_word_count_option',
-                                            'placeholder' => '45 ' . __('is the default value', 'feed-them-social'),
+                                            'placeholder' => '45 ' . __('is the default number', 'feed-them-social'),
                                             'value' => '',
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
@@ -307,6 +306,7 @@ class FTS_settings_page
                                         //Background Color
                                         array(
                                             'option_type' => 'input',
+                                            'color_picker' => 'yes',
                                             'input_wrap_class' => 'combine_background_color',
                                             'label' => __('Background Color', 'feed-them-social'),
                                             'type' => 'text',
@@ -318,6 +318,101 @@ class FTS_settings_page
                                                 'var_final_if' => 'yes',
                                                 'empty_error' => 'set',
                                                 'empty_error_value' => '',
+                                            ),
+                                        ),
+                                        //Social Icon
+                                        array(
+                                            'input_wrap_class' => 'combine_show_social_icon',
+                                            'option_type' => 'select',
+                                            'label' => __('Show Social Icon', 'feed-them-social'). '<br/><small>' . __('Right, Left or No', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'combine_show_social_icon',
+                                            'name' => 'combine_show_social_icon',
+                                            'req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Right', 'feed-them-social'),
+                                                    'value' => 'right',
+                                                ),
+                                                array(
+                                                    'label' => __('Left', 'feed-them-social'),
+                                                    'value' => 'left',
+                                                ),
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_social_icon',
+                                            ),
+                                        ),
+                                        //Show Description below image or video Name
+                                        array(
+                                            'input_wrap_class' => 'combine_show_media',
+                                            'option_type' => 'select',
+                                            'label' => __('Show Image/Video', 'feed-them-social') . '<br/><small>' . __('Bottom (default) or Top of Post', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'combine_show_media',
+                                            'name' => 'combine_show_media',
+                                            'req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Below Username, Date & Description', 'feed-them-social'),
+                                                    'value' => 'bottom',
+                                                ),
+                                                array(
+                                                    'label' => __('Above Username, Date & Description', 'feed-them-social'),
+                                                    'value' => 'top',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_media',
+                                            ),
+                                        ), //Show Username
+                                        array(
+                                            'input_wrap_class' => 'combine_hide_date',
+                                            'option_type' => 'select',
+                                            'label' => __('Show Username', 'feed-them-social') . '<br/><small>' . __('Yes or No', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'combine_hide_date',
+                                            'name' => 'combine_hide_date',
+                                            'req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_date',
+                                            ),
+                                        ),
+                                        //Show Date
+                                        array(
+                                            'input_wrap_class' => 'combine_hide_name',
+                                            'option_type' => 'select',
+                                            'label' => __('Show Date', 'feed-them-social') . '<br/><small>' . __('Yes or No', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'combine_hide_name',
+                                            'name' => 'combine_hide_name',
+                                            'req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_name',
                                             ),
                                         ),
                                         //Padding
@@ -335,33 +430,6 @@ class FTS_settings_page
                                                 'var_final_if' => 'yes',
                                                 'empty_error' => 'set',
                                                 'empty_error_value' => '',
-                                            ),
-                                        ),
-                                        //Social Icon
-                                        array(
-                                            'input_wrap_class' => 'combine_show_social_icon',
-                                            'option_type' => 'select',
-                                            'label' => __('Show Social Icon', 'feed-them-social'),
-                                            'type' => 'text',
-                                            'id' => 'combine_show_social_icon',
-                                            'name' => 'combine_show_social_icon',
-                                            'req_plugin' => 'combine_streams',
-                                            'options' => array(
-                                                array(
-                                                    'label' => __('Left', 'feed-them-social'),
-                                                    'value' => 'left',
-                                                ),
-                                                array(
-                                                    'label' => __('Right', 'feed-them-social'),
-                                                    'value' => 'right',
-                                                ),
-                                                array(
-                                                    'label' => __('No', 'feed-them-social'),
-                                                    'value' => 'no',
-                                                ),
-                                            ),
-                                            'short_attr' => array(
-                                                'attr_name' => 'show_social_icon',
                                             ),
                                         ),
                                         //Combine Facebook
@@ -846,7 +914,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_youtube_name',
                                             'name' => 'combine_youtube_name',
-                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Username</a> and paste it below.',
+                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> or <strong>Access Token</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Username</a> and paste it below.',
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -865,7 +933,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_playlist_id',
                                             'name' => 'combine_playlist_id',
-                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Playlist ID</a> and paste them below.',
+                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> or <strong>Access Token</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Playlist ID</a> and paste them below.',
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -881,7 +949,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_channel_id',
                                             'name' => 'combine_channel_id',
-                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Channel ID</a> and paste it below.',
+                                            'instructional-text' => '<strong>REQUIRED:</strong> Make sure you have an <strong>API Key</strong> or <strong>Access Token</strong> in place on the <a class="not-active-title" href="admin.php?page=fts-youtube-feed-styles-submenu-page" target="_blank">Youtube Options</a> page then copy your YouTube <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">Channel ID</a> and paste it below.',
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -932,7 +1000,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'combine_grid_column_width',
                                             'name' => 'combine_grid_column_width',
-                                            'instructional-text' => __('NOTE:', 'feed-them-social') . '</strong> ' . __('Define the Width of each post and the Space between each post below. You must add px after any number.', 'feed-them-social'),
+                                            'instructional-text' =>  '<strong> ' . __('NOTE:', 'feed-them-social') . '</strong> ' . __('Define the Width of each post and the Space between each post below. You must add px after any number.', 'feed-them-social'),
                                             'placeholder' => '310px ' . __('for example', 'feed-them-social'),
                                             'req_plugin' => 'combine_streams',
                                             //Relative to JS.
@@ -1079,7 +1147,7 @@ class FTS_settings_page
                                     'section_title' => __('Facebook Page Shortcode Generator', 'feed-them-social'),
                                     'section_wrap_class' => 'fts-facebook_page-shortcode-form',
                                     //Form Info
-                                    'form_wrap_classes' => 'fb-page-shortcode-form',
+                                    'form_wrap_classes' => 'fts-fb-page-shortcode-form',
                                     'form_wrap_id' => 'fts-fb-page-form',
                                     //Token Check
                                     'token_check' => $facebookReviewsTokenCheck,
@@ -1263,7 +1331,7 @@ class FTS_settings_page
                                             'id' => 'fb_page_post_count',
                                             'name' => 'fb_page_post_count',
                                             'value' => '',
-                                            'placeholder' => __('6 is the default value', 'feed-them-social'),
+                                            'placeholder' => __('6 is the default number', 'feed-them-social'),
                                             //Relative to JS.
                                             'short_attr' => array(
                                                 'attr_name' => 'posts',
@@ -1294,7 +1362,7 @@ class FTS_settings_page
                                         array(
                                             'input_wrap_class' => 'fb-page-title-option-hide',
                                             'option_type' => 'select',
-                                            'label' => __('Show Page Title', 'feed-them-social'),
+                                            'label' => __('Show Page Title', 'feed-them-social') . '<br/><small>' . __('Yes or No', 'feed-them-social') . '</small>',
                                             'type' => 'text',
                                             'id' => 'fb_page_title_option',
                                             'name' => 'fb_page_title_option',
@@ -1320,7 +1388,7 @@ class FTS_settings_page
                                         array(
                                             'input_wrap_class' => 'fb-page-title-align',
                                             'option_type' => 'select',
-                                            'label' => __('Align Title', 'feed-them-social'),
+                                            'label' => __('Align Title', 'feed-them-social'). '<br/><small>' . __('Left, Center or Right', 'feed-them-social') . '</small>',
                                             'type' => 'text',
                                             'id' => 'fb_page_title_align',
                                             'name' => 'fb_page_title_align',
@@ -1347,7 +1415,7 @@ class FTS_settings_page
                                         array(
                                             'input_wrap_class' => 'fb-page-description-option-hide',
                                             'option_type' => 'select',
-                                            'label' => __('Show Page Description', 'feed-them-social'),
+                                            'label' => __('Show Page Description', 'feed-them-social') . '<br/><small>' . __('Yes or No', 'feed-them-social') . '</small>',
                                             'type' => 'text',
                                             'id' => 'fb_page_description_option',
                                             'name' => 'fb_page_description_option',
@@ -1367,6 +1435,123 @@ class FTS_settings_page
                                             ),
                                             'sub_options_end' => true,
                                         ),
+
+
+
+
+
+
+
+
+
+
+
+                                        //Show Description below image or video Name
+                                        array(
+                                            'input_wrap_class' => 'facebook_show_media',
+                                            'option_type' => 'select',
+                                            'label' => __('Show Image/Video', 'feed-them-social') . '<br/><small>' . __('Bottom or Top of Post', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'facebook_show_media',
+                                            'name' => 'facebook_show_media',
+                                            'req_plugin' => 'fts_premium',
+                                            'or_req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Below Username, Date & Description', 'feed-them-social'),
+                                                    'value' => 'bottom',
+                                                ),
+                                                array(
+                                                    'label' => __('Above Username, Date & Description', 'feed-them-social'),
+                                                    'value' => 'top',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_media',
+                                            ),
+                                        ),
+                                        //Show Thumbnail
+                                        array(
+                                            'input_wrap_class' => 'facebook_hide_thumbnail',
+                                            'option_type' => 'select',
+                                            'label' => __('Show User Thumbnail', 'feed-them-social') . '<br/><small>' . __('Yes or No', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'facebook_hide_thumbnail',
+                                            'name' => 'facebook_hide_thumbnail',
+                                            'req_plugin' => 'fts_premium',
+                                            'or_req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_thumbnail',
+                                            ),
+                                        ),
+                                        //Show Username
+                                        array(
+                                            'input_wrap_class' => 'facebook_hide_date',
+                                            'option_type' => 'select',
+                                            'label' => __('Show Username', 'feed-them-social') . '<br/><small>' . __('Yes or No', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'facebook_hide_date',
+                                            'name' => 'facebook_hide_date',
+                                            'req_plugin' => 'fts_premium',
+                                            'or_req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_date',
+                                            ),
+                                        ),
+                                        //Show Date
+                                        array(
+                                            'input_wrap_class' => 'facebook_hide_name',
+                                            'option_type' => 'select',
+                                            'label' => __('Show Date', 'feed-them-social') . '<br/><small>' . __('Yes or No', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'facebook_hide_name',
+                                            'name' => 'facebook_hide_name',
+                                            'req_plugin' => 'fts_premium',
+                                            'or_req_plugin' => 'combine_streams',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'show_name',
+                                            ),
+                                        ),
+
+
+
+
+
+
+
+
+
+
                                         //Facebook Amount of words
                                         array(
                                             'option_type' => 'input',
@@ -1374,7 +1559,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'fb_page_word_count_option',
                                             'name' => 'fb_page_word_count_option',
-                                            'placeholder' => '45 ' . __('is the default value', 'feed-them-social'),
+                                            'placeholder' => '45 ' . __('is the default number', 'feed-them-social'),
                                             'value' => '',
                                             'req_plugin' => 'fts_premium',
                                             'or_req_plugin' => 'combine_streams',
@@ -1616,7 +1801,7 @@ class FTS_settings_page
                                         //Overall Rating
                                         array(
                                             'option_type' => 'select',
-                                            'label' => __('Overall Rating above Feed', 'feed-them-social') . '<br/><small>' . __('More settings: <a href="admin.php?page=fts-facebook-feed-styles-submenu-page">Facebook Options</a> page.', 'feed-them-social') . '</small>',
+                                            'label' => __('Overall Rating above Feed', 'feed-them-social') . '<br/><small>' . __('More settings: <a href="admin.php?page=fts-facebook-feed-styles-submenu-page#overall-rating-options">Facebook Options</a> page.', 'feed-them-social') . '</small>',
                                             'type' => 'text',
                                             'id' => 'reviews_overall_rating_show',
                                             'name' => 'reviews_overall_rating_show',
@@ -1633,6 +1818,53 @@ class FTS_settings_page
                                             'req_plugin' => 'facebook_reviews',
                                             'short_attr' => array(
                                                 'attr_name' => 'overall_rating',
+                                                'ifs' => 'reviews',
+                                            )
+                                        ),
+                                        //Hide Reviews with no Text
+                                        array(
+                                            'option_type' => 'select',
+                                            'label' => __('Hide Reviews with no description', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'reviews_with_no_text',
+                                            'name' => 'reviews_with_no_text',
+                                            'options' => array(
+                                                1 => array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                                2 => array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                )
+                                            ),
+                                            'req_plugin' => 'facebook_reviews',
+                                            'short_attr' => array(
+                                                'attr_name' => 'remove_reviews_no_description',
+                                                'ifs' => 'reviews',
+                                            ),
+                                        ),
+                                        //Hide Reviews the text link, "See More Reviews"
+                                        array(
+                                            'option_type' => 'select',
+                                            'label' => __('Hide the text "See More Reviews"', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'hide_see_more_reviews_link',
+                                            'name' => 'hide_see_more_reviews_link',
+                                            'options' => array(
+
+                                                1 => array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                                2 => array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                )
+                                            ),
+                                            'req_plugin' => 'facebook_reviews',
+                                            'short_attr' => array(
+                                                'attr_name' => 'hide_see_more_reviews_link',
                                                 'ifs' => 'reviews',
                                             ),
                                             'sub_options_end' => true,
@@ -1971,7 +2203,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'facebook_grid_column_width',
                                             'name' => 'facebook_grid_column_width',
-                                            'instructional-text' => __('NOTE:', 'feed-them-social') . '</strong> ' . __('Define the Width of each post and the Space between each post below. You must add px after any number.', 'feed-them-social'),
+                                            'instructional-text' => '<strong> ' . __('NOTE:', 'feed-them-social') . '</strong> ' . __('Define the Width of each post and the Space between each post below. You must add px after any number.', 'feed-them-social'),
                                             'placeholder' => '310px ' . __('for example', 'feed-them-social'),
                                             'value' => '',
                                             'req_plugin' => 'fts_premium',
@@ -2166,7 +2398,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'slides_visible',
                                             'name' => 'slides_visible',
-                                            'placeholder' => __('3 is the default value', 'feed-them-social'),
+                                            'placeholder' => __('3 is the default number', 'feed-them-social'),
                                             'req_plugin' => 'fts_carousel',
                                             //Relative to JS.
                                             'short_attr' => array(
@@ -2528,7 +2760,7 @@ class FTS_settings_page
                                     'form_wrap_id' => 'fts-youtube-form',
                                     //Feed Type Selection
                                     'feed_type_select' => array(
-                                        'label' => __('Feed Type', 'feed-them-social'),
+                                        'label' => __('Feed Type', 'feed-them-social') . '<br/><small><a href="http://feedthemsocial.com/youtube-demo-1-large-with-4-video-per-row/" target="_blank">' . __('See Example Demos', 'feed-them-social') . '</a></small>',
                                         'select_wrap_classes' => 'youtube-gen-selection',
                                         'select_classes' => '',
                                         'select_name' => 'youtube-messages-selector',
@@ -2538,7 +2770,7 @@ class FTS_settings_page
                                     'token_check' => array(
                                         array(
                                             'option_name' => 'youtube_custom_api_token',
-                                            'no_token_msg' => __('<strong>STEP 1:</strong> Please add a Youtube API Token to our <a href="admin.php?page=fts-youtube-feed-styles-submenu-page">Youtube Options</a> page before getting started. ' . $step2_custom_message . '', 'feed-them-social'),
+                                            'no_token_msg' => __('<strong>STEP 1:</strong> Please add your API Token or Access Token to our <a href="admin.php?page=fts-youtube-feed-styles-submenu-page">Youtube Options</a> page before getting started. ' . $step2_custom_message . '', 'feed-them-social'),
                                         ),
                                     ),
                                     //Feed Types and their options
@@ -2563,6 +2795,11 @@ class FTS_settings_page
                                             'value' => 'userPlaylist',
                                             'title' => __('User\'s Specific Playlist', 'feed-them-social'),
                                         ),
+                                        //Single Video with description
+                                        array(
+                                            'value' => 'singleID',
+                                            'title' => __('Single Video with title, date & description', 'feed-them-social'),
+                                        ),
                                     ),
                                     'short_attr_final' => 'yes',
                                     //Inputs relative to all Feed_types of this feed. (Eliminates Duplication)[Excluded from loop when creating select]
@@ -2576,7 +2813,7 @@ class FTS_settings_page
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_name',
                                             'label' => __('Youtube Username (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Username', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube <strong>Username</strong> url and paste it below. Your url should look similar to our Example url.<br/><strong>Example:</strong>', 'feed-them-social') . ' <a href="https://www.youtube.com/channel/" target="_blank">https://www.youtube.com/user/nationalgeographic</a>',
                                             'type' => 'text',
                                             'id' => 'youtube_name',
                                             'name' => 'youtube_name',
@@ -2591,14 +2828,13 @@ class FTS_settings_page
                                                     'value' => 'username',
                                                 ),
                                             ),
-                                            'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Playlist ID
                                         array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_playlistID',
                                             'label' => __('Youtube Playlist ID (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __(' Playlist ID and Channel ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube <strong>Playlist</strong> and <strong>Channel</strong> url link and paste them below. Your urls should look similar to our Example urls below. <br/><br/><strong>Playlist ID:</strong>', 'feed-them-social') . ' <a href="https://www.youtube.com/watch?v=_-sySjjthB0&list=PL7V-xVyJYY3cI-A9ZHkl6A3r31yiVz0XN" target="_blank">https://www.youtube.com/watch?v=_-sySjjthB0&list=PL7V-xVyJYY3cI-A9ZHkl6A3r31yiVz0XN</a><br/><strong>' . __('Channel ID:', 'feed-them-social') .'</strong> <a href="https://www.youtube.com/channel/UCt16NSYjauKclK67LCXvQyA" target="_blank">https://www.youtube.com/channel/UCt16NSYjauKclK67LCXvQyA</a>',
                                             'type' => 'text',
                                             'id' => 'youtube_playlistID',
                                             'name' => 'youtube_playlistID',
@@ -2614,14 +2850,13 @@ class FTS_settings_page
                                                     'value' => 'playlistID',
                                                 ),
                                             ),
-                                            'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Playlist ID2
                                         array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_playlistID2',
                                             'label' => __('Youtube Playlist ID (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Playlist ID and Username', 'feed-them-social') . '</a> ' . __('and paste them below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube <strong>Playlist</strong> and <strong>Username</strong> url and paste them below. Your urls should look similar to our Example urls below.<br/><br/><strong>Playlist ID:</strong>', 'feed-them-social') . ' <a href="https://www.youtube.com/watch?v=cxrLRbkOwKs&index=10&list=PLivjPDlt6ApS90YoAu-T8VIj6awyflIym" target="_blank">https://www.youtube.com/watch?v=cxrLRbkOwKs&index=10&list=PLivjPDlt6ApS90YoAu-T8VIj6awyflIym</a><br/><strong>' . __('Username:', 'feed-them-social') .'</strong> <a href="https://www.youtube.com/user/nationalgeographic" target="_blank">https://www.youtube.com/user/nationalgeographic</a>',
                                             'type' => 'text',
                                             'id' => 'youtube_playlistID2',
                                             'name' => 'youtube_playlistID2',
@@ -2637,7 +2872,6 @@ class FTS_settings_page
                                                     'value' => 'userPlaylist',
                                                 ),
                                             ),
-                                            'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Name 2
                                         array(
@@ -2657,14 +2891,13 @@ class FTS_settings_page
                                                     'value' => 'userPlaylist',
                                                 ),
                                             ),
-                                            'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Channel ID
                                         array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_channelID',
                                             'label' => __('Youtube Channel ID (required)', 'feed-them-social'),
-                                            'instructional-text' => __('You must copy your YouTube ', 'feed-them-social') . ' <a href="https://www.slickremix.com/how-to-get-your-youtube-name/" target="_blank">' . __('Channel ID', 'feed-them-social') . '</a> ' . __('and paste it below.', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your YouTube <strong>Channel</strong> url and paste it below. Your url should look similar to our Example url.<br/><strong>Example:</strong>', 'feed-them-social') . ' <a href="https://www.youtube.com/channel/UCqhnX4jA0A5paNd1v-zEysw" target="_blank">https://www.youtube.com/channel/UCqhnX4jA0A5paNd1v-zEysw</a>',
                                             'type' => 'text',
                                             'id' => 'youtube_channelID',
                                             'name' => 'youtube_channelID',
@@ -2679,7 +2912,6 @@ class FTS_settings_page
                                                     'value' => 'channelID',
                                                 ),
                                             ),
-                                            'req_plugin' => 'fts_premium',
                                         ),
                                         //Youtube Channel ID 2
                                         array(
@@ -2699,59 +2931,50 @@ class FTS_settings_page
                                                     'value' => 'playlistID',
                                                 ),
                                             ),
-                                            'req_plugin' => 'fts_premium',
                                         ),
+
+                                        //Youtube Single Video ID
+                                        array(
+                                            'option_type' => 'input',
+                                            'input_wrap_class' => 'youtube_singleVideoID',
+                                            'label' => __('Single Youtube Video ID (required)', 'feed-them-social'),
+                                            'instructional-text' => __('You must copy your <strong>YouTube Video</strong> url link and paste it below. Your url should look similar to our Example url below. <br/><strong>Video URL:</strong>', 'feed-them-social') . ' <a href="https://www.youtube.com/watch?v=_-sySjjthB0" target="_blank">https://www.youtube.com/watch?v=_-sySjjthB0</a>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_singleVideoID',
+                                            'name' => 'youtube_singleVideoID',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'video_id_or_link',
+                                                'ifs' => 'singleID',
+                                                'empty_error' => 'yes',
+                                                'empty_error_if' => array(
+                                                    'attribute' => 'select#youtube-messages-selector',
+                                                    'operator' => '==',
+                                                    'value' => 'singleID',
+                                                ),
+                                            ),
+                                        ),
+
                                         //# of videos
                                         array(
                                             'option_type' => 'input',
                                             'input_wrap_class' => 'youtube_vid_count',
-                                            'label' => __('# of videos', 'feed-them-social'),
+                                            'label' => __('# of videos', 'feed-them-social') . $limitforpremium,
                                             'type' => 'text',
                                             'id' => 'youtube_vid_count',
                                             'name' => 'youtube_vid_count',
-                                            'placeholder' => __('6 is the default value', 'feed-them-social'),
+                                            'placeholder' => __('4 is the default value', 'feed-them-social'),
                                             //Relative to JS.
                                             'short_attr' => array(
                                                 'attr_name' => 'vid_count',
                                                 'empty_error' => 'set',
-                                                'empty_error_value' => 'vid_count=6',
+                                                'empty_error_value' => 'vid_count=4',
                                             ),
-                                            'req_plugin' => 'fts_premium',
-                                        ),
-                                        //# of videos in each row
-                                        array(
-                                            'input_wrap_class' => 'youtube_columns',
-                                            'option_type' => 'select',
-                                            'label' => __('# of videos in each row', 'feed-them-social'),
-                                            'type' => 'text',
-                                            'id' => 'youtube_columns',
-                                            'name' => 'youtube_columns',
-                                            'options' => array(
-                                                array(
-                                                    'label' => __('1 video per row', 'feed-them-social'),
-                                                    'value' => '1',
-                                                ),
-                                                array(
-                                                    'label' => __('2 video per row', 'feed-them-social'),
-                                                    'value' => '2',
-                                                ),
-                                                array(
-                                                    'label' => __('3 video per row', 'feed-them-social'),
-                                                    'value' => '3',
-                                                ),
-                                                array(
-                                                    'label' => __('4 video per row', 'feed-them-social'),
-                                                    'value' => '4',
-                                                ),
-                                            ),
-                                            'short_attr' => array(
-                                                'attr_name' => 'vids_in_row',
-                                            ),
-                                            'req_plugin' => 'fts_premium',
                                         ),
                                         //Display First video full size
                                         array(
-                                            'input_wrap_class' => 'youtube_first_video',
+                                            'grouped_options_title' => __('First Video Display', 'feed-them-social'),
+                                            'input_wrap_class' => 'youtube_hide_option',
                                             'option_type' => 'select',
                                             'label' => __('Display First video full size', 'feed-them-social'),
                                             'type' => 'text',
@@ -2770,11 +2993,480 @@ class FTS_settings_page
                                             'short_attr' => array(
                                                 'attr_name' => 'large_vid',
                                             ),
+                                        ),
+                                        //Display Large Video Title
+                                        array(
+                                            'option_type' => 'select',
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'label' => __('Show the Large Video Title', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_large_vid_title',
+                                            'name' => 'youtube_large_vid_title',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'large_vid_title',
+                                            ),
+                                        ),
+                                        //Display Large Video Description
+                                        array(
+                                            'option_type' => 'select',
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'label' => __('Show the Large Video Description', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_large_vid_description',
+                                            'name' => 'youtube_large_vid_description',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'large_vid_description',
+                                            ),
+                                        ),
+
+
+                                        //Play thumbs in large video container
+                                        array(
+                                            'grouped_options_title' => __('Video Thumbnails', 'feed-them-social'),
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'option_type' => 'select',
+                                            'label' => __('Click thumb to play Video', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_play_thumbs',
+                                            'name' => 'youtube_play_thumbs',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Play on Page', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                                array(
+                                                    'label' => __('Open in YouTube', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                                array(
+                                                    'label' => __('Open in Popup (Premium Version Required)', 'feed-them-social'),
+                                                    'value' => 'popup',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'thumbs_play_in_iframe',
+                                            ),
+                                        ),
+
+                                        //# of videos in each row
+                                        array(
+
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'option_type' => 'select',
+                                            'label' => __('# of videos in each row', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_columns',
+                                            'name' => 'youtube_columns',
+                                            'default_value' => '4',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('1', 'feed-them-social'),
+                                                    'value' => '1',
+                                                ),
+                                                array(
+                                                    'label' => __('2', 'feed-them-social'),
+                                                    'value' => '2',
+                                                ),
+                                                array(
+                                                    'label' => __('3', 'feed-them-social'),
+                                                    'value' => '3',
+                                                ),
+                                                array(
+                                                    'label' => __('4', 'feed-them-social'),
+                                                    'value' => '4',
+                                                ),
+                                                array(
+                                                    'label' => __('5', 'feed-them-social'),
+                                                    'value' => '5',
+                                                ),
+                                                array(
+                                                    'label' => __('6', 'feed-them-social'),
+                                                    'value' => '6',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'vids_in_row',
+                                            ),
+                                        ),
+                                        //Space between Vids
+                                        array(
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'option_type' => 'input',
+                                            'label' => __('Space between video thumbnails', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'fts-slicker-youtube-container-margin',
+                                            'name' => 'fts-slicker-youtube-container-margin',
+                                            'placeholder' => '1px is the default value',
+                                            'value' => '',
+                                            'short_attr' => array(
+                                                'attr_name' => 'space_between_videos',
+                                                'var_final_if' => 'yes',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'space_between_videos=1px',
+                                            ),
+                                        ),
+
+
+                                        // Force Video Rows
+                                        array(
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'option_type' => 'select',
+                                            'label' => __('Force thumbnails rows', 'feed-them-gallery') . '<br/><small>' . __('No, will allow the video images to be responsive for smaller devices. Yes, will force the selected rows.', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'fts_youtube_force_columns',
+                                            'name' => 'fts_youtube_force_columns',
+                                            'default_value' => 'no',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('No', 'feed-them-gallery'),
+                                                    'value' => 'no',
+                                                ),
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-gallery'),
+                                                    'value' => 'yes',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'force_columns',
+                                            ),
+                                        ),
+                                        //Display Max Res Images for thumbs
+                                        array(
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'option_type' => 'select',
+                                            'label' => __('High quality thumbnail images', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_maxres_thumbnail_images',
+                                            'name' => 'youtube_maxres_thumbnail_images',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                            ),
+                                            'short_attr' => array(
+                                                'attr_name' => 'maxres_thumbnail_images',
+                                            ),
+                                        ),
+                                        //Background color for thumbs container
+                                        array(
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'option_type' => 'input',
+                                            'color_picker' => 'yes',
+                                            'label' => __('Container Background color ', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_thumbs_wrap_color',
+                                            'name' => 'youtube_thumbs_wrap_color',
+                                            'default' => '#000',
+                                            'placeholder' => '#000',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'thumbs_wrap_color',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'thumbs_wrap_color=#000',
+                                            ),
+                                            
+                                        ),
+                                        //Align container right or left of video
+                                        array(
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'option_type' => 'select',
+                                            'label' => __('Align Thumbs', 'feed-them-social') . '<br/><small>' . __('Bottom (default), Right, or left of Videoo', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_thumbs_wrap',
+                                            'name' => 'youtube_thumbs_wrap',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Below Video', 'feed-them-social'),
+                                                    'value' => 'none',
+                                                ),
+                                                array(
+                                                    'label' => __('Right', 'feed-them-social'),
+                                                    'value' => 'right',
+                                                ),
+                                                array(
+                                                    'label' => __('Left', 'feed-them-social'),
+                                                    'value' => 'left',
+                                                ),
+                                            ),
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'wrap',
+                                            ),
+                                            'prem_req' => 'yes',
+                                            'req_plugin' => 'fts_premium',
+
+                                        ),
+                                        //Align container right or left of video
+                                        array(
+                                            'input_wrap_class' => 'youtube_align_comments_wrap',
+                                            'option_type' => 'select',
+                                            'label' => __('Align Title, Description etc.', 'feed-them-social') . '<br/><small>' . __('Bottom (default), Right, or left of Video', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_comments_wrap',
+                                            'name' => 'youtube_comments_wrap',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Below Video', 'feed-them-social'),
+                                                    'value' => 'none',
+                                                ),
+                                                array(
+                                                    'label' => __('Right', 'feed-them-social'),
+                                                    'value' => 'right',
+                                                ),
+                                                array(
+                                                    'label' => __('Left', 'feed-them-social'),
+                                                    'value' => 'left',
+                                                ),
+                                            ),
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'wrap_single',
+                                            ),
+                                            'prem_req' => 'yes',
+                                            'req_plugin' => 'fts_premium',
+
+                                        ),
+                                        //Align container right or left of video
+                                        array(
+                                            'input_wrap_class' => 'youtube_video_thumbs_display',
+                                            'option_type' => 'select',
+                                            'label' => __('Video/Thumbs width options', 'feed-them-social') . '<br/><small>' . __('Sizes: 80/20, 60/40 or 50/50', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_video_thumbs_display',
+                                            'name' => 'youtube_video_thumbs_display',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('None', 'feed-them-social'),
+                                                    'value' => 'none',
+                                                ),
+                                                array(
+                                                    'label' => __('Option 1 (Video 80%, Thumbs Container 20%)', 'feed-them-social'),
+                                                    'value' => '1',
+                                                ),
+                                                array(
+                                                    'label' => __('Option 1 (Video 60%, Thumbs Container 40%)', 'feed-them-social'),
+                                                    'value' => '2',
+                                                ),
+                                                array(
+                                                    'label' => __('Option 1 (Video 50%, Thumbs Container 50%)', 'feed-them-social'),
+                                                    'value' => '3',
+                                                ),
+                                            ),
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'video_wrap_display',
+                                            ),
+                                            'prem_req' => 'yes',
+                                            'req_plugin' => 'fts_premium',
+
+                                        ),
+                                        //Align container right or left of video
+                                        array(
+                                            'input_wrap_class' => 'youtube_video_single_info_display',
+                                            'option_type' => 'select',
+                                            'label' => __('Video/Info width options', 'feed-them-social') . '<br/><small>' . __('Sizes: 80/20, 60/40 or 50/50', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_video_comments_display',
+                                            'name' => 'youtube_video_comments_display',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('None', 'feed-them-social'),
+                                                    'value' => 'none',
+                                                ),
+                                                array(
+                                                    'label' => __('Option 1 (Video 80%, Info Container 20%)', 'feed-them-social'),
+                                                    'value' => '1',
+                                                ),
+                                                array(
+                                                    'label' => __('Option 1 (Video 60%, Info Container 40%)', 'feed-them-social'),
+                                                    'value' => '2',
+                                                ),
+                                                array(
+                                                    'label' => __('Option 1 (Video 50%, Info Container 50%)', 'feed-them-social'),
+                                                    'value' => '3',
+                                                ),
+                                            ),
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'video_wrap_display_single',
+                                            ),
+                                            'prem_req' => 'yes',
+                                            'req_plugin' => 'fts_premium',
+
+                                        ),
+                                        //Youtube Load More Button
+                                        array(
+                                            'input_wrap_class' => 'youtube_hide_option',
+                                            'grouped_options_title' => __('Load More', 'feed-them-social'),
+                                            'option_type' => 'select',
+                                            'label' => __('Load More Button', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_load_more_option',
+                                            'name' => 'youtube_load_more_option',
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('No', 'feed-them-social'),
+                                                    'value' => 'no',
+                                                ),
+                                                array(
+                                                    'label' => __('Yes', 'feed-them-social'),
+                                                    'value' => 'yes',
+                                                ),
+                                            ),
+                                            'prem_req' => 'yes',
+                                            'req_plugin' => 'fts_premium',
+                                            'short_attr' => array(
+                                                'attr_name' => '',
+                                                'empty_error_value' => '',
+                                                'no_attribute' => 'yes',
+
+                                            ),
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'youtube-loadmore-wrap',
+                                            ),
+                                        ),
+                                        //Youtube Load More Style
+                                        array(
+                                            'option_type' => 'select',
+                                            'label' => __('Load More Style', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_load_more_style',
+                                            'name' => 'youtube_load_more_style',
+                                            'instructional-text' => '<strong>' . __('NOTE:', 'feed-them-social') . '</strong> ' . __('The Button option will show a "Load More Posts" button under your feed. The AutoScroll option will load more posts when you reach the bottom of the feed. AutoScroll ONLY works if you\'ve filled in a Fixed Height for your feed.', 'feed-them-social'),
+                                            'options' => array(
+                                                array(
+                                                    'label' => __('Button', 'feed-them-social'),
+                                                    'value' => 'button',
+                                                ),
+                                                array(
+                                                    'label' => __('AutoScroll', 'feed-them-social'),
+                                                    'value' => 'autoscroll',
+                                                ),
+                                            ),
+                                            'prem_req' => 'yes',
+                                            'req_plugin' => 'fts_premium',
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore',
+                                                'ifs' => 'load_more',
+                                            ),
+                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'fts-youtube-load-more-options-wrap',
+                                            ),
+                                            'sub_options_end' => true,
+                                        ),
+                                        //youtube Page Load more Amount
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Load more Amount', 'feed-them-social') . '<br/><small>' . __('How many more videos will load at a time.', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_loadmore_count',
+                                            'name' => 'youtube_loadmore_count',
+                                            'placeholder' => __('5 is the default number', 'feed-them-social'),
+                                            'value' => '',
+                                            'req_plugin' => 'fts_premium',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore_count',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'loadmore_count=5',
+                                                'ifs' => 'load_more',
+                                            ),
+                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'fts-youtube-load-more-options2-wrap',
+                                            ),
+                                        ),
+                                        //youtube Load more Button Width
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Load more Button Width', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto width', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_loadmore_button_width',
+                                            'name' => 'youtube_loadmore_button_width',
+                                            'placeholder' => '300px ' . __('for example', 'feed-them-social'),
+                                            'value' => '',
+                                            'prem_req' => 'yes',
+                                            'req_plugin' => 'fts_premium',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore_btn_maxwidth',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'loadmore_btn_maxwidth=300px',
+                                                'ifs' => 'load_more',
+                                            ),
+                                        ),
+                                        //youtube Load more Button Margin
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Load more Button Margin', 'feed-them-social'),
+                                            'type' => 'text',
+                                            'id' => 'youtube_loadmore_button_margin',
+                                            'name' => 'youtube_loadmore_button_margin',
+                                            'placeholder' => '10px ' . __('for example', 'feed-them-social'),
+                                            'value' => '',
+                                            'req_plugin' => 'fts_premium',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore_btn_margin',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'loadmore_btn_margin=10px',
+                                                'ifs' => 'load_more',
+                                            ),
+                                            'sub_options_end' => 2,
+                                        ),
+                                        //Display Comments
+                                        array(
+                                            'grouped_options_title' => __('Comments', 'feed-them-social'),
+                                            'option_type' => 'input',
+                                            'label' => __('# of Comments', 'feed-them-social') . '<br/><small>' . __('Maximum amount is 50', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'youtube_comments_count',
+                                            'name' => 'youtube_comments_count',
+                                            'placeholder' => '',
+                                            'value' => '',
+                                            'short_attr' => array(
+                                                'attr_name' => 'comments_count',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'comments_count=0',
+                                            ),
                                             'req_plugin' => 'fts_premium',
                                         ),
                                     ),
                                     //Final Shortcode ifs
                                     'shortcode_ifs' => array(
+                                        'load_more' => array(
+                                            'if' => array(
+                                                'class' => 'select#youtube_load_more_option',
+                                                'operator' => '==',
+                                                'value' => 'yes',
+                                            ),
+                                        ),
                                         'username' => array(
                                             'if' => array(
                                                 'class' => 'select#youtube-messages-selector',
@@ -2801,6 +3493,13 @@ class FTS_settings_page
                                                 'class' => 'select#youtube-messages-selector',
                                                 'operator' => '==',
                                                 'value' => 'playlistID',
+                                            ),
+                                        ),
+                                        'singleID' => array(
+                                            'if' => array(
+                                                'class' => 'select#youtube-messages-selector',
+                                                'operator' => '==',
+                                                'value' => 'singleID',
                                             ),
                                         ),
                                     ),
@@ -3287,6 +3986,28 @@ class FTS_settings_page
                                             ),
                                             'sub_options_end' => true,
                                         ),
+                                        //Twitter Page Load more Amount
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Load more Amount', 'feed-them-social') . '<br/><small>' . __('How many more posts will load at a time.', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'twitter_loadmore_count',
+                                            'name' => 'twitter_loadmore_count',
+                                            'placeholder' => __('5 is the default number', 'feed-them-social'),
+                                            'value' => '',
+                                            'req_plugin' => 'fts_premium',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore_count',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'loadmore_count=5',
+                                                'ifs' => 'load_more',
+                                            ),
+                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'fts-twitter-load-more-options2-wrap',
+                                            ),
+                                        ),
                                         //Twitter Load more Button Width
                                         array(
                                             'option_type' => 'input',
@@ -3305,10 +4026,6 @@ class FTS_settings_page
                                                 'empty_error' => 'set',
                                                 'empty_error_value' => 'loadmore_btn_maxwidth=300px',
                                                 'ifs' => 'load_more',
-                                            ),
-                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
-                                            'sub_options' => array(
-                                                'sub_options_wrap_class' => 'fts-twitter-load-more-options2-wrap',
                                             ),
                                         ),
                                         //Twitter Load more Button Margin
@@ -3373,7 +4090,7 @@ class FTS_settings_page
                                             'type' => 'text',
                                             'id' => 'twitter_grid_column_width',
                                             'name' => 'twitter_grid_column_width',
-                                            'instructional-text' => __('NOTE:', 'feed-them-social') . '</strong> ' . __('Define the Width of each post and the Space between each post below. You must add px after any number.', 'feed-them-social'),
+                                            'instructional-text' => '<strong> ' . __('NOTE:', 'feed-them-social') . '</strong> ' . __('Define the Width of each post and the Space between each post below. You must add px after any number.', 'feed-them-social'),
                                             'placeholder' => '310px ' . __('for example', 'feed-them-social'),
                                             'value' => '',
                                             'req_plugin' => 'fts_premium',
@@ -3764,41 +4481,41 @@ class FTS_settings_page
                                             'option_type' => 'select',
                                             'label' => __('Number of Columns', 'feed-them-gallery'),
                                             'type' => 'text',
-                                            'instructional-text' => '<strong>' . __('NOTE:', 'feed-them-gallery') . '</strong>' . '</strong> ' . __('Using the Columns option will make this gallery fully responsive and it will adapt in size to your containers width. Choose the Number of Columns and Space between each image below. Please add px after any number.', 'feed-them-gallery') . ' <a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a>',
+                                            'instructional-text' => '<strong>' . __('NOTE:', 'feed-them-social') . '</strong>' . __('Using the Columns option will make this gallery fully responsive and it will adapt in size to your containers width. Choose the Number of Columns and Space between each image below. Please add px after any number.', 'feed-them-gallery') . ' <a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a>',
                                             'id' => 'fts_instagram_columns',
                                             'name' => 'fts_instagram_columns',
                                             'default_value' => '3',
                                             'options' => array(
                                                 array(
-                                                    'label' => __('1', 'feed-them-gallery'),
+                                                    'label' => __('1', 'feed-them-social'),
                                                     'value' => '1',
                                                 ),
                                                 array(
-                                                    'label' => __('2', 'feed-them-gallery'),
+                                                    'label' => __('2', 'feed-them-social'),
                                                     'value' => '2',
                                                 ),
                                                 array(
-                                                    'label' => __('3', 'feed-them-gallery'),
+                                                    'label' => __('3', 'feed-them-social'),
                                                     'value' => '3',
                                                 ),
                                                 array(
-                                                    'label' => __('4', 'feed-them-gallery'),
+                                                    'label' => __('4', 'feed-them-social'),
                                                     'value' => '4',
                                                 ),
                                                 array(
-                                                    'label' => __('5', 'feed-them-gallery'),
+                                                    'label' => __('5', 'feed-them-social'),
                                                     'value' => '5',
                                                 ),
                                                 array(
-                                                    'label' => __('6', 'feed-them-gallery'),
+                                                    'label' => __('6', 'feed-them-social'),
                                                     'value' => '6',
                                                 ),
                                                 array(
-                                                    'label' => __('7', 'feed-them-gallery'),
+                                                    'label' => __('7', 'feed-them-social'),
                                                     'value' => '7',
                                                 ),
                                                 array(
-                                                    'label' => __('8', 'feed-them-gallery'),
+                                                    'label' => __('8', 'feed-them-social'),
                                                     'value' => '8',
                                                 )
                                             ),
@@ -3815,7 +4532,7 @@ class FTS_settings_page
                                         array(
                                             'input_wrap_class' => 'fb-page-columns-option-hide',
                                             'option_type' => 'select',
-                                            'label' => __('Force Columns', 'feed-them-gallery') . '<br/><small>' . __('No, will allow the images to be resposive for smaller devices. Yes, will force columns.', 'feed-them-gallery') . '</small>',
+                                            'label' => __('Force Columns', 'feed-them-gallery') . '<br/><small>' . __('No, will allow the images to be responsive for smaller devices. Yes, will force columns.', 'feed-them-social') . '</small>',
                                             'type' => 'text',
                                             'id' => 'fts_instagram_force_columns',
                                             'name' => 'fts_instagram_force_columns',
@@ -3954,7 +4671,31 @@ class FTS_settings_page
                                                 'sub_options_wrap_class' => 'fts-instagram-load-more-options-wrap',
                                             ),
                                         ),
-                                        //Facebook Page Load more Button Width
+                                        //Instagram Page Load more Amount
+                                        array(
+                                            'option_type' => 'input',
+                                            'label' => __('Load more Amount', 'feed-them-social') . '<br/><small>' . __('How many more posts will load at a time.', 'feed-them-social') . '</small>',
+                                            'type' => 'text',
+                                            'id' => 'instagram_loadmore_count',
+                                            'name' => 'instagram_loadmore_count',
+                                            'placeholder' => __('5 is the default number', 'feed-them-social'),
+                                            'value' => '',
+                                            'req_plugin' => 'fts_premium',
+                                            //Relative to JS.
+                                            'short_attr' => array(
+                                                'attr_name' => 'loadmore_count',
+                                                'empty_error' => 'set',
+                                                'empty_error_value' => 'loadmore_count=5',
+                                                'ifs' => 'load_more',
+                                            ),
+                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
+                                            'sub_options' => array(
+                                                'sub_options_wrap_class' => 'fts-instagram-load-more-options2-wrap',
+                                                //'sub_options_instructional_txt' => '<a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a> ' . __('of the Super Instagram gallery.', 'feed-them-social'),
+                                            ),
+                                        ),
+
+                                        //Instagram Page Load more Button Width
                                         array(
                                             'option_type' => 'input',
                                             'label' => __('Load more Button Width', 'feed-them-social') . '<br/><small>' . __('Leave blank for auto width', 'feed-them-social') . '</small>',
@@ -3970,11 +4711,6 @@ class FTS_settings_page
                                                 'empty_error' => 'set',
                                                 'empty_error_value' => 'loadmore_btn_maxwidth=300px',
                                                 'ifs' => 'load_more',
-                                            ),
-                                            //This should be placed in the STARTING field of sub options that way wrap and instruction text is above this div (end will be in final options for div output)
-                                            'sub_options' => array(
-                                                'sub_options_wrap_class' => 'fts-instagram-load-more-options2-wrap',
-                                                //'sub_options_instructional_txt' => '<a href="http://feedthemsocial.com/instagram-feed-demo/" target="_blank">' . __('View demo', 'feed-them-social') . '</a> ' . __('of the Super Instagram gallery.', 'feed-them-social'),
                                             ),
                                         ),
                                         //Facebook Page Load more Button Margin
@@ -4054,10 +4790,10 @@ class FTS_settings_page
                             ?>
 
                         </section>
-                    </div> <!-- #tab-content1 -->
+                    </div> <!-- #fts-tab-content1 -->
 
-                    <div id="tab-content2"
-                         class="tab-content fts-hide-me <?php if (isset($_GET['tab']) && $_GET['tab'] == 'global_options') {
+                    <div id="fts-tab-content2"
+                         class="fts-tab-content fts-hide-me <?php if (isset($_GET['tab']) && $_GET['tab'] == 'global_options') {
                              echo ' pane-active';
                          } ?>">
                         <section>
@@ -4477,26 +5213,19 @@ class FTS_settings_page
                                     <!--/fts-facebook-feed-styles-input-wrap-->
 
                                     <br/>
-
+                                    <?php if (is_plugin_active('feed-them-premium/feed-them-premium.php')) { ?>
                                     <h2><?php _e('Disable Magnific Popup CSS', 'feed-them-social'); ?></h2>
                                     <p>
                                         <input name="fts_fix_magnific" class="fts-powered-by-settings-admin-input" type="checkbox" id="fts_fix_magnific" value="1" <?php echo checked('1', get_option('fts_fix_magnific')); ?>/> <?php _e('Check this if you are experiencing problems with your theme(s) or other plugin(s) popups.', 'feed-them-social'); ?>
                                     </p>
                                     <br/>
+                                    <?php } ?>
 
                                     <h2><?php _e('Fix Twitter Time', 'feed-them-social'); ?></h2>
                                     <p>
                                         <input name="fts_twitter_time_offset" class="fts-powered-by-settings-admin-input" type="checkbox" id="fts_twitter_time_offset" value="1" <?php echo checked('1', get_option('fts_twitter_time_offset')); ?>/> <?php _e('Check this if the Twitter time is still off by 3 hours after setting the TimeZone above.', 'feed-them-social'); ?>
                                     </p>
                                     <br/>
-
-                                    <?php if (is_plugin_active('feed-them-premium/feed-them-premium.php') || is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php')) { ?>
-                                        <h2><?php _e('Fix Load More Error', 'feed-them-social'); ?></h2>
-                                        <p>
-                                            <input name="fts_fix_loadmore" class="fts-powered-by-settings-admin-input" type="checkbox" id="fts_fix_loadmore" value="1" <?php echo checked('1', get_option('fts_fix_loadmore')); ?>/> <?php _e('Check this if you are using the loadmore button for Facebook or Instagram and are seeing a bunch of code under it.', 'feed-them-social'); ?>
-                                        </p>
-                                        <br/>
-                                    <?php } ?>
 
                                     <h2><?php _e('Fix Internal Server Error', 'feed-them-social'); ?></h2>
                                     <p>
@@ -4531,8 +5260,8 @@ class FTS_settings_page
         <script>
             jQuery(document).ready(function ($) {
 
-                //create hash tag in url for tabs
-                jQuery('.feed-them-social-admin-wrap #tabs').on('click', "label.tabbed", function () {
+                //create hash tag in url for fts-tabs
+                jQuery('.feed-them-social-admin-wrap #fts-tabs').on('click', "label.fts-tabbed", function () {
                     var myURL = document.location;
                     document.location = myURL + "&tab=" + jQuery(this).attr('id');
 
@@ -4565,8 +5294,14 @@ class FTS_settings_page
                     jQuery('.shortcode-generator-form').hide();
                     jQuery('.' + jQuery(this).val()).fadeIn('fast');
 
-                    if (jQuery('select#shortcode-form-selector').val() == 'fb-page-shortcode-form') {
+                    <?php if (get_option('youtube_custom_access_token') && get_option('youtube_custom_access_token') !== '' && get_option('youtube_custom_access_token') !== '') { ?>
+                    if (jQuery('select#shortcode-form-selector').val() == 'youtube-shortcode-form') {
+                        jQuery(".shortcode-generator-form.youtube-shortcode-form .fts-required-token-message").hide();
+                    }<?php } ?>
+
+                    if (jQuery('select#shortcode-form-selector').val() == 'fts-fb-page-shortcode-form') {
                         jQuery("#facebook-messages-selector").change();
+                        jQuery("html, .facebook_hide_thumbnail, .facebook_hide_date, .facebook_hide_name, .facebook_show_media").show();
                     }
 
                     if (jQuery("select#shortcode-form-selector").val() == "vine-shortcode-form") {
@@ -4614,7 +5349,7 @@ class FTS_settings_page
                 //Combine Feed Type Selector
                 jQuery('select#combine-steams-selector').bind('change', function (e) {
                     if (jQuery('select#combine-steams-selector').val() == 'multiple_facebook') {
-                        jQuery('.facebook_options_wrap,#fts-fb-page-form').show();
+                        jQuery('.facebook_options_wrap,#fts-fb-page-form, .facebook_hide_thumbnail, .facebook_hide_date, .facebook_hide_name, .facebook_show_media ').show();
                         jQuery('.combine_streams_options_wrap, .fts-required-more-posts').hide();
                         jQuery('.fts-facebook_page-shortcode-form').addClass('multiple_facebook');
 
@@ -4622,7 +5357,7 @@ class FTS_settings_page
                     }
                     else {
 
-                        jQuery('.facebook_options_wrap,#fts-fb-page-form').hide();
+                        jQuery('.facebook_options_wrap,#fts-fb-page-form, .facebook_hide_thumbnail, .facebook_hide_date, .facebook_hide_name, .facebook_show_media ').hide();
                         jQuery('.combine_streams_options_wrap, .fts-required-more-posts').show();
 
                         //Remove Controller Class so everything reappears for Facebook Feed
@@ -4651,6 +5386,13 @@ class FTS_settings_page
                         jQuery('.fts-super-facebook-options-wrap,.align-images-wrap ').hide();
                         jQuery('.fixed_height_option,.main-grid-options-wrap').show();
                         jQuery(".feed-them-social-admin-input-label:contains('<?php _e('Display Posts in Grid', 'feed-them-social'); ?>')").parent('div').show();
+                    }
+
+                    if (facebooktype == 'page' || facebooktype == 'event' || facebooktype == 'group') {
+                        jQuery(".facebook_hide_thumbnail, .facebook_hide_date, .facebook_hide_name, .facebook_show_media ").show();
+                    }
+                    else {
+                        jQuery(".facebook_hide_thumbnail, .facebook_hide_date, .facebook_hide_name, .facebook_show_media ").hide();
                     }
 
                     <?php if (is_plugin_active('feed-them-premium/feed-them-premium.php')) { ?>
@@ -4825,6 +5567,18 @@ class FTS_settings_page
 
                     else {
                         jQuery('.fts-twitter-load-more-options-wrap, .fts-twitter-load-more-options2-wrap').hide();
+                    }
+                });
+
+                //youtube show load more options
+                jQuery('#youtube_load_more_option').bind('change', function (e) {
+                    if (jQuery('#youtube_load_more_option').val() == 'yes') {
+                        jQuery('.fts-youtube-load-more-options-wrap').show();
+                        jQuery('.fts-youtube-load-more-options2-wrap').show();
+                    }
+
+                    else {
+                        jQuery('.fts-youtube-load-more-options-wrap, .fts-youtube-load-more-options2-wrap').hide();
                     }
                 });
 
@@ -5164,6 +5918,12 @@ class FTS_settings_page
             if (jQuery('#instagram_page_height').val().indexOf('px') <= 0 && isPXpresent11 !== "") {
                 jQuery('#instagram_page_height').val(jQuery('#instagram_page_height').val() + 'px');
             }
+            // Instagram
+            var isPXpresent13 = jQuery('#fts-slicker-youtube-container-margin').val();
+            if (jQuery('#fts-slicker-youtube-container-margin').val().indexOf('px') <= 0 && isPXpresent13 !== "") {
+                jQuery('#fts-slicker-youtube-container-margin').val(jQuery('#fts-slicker-youtube-container-margin').val() + 'px');
+            }
+
             <?php if (is_plugin_active('feed-them-social-combined-streams/feed-them-social-combined-streams.php')) { ?>
             var isPXpresent = jQuery('#combine_grid_column_width').val();
             // This is in place to auto add the px if a specific input is missing it.
@@ -5444,26 +6204,34 @@ class FTS_settings_page
 
                 <?php
                 //show the js for the discount option under social icons on the settings page
-                // also show the youtube feed on change events
-                if(is_plugin_active('feed-them-premium/feed-them-premium.php')) { ?>
+                if(!is_plugin_active('feed-them-premium/feed-them-premium.php')) { ?>
+                jQuery("#discount-for-review").click(function () {
+                    jQuery('.discount-review-text').slideToggle();
+                });
+                <?php } ?>
+
                 //START youtube//
                 //Youtube Options
                 jQuery('select#youtube-messages-selector').bind('change', function (e) {
                     if (jQuery('#youtube-messages-selector').val() == 'channelID') {
-                        jQuery('.youtube_name, .youtube_playlistID, .youtube_channelID2, .youtube_playlistID2, .youtube_name2').hide();
-                        jQuery('.youtube_channelID').show();
+                        jQuery('.youtube_name, .youtube_playlistID, .youtube_channelID2, .youtube_playlistID2, .youtube_name2, .youtube_align_comments_wrap, .youtube_singleVideoID, .youtube_video_single_info_display').hide();
+                        jQuery('.youtube_channelID, .youtube_hide_option, .youtube_video_thumbs_display, .youtube_vid_count').show();
                     }
                     else if (jQuery('#youtube-messages-selector').val() == 'userPlaylist') {
-                        jQuery('.youtube_name, .youtube_channelID, .youtube_playlistID, .youtube_channelID, .youtube_channelID2').hide();
-                        jQuery('.youtube_playlistID2, .youtube_name2').show();
+                        jQuery('.youtube_name, .youtube_channelID, .youtube_playlistID, .youtube_channelID, .youtube_channelID2, .youtube_align_comments_wrap, .youtube_singleVideoID, .youtube_video_single_info_display').hide();
+                        jQuery('.youtube_playlistID2, .youtube_name2, .youtube_hide_option, .youtube_video_thumbs_display, .youtube_vid_count').show();
                     }
                     else if (jQuery('#youtube-messages-selector').val() == 'playlistID') {
-                        jQuery('.youtube_name, .youtube_channelID, .youtube_playlistID2, .youtube_name2').hide();
-                        jQuery('.youtube_playlistID, .youtube_channelID2').show();
+                        jQuery('.youtube_name, .youtube_channelID, .youtube_playlistID2, .youtube_name2, .youtube_align_comments_wrap, .youtube_singleVideoID, .youtube_video_single_info_display').hide();
+                        jQuery('.youtube_playlistID, .youtube_channelID2, .youtube_hide_option, .youtube_video_thumbs_display, .youtube_vid_count').show();
                     }
-                    else {
-                        jQuery('.youtube_name').show();
-                        jQuery('.youtube_playlistID, .youtube_channelID, .youtube_channelID2, .youtube_playlistID2, .youtube_name2').hide();
+                    else if (jQuery('#youtube-messages-selector').val() == 'singleID') {
+                        jQuery('.youtube_name,.youtube_playlistID, .youtube_channelID, .youtube_channelID2, .youtube_playlistID2, .youtube_name2, .youtube_vid_count, .youtube_hide_option, .youtube_video_thumbs_display').hide();
+                        jQuery('.youtube_singleVideoID, .youtube_align_comments_wrap, .youtube_video_single_info_display').show();
+                    }
+                    else if (jQuery('#youtube-messages-selector').val() == 'username') {
+                        jQuery('.youtube_playlistID, .youtube_channelID, .youtube_channelID2, .youtube_playlistID2, .youtube_name2, .youtube_align_comments_wrap, .youtube_singleVideoID, .youtube_video_single_info_display').hide();
+                        jQuery('.youtube_name, .youtube_hide_option, .youtube_video_thumbs_display, .youtube_vid_count').show();
                     }
                 });
 
@@ -5528,7 +6296,7 @@ class FTS_settings_page
 
                 jQuery("#youtube_playlistID").change(function () {
                     var feedID = jQuery("input#youtube_playlistID").val();
-                    if (feedID.indexOf('youtube.com/playlist?list=') != -1) {
+                    if (feedID.indexOf('&list=') != -1) {
                         feedID = feedID.replace(/\/$/, '');
                         feedID = feedID.substr(feedID.lastIndexOf('=') + 1);
                         var newfeedID = feedID;
@@ -5539,7 +6307,7 @@ class FTS_settings_page
 
                 jQuery("#youtube_playlistID2").change(function () {
                     var feedID = jQuery("input#youtube_playlistID2").val();
-                    if (feedID.indexOf('youtube.com/playlist?list=') != -1) {
+                    if (feedID.indexOf('&list=') != -1) {
                         feedID = feedID.replace(/\/$/, '');
                         feedID = feedID.substr(feedID.lastIndexOf('=') + 1);
                         var newfeedID = feedID;
@@ -5547,13 +6315,21 @@ class FTS_settings_page
                         return;
                     }
                 });
-                // END: Fix issues when people enter the full url instead of just the ID or Name. We'll truncate this at a later date.
-                <?php    }
-                else { ?>
-                jQuery("#discount-for-review").click(function () {
-                    jQuery('.discount-review-text').slideToggle();
+
+                jQuery("#youtube_singleVideoID").change(function () {
+                    var feedID = jQuery("input#youtube_singleVideoID").val();
+                    if (feedID.indexOf('watch?v=') != -1) {
+                        feedID = feedID.replace(/\/$/, '');
+                        feedID = feedID.substr(feedID.lastIndexOf('=') + 1);
+                        var newfeedID = feedID;
+                        jQuery('#youtube_singleVideoID').val(newfeedID);
+                        return;
+                    }
                 });
-                <?php } ?>
+
+
+                // END: Fix issues when people enter the full url instead of just the ID or Name. We'll truncate this at a later date.
+
 
 
                 jQuery(".copyme").focus(function () {

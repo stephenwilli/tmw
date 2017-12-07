@@ -123,7 +123,7 @@ class FTS_facebook_options_page
                                 if (!empty($fb_id) && !empty($fb_name) && !empty($test_app_token_id)) {
                                     echo '<img border="0" height="50" width="50" class="fts-fb-page-thumb" src="https://graph.facebook.com/' . $fb_id . '/picture"/><h3>' . $fb_name . '</h3>';
                                 }
-                                echo __('Your Access Token is now working!', 'feed-them-social') . '</div>';
+                                echo __('Your Access Token is now working! Generate your shortcode on the <a href="admin.php?page=feed-them-settings-page">settings page</a>.', 'feed-them-social') . '</div>';
 
                             }
                             if (isset($test_app_token_response->data->error->message) && !empty($test_app_token_id) || isset($test_app_token_response->error->message) && !empty($test_app_token_id) && $test_app_token_response->error->message !== "(#100) You must provide an app access token or a user access token that is an owner or developer of the app") {
@@ -140,7 +140,7 @@ class FTS_facebook_options_page
                             }
 
                         } else {
-                            echo '<div class="fts-successful-api-token default-token">' . __('You are using our Default APP Token for testing purposes.', 'feed-them-social') . '</div>';
+                            echo '<div class="fts-successful-api-token default-token">' . __('You are using our Default APP Token for testing purposes. Generate your shortcode on the <a href="admin.php?page=feed-them-settings-page">settings page</a> to test your feed, but remember to add your own tokens after testing as the default token will not always work.', 'feed-them-social') . '</div>';
                         }
                         ?>
                         <div class="clear"></div>
@@ -195,7 +195,7 @@ class FTS_facebook_options_page
                                 if (!empty($fb_id_biz) && !empty($fb_name_biz) && !empty($test_app_token_id_biz)) {
                                     echo '<img border="0" height="50" width="50" class="fts-fb-page-thumb" src="https://graph.facebook.com/' . $fb_id_biz . '/picture"/><h3>' . $fb_name_biz . '</h3>';
                                 }
-                                echo __('Your Page Reviews Access Token is now working!', 'feed-them-social') . '</div>';
+                                echo __('Your Page Reviews Access Token is now working! Generate your shortcode on the <a href="admin.php?page=feed-them-settings-page">settings page</a>.', 'feed-them-social') . '</div>';
 
                             }
 
@@ -286,7 +286,7 @@ class FTS_facebook_options_page
                     </div>
                     <!--/fts-facebook-feed-styles-input-wrap-->
 
-                    <div class="fts-title-description-settings-page">
+                    <div class="fts-title-description-settings-page" id="overall-rating-options">
                         <h3>
                             <?php _e('Reviews: Overall Rating Style Options', 'feed-them-social'); ?>
                         </h3>
@@ -665,6 +665,17 @@ class FTS_facebook_options_page
                     <div class="clear"></div>
                 </div>
                 <!--/fts-facebook-feed-styles-input-wrap-->
+
+                    <?php if (is_plugin_active('feed-them-premium/feed-them-premium.php') || is_plugin_active('feed-them-social-combined-streams/feed-them-social-combined-streams.php')) { ?>
+                            <div class="feed-them-social-admin-input-wrap">
+                                <div class="feed-them-social-admin-input-label fts-fb-post-background-color-label">
+                                    <?php _e('Post Background Color<br/><small>Only works with show_media=top</small>', 'feed-them-social'); ?>
+                                </div>
+                                <input type="text" name="fb_post_background_color" class="feed-them-social-admin-input fb-post-background-color-input color {hash:true,caps:false,required:false,adjust:false,pickerFaceColor:'#eee',pickerFace:3,pickerBorder:0,pickerInsetColor:'white'}" id="fb-feed-background-color-input" placeholder="#ddd" value="<?php echo get_option('fb_post_background_color'); ?>"/>
+                                <div class="clear"></div>
+                            </div>
+                            <!--/fts-facebook-feed-styles-input-wrap-->
+                    <?php } ?>
 
                 <div class="feed-them-social-admin-input-wrap">
                     <div class="feed-them-social-admin-input-label fts-fb-feed-background-color-label">

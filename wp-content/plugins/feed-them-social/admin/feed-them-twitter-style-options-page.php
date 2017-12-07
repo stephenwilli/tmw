@@ -37,7 +37,7 @@ class FTS_twitter_options_page
             </div>
             <!-- custom option for padding -->
             <form method="post" class="fts-twitter-feed-options-form" action="options.php">
-                <br/>
+
                 <?php // get our registered settings from the fts functions
                 settings_fields('fts-twitter-feed-style-options');
 
@@ -49,9 +49,181 @@ class FTS_twitter_options_page
                 $twitter_show_follow_btn_where = get_option('twitter_show_follow_btn_where');
                 $fts_twitter_hide_images_in_posts = get_option('fts_twitter_hide_images_in_posts');
 
+
+
+                $fts_twitter_custom_consumer_key = get_option('fts_twitter_custom_consumer_key');
+                $fts_twitter_custom_consumer_secret = get_option('fts_twitter_custom_consumer_secret');
+
+                $test_fts_twitter_custom_consumer_key = '35mom6axGlf60ppHJYz1dsShc';
+                $test_fts_twitter_custom_consumer_secret = '7c2TJvUT7lS2EkCULpK6RGHrgXN1BA4oUi396pQEdRj3OEq5QQ';
+
+                $fts_twitter_custom_consumer_key = isset($fts_twitter_custom_consumer_key) && $fts_twitter_custom_consumer_key !== '' ? $fts_twitter_custom_consumer_key : $test_fts_twitter_custom_consumer_key;
+                $fts_twitter_custom_consumer_secret =  isset($fts_twitter_custom_consumer_secret) && $fts_twitter_custom_consumer_secret !== '' ? $fts_twitter_custom_consumer_secret : $test_fts_twitter_custom_consumer_secret;
+
+                $fts_twitter_custom_access_token = get_option('fts_twitter_custom_access_token');
+                $fts_twitter_custom_access_token_secret = get_option('fts_twitter_custom_access_token_secret');
+
+                if (isset($_GET['page']) && $_GET['page'] == 'fts-twitter-feed-styles-submenu-page') {
+
+                include(WP_CONTENT_DIR . '/plugins/feed-them-social/feeds/twitter/twitteroauth/twitteroauth.php');
+
+                $test_connection = new TwitterOAuthFTS(
+                //Consumer Key
+                $fts_twitter_custom_consumer_key,
+                //Consumer Secret
+                $fts_twitter_custom_consumer_secret,
+                //Access Token
+                $fts_twitter_custom_access_token,
+                //Access Token Secret
+                $fts_twitter_custom_access_token_secret
+                );
+
+                    $fetchedTweets = $test_connection->get(
+                        'statuses/user_timeline',
+                        array(
+                            'screen_name' => 'twitter',
+                            'count' => '1',
+                        )
+                    );
+
+                // TESTING AREA
+                //    $fetchedTweets = $test_connection->get(
+                //        'statuses/user_timeline',
+                //        array(
+                //            'tweet_mode' => 'extended',
+                //            'screen_name' => 'slickremix',
+                //            'count' => '1',
+                //        )
+                //    );
+
+                //    echo '<pre>';
+                        //    print_r($fetchedTweets);
+                        //    echo '</pre>';
+                // END TESTING
+                }
                 ?>
+                <div class="feed-them-social-admin-input-wrap" style="padding-top: 0px">
+                    <div class="fts-title-description-settings-page">
+                        <h3>
+                            <?php _e('Twitter API Token', 'feed-them-social'); ?>
+                        </h3>
+                        <p><?php _e('This is required to make the feed work. Simply click the button below and it will connect to your Twitter account to get an access token and access token secret, and it will return it in the input below. Then just click the save button and you will now be able to generate your Twitter feed.', 'feed-them-social'); ?>
+                        </p>
+                        <p>
+                            <a href="https://www.slickremix.com/get-twitter-token/?redirect_url=<?php echo admin_url('admin.php?page=fts-twitter-feed-styles-submenu-page');?>" class="fts-twitter-get-access-token">Log in and get my Access Tokens</a>
+
+                        </p>
+
+                    </div>
+
+
+                    <a href="http://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/" target="_blank" class="fts-admin-button-no-work">Button not working?</a>
+                </div>
+
+
+
+
+                <div class="fts-clear"></div>
                 <div class="feed-them-social-admin-input-wrap">
-                    <div class="fts-title-description-settings-page" style="border:none; padding-top:0px">
+                    <?php $extra_keys = get_option('fts_twitter_custom_consumer_key') == '' && get_option('fts_twitter_custom_consumer_secret') == '' ? 'style="display:none"' : ''; ?>
+
+                    <div class="fts-twitter-add-all-keys-click-option"><label for="fts-custom-tokens-twitter"><input type="checkbox" id="fts-custom-tokens-twitter" name="fts_twitter_custom_tokens" value="1" <?php echo checked('1', $extra_keys == ''); ?>> Add your own tokens?</label></div>
+
+                    <div class="twitter-extra-keys" <?php echo $extra_keys ?> >
+                        <div class="twitter-extra-keys-text"><?php _e('Learn how to manualy create the Consumer Key/Secret and the Access Token/Secret', 'feed-them-social'); ?> <a href="http://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/" target="_blank" ><?php _e('here', 'feed-them-social'); ?></a>.</div>
+                        <div class="feed-them-social-admin-input-wrap">
+                            <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
+                                <?php _e('Consumer Key (API Key)', 'feed-them-social'); ?>
+                            </div>
+                            <input type="text" name="fts_twitter_custom_consumer_key" class="feed-them-social-admin-input" id="fts_twitter_custom_consumer_key" value="<?php echo get_option('fts_twitter_custom_consumer_key'); ?>"/>
+                            <div class="fts-clear"></div>
+                        </div>
+                        <div class="feed-them-social-admin-input-wrap">
+                            <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
+                                <?php _e('Consumer Secret (API Secret)', 'feed-them-social'); ?>
+                            </div>
+                            <input type="text" name="fts_twitter_custom_consumer_secret" class="feed-them-social-admin-input" id="fts_twitter_custom_consumer_secret" value="<?php echo get_option('fts_twitter_custom_consumer_secret'); ?>"/>
+                            <div class="fts-clear"></div>
+                        </div>
+                    </div>
+
+                    <script>
+                        jQuery(document).ready(function ($) {
+
+                            jQuery('#fts-custom-tokens-twitter').click(function(){
+                                jQuery(".twitter-extra-keys").toggle();
+                            });
+
+                            <?php
+
+                            $oath_token = isset($_GET['oauth_token']) ? $_GET['oauth_token'] : 'notset';
+                            $oauth_token_secret = isset($_GET['oauth_token_secret']) ? $_GET['oauth_token_secret'] : 'notset';
+                            if($oath_token !== 'notset' && $oauth_token_secret !== 'notset'){
+                                ?>
+                                $('#fts_twitter_custom_access_token').val('');
+                                $('#fts_twitter_custom_access_token_secret').val('');
+                                $('#fts_twitter_custom_access_token').val($('#fts_twitter_custom_access_token').val() + '<?php echo $oath_token ?>');
+                                $('#fts_twitter_custom_access_token_secret').val($('#fts_twitter_custom_access_token_secret').val() + '<?php echo $oauth_token_secret ?>');
+                            <?php } ?>
+
+                        });
+                    </script>
+                    <div class="feed-them-social-admin-input-wrap">
+                        <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
+                            <?php _e('Access Token', 'feed-them-social'); ?>
+                        </div>
+                        <input type="text" name="fts_twitter_custom_access_token" class="feed-them-social-admin-input" id="fts_twitter_custom_access_token" value="<?php echo get_option('fts_twitter_custom_access_token'); ?>"/>
+                        <div class="fts-clear"></div>
+                    </div>
+
+                    <div class="feed-them-social-admin-input-wrap">
+                        <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
+                            <?php _e('Access Token Secret', 'feed-them-social'); ?>
+                        </div>
+                        <input type="text" name="fts_twitter_custom_access_token_secret" class="feed-them-social-admin-input" id="fts_twitter_custom_access_token_secret" value="<?php echo get_option('fts_twitter_custom_access_token_secret'); ?>"/>
+                        <div class="fts-clear"></div>
+                    </div>
+
+
+                    <div class="feed-them-social-admin-input-wrap"> <?php
+                        // && !empty($test_fts_twitter_custom_access_token) && !empty($test_fts_twitter_custom_access_token_secret)
+                        if (!empty($fts_twitter_custom_access_token_secret) && !empty($fts_twitter_custom_access_token_secret)) {
+                            if ($test_connection->http_code != 200 || isset($fetchedTweets->errors)) {
+                                echo '<div class="fts-failed-api-token">' . __('Oh No something\'s wrong.', 'feed-them-social') . '';
+                                foreach ($fetchedTweets->errors as $error) {
+                                    echo ' <strong>' . $error->message . '. </strong> ' . __('You may have entered in the Access information incorrectly please re-enter and try again.', 'feed-them-social') . '';
+                                }
+                                echo '</div>';
+                            } else {
+                                echo '<div class="fts-successful-api-token">' . __('Your access token is working! Generate your shortcode on the <a href="admin.php?page=feed-them-settings-page">settings page</a>.', 'feed-them-social') . '</div>';
+                            }
+                        } else {
+                            echo '<div class="fts-successful-api-token">' . __('You are using our Default Access tokens for testing purposes. Generate your shortcode on the <a href="admin.php?page=feed-them-settings-page">settings page</a> to test your feed, but remember to add your own tokens after testing as the default tokens will not always work.', 'feed-them-social') . '</div>';
+                        }
+
+
+                        ?>
+                    </div>
+
+                    <div class="fts-clear"></div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="feed-them-social-admin-input-wrap">
+                    <div class="fts-title-description-settings-page" >
                         <h3>
                             <?php _e('Follow Button Options', 'feed-them-social'); ?>
                         </h3>
@@ -370,99 +542,17 @@ class FTS_twitter_options_page
                         </div>
                         <!--/fts-twitter-feed-styles-input-wrap-->
 
-                        <?php }
-
-                        $test_fts_twitter_custom_consumer_key = get_option('fts_twitter_custom_consumer_key');
-                        $test_fts_twitter_custom_consumer_secret = get_option('fts_twitter_custom_consumer_secret');
-                        $test_fts_twitter_custom_access_token = get_option('fts_twitter_custom_access_token');
-                        $test_fts_twitter_custom_access_token_secret = get_option('fts_twitter_custom_access_token_secret');
-
-                        if (isset($_GET['page']) && $_GET['page'] == 'fts-twitter-feed-styles-submenu-page') {
-
-                            include(WP_CONTENT_DIR . '/plugins/feed-them-social/feeds/twitter/twitteroauth/twitteroauth.php');
-
-                            $test_connection = new TwitterOAuthFTS(
-                            //Consumer Key
-                                $test_fts_twitter_custom_consumer_key,
-                                //Consumer Secret
-                                $test_fts_twitter_custom_consumer_secret,
-                                //Access Token
-                                $test_fts_twitter_custom_access_token,
-                                //Access Token Secret
-                                $test_fts_twitter_custom_access_token_secret
-                            );
-
-                            $fetchedTweets = $test_connection->get(
-                                'statuses/user_timeline',
-                                array(
-                                    'screen_name' => 'twitter',
-                                    'count' => '1',
-                                )
-                            );
-                        }
-                        ?>
-                        <div class="feed-them-social-admin-input-wrap">
-                            <div class="fts-title-description-settings-page">
-                                <h3>
-                                    <?php _e('Twitter API Token', 'feed-them-social'); ?>
-                                </h3>
-                                <?php _e('If you keep seeing the message \'sorry twitter is down and will be right back\', it may be a good idea to add your own tokens below. See how to <a href="http://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/" target="_blank">get API Keys and Tokens for Twitter</a>. Leave the fields below empty to use our Default API access tokens. If you do add your own tokens, after Saving all Changes make sure and <a href="admin.php?page=feed-them-settings-page&cache=clearcache">click here to delete cache</a>.', 'feed-them-social'); ?>
-                            </div>
-                        </div>
-                        <div class="twitter-api-wrap">
-                            <div class="feed-them-social-admin-input-wrap">
-                                <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
-                                    <?php _e('Consumer Key (API Key)', 'feed-them-social'); ?>
-                                </div>
-                                <input type="text" name="fts_twitter_custom_consumer_key" class="feed-them-social-admin-input" id="fts_twitter_custom_api_token" value="<?php echo get_option('fts_twitter_custom_consumer_key'); ?>"/>
-                                <div class="fts-clear"></div>
-                            </div>
-                            <div class="feed-them-social-admin-input-wrap">
-                                <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
-                                    <?php _e('Consumer Secret (API Secret)', 'feed-them-social'); ?>
-                                </div>
-                                <input type="text" name="fts_twitter_custom_consumer_secret" class="feed-them-social-admin-input" id="fts_twitter_custom_api_token" value="<?php echo get_option('fts_twitter_custom_consumer_secret'); ?>"/>
-                                <div class="fts-clear"></div>
-                            </div>
-                            <div class="feed-them-social-admin-input-wrap">
-                                <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
-                                    <?php _e('Access Token', 'feed-them-social'); ?>
-                                </div>
-                                <input type="text" name="fts_twitter_custom_access_token" class="feed-them-social-admin-input" id="fts_twitter_custom_api_token" value="<?php echo get_option('fts_twitter_custom_access_token'); ?>"/>
-                                <div class="fts-clear"></div>
-                            </div>
-                            <div class="feed-them-social-admin-input-wrap">
-                                <div class="feed-them-social-admin-input-label fts-twitter-border-bottom-color-label">
-                                    <?php _e('Access Token Secret', 'feed-them-social'); ?>
-                                </div>
-                                <input type="text" name="fts_twitter_custom_access_token_secret" class="feed-them-social-admin-input" id="fts_twitter_custom_api_token" value="<?php echo get_option('fts_twitter_custom_access_token_secret'); ?>"/>
-                                <div class="fts-clear"></div>
-                            </div>
-                        </div>
-                        <!--twitter-api-wrap-->
-                        <div class="feed-them-social-admin-input-wrap">
-                            <?php if (!empty($test_fts_twitter_custom_consumer_key) && !empty($test_fts_twitter_custom_consumer_secret) && !empty($test_fts_twitter_custom_access_token) && !empty($test_fts_twitter_custom_access_token_secret)) {
-                                if ($test_connection->http_code != 200 || isset($fetchedTweets->errors)) {
-                                    echo '<div class="fts-failed-api-token">' . __('Oh No something\'s wrong.', 'feed-them-social') . '';
-                                    foreach ($fetchedTweets->errors as $error) {
-                                        echo ' <strong>' . $error->message . '. </strong> ' . __('You may have entered in the Access information incorrectly please re-enter and try again.', 'feed-them-social') . '';
-                                    }
-                                    echo '</div>';
-                                } else {
-                                    echo '<div class="fts-successful-api-token">' . __('Your access token is working!', 'feed-them-social') . '</div>';
-                                }
-                            } else {
-                                echo '<div class="fts-successful-api-token">' . __('You are using our Default Access info.', 'feed-them-social') . '</div>';
-                            }
+                        <?php } ?>
 
 
-                            ?>
-                            <div class="fts-clear"></div>
+
                             <input type="submit" class="feed-them-social-admin-submit-btn" value="<?php _e('Save All Changes') ?>"/>
-                        </div>
-            </form>
-            <a class="feed-them-social-admin-slick-logo" href="http://www.slickremix.com" target="_blank"></a></div>
-        <!--/feed-them-social-admin-wrap-->
 
+            </form>
+            <a class="feed-them-social-admin-slick-logo" href="http://www.slickremix.com" target="_blank"></a>
+            <div class="fts-clear"></div>
+        </div>
+        <!--/feed-them-social-admin-wrap-->
+        <div class="clear"></div>
     <?php }
 }//END Class

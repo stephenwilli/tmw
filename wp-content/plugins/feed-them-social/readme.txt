@@ -1,9 +1,9 @@
 === Feed Them Social - Facebook, Instagram, Twitter, Vine, Pinterest, etc ===
-Contributors: slickremix, damon7620
-Tags: Facebook, Instagram, Twitter, Feed
+Contributors: slickremix
+Tags: Facebook, Instagram, Twitter, YouTube, Feed
 Requires at least: 3.6.0
-Tested up to: 4.8.2
-Stable tag: 2.3.1
+Tested up to: 4.9.1
+Stable tag: 2.3.4
 License: GPLv2 or later
 
 Custom feeds for Facebook Pages, Groups, Events, Album Photos, Videos & Covers, Instagram, Twitter, Vine, Pinterest & YouTube on pages, posts or widgets.
@@ -46,9 +46,10 @@ Create Social Feeds of any or all your celebrities, family, friends, yourself, o
  * [Pinterest Boards Demo](http://feedthemsocial.com/pinterest/)
  * [Pinterest Pins from a single Board](http://feedthemsocial.com/pinterest-pins-from-a-single-board/)
  * [Pinterest Latest Pins from a User](http://feedthemsocial.com/instagram-feed-demo/)
+ * [YouTube Feed Demo](http://feedthemsocial.com/youtube-feed-demo/)
 
 = PREMIUM Demos =
- * [YouTube Feed Demo](http://feedthemsocial.com/youtube-demo-1-large-with-4-video-per-row/)
+ * [Facebook Page Feed Demo](http://feedthemsocial.com/)
  * [Facebook Video Feed Demo](http://feedthemsocial.com/facebook-videos-demo/)
  * [Facebook Photo and Video Carousels Demo](http://feedthemsocial.com/facebook-videos-demo/)
 
@@ -75,6 +76,44 @@ Feed Them Social was Developed By SlickRemix --> [https://www.slickremix.com/](h
   * Log into WordPress dashboard then click **Plugins** > **Add new** > Then under the title "Install Plugins" click **Upload** > **choose the zip** > **Activate the plugin!**
 
 == Changelog ==
+= Version 2.3.4 Tuesday, December 1st, 2017 =
+   * NEW: Twitter Feed: Add title and aria-label to icon a tags to meet WCAG accessibility requirements.
+   * FIX: Error on YouTube Options page.
+   * FIX: YouTube Feed: Date formats besides the 1 day ago not working properly. This also fixes a non numeric warning that was coming up on the page too if you did not have the 1 day ago date option set. If debug mode was set to false in your wp-config you would not have seen the warning on the page.
+
+= Version 2.3.2 - 2.3.3 Thursday, November 28th, 2017 =
+   * NEW: YouTube Feed is now apart of the free version and it has a completely new look! [See New Demo](http://feedthemsocial.com/youtube-feed-demo/).
+   * NEW: YouTube Options: New simple button to get your access token and token automatically saves to the page after it returns. No need to click the save button!
+   * NEW: Twitter Options: No more time waisted created your own keys, now we have a new simple button to get your access token.
+   * NEW: System Info Page: Added Cache Time to the report
+   * NEW: Facebook Feed: Profile Thumbnails are now a circle instead of a square.
+   * NEW: Admin Menu: Added Global Options to make it easier to get to the caching settings.
+   * FIXED: Global: Timezone error if not set. Now we set the value on install if not set already.
+   * FIXED: Twitter Feed: PHP 7.1+ fix for non numeric value
+   * FIXED: Twitter Feed: Max-width:100% was not set on images in the feed so it caused some overlapping outside the feed frame on some themes.
+   * FIXED: Facebook Feed: Videos not playing on the page when clicked.
+   * FIXED: Facebook Feed: Removed Posts that had to do with editing the Jobs page.
+   * FIXED: YouTube Channel Feed: If you make a playlist in your channel on YouTube a blank video for the playlist appears in the feed.
+   * MOVED: All the buttons used to connect to your social media account have been moved to the top of each of our options pages to make getting started a little quicker.
+   * REMOVED: Settings Page: Vine Icon and Feed Shortcode Options.
+   * PREMIUM NEW: YouTube Options: New Load More Button Styles & Options
+   * PREMIUM NEW: YouTube Feed: Loadmore Button and Autoscoll shortcode options added.
+   * PREMIUM NEW: YouTube Feed: Tons of new options and a new popup where you can show the video description and comments if you want.
+   * PREMIUM NEW: Facebook Feed: Now you can display the photos/videos above the date, description etc. works in grid format and regular.
+   * PREMIUM NEW: Facebook Feed: Hide your Profile Thumbnail.
+   * PREMIUM NEW: Facebook Feed: Hide your Profile Name.
+   * PREMIUM NEW: Facebook Feed: Hide the Date.
+   * PREMIUM NEW: Facebook Feed: Comments Profile Thumbnails are now a circle instead of a square.
+   * PREMIUM FIXED: Popup for Facebook & Instagram: Video was playing double in some instances.
+   * PREMIUM FIXED: Loadmore: Facebook, Instagram & Twitter: Fixed nagging issue where some themes or plugins would convert our shortcode in js on the page.
+   * PREMIUM REMOVED: Global Options: Fix Loadmore Error.
+   * FB REVIEWS NEW: Hide reviews that do not have any text.
+   * FB REVIEWS NEW: Hide the "See More Reviews Text."
+   * FB REVIEWS FIXED: Loadmore: Fixed nagging issue where some themes or plugins would convert our shortcode in js on the page.
+   * COMBINED STREAMS NEW: Now you can display the photos/videos above the date, description etc. works in grid format and regular.
+   * COMBINED STREAMS NEW: Hide the Profile Name.
+   * COMBINED STREAMS NEW: Hide the Date.
+
 = Version 2.3.1 Tuesday, October 17th, 2017 =
    * FIX: Twitter Feed: Overflow auto missing for scrolling feeds.
 

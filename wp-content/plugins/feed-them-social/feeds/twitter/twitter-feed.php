@@ -85,12 +85,21 @@ class FTS_Twitter_Feed extends feed_them_social_functions
             return '<div class="fts-fluid-videoWrapper">' . $jsonObj->html . '</div>';
         } else {
             include_once(WP_CONTENT_DIR . '/plugins/feed-them-social/feeds/twitter/twitteroauth/twitteroauth.php');
+
             $fts_twitter_custom_consumer_key = get_option('fts_twitter_custom_consumer_key');
             $fts_twitter_custom_consumer_secret = get_option('fts_twitter_custom_consumer_secret');
+
+            $test_fts_twitter_custom_consumer_key = '35mom6axGlf60ppHJYz1dsShc';
+            $test_fts_twitter_custom_consumer_secret = '7c2TJvUT7lS2EkCULpK6RGHrgXN1BA4oUi396pQEdRj3OEq5QQ';
+
+            $fts_twitter_custom_consumer_key = isset($fts_twitter_custom_consumer_key) && $fts_twitter_custom_consumer_key !== '' ? $fts_twitter_custom_consumer_key : $test_fts_twitter_custom_consumer_key;
+            $fts_twitter_custom_consumer_secret =  isset($fts_twitter_custom_consumer_secret) && $fts_twitter_custom_consumer_secret !== '' ? $fts_twitter_custom_consumer_secret : $test_fts_twitter_custom_consumer_secret;
+
             $fts_twitter_custom_access_token = get_option('fts_twitter_custom_access_token');
             $fts_twitter_custom_access_token_secret = get_option('fts_twitter_custom_access_token_secret');
+
             //Use custom api info
-            if (!empty($fts_twitter_custom_consumer_key) && !empty($fts_twitter_custom_consumer_secret) && !empty($fts_twitter_custom_access_token) && !empty($fts_twitter_custom_access_token_secret)) {
+            if (!empty($fts_twitter_custom_access_token) && !empty($fts_twitter_custom_access_token_secret)) {
                 $connection = new TwitterOAuthFTS(
                 //Consumer Key
                     $fts_twitter_custom_consumer_key,
@@ -105,13 +114,13 @@ class FTS_Twitter_Feed extends feed_them_social_functions
             else {
                 $connection = new TwitterOAuthFTS(
                 //Consumer Key
-                    'dOIIcGrhWgooKquMWWXg',
+                    '4UUpTLglrsvQMjmrfdgdtHEEJ',
                     //Consumer Secret
-                    'qzAE4t4xXbsDyGIcJxabUz3n6fgqWlg8N02B6zM',
+                    'ngtRtVKRvcY4e2lZHHkKNc63JPMn8SnOw1bM0jd6Fv8H5C3phP',
                     //Access Token
-                    '1184502104-Cjef1xpCPwPobP5X8bvgOTbwblsmeGGsmkBzwdB',
+                    '1561334624-CSmnb3JqhKctSGzYfB5ouf3GmR9Pne1fR2q9PzY',
                     //Access Token Secret
-                    'd789TWA8uwwfBDjkU0iJNPDz1UenRPTeJXbmZZ4xjY'
+                    'CH2Ojl5G4sgn8kUaBIEhy6M0UUvBWs1CrYW8sh1fpCQXT'
                 );
             }
             //  if (strpos($tFinal, 'amp.twimg.com') > 0) {
@@ -174,9 +183,9 @@ class FTS_Twitter_Feed extends feed_them_social_functions
 
 
     function fts_twitter_permalink($post_data) {
-        $permalink = 'https://twitter.com/' . $post_data->user->screen_name . '/status/' . $post_data->id;
-        return '<div class="fts-tweet-reply-left"><a href="' . $permalink . '" target="_blank"><div class="fts-twitter-reply"></div></a></div>';
-    }
+    $permalink = 'https://twitter.com/' . $post_data->user->screen_name . '/status/' . $post_data->id;
+    return '<div class="fts-tweet-reply-left"><a href="' . $permalink . '" target="_blank" title="Reply" aria-label="Reply"><div class="fts-twitter-reply"></div></a></div>';
+}
 
     function fts_twitter_retweet($post_data) {
         if (isset($post_data->retweet_count) && $post_data->retweet_count !== 0) {
@@ -184,7 +193,7 @@ class FTS_Twitter_Feed extends feed_them_social_functions
         } else {
             $retweet_count = '';
         }
-        return '<a href="https://twitter.com/intent/retweet?tweet_id=' . $post_data->id . '&related=' . $post_data->user->screen_name . '" target="_blank" class="fts-twitter-retweet-wrap"><div class="fts-twitter-retweet">' . $retweet_count . '</div></a>';
+        return '<a href="https://twitter.com/intent/retweet?tweet_id=' . $post_data->id . '&related=' . $post_data->user->screen_name . '" target="_blank" class="fts-twitter-retweet-wrap" title="'.__('Retweet', 'feed-them-social').'" aria-label="'.__('Retweet', 'feed-them-social').'"><div class="fts-twitter-retweet">' . $retweet_count . '</div></a>';
     }
 
     function fts_twitter_favorite($post_data) {
@@ -193,7 +202,7 @@ class FTS_Twitter_Feed extends feed_them_social_functions
         } else {
             $favorite_count = '';
         }
-        return '<a href="https://twitter.com/intent/like?tweet_id=' . $post_data->id . '&related=' . $post_data->user->screen_name . '" target="_blank" class="fts-twitter-favorites-wrap"><div class="fts-twitter-favorites">' . $favorite_count . '</div></a>';
+        return '<a href="https://twitter.com/intent/like?tweet_id=' . $post_data->id . '&related=' . $post_data->user->screen_name . '" target="_blank" class="fts-twitter-favorites-wrap" title="'.__('Favorite', 'feed-them-social').'" aria-label="'.__('Favorite', 'feed-them-social').'"><div class="fts-twitter-favorites">' . $favorite_count . '</div></a>';
     }
 
 
@@ -284,12 +293,21 @@ class FTS_Twitter_Feed extends feed_them_social_functions
             $cache_used = true;
         } else {
             include_once WP_CONTENT_DIR . '/plugins/feed-them-social/feeds/twitter/twitteroauth/twitteroauth.php';
+
             $fts_twitter_custom_consumer_key = get_option('fts_twitter_custom_consumer_key');
             $fts_twitter_custom_consumer_secret = get_option('fts_twitter_custom_consumer_secret');
+
+            $test_fts_twitter_custom_consumer_key = '35mom6axGlf60ppHJYz1dsShc';
+            $test_fts_twitter_custom_consumer_secret = '7c2TJvUT7lS2EkCULpK6RGHrgXN1BA4oUi396pQEdRj3OEq5QQ';
+
+            $fts_twitter_custom_consumer_key = isset($fts_twitter_custom_consumer_key) && $fts_twitter_custom_consumer_key !== '' ? $fts_twitter_custom_consumer_key : $test_fts_twitter_custom_consumer_key;
+            $fts_twitter_custom_consumer_secret =  isset($fts_twitter_custom_consumer_secret) && $fts_twitter_custom_consumer_secret !== '' ? $fts_twitter_custom_consumer_secret : $test_fts_twitter_custom_consumer_secret;
+
             $fts_twitter_custom_access_token = get_option('fts_twitter_custom_access_token');
             $fts_twitter_custom_access_token_secret = get_option('fts_twitter_custom_access_token_secret');
+
             //Use custom api info
-            if (!empty($fts_twitter_custom_consumer_key) && !empty($fts_twitter_custom_consumer_secret) && !empty($fts_twitter_custom_access_token) && !empty($fts_twitter_custom_access_token_secret)) {
+            if (!empty($fts_twitter_custom_access_token) && !empty($fts_twitter_custom_access_token_secret)) {
                 $connection = new TwitterOAuthFTS(
                 //Consumer Key
                     $fts_twitter_custom_consumer_key,
@@ -304,13 +322,13 @@ class FTS_Twitter_Feed extends feed_them_social_functions
             else {
                 $connection = new TwitterOAuthFTS(
                 //Consumer Key
-                    'dOIIcGrhWgooKquMWWXg',
+                    '4UUpTLglrsvQMjmrfdgdtHEEJ',
                     //Consumer Secret
-                    'qzAE4t4xXbsDyGIcJxabUz3n6fgqWlg8N02B6zM',
+                    'ngtRtVKRvcY4e2lZHHkKNc63JPMn8SnOw1bM0jd6Fv8H5C3phP',
                     //Access Token
-                    '1184502104-Cjef1xpCPwPobP5X8bvgOTbwblsmeGGsmkBzwdB',
+                    '1561334624-CSmnb3JqhKctSGzYfB5ouf3GmR9Pne1fR2q9PzY',
                     //Access Token Secret
-                    'd789TWA8uwwfBDjkU0iJNPDz1UenRPTeJXbmZZ4xjY'
+                    'CH2Ojl5G4sgn8kUaBIEhy6M0UUvBWs1CrYW8sh1fpCQXT'
                 );
             }
             // $videosDecode = 'https://api.twitter.com/1.1/statuses/oembed.json?id=507185938620219395';
@@ -693,11 +711,7 @@ class FTS_Twitter_Feed extends feed_them_social_functions
         //******************
         //Load More BUTTON Start
         //******************
-        $build_shortcode = '[fts_twitter';
-        foreach ($atts as $attribute => $value) {
-            $build_shortcode .= ' ' . $attribute . '=' . $value;
-        }
-        $build_shortcode .= ']';
+
         //First Key
         $first_key = isset($fetchedTweets->data) ? current($fetchedTweets->data) : '';
 
@@ -732,23 +746,26 @@ class FTS_Twitter_Feed extends feed_them_social_functions
                                 jQuery("#loadMore_<?php echo $fts_dynamic_name ?>").addClass('fts-fb-spinner');
                                 var button = jQuery('#loadMore_<?php echo $fts_dynamic_name ?>').html('<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>');
                                 console.log(button);
-                                var build_shortcode = "<?php if (get_option('fts_fix_loadmore')) { ?>[<?php print $build_shortcode;?>]<?php } else {
-                                    print $build_shortcode;
-                                } ?>";
+
                                 var yes_ajax = "yes";
                                 var fts_d_name = "<?php echo $fts_dynamic_name;?>";
                                 var fts_security = "<?php echo $nonce;?>";
                                 var fts_time = "<?php echo $time;?>";
+                                var feed_name = "fts_twitter";
+                                var loadmore_count = "tweets_count=<?php echo $loadmore_count ?>";
+                                var feed_attributes = <?php echo json_encode($atts); ?>;
                                 jQuery.ajax({
                                     data: {
                                         action: "my_fts_fb_load_more",
                                         since_id: sinceID_<?php echo $fts_dynamic_name ?>,
                                         max_id: maxID_<?php echo $fts_dynamic_name ?>,
                                         fts_dynamic_name: fts_d_name,
-                                        rebuilt_shortcode: build_shortcode,
                                         load_more_ajaxing: yes_ajax,
                                         fts_security: fts_security,
-                                        fts_time: fts_time
+                                        fts_time: fts_time,
+                                        feed_name: feed_name,
+                                        loadmore_count: loadmore_count,
+                                        feed_attributes: feed_attributes
                                     },
                                     type: 'GET',
                                     url: "<?php echo admin_url('admin-ajax.php') ?>",

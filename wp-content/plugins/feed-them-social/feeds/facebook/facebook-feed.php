@@ -92,6 +92,10 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
                 'grid' => '',
                 'colmn_width' => '',
                 'space_between_posts' => '',
+                //new show media on top options
+                'show_media'  => '',
+                'show_date'  => '',
+                'show_name'  => '',
 
             ), $atts);
             if ($FB_Shortcode['posts'] == NULL)
@@ -214,9 +218,7 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
 
                 //    }
 
-                //   echo '<pre>';
-                //   print_r($feed_data_check);
-                //   echo '</pre>';
+
 
 
                 $set_zero = 0;
@@ -225,10 +227,11 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
                     $FBmessage = isset($post_count->message) ? $post_count->message : "";
                     $FBstory = isset($post_count->story) ? $post_count->story : "";
                     $FBtype = isset($post_count->type) ? $post_count->type : "";
+                    $FBstatus_type = isset($post_count->status_type) ? $post_count->status_type : "";
 
                     // This is the method to skip empty posts or posts that are simply about changing settings or other non important post types.
                     // We will count all the ones that are like this and add that number to the output of posts to offset the posts we are filtering out. Line 278 needs the same treatment of if options.
-                    if ($FBtype == 'status' && $FBmessage == '' && $FBstory == '' || $FBtype == 'event' || $FBtype == 'event' && strpos($FBstory, 'shared their event') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the name of the event to') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the privacy setting') !== false || $FBtype == 'status' && strpos($FBstory, 'an admin of the group') !== false || $FBtype == 'status' && strpos($FBstory, 'created the group') !== false || $FBtype == 'status' && strpos($FBstory, 'added an event') !== false || $FBtype == 'event' && strpos($FBstory, 'added an event') !== false) {
+                    if ($FBtype == 'status' && $FBstatus_type == 'mobile_status_update' || $FBtype == 'status' && $FBmessage == '' && $FBstory == '' || $FBtype == 'event' || $FBtype == 'event' && strpos($FBstory, 'shared their event') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the name of the event to') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the privacy setting') !== false || $FBtype == 'status' && strpos($FBstory, 'an admin of the group') !== false || $FBtype == 'status' && strpos($FBstory, 'created the group') !== false || $FBtype == 'status' && strpos($FBstory, 'added an event') !== false || $FBtype == 'event' && strpos($FBstory, 'added an event') !== false) {
                         $set_zero++;
                     }
                     // If more than the 5 posts(default in free) or the post= from shortcode is set to the amount of posts that are being filtered above we will add 7 to the post count to try and get at some posts.
@@ -248,12 +251,18 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
                     $unsetCount = $FB_Shortcode['posts'] + $set_zero;
                     $FB_Shortcode['posts'] = $unsetCount;
                 }
+
+
+              //  echo '<pre>';
+              //  print_r($feed_data_check);
+              //  echo '</pre>, ';
             }
 
             ///////////////////////////////////////////////////
             ////////////////////// END ///////////////////////
             //////////////////////////////////////////////////
         }
+
         ob_start();
 
         //  Uncomment these for testing purposes to see the actual count and the offset count
@@ -267,21 +276,47 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
         $fb_cache_name = $this->get_fb_cache_name($FB_Shortcode);
         //Get language
         $language = $this->get_language($FB_Shortcode);
+        if ($FB_Shortcode['type'] !== 'reviews') {
+            //Get Response (AKA Page & Feed Information) ERROR CHECK inside this function
+            $response = $this->get_facebook_feed_response($FB_Shortcode, $fb_cache_name, $access_token, $language);
+            //Json decode data and build it from cache or response
+            $page_data = json_decode($response['page_data']);
+            $feed_data = json_decode($response['feed_data']);
+        }
 
-        //Get Response (AKA Page & Feed Information) ERROR CHECK inside this function
-        $response = $this->get_facebook_feed_response($FB_Shortcode, $fb_cache_name, $access_token, $language);
 
-        //Json decode data and build it from cache or response
-        $page_data = json_decode($response['page_data']);
-        //   $feed_data = json_decode($response['feed_data']);
-        $feed_data = json_decode($response['feed_data']);
         if (is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php') && get_option('fts_facebook_custom_api_token_biz') == TRUE && $FB_Shortcode['type'] == 'reviews') {
+
+                if($FB_Shortcode['remove_reviews_no_description'] == 'yes' && !isset($_GET['load_more_ajaxing'])) {
+
+                    $FTS_Facebook_Reviews = new FTS_Facebook_Reviews();
+                    $no_description_count = $FTS_Facebook_Reviews->review_count_check($FB_Shortcode);
+
+                    // testing purposes
+                   // print ''. $no_description_count - $FB_Shortcode['posts'] .' = The amount of posts with no review text.';
+
+                    // this count includes our original posts count + the amount of posts we found with no description
+                    $FB_Shortcode['posts'] = $no_description_count;
+                }
+
+                //Get Response (AKA Page & Feed Information) ERROR CHECK inside this function
+                $response = $this->get_facebook_feed_response($FB_Shortcode, $fb_cache_name, $access_token, $language);
+
+                $feed_data = json_decode($response['feed_data']);
+
+                if($FB_Shortcode['remove_reviews_no_description'] == 'yes') {
+                    // $no_description_count2 = 0;
+                        foreach ($feed_data->data as $k => $v) {
+                            if (!isset($v->review_text)) {
+                                //  print $v->reviewer->name . ' (Key# ' . $k . ') : Now Unset from array<br/>';
+                                unset($feed_data->data[$k]);
+                                // $no_description_count2++;
+                            }
+                        }
+                }
             $ratings_data = json_decode($response['ratings_data']);
         }
 
-        //  echo '<pre>';
-        //  print_r($ratings_data);
-        //  echo '</pre>';
 
         if (is_plugin_active('feed-them-social-combined-streams/feed-them-social-combined-streams.php')) {
             $ftsCountIds = substr_count($FB_Shortcode['id'], ",");
@@ -312,7 +347,7 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
         }
 
         //  echo '<pre>';
-        //  print_r($feed_data );
+        // print_r($feed_data );
         //  echo '</pre>';
 
 
@@ -377,9 +412,10 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
 
 
 
-
-            $page_data->description = isset($page_data->description) ? $page_data->description : "";
-            $page_data->name = isset($page_data->name) ? $page_data->name : "";
+            if ($FB_Shortcode['type'] !== 'reviews') {
+                $page_data->description = isset($page_data->description) ? $page_data->description : "";
+                $page_data->name = isset($page_data->name) ? $page_data->name : "";
+            }
             // fts-fb-header-wrapper (for grid)
             $FTS_FB_OUTPUT .= isset($FB_Shortcode['grid']) && $FB_Shortcode['grid'] !== 'yes' && $FB_Shortcode['type'] !== 'album_photos' && $FB_Shortcode['type'] !== 'albums' ? '<div class="fts-fb-header-wrapper">' : '';
 
@@ -441,6 +477,14 @@ class FTS_Facebook_Feed extends feed_them_social_functions {
         //*********************
         //Make sure it's not ajaxing
         if (!isset($_GET['load_more_ajaxing'])) {
+
+
+            $fts_mashup_media_top = isset($FB_Shortcode['show_media']) && $FB_Shortcode['show_media'] == 'top'  ? 'fts-mashup-media-top ' : '';
+            $fts_mashup_show_name = isset($FB_Shortcode['show_name']) && $FB_Shortcode['show_name'] == 'no'  ? ' fts-mashup-hide-name ' : '';
+            $fts_mashup_show_date = isset($FB_Shortcode['show_date']) && $FB_Shortcode['show_date'] == 'no'  ? ' fts-mashup-hide-date ' : '';
+            $fts_mashup_show_thumbnail = isset($FB_Shortcode['show_thumbnail']) && $FB_Shortcode['show_thumbnail'] == 'no'  ? ' fts-mashup-hide-thumbnail ' : '';
+
+
             if (!isset($FBtype) && $FB_Shortcode['type'] == 'albums' || !isset($FBtype) && $FB_Shortcode['type'] == 'album_photos' || isset($FB_Shortcode['grid']) && $FB_Shortcode['grid'] == 'yes') {
 
 
@@ -583,12 +627,12 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
 
 
                 if (isset($FB_Shortcode['grid']) && $FB_Shortcode['grid'] == 'yes') {
-                    $FTS_FB_OUTPUT .= '<div class="fts-slicker-facebook-posts masonry js-masonry ' . ($FB_Shortcode['popup'] == 'yes' ? 'popup-gallery-fb-posts ' : '') . ($FB_Shortcode['type'] == 'reviews' ? 'fts-reviews-feed ' : '') . $fts_dynamic_class_name . ' " style="margin:auto;" data-masonry-options=\'{ "isFitWidth": ' . ($FB_Shortcode['center_container'] == 'no' ? 'false' : 'true') . ' ' . ($FB_Shortcode['image_stack_animation'] == 'no' ? ', "transitionDuration": 0' : '') . '}\'>';
+                    $FTS_FB_OUTPUT .= '<div class="fts-slicker-facebook-posts masonry js-masonry ' . $fts_mashup_media_top . $fts_mashup_show_name . $fts_mashup_show_date . $fts_mashup_show_thumbnail . ($FB_Shortcode['popup'] == 'yes' ? 'popup-gallery-fb-posts ' : '') . ($FB_Shortcode['type'] == 'reviews' ? 'fts-reviews-feed ' : '') . $fts_dynamic_class_name . ' " style="margin:auto;" data-masonry-options=\'{ "isFitWidth": ' . ($FB_Shortcode['center_container'] == 'no' ? 'false' : 'true') . ' ' . ($FB_Shortcode['image_stack_animation'] == 'no' ? ', "transitionDuration": 0' : '') . '}\'>';
                     //  $FTS_FB_OUTPUT .= '<div class="fts-slicker-facebook-photos fts-slicker-facebook-posts masonry js-masonry ' . ($FB_Shortcode['popup'] == 'yes' ? 'popup-gallery-fb-posts ' : '') . ($FB_Shortcode['type'] == 'reviews' ? 'fts-reviews-feed ' : '') . $fts_dynamic_class_name . ' " style="margin:auto;" data-masonry-options=\'{ "isFitWidth": ' . ($FB_Shortcode['center_container'] == 'no' ? 'false' : 'true') . ' ' . ($FB_Shortcode['image_stack_animation'] == 'no' ? ', "transitionDuration": 0' : '') . '}\'>';
                 }
             }
             else {
-                $FTS_FB_OUTPUT .= '<div class="fts-jal-fb-group-display fts-simple-fb-wrapper ' . (isset($FB_Shortcode['popup']) && $FB_Shortcode['popup'] == 'yes' ? 'popup-gallery-fb-posts ' : '') . ($FB_Shortcode['type'] == 'reviews' ? 'fts-reviews-feed ' : '') . $fts_dynamic_class_name . ' ' . ($FB_Shortcode['height'] !== 'auto' && empty($FB_Shortcode['height']) == NULL ? 'fts-fb-scrollable" style="height:' . $FB_Shortcode['height'] . '"' : '"') . '>';
+                $FTS_FB_OUTPUT .= '<div class="fts-jal-fb-group-display fts-simple-fb-wrapper ' . $fts_mashup_media_top . $fts_mashup_show_name . $fts_mashup_show_date . $fts_mashup_show_thumbnail . (isset($FB_Shortcode['popup']) && $FB_Shortcode['popup'] == 'yes' ? ' popup-gallery-fb-posts ' : '') . ($FB_Shortcode['type'] == 'reviews' ? 'fts-reviews-feed ' : '') . $fts_dynamic_class_name . ' ' . ($FB_Shortcode['height'] !== 'auto' && empty($FB_Shortcode['height']) == NULL ? 'fts-fb-scrollable" style="height:' . $FB_Shortcode['height'] . '"' : '"') . '>';
             }
         } //End ajaxing Check
 
@@ -629,7 +673,7 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
 
 
             // This is the method to skip empty posts or posts that are simply about changing settings or other non important post types
-            if ($FBtype == 'status' && $FBmessage == '' && $FBstory == '' || $FBtype == 'event' || $FBtype == 'event' && strpos($FBstory, 'shared their event') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the name of the event to') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the privacy setting') !== false || $FBtype == 'status' && strpos($FBstory, 'an admin of the group') !== false || $FBtype == 'status' && strpos($FBstory, 'created the group') !== false || $FBtype == 'status' && strpos($FBstory, 'added an event') !== false || $FBtype == 'event' && strpos($FBstory, 'added an event') !== false) {    // 	unset($post_data);
+            if ($FBtype == 'status' && $FBstatusType == 'mobile_status_update' && $FBstory == '' || $FBtype == 'status' && $FBmessage == '' && $FBstory == '' || $FBtype == 'event' || $FBtype == 'event' && strpos($FBstory, 'shared their event') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the name of the event to') !== false || $FBtype == 'status' && strpos($FBstory, 'changed the privacy setting') !== false || $FBtype == 'status' && strpos($FBstory, 'an admin of the group') !== false || $FBtype == 'status' && strpos($FBstory, 'created the group') !== false || $FBtype == 'status' && strpos($FBstory, 'added an event') !== false || $FBtype == 'event' && strpos($FBstory, 'added an event') !== false) {    // 	unset($post_data);
             } else {
                 //Define Type NOTE Also affects Load More Fucntion call
                 if (!$FBtype && $FB_Shortcode['type'] == 'album_photos') {
@@ -648,14 +692,6 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
 
             $set_zero++;
         }// END POST foreach
-
-
-
-
-        // this will show our new feed array including the offset
-      //  echo'<pre>';
-      // 	print_r($feed_data);
-      //  echo'</pre>';
 
         if (is_plugin_active('feed-them-premium/feed-them-premium.php') && $FB_Shortcode['type'] !== 'reviews' || is_plugin_active('feed-them-social-facebook-reviews/feed-them-social-facebook-reviews.php') && $FB_Shortcode['type'] == 'reviews') {
             if (!empty($feed_data->data)) {
@@ -869,7 +905,7 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
             $output .= '</a>';
         } else {
             $FB_ShortcodePopup = isset($FB_Shortcode['popup']) ? $FB_Shortcode['popup'] : '';
-            if ($FB_ShortcodePopup == 'yes') {
+            if ($FB_ShortcodePopup == 'yes' && $FBlink !== 'javascript:;') {
                 //   $output = isset($FB_Shortcode['popup']) && $FB_Shortcode['popup'] == 'yes' ? '<div class="fts-fb-caption"><a href="' . $FBlink . '" class="fts-view-on-facebook-link" target="_blank">' . __('View on Facebook', 'feed-them-social') . '</a></div> ' : '';
 
                 $output = '<a href="' . $photo_source . '" target="_blank" class="fts-facebook-link-target fts-jal-fb-picture fts-fb-large-photo"><img border="0" alt="' . $photo_from . '" src="' . $photo_source . '"/></a>';
@@ -1183,9 +1219,10 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
                     $output = '';
                     $fb_reviews_see_more_reviews_language = get_option('fb_reviews_see_more_reviews_language') ? get_option('fb_reviews_see_more_reviews_language') : 'See More Reviews';
 
-
-                    $output .= ' <a href="https://facebook.com/' . $FB_Shortcode['id'] . '/reviews" target="_blank" class="fts-jal-fb-see-more">' . __($fb_reviews_see_more_reviews_language, 'feed-them-social') . '</a>';
-
+                    $hide_see_more = isset($FB_Shortcode['hide_see_more_reviews_link']) ? $FB_Shortcode['hide_see_more_reviews_link'] : 'yes';
+                    if($hide_see_more !== 'yes') {
+                        $output .= ' <a href="https://facebook.com/' . $FB_Shortcode['id'] . '/reviews" target="_blank" class="fts-jal-fb-see-more">' . __($fb_reviews_see_more_reviews_language, 'feed-them-social') . '</a>';
+                    }
                 } else {
                     $post_single_id = 'https://facebook.com/' . $FBpost_user_id . '/posts/' . $FBpost_single_id;
                     $fts_share_option = $share_this->fts_share_option($post_single_id, $description);
@@ -1480,14 +1517,14 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
             }
             $response = $this->fts_get_feed_json($mulit_data);
 
-
-
-            //Error Check
-            $feed_data = json_decode($response['feed_data']);
-            $fts_error_check = new fts_error_handler();
-            $fts_error_check_complete = $fts_error_check->facebook_error_check($FB_Shortcode, $feed_data);
-            if (is_array($fts_error_check_complete) && $fts_error_check_complete[0] == true) {
-                return array(false, $fts_error_check_complete[1]);
+            if (!isset($_GET['load_more_ajaxing'])) {
+                //Error Check
+                $feed_data = json_decode($response['feed_data']);
+                $fts_error_check = new fts_error_handler();
+                $fts_error_check_complete = $fts_error_check->facebook_error_check($FB_Shortcode, $feed_data);
+                if (is_array($fts_error_check_complete) && $fts_error_check_complete[0] == true) {
+                    return array(false, $fts_error_check_complete[1]);
+                }
             }
 
             //Make sure it's not ajaxing
@@ -1872,12 +1909,14 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
             //******************
             //Load More BUTTON Start
             //******************
-            $build_shortcode = '[fts_facebook';
-            foreach ($atts as $attribute => $value) {
-                $build_shortcode .= ' ' . $attribute . '=' . $value;
-            }
-            $build_shortcode .= ']';
-            $_REQUEST['next_url'] = isset($feed_data->paging->next) ? $feed_data->paging->next : "";
+
+            $next_url = isset($feed_data->paging->next) ? $feed_data->paging->next : "";
+            $posts = isset($FB_Shortcode['posts']) ? $FB_Shortcode['posts'] : "";
+            $loadmore_count = isset($FB_Shortcode['loadmore_count']) && $FB_Shortcode['loadmore_count'] !=='' ? $FB_Shortcode['loadmore_count'] :'';
+            // we check to see if the loadmore count number is set and if so pass that as the new count number when fetching the next set of posts
+            $_REQUEST['next_url'] = $loadmore_count !== '' ? str_replace("limit=$posts","limit=$loadmore_count",$next_url) : $next_url;
+
+
             //If events array Flip it so it's in proper order
             if ($FB_Shortcode['type'] == 'events') {
                 $key_needed = isset($set_zero);
@@ -1898,7 +1937,6 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
                 $fts_dynamic_name = $_REQUEST['fts_dynamic_name'];
                 $time = time();
                 $nonce = wp_create_nonce($time . "load-more-nonce");
-                $fts_fix_loadmore = get_option('fts_fix_loadmore');
                 $fts_dynamic_class_name = $this->get_fts_dynamic_class_name();
                 $LOADMORE_OUPUT .= '<script>';
                 $LOADMORE_OUPUT .= 'jQuery(document).ready(function() {';
@@ -1914,16 +1952,19 @@ style="margin:' . (isset($FB_Shortcode['slider_margin']) && $FB_Shortcode['slide
                 $bounce = "<div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div>";
                 $LOADMORE_OUPUT .= 'var button = jQuery("#loadMore_' . $fts_dynamic_name . '").html("' . $bounce . '");';
                 $LOADMORE_OUPUT .= 'console.log(button);';
-                $LOADMORE_OUPUT .= '
-                var build_shortcode = "' . (!empty($fts_fix_loadmore) ? '[' . $build_shortcode . ']' : $build_shortcode) . '";
-                
-                ';
+
                 $LOADMORE_OUPUT .= 'var yes_ajax = "yes";';
                 $LOADMORE_OUPUT .= 'var fts_d_name = "' . $fts_dynamic_name . '";';
                 $LOADMORE_OUPUT .= 'var fts_security = "' . $nonce . '";';
                 $LOADMORE_OUPUT .= 'var fts_time = "' . $time . '";';
+
+                $LOADMORE_OUPUT .= 'var feed_name = "fts_facebook";';
+                $LOADMORE_OUPUT .= 'var loadmore_count = "posts='.$FB_Shortcode['loadmore_count'].'";';
+                $LOADMORE_OUPUT .= 'var feed_attributes = ' . json_encode($atts) . ';';
+
+
                 $LOADMORE_OUPUT .= 'jQuery.ajax({';
-                $LOADMORE_OUPUT .= 'data: {action: "my_fts_fb_load_more", next_url: nextURL_' . $fts_dynamic_name . ', fts_dynamic_name: fts_d_name, rebuilt_shortcode: build_shortcode, load_more_ajaxing: yes_ajax, fts_security: fts_security, fts_time: fts_time},';
+                $LOADMORE_OUPUT .= 'data: {action: "my_fts_fb_load_more", next_url: nextURL_' . $fts_dynamic_name . ', fts_dynamic_name: fts_d_name, feed_name: feed_name, loadmore_count: loadmore_count, feed_attributes: feed_attributes, load_more_ajaxing: yes_ajax, fts_security: fts_security, fts_time: fts_time},';
                 $LOADMORE_OUPUT .= 'type: "GET",';
                 $LOADMORE_OUPUT .= 'url: "'.admin_url('admin-ajax.php').'",';
                 $LOADMORE_OUPUT .= 'success: function( data ) {';

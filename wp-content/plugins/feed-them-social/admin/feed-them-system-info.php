@@ -156,7 +156,7 @@ Twitter Token Secret:       <?php echo $twitterOptions4      . "\n"; ?>
 Pinterest Token:            <?php echo $pinterest_token      . "\n"; ?>
 Instagram:                  <?php echo $instagramOptions     . "\n";
 
-$youtubeOptions = get_option('youtube_custom_api_token') ?'Yes' :'No' ;
+$youtubeOptions = get_option('youtube_custom_api_token') || get_option('youtube_custom_access_token') && get_option('youtube_custom_refresh_token') && get_option('youtube_custom_token_exp_time') ?'Yes' :'No' ;
 $ftsFixLoadmore = get_option('fts_fix_loadmore') ? get_option('fts_fix_loadmore') : 'No' ;
 $feed_them_social_premium_license_key = get_option('feed_them_social_premium_license_key');
 $fts_bar_license_key = get_option('fts_bar_license_key');
@@ -164,13 +164,6 @@ $feed_them_carousel_premium_license_key = get_option('feed_them_carousel_premium
 $feed_them_social_combined_streams_license_key = get_option('feed_them_social_combined_streams_license_key');
 
 	?>YouTube:                    <?php echo $youtubeOptions     . "\n"; ?>
-
--- Offset Post Limit:
-
-Offset Facebook Post Limit: <?php echo $ftsOffsetPostLimit ?>
-
-Hide Notice on Front End:   <?php echo $ftsHideOffsetPostLimitNotice ?>
-
 
 -- FaceBook & Twitter Date Format and Timezone
 
